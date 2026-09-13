@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "asset.schema.json",
+  "type": "object",
+  "required": [
+    "asset_id",
+    "tag",
+    "name",
+    "facility_id",
+    "area_id",
+    "unit_id",
+    "model_ref",
+    "service",
+    "status",
+    "type",
+    "position",
+    "rotation",
+    "dimensions",
+    "interactive",
+    "synthetic"
+  ],
+  "properties": {
+    "asset_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tag": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facility_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "area_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "service": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "type": {
+      "enum": [
+        "storage_tank",
+        "pump",
+        "heat_exchanger",
+        "fired_heater",
+        "column",
+        "vessel",
+        "flare",
+        "pipe_rack",
+        "building",
+        "cooling_tower"
+      ]
+    },
+    "position": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "rotation": {
+      "type": "object",
+      "required": [
+        "x",
+        "y",
+        "z"
+      ],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "z": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "required": [
+        "height",
+        "length",
+        "width",
+        "diameter"
+      ]
+    },
+    "interactive": {
+      "type": "boolean"
+    },
+    "synthetic": {
+      "const": true
+    }
+  },
+  "additionalProperties": false
+}

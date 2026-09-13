@@ -1,0 +1,13 @@
+{
+  "title": "Crude preheat module",
+  "subtitle": "A focused visual study of the proposed implementation",
+  "asset_ids": [
+    "asset_e201",
+    "asset_p101a",
+    "asset_p101b"
+  ],
+  "model_url": "preview/module.glb",
+  "render_url": "preview/render.png",
+  "asset_count": 3,
+  "note": "Synthetic design study. Rendered and interactive views are labelled separately."
+}

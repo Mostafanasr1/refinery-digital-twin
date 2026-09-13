@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Crude Transfer Pump Trip",
+    "scenario_id": "scenario_p101_trip",
+    "steps": [
+      {
+        "actions": [
+          {
+            "asset_id": "asset_p101a",
+            "type": "set_asset_status",
+            "value": "trip"
+          },
+          {
+            "asset_id": "asset_p101a",
+            "message": "P-101A trip detected",
+            "type": "show_alert"
+          },
+          {
+            "path_id": "path_crude_to_products",
+            "type": "highlight_path"
+          }
+        ],
+        "at_seconds": 0
+      },
+      {
+        "actions": [
+          {
+            "asset_id": "asset_p101a",
+            "metric": "flow",
+            "type": "set_metric",
+            "value": 0
+          },
+          {
+            "asset_id": "asset_t201",
+            "metric": "feed_rate",
+            "type": "set_metric",
+            "value": 90
+          },
+          {
+            "asset_id": "asset_t201",
+            "style": "affected",
+            "type": "highlight_asset"
+          }
+        ],
+        "at_seconds": 1
+      },
+      {
+        "actions": [
+          {
+            "asset_id": "asset_p101b",
+            "type": "set_asset_status",
+            "value": "online"
+          },
+          {
+            "asset_id": "asset_p101b",
+            "message": "Standby pump starting",
+            "type": "show_alert"
+          },
+          {
+            "path_id": "path_standby",
+            "type": "highlight_path"
+          }
+        ],
+        "at_seconds": 4
+      },
+      {
+        "actions": [
+          {
+            "asset_id": "asset_t201",
+            "metric": "feed_rate",
+            "type": "set_metric",
+            "value": 238
+          },
+          {
+            "asset_id": "asset_p101a",
+            "type": "set_asset_status",
+            "value": "offline"
+          },
+          {
+            "asset_id": "asset_p101a",
+            "type": "clear_alert"
+          },
+          {
+            "asset_id": "asset_p101b",
+            "metric": "flow",
+            "type": "set_metric",
+            "value": 238
+          },
+          {
+            "asset_id": "asset_p101b",
+            "type": "clear_alert"
+          },
+          {
+            "asset_id": "asset_t201",
+            "style": "clear",
+            "type": "highlight_asset"
+          }
+        ],
+        "at_seconds": 7
+      },
+      {
+        "actions": [
+          {
+            "type": "wait"
+          }
+        ],
+        "at_seconds": 12
+      }
+    ],
+    "trigger_asset_id": "asset_p101a"
+  }
+]

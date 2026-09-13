@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "area.schema.json",
+  "type": "object",
+  "required": [
+    "area_id",
+    "facility_id",
+    "name"
+  ],
+  "properties": {
+    "area_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "facility_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

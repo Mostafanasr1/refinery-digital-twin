@@ -1,0 +1,27 @@
+{
+  "name": "refinery-digital-twin",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "app"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w app",
+    "lint": "npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests",
+    "test": "npm run test -w app && node scripts/python.mjs -m pytest",
+    "validate": "node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized",
+    "build": "npm run build -w app",
+    "check": "npm run normalize && npm run lint && npm test && npm run validate && npm run build",
+    "normalize": "node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized",
+    "predev": "npm run normalize",
+    "prebuild": "npm run normalize",
+    "build:preview": "node scripts/python.mjs -m scripts.build_preview",
+    "build:models": "node scripts/python.mjs -m scripts.build_models",
+    "start": "node scripts/serve.mjs",
+    "test:production": "node --test tests/production.test.mjs"
+  },
+  "overrides": {
+    "vitest": "4.1.11",
+    "vite": "^6.3.5"
+  }
+}

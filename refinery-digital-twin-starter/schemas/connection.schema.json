@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "connection.schema.json",
+  "type": "object",
+  "required": [
+    "connection_id",
+    "from_asset_id",
+    "to_asset_id",
+    "service",
+    "flow_direction"
+  ],
+  "properties": {
+    "connection_id": {
+      "type": "string"
+    },
+    "from_asset_id": {
+      "type": "string"
+    },
+    "to_asset_id": {
+      "type": "string"
+    },
+    "line_tag": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "flow_direction": {
+      "type": "string"
+    },
+    "visual_path_ref": {
+      "type": "string"
+    },
+    "route_points": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "x",
+          "y",
+          "z"
+        ],
+        "properties": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "z": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "diameter": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  },
+  "additionalProperties": true
+}

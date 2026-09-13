@@ -1,0 +1,904 @@
+[
+  {
+    "connection_id": "conn_001",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_tk101",
+    "line_tag": "16-P-1001",
+    "route_points": [
+      {
+        "x": 0,
+        "y": 0,
+        "z": 2.5
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "z": 8.6
+      },
+      {
+        "x": 0,
+        "y": 30.0,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 30.0,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 3,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 3,
+        "z": 2.5
+      }
+    ],
+    "service": "crude",
+    "to_asset_id": "asset_p101a"
+  },
+  {
+    "connection_id": "conn_002",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_p101a",
+    "line_tag": "12-P-1002",
+    "route_points": [
+      {
+        "x": 24,
+        "y": 3,
+        "z": 2.5
+      },
+      {
+        "x": 24,
+        "y": 3,
+        "z": 9.1
+      },
+      {
+        "x": 24,
+        "y": 30.5,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 30.5,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 14,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 14,
+        "z": 2.5
+      }
+    ],
+    "service": "crude",
+    "to_asset_id": "asset_e201"
+  },
+  {
+    "connection_id": "conn_003",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_e201",
+    "line_tag": "10-P-2001",
+    "route_points": [
+      {
+        "x": 48,
+        "y": 14,
+        "z": 2.5
+      },
+      {
+        "x": 48,
+        "y": 14,
+        "z": 9.6
+      },
+      {
+        "x": 48,
+        "y": 31.0,
+        "z": 9.6
+      },
+      {
+        "x": 79,
+        "y": 31.0,
+        "z": 9.6
+      },
+      {
+        "x": 79,
+        "y": 14,
+        "z": 9.6
+      },
+      {
+        "x": 79,
+        "y": 14,
+        "z": 2.5
+      }
+    ],
+    "service": "preheated_crude",
+    "to_asset_id": "asset_f201"
+  },
+  {
+    "connection_id": "conn_004",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_f201",
+    "line_tag": "10-P-2002",
+    "route_points": [
+      {
+        "x": 79,
+        "y": 14,
+        "z": 2.5
+      },
+      {
+        "x": 79,
+        "y": 14,
+        "z": 8.6
+      },
+      {
+        "x": 79,
+        "y": 31.5,
+        "z": 8.6
+      },
+      {
+        "x": 102,
+        "y": 31.5,
+        "z": 8.6
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 8.6
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      }
+    ],
+    "service": "hot_crude",
+    "to_asset_id": "asset_t201"
+  },
+  {
+    "connection_id": "conn_005",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "8-P-2003",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.1
+      },
+      {
+        "x": 102,
+        "y": 32.0,
+        "z": 9.1
+      },
+      {
+        "x": 116,
+        "y": 32.0,
+        "z": 9.1
+      },
+      {
+        "x": 116,
+        "y": 23,
+        "z": 9.1
+      },
+      {
+        "x": 116,
+        "y": 23,
+        "z": 2.5
+      }
+    ],
+    "service": "overhead",
+    "to_asset_id": "asset_v202"
+  },
+  {
+    "connection_id": "conn_006",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "10-P-3001",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 30.0,
+        "z": 9.6
+      },
+      {
+        "x": 150,
+        "y": 30.0,
+        "z": 9.6
+      },
+      {
+        "x": 150,
+        "y": 12,
+        "z": 9.6
+      },
+      {
+        "x": 150,
+        "y": 12,
+        "z": 2.5
+      }
+    ],
+    "service": "diesel",
+    "to_asset_id": "asset_tk301"
+  },
+  {
+    "connection_id": "conn_007",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_tk101",
+    "line_tag": "L-007",
+    "route_points": [
+      {
+        "x": 0,
+        "y": 0,
+        "z": 2.5
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "z": 8.6
+      },
+      {
+        "x": 0,
+        "y": 30.5,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 30.5,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 7,
+        "z": 8.6
+      },
+      {
+        "x": 24,
+        "y": 7,
+        "z": 2.5
+      }
+    ],
+    "service": "crude",
+    "to_asset_id": "asset_p101b"
+  },
+  {
+    "connection_id": "conn_008",
+    "diameter": 0.55,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_p101b",
+    "line_tag": "L-008",
+    "route_points": [
+      {
+        "x": 24,
+        "y": 7,
+        "z": 2.5
+      },
+      {
+        "x": 24,
+        "y": 7,
+        "z": 9.1
+      },
+      {
+        "x": 24,
+        "y": 31.0,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 31.0,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 14,
+        "z": 9.1
+      },
+      {
+        "x": 48,
+        "y": 14,
+        "z": 2.5
+      }
+    ],
+    "service": "crude",
+    "to_asset_id": "asset_e201"
+  },
+  {
+    "connection_id": "conn_009",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_v202",
+    "line_tag": "L-009",
+    "route_points": [
+      {
+        "x": 116,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 116,
+        "y": 23,
+        "z": 9.6
+      },
+      {
+        "x": 116,
+        "y": 31.5,
+        "z": 9.6
+      },
+      {
+        "x": 133,
+        "y": 31.5,
+        "z": 9.6
+      },
+      {
+        "x": 133,
+        "y": 19,
+        "z": 9.6
+      },
+      {
+        "x": 133,
+        "y": 19,
+        "z": 2.5
+      }
+    ],
+    "service": "naphtha",
+    "to_asset_id": "asset_t302"
+  },
+  {
+    "connection_id": "conn_010",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t302",
+    "line_tag": "L-010",
+    "route_points": [
+      {
+        "x": 133,
+        "y": 19,
+        "z": 2.5
+      },
+      {
+        "x": 133,
+        "y": 19,
+        "z": 8.6
+      },
+      {
+        "x": 133,
+        "y": 32.0,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": 32.0,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": -20,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": -20,
+        "z": 2.5
+      }
+    ],
+    "service": "naphtha",
+    "to_asset_id": "asset_tk302"
+  },
+  {
+    "connection_id": "conn_011",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "L-011",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.1
+      },
+      {
+        "x": 102,
+        "y": 30.0,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 30.0,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 12,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 12,
+        "z": 2.5
+      }
+    ],
+    "service": "kerosene",
+    "to_asset_id": "asset_tk303"
+  },
+  {
+    "connection_id": "conn_012",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "L-012",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 30.5,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": 30.5,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": -20,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": -20,
+        "z": 2.5
+      }
+    ],
+    "service": "residue",
+    "to_asset_id": "asset_tk304"
+  },
+  {
+    "connection_id": "conn_013",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "L-013",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 8.6
+      },
+      {
+        "x": 102,
+        "y": 31.0,
+        "z": 8.6
+      },
+      {
+        "x": 49,
+        "y": 31.0,
+        "z": 8.6
+      },
+      {
+        "x": 49,
+        "y": 46,
+        "z": 8.6
+      },
+      {
+        "x": 49,
+        "y": 46,
+        "z": 2.5
+      }
+    ],
+    "service": "kerosene",
+    "to_asset_id": "asset_e204"
+  },
+  {
+    "connection_id": "conn_014",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_e204",
+    "line_tag": "L-014",
+    "route_points": [
+      {
+        "x": 49,
+        "y": 46,
+        "z": 2.5
+      },
+      {
+        "x": 49,
+        "y": 46,
+        "z": 9.1
+      },
+      {
+        "x": 49,
+        "y": 31.5,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 31.5,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 12,
+        "z": 9.1
+      },
+      {
+        "x": 178,
+        "y": 12,
+        "z": 2.5
+      }
+    ],
+    "service": "kerosene",
+    "to_asset_id": "asset_tk303"
+  },
+  {
+    "connection_id": "conn_015",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "L-015",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 32.0,
+        "z": 9.6
+      },
+      {
+        "x": 63,
+        "y": 32.0,
+        "z": 9.6
+      },
+      {
+        "x": 63,
+        "y": 46,
+        "z": 9.6
+      },
+      {
+        "x": 63,
+        "y": 46,
+        "z": 2.5
+      }
+    ],
+    "service": "diesel",
+    "to_asset_id": "asset_e205"
+  },
+  {
+    "connection_id": "conn_016",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_e205",
+    "line_tag": "L-016",
+    "route_points": [
+      {
+        "x": 63,
+        "y": 46,
+        "z": 2.5
+      },
+      {
+        "x": 63,
+        "y": 46,
+        "z": 8.6
+      },
+      {
+        "x": 63,
+        "y": 30.0,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": 30.0,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": 12,
+        "z": 8.6
+      },
+      {
+        "x": 150,
+        "y": 12,
+        "z": 2.5
+      }
+    ],
+    "service": "diesel",
+    "to_asset_id": "asset_tk301"
+  },
+  {
+    "connection_id": "conn_017",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_t201",
+    "line_tag": "L-017",
+    "route_points": [
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.1
+      },
+      {
+        "x": 102,
+        "y": 30.5,
+        "z": 9.1
+      },
+      {
+        "x": 77,
+        "y": 30.5,
+        "z": 9.1
+      },
+      {
+        "x": 77,
+        "y": 46,
+        "z": 9.1
+      },
+      {
+        "x": 77,
+        "y": 46,
+        "z": 2.5
+      }
+    ],
+    "service": "residue",
+    "to_asset_id": "asset_e206"
+  },
+  {
+    "connection_id": "conn_018",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_e206",
+    "line_tag": "L-018",
+    "route_points": [
+      {
+        "x": 77,
+        "y": 46,
+        "z": 2.5
+      },
+      {
+        "x": 77,
+        "y": 46,
+        "z": 9.6
+      },
+      {
+        "x": 77,
+        "y": 31.0,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": 31.0,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": -20,
+        "z": 9.6
+      },
+      {
+        "x": 178,
+        "y": -20,
+        "z": 2.5
+      }
+    ],
+    "service": "residue",
+    "to_asset_id": "asset_tk304"
+  },
+  {
+    "connection_id": "conn_019",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_v202",
+    "line_tag": "L-019",
+    "route_points": [
+      {
+        "x": 116,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 116,
+        "y": 23,
+        "z": 8.6
+      },
+      {
+        "x": 116,
+        "y": 31.5,
+        "z": 8.6
+      },
+      {
+        "x": 91,
+        "y": 31.5,
+        "z": 8.6
+      },
+      {
+        "x": 91,
+        "y": 46,
+        "z": 8.6
+      },
+      {
+        "x": 91,
+        "y": 46,
+        "z": 2.5
+      }
+    ],
+    "service": "reflux",
+    "to_asset_id": "asset_e207"
+  },
+  {
+    "connection_id": "conn_020",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_e207",
+    "line_tag": "L-020",
+    "route_points": [
+      {
+        "x": 91,
+        "y": 46,
+        "z": 2.5
+      },
+      {
+        "x": 91,
+        "y": 46,
+        "z": 9.1
+      },
+      {
+        "x": 91,
+        "y": 32.0,
+        "z": 9.1
+      },
+      {
+        "x": 111,
+        "y": 32.0,
+        "z": 9.1
+      },
+      {
+        "x": 111,
+        "y": 13,
+        "z": 9.1
+      },
+      {
+        "x": 111,
+        "y": 13,
+        "z": 2.5
+      }
+    ],
+    "service": "reflux",
+    "to_asset_id": "asset_p201"
+  },
+  {
+    "connection_id": "conn_021",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_p201",
+    "line_tag": "L-021",
+    "route_points": [
+      {
+        "x": 111,
+        "y": 13,
+        "z": 2.5
+      },
+      {
+        "x": 111,
+        "y": 13,
+        "z": 9.6
+      },
+      {
+        "x": 111,
+        "y": 30.0,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 30.0,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 9.6
+      },
+      {
+        "x": 102,
+        "y": 23,
+        "z": 2.5
+      }
+    ],
+    "service": "reflux",
+    "to_asset_id": "asset_t201"
+  },
+  {
+    "connection_id": "conn_022",
+    "diameter": 0.35,
+    "flow_direction": "forward",
+    "from_asset_id": "asset_v202",
+    "line_tag": "L-022",
+    "route_points": [
+      {
+        "x": 116,
+        "y": 23,
+        "z": 2.5
+      },
+      {
+        "x": 116,
+        "y": 23,
+        "z": 8.6
+      },
+      {
+        "x": 116,
+        "y": 30.5,
+        "z": 8.6
+      },
+      {
+        "x": 132,
+        "y": 30.5,
+        "z": 8.6
+      },
+      {
+        "x": 132,
+        "y": 55,
+        "z": 8.6
+      },
+      {
+        "x": 132,
+        "y": 55,
+        "z": 2.5
+      }
+    ],
+    "service": "naphtha",
+    "to_asset_id": "asset_v301"
+  }
+]

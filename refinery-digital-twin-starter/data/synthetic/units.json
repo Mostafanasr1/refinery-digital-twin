@@ -1,0 +1,22 @@
+[
+  {
+    "unit_id": "unit_crude",
+    "area_id": "area_100",
+    "name": "Crude storage"
+  },
+  {
+    "unit_id": "unit_cdu",
+    "area_id": "area_200",
+    "name": "Crude distillation"
+  },
+  {
+    "unit_id": "unit_products",
+    "area_id": "area_500",
+    "name": "Product handling"
+  },
+  {
+    "unit_id": "unit_utilities",
+    "area_id": "area_400",
+    "name": "Utilities"
+  }
+]

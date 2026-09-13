@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"telemetry.schema.json","type":"object",
+  "required":["point_id","asset_id","parameter","value","unit","status"],
+  "properties":{"point_id":{"type":"string"},"asset_id":{"type":"string"},"parameter":{"type":"string"},"value":{"type":["number","string","boolean"]},"unit":{"type":"string"},"status":{"type":"string"},"quality":{"type":"string"},"timestamp":{"type":"string"}},
+  "additionalProperties":true
+}

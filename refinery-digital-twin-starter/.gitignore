@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# Local screenshots, share bundles and Blender autosave backups
+/*.png
+*.zip
+*.blend1

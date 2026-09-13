@@ -1,0 +1,55 @@
+[
+  {
+    "process_path_id": "path_crude_to_products",
+    "name": "Crude to Products",
+    "ordered_asset_ids": [
+      "asset_tk101",
+      "asset_p101a",
+      "asset_e201",
+      "asset_f201",
+      "asset_t201",
+      "asset_e205",
+      "asset_tk301"
+    ],
+    "connection_ids": [
+      "conn_001",
+      "conn_002",
+      "conn_003",
+      "conn_004",
+      "conn_015",
+      "conn_016"
+    ]
+  },
+  {
+    "process_path_id": "path_overhead",
+    "name": "Overhead to Naphtha",
+    "ordered_asset_ids": [
+      "asset_t201",
+      "asset_v202",
+      "asset_t302",
+      "asset_tk302"
+    ],
+    "connection_ids": [
+      "conn_005",
+      "conn_009",
+      "conn_010"
+    ]
+  },
+  {
+    "process_path_id": "path_standby",
+    "name": "Standby Crude Feed",
+    "ordered_asset_ids": [
+      "asset_tk101",
+      "asset_p101b",
+      "asset_e201",
+      "asset_f201",
+      "asset_t201"
+    ],
+    "connection_ids": [
+      "conn_007",
+      "conn_008",
+      "conn_003",
+      "conn_004"
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "facility.schema.json",
+  "type": "object",
+  "required": [
+    "facility_id",
+    "name",
+    "synthetic",
+    "coordinate_system"
+  ],
+  "properties": {
+    "facility_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "synthetic": {
+      "const": true
+    },
+    "coordinate_system": {
+      "const": "metres-z-up"
+    }
+  },
+  "additionalProperties": false
+}

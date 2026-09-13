@@ -1,0 +1,22 @@
+[
+  {
+    "area_id": "area_100",
+    "facility_id": "demo_refinery",
+    "name": "Crude handling"
+  },
+  {
+    "area_id": "area_200",
+    "facility_id": "demo_refinery",
+    "name": "Atmospheric distillation"
+  },
+  {
+    "area_id": "area_400",
+    "facility_id": "demo_refinery",
+    "name": "Utilities"
+  },
+  {
+    "area_id": "area_500",
+    "facility_id": "demo_refinery",
+    "name": "Products"
+  }
+]

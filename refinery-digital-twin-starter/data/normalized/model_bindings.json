@@ -1,0 +1,217 @@
+[
+  {
+    "asset_id": "asset_b401",
+    "model_ref": "B-401",
+    "node_name": "B-401"
+  },
+  {
+    "asset_id": "asset_b402",
+    "model_ref": "B-402",
+    "node_name": "B-402"
+  },
+  {
+    "asset_id": "asset_ct401",
+    "model_ref": "CT-401",
+    "node_name": "CT-401"
+  },
+  {
+    "asset_id": "asset_ct402",
+    "model_ref": "CT-402",
+    "node_name": "CT-402"
+  },
+  {
+    "asset_id": "asset_ct403",
+    "model_ref": "CT-403",
+    "node_name": "CT-403"
+  },
+  {
+    "asset_id": "asset_e201",
+    "model_ref": "E-201",
+    "node_name": "E-201"
+  },
+  {
+    "asset_id": "asset_e202",
+    "model_ref": "E-202",
+    "node_name": "E-202"
+  },
+  {
+    "asset_id": "asset_e203",
+    "model_ref": "E-203",
+    "node_name": "E-203"
+  },
+  {
+    "asset_id": "asset_e204",
+    "model_ref": "E-204",
+    "node_name": "E-204"
+  },
+  {
+    "asset_id": "asset_e205",
+    "model_ref": "E-205",
+    "node_name": "E-205"
+  },
+  {
+    "asset_id": "asset_e206",
+    "model_ref": "E-206",
+    "node_name": "E-206"
+  },
+  {
+    "asset_id": "asset_e207",
+    "model_ref": "E-207",
+    "node_name": "E-207"
+  },
+  {
+    "asset_id": "asset_f201",
+    "model_ref": "F-201",
+    "node_name": "F-201"
+  },
+  {
+    "asset_id": "asset_fl401",
+    "model_ref": "FL-401",
+    "node_name": "FL-401"
+  },
+  {
+    "asset_id": "asset_p101a",
+    "model_ref": "P-101A",
+    "node_name": "P-101A"
+  },
+  {
+    "asset_id": "asset_p101b",
+    "model_ref": "P-101B",
+    "node_name": "P-101B"
+  },
+  {
+    "asset_id": "asset_p201",
+    "model_ref": "P-201",
+    "node_name": "P-201"
+  },
+  {
+    "asset_id": "asset_p202",
+    "model_ref": "P-202",
+    "node_name": "P-202"
+  },
+  {
+    "asset_id": "asset_p203",
+    "model_ref": "P-203",
+    "node_name": "P-203"
+  },
+  {
+    "asset_id": "asset_p204",
+    "model_ref": "P-204",
+    "node_name": "P-204"
+  },
+  {
+    "asset_id": "asset_p301",
+    "model_ref": "P-301",
+    "node_name": "P-301"
+  },
+  {
+    "asset_id": "asset_p302",
+    "model_ref": "P-302",
+    "node_name": "P-302"
+  },
+  {
+    "asset_id": "asset_p401",
+    "model_ref": "P-401",
+    "node_name": "P-401"
+  },
+  {
+    "asset_id": "asset_pr001",
+    "model_ref": "PR-001",
+    "node_name": "PR-001"
+  },
+  {
+    "asset_id": "asset_pr002",
+    "model_ref": "PR-002",
+    "node_name": "PR-002"
+  },
+  {
+    "asset_id": "asset_pr003",
+    "model_ref": "PR-003",
+    "node_name": "PR-003"
+  },
+  {
+    "asset_id": "asset_pr004",
+    "model_ref": "PR-004",
+    "node_name": "PR-004"
+  },
+  {
+    "asset_id": "asset_pr005",
+    "model_ref": "PR-005",
+    "node_name": "PR-005"
+  },
+  {
+    "asset_id": "asset_pr006",
+    "model_ref": "PR-006",
+    "node_name": "PR-006"
+  },
+  {
+    "asset_id": "asset_pr007",
+    "model_ref": "PR-007",
+    "node_name": "PR-007"
+  },
+  {
+    "asset_id": "asset_t201",
+    "model_ref": "T-201",
+    "node_name": "T-201"
+  },
+  {
+    "asset_id": "asset_t302",
+    "model_ref": "T-302",
+    "node_name": "T-302"
+  },
+  {
+    "asset_id": "asset_tk101",
+    "model_ref": "TK-101",
+    "node_name": "TK-101"
+  },
+  {
+    "asset_id": "asset_tk102",
+    "model_ref": "TK-102",
+    "node_name": "TK-102"
+  },
+  {
+    "asset_id": "asset_tk301",
+    "model_ref": "TK-301",
+    "node_name": "TK-301"
+  },
+  {
+    "asset_id": "asset_tk302",
+    "model_ref": "TK-302",
+    "node_name": "TK-302"
+  },
+  {
+    "asset_id": "asset_tk303",
+    "model_ref": "TK-303",
+    "node_name": "TK-303"
+  },
+  {
+    "asset_id": "asset_tk304",
+    "model_ref": "TK-304",
+    "node_name": "TK-304"
+  },
+  {
+    "asset_id": "asset_v202",
+    "model_ref": "V-202",
+    "node_name": "V-202"
+  },
+  {
+    "asset_id": "asset_v203",
+    "model_ref": "V-203",
+    "node_name": "V-203"
+  },
+  {
+    "asset_id": "asset_v301",
+    "model_ref": "V-301",
+    "node_name": "V-301"
+  },
+  {
+    "asset_id": "asset_v401",
+    "model_ref": "V-401",
+    "node_name": "V-401"
+  },
+  {
+    "asset_id": "asset_v402",
+    "model_ref": "V-402",
+    "node_name": "V-402"
+  }
+]

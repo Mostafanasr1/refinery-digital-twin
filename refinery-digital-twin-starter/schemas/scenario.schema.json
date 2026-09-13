@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario.schema.json",
+  "type": "object",
+  "required": [
+    "scenario_id",
+    "name",
+    "steps"
+  ],
+  "properties": {
+    "scenario_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "trigger_asset_id": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "at_seconds",
+          "actions"
+        ],
+        "properties": {
+          "at_seconds": {
+            "type": "number",
+            "minimum": 0
+          },
+          "actions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "set_asset_status",
+                    "set_metric",
+                    "highlight_asset",
+                    "highlight_path",
+                    "set_layer",
+                    "show_alert",
+                    "camera_focus",
+                    "wait",
+                    "clear_alert"
+                  ]
+                },
+                "asset_id": {
+                  "type": "string"
+                },
+                "metric": {
+                  "type": "string"
+                },
+                "path_id": {
+                  "type": "string"
+                },
+                "value": {},
+                "message": {
+                  "type": "string"
+                },
+                "style": {
+                  "type": "string"
+                },
+                "layer_id": {
+                  "type": "string"
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "enum": [
+                          "set_asset_status",
+                          "set_metric",
+                          "highlight_asset",
+                          "show_alert",
+                          "camera_focus",
+                          "clear_alert"
+                        ]
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "asset_id"
+                    ]
+                  }
+                },
+                {
+                  "if": {
+                    "properties": {
+                      "type": {
+                        "const": "set_metric"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "metric",
+                      "value"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

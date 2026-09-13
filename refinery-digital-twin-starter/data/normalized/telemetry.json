@@ -1,0 +1,492 @@
+[
+  {
+    "asset_id": "asset_e201",
+    "parameter": "health",
+    "point_id": "tp_asset_e201_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_e201",
+    "parameter": "power",
+    "point_id": "tp_asset_e201_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_e201",
+    "parameter": "temperature",
+    "point_id": "tp_asset_e201_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_e202",
+    "parameter": "health",
+    "point_id": "tp_asset_e202_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_e202",
+    "parameter": "power",
+    "point_id": "tp_asset_e202_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_e202",
+    "parameter": "temperature",
+    "point_id": "tp_asset_e202_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_e203",
+    "parameter": "health",
+    "point_id": "tp_asset_e203_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_e203",
+    "parameter": "power",
+    "point_id": "tp_asset_e203_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_e203",
+    "parameter": "temperature",
+    "point_id": "tp_asset_e203_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_f201",
+    "parameter": "health",
+    "point_id": "tp_asset_f201_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 97
+  },
+  {
+    "asset_id": "asset_f201",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_f201_temp",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 356
+  },
+  {
+    "asset_id": "asset_f201",
+    "parameter": "power",
+    "point_id": "tp_asset_f201_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 28.1
+  },
+  {
+    "asset_id": "asset_fl401",
+    "parameter": "health",
+    "point_id": "tp_asset_fl401_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_fl401",
+    "parameter": "power",
+    "point_id": "tp_asset_fl401_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_fl401",
+    "parameter": "temperature",
+    "point_id": "tp_asset_fl401_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_p101a",
+    "parameter": "flow",
+    "point_id": "tp_p101a_flow",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "m3/h",
+    "value": 238
+  },
+  {
+    "asset_id": "asset_p101a",
+    "parameter": "health",
+    "point_id": "tp_p101a_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 96
+  },
+  {
+    "asset_id": "asset_p101a",
+    "parameter": "power",
+    "point_id": "tp_asset_p101a_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.3
+  },
+  {
+    "asset_id": "asset_p101a",
+    "parameter": "temperature",
+    "point_id": "tp_asset_p101a_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_p101b",
+    "parameter": "flow",
+    "point_id": "tp_p101b_flow",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "m3/h",
+    "value": 0
+  },
+  {
+    "asset_id": "asset_p101b",
+    "parameter": "health",
+    "point_id": "tp_asset_p101b_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_p101b",
+    "parameter": "power",
+    "point_id": "tp_asset_p101b_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.3
+  },
+  {
+    "asset_id": "asset_p101b",
+    "parameter": "temperature",
+    "point_id": "tp_asset_p101b_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_t201",
+    "parameter": "feed_rate",
+    "point_id": "tp_t201_feed",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "m3/h",
+    "value": 238
+  },
+  {
+    "asset_id": "asset_t201",
+    "parameter": "health",
+    "point_id": "tp_t201_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 97
+  },
+  {
+    "asset_id": "asset_t201",
+    "parameter": "power",
+    "point_id": "tp_asset_t201_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_t201",
+    "parameter": "pressure",
+    "point_id": "tp_t201_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 1.8
+  },
+  {
+    "asset_id": "asset_t201",
+    "parameter": "temperature",
+    "point_id": "tp_asset_t201_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 356
+  },
+  {
+    "asset_id": "asset_t302",
+    "parameter": "health",
+    "point_id": "tp_asset_t302_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_t302",
+    "parameter": "power",
+    "point_id": "tp_asset_t302_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_t302",
+    "parameter": "temperature",
+    "point_id": "tp_asset_t302_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 356
+  },
+  {
+    "asset_id": "asset_tk101",
+    "parameter": "health",
+    "point_id": "tp_asset_tk101_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 97
+  },
+  {
+    "asset_id": "asset_tk101",
+    "parameter": "level",
+    "point_id": "tp_asset_tk101_level",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 72
+  },
+  {
+    "asset_id": "asset_tk101",
+    "parameter": "power",
+    "point_id": "tp_asset_tk101_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_tk101",
+    "parameter": "temperature",
+    "point_id": "tp_asset_tk101_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 36
+  },
+  {
+    "asset_id": "asset_tk102",
+    "parameter": "health",
+    "point_id": "tp_asset_tk102_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 97
+  },
+  {
+    "asset_id": "asset_tk102",
+    "parameter": "level",
+    "point_id": "tp_asset_tk102_level",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 72
+  },
+  {
+    "asset_id": "asset_tk102",
+    "parameter": "power",
+    "point_id": "tp_asset_tk102_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_tk102",
+    "parameter": "temperature",
+    "point_id": "tp_asset_tk102_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 36
+  },
+  {
+    "asset_id": "asset_tk301",
+    "parameter": "health",
+    "point_id": "tp_asset_tk301_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 97
+  },
+  {
+    "asset_id": "asset_tk301",
+    "parameter": "level",
+    "point_id": "tp_asset_tk301_level",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 72
+  },
+  {
+    "asset_id": "asset_tk301",
+    "parameter": "power",
+    "point_id": "tp_asset_tk301_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_tk301",
+    "parameter": "temperature",
+    "point_id": "tp_asset_tk301_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 36
+  },
+  {
+    "asset_id": "asset_v202",
+    "parameter": "health",
+    "point_id": "tp_asset_v202_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_v202",
+    "parameter": "power",
+    "point_id": "tp_asset_v202_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_v202",
+    "parameter": "temperature",
+    "point_id": "tp_asset_v202_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  },
+  {
+    "asset_id": "asset_v203",
+    "parameter": "health",
+    "point_id": "tp_asset_v203_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_v203",
+    "parameter": "power",
+    "point_id": "tp_asset_v203_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 0.1
+  },
+  {
+    "asset_id": "asset_v203",
+    "parameter": "temperature",
+    "point_id": "tp_asset_v203_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 120
+  }
+]

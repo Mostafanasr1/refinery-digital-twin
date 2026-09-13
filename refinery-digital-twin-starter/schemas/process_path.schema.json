@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"process_path.schema.json","type":"object",
+  "required":["process_path_id","name","ordered_asset_ids","connection_ids"],
+  "properties":{"process_path_id":{"type":"string"},"name":{"type":"string"},"ordered_asset_ids":{"type":"array","items":{"type":"string"}},"connection_ids":{"type":"array","items":{"type":"string"}}},
+  "additionalProperties":true
+}

@@ -1,0 +1,1292 @@
+[
+  {
+    "area_id": "area_100",
+    "asset_id": "asset_p101a",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "P-101A",
+    "name": "Crude Transfer Pump A",
+    "position": {
+      "x": 24,
+      "y": 3,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_transfer",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-101A",
+    "type": "pump",
+    "unit_id": "unit_crude"
+  },
+  {
+    "area_id": "area_100",
+    "asset_id": "asset_p101b",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "P-101B",
+    "name": "Crude Transfer Pump B",
+    "position": {
+      "x": 24,
+      "y": 7,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_transfer",
+    "status": "standby",
+    "synthetic": true,
+    "tag": "P-101B",
+    "type": "pump",
+    "unit_id": "unit_crude"
+  },
+  {
+    "area_id": "area_100",
+    "asset_id": "asset_tk101",
+    "dimensions": {
+      "diameter": 28,
+      "height": 16.2,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "TK-101",
+    "name": "Crude Storage Tank",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-101",
+    "type": "storage_tank",
+    "unit_id": "unit_crude"
+  },
+  {
+    "area_id": "area_100",
+    "asset_id": "asset_tk102",
+    "dimensions": {
+      "diameter": 28,
+      "height": 16.2,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "TK-102",
+    "name": "Crude Storage Tank B",
+    "position": {
+      "x": 0,
+      "y": 38,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_storage_tank_b",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-102",
+    "type": "storage_tank",
+    "unit_id": "unit_crude"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e201",
+    "dimensions": {
+      "diameter": 2.5,
+      "height": 6,
+      "length": 10,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "E-201",
+    "name": "Crude Preheat Exchanger",
+    "position": {
+      "x": 48,
+      "y": 14,
+      "z": 1.2
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_preheat",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-201",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e202",
+    "dimensions": {
+      "diameter": 3,
+      "height": 6,
+      "length": 12,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "E-202",
+    "name": "Second Preheat Exchanger",
+    "position": {
+      "x": 61,
+      "y": 14,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "second_preheat_exchanger",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-202",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e203",
+    "dimensions": {
+      "diameter": 3,
+      "height": 6,
+      "length": 12,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "E-203",
+    "name": "Overhead Condenser",
+    "position": {
+      "x": 111,
+      "y": 43,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "overhead_condenser",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-203",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e204",
+    "dimensions": {
+      "diameter": 2.4,
+      "height": 4,
+      "length": 10,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "E-204",
+    "name": "Kerosene Product Cooler",
+    "position": {
+      "x": 49,
+      "y": 46,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "kerosene_product_cooler",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-204",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e205",
+    "dimensions": {
+      "diameter": 2.4,
+      "height": 4,
+      "length": 10,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "E-205",
+    "name": "Diesel Product Cooler",
+    "position": {
+      "x": 63,
+      "y": 46,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "diesel_product_cooler",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-205",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e206",
+    "dimensions": {
+      "diameter": 2.4,
+      "height": 4,
+      "length": 10,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "E-206",
+    "name": "Residue Product Cooler",
+    "position": {
+      "x": 77,
+      "y": 46,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "residue_product_cooler",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-206",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_e207",
+    "dimensions": {
+      "diameter": 2.4,
+      "height": 4,
+      "length": 10,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "E-207",
+    "name": "Reflux Trim Cooler",
+    "position": {
+      "x": 91,
+      "y": 46,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "reflux_trim_cooler",
+    "status": "online",
+    "synthetic": true,
+    "tag": "E-207",
+    "type": "heat_exchanger",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_f201",
+    "dimensions": {
+      "diameter": 3,
+      "height": 18,
+      "length": 14,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "F-201",
+    "name": "Crude Fired Heater",
+    "position": {
+      "x": 79,
+      "y": 14,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_heating",
+    "status": "online",
+    "synthetic": true,
+    "tag": "F-201",
+    "type": "fired_heater",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_p201",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-201",
+    "name": "Reflux Pump",
+    "position": {
+      "x": 111,
+      "y": 13,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "reflux_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-201",
+    "type": "pump",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_p202",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-202",
+    "name": "Reflux Standby Pump",
+    "position": {
+      "x": 119,
+      "y": 13,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "reflux_standby_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-202",
+    "type": "pump",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_p203",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-203",
+    "name": "Kerosene Draw Pump",
+    "position": {
+      "x": 103,
+      "y": 7,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "kerosene_draw_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-203",
+    "type": "pump",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_p204",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-204",
+    "name": "Diesel Draw Pump",
+    "position": {
+      "x": 103,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "diesel_draw_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-204",
+    "type": "pump",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr001",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-001",
+    "name": "Pipe Rack",
+    "position": {
+      "x": 48,
+      "y": 33,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-001",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr002",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-002",
+    "name": "Pipe Rack",
+    "position": {
+      "x": 70,
+      "y": 33,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-002",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr003",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-003",
+    "name": "Pipe Rack",
+    "position": {
+      "x": 92,
+      "y": 33,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-003",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr004",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-004",
+    "name": "Pipe Rack",
+    "position": {
+      "x": 70,
+      "y": -1,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-004",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr005",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-005",
+    "name": "Pipe Rack",
+    "position": {
+      "x": 92,
+      "y": -1,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-005",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr006",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-006",
+    "name": "Product Pipe Rack",
+    "position": {
+      "x": 114,
+      "y": 33,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "product_pipe_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-006",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_pr007",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 22,
+      "width": 5
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "PR-007",
+    "name": "Preheat Access Rack",
+    "position": {
+      "x": 48,
+      "y": -1,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "preheat_access_rack",
+    "status": "online",
+    "synthetic": true,
+    "tag": "PR-007",
+    "type": "pipe_rack",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_t201",
+    "dimensions": {
+      "diameter": 6,
+      "height": 44,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "T-201",
+    "name": "Atmospheric Distillation Column",
+    "position": {
+      "x": 102,
+      "y": 23,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_fractionation",
+    "status": "online",
+    "synthetic": true,
+    "tag": "T-201",
+    "type": "column",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_v202",
+    "dimensions": {
+      "diameter": 3,
+      "height": 6,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "V-202",
+    "name": "Overhead Receiver",
+    "position": {
+      "x": 116,
+      "y": 23,
+      "z": 5
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "overhead_separation",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-202",
+    "type": "vessel",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_v203",
+    "dimensions": {
+      "diameter": 4,
+      "height": 10,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "V-203",
+    "name": "Reflux Drum",
+    "position": {
+      "x": 125,
+      "y": 43,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "reflux_drum",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-203",
+    "type": "vessel",
+    "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_b401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 7,
+      "length": 24,
+      "width": 14
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "B-401",
+    "name": "Utility Building",
+    "position": {
+      "x": 110,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "utility_building",
+    "status": "online",
+    "synthetic": true,
+    "tag": "B-401",
+    "type": "building",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_b402",
+    "dimensions": {
+      "diameter": 3,
+      "height": 5,
+      "length": 22,
+      "width": 12
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "B-402",
+    "name": "Control Room",
+    "position": {
+      "x": 5,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "control_room",
+    "status": "online",
+    "synthetic": true,
+    "tag": "B-402",
+    "type": "building",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_ct401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 12,
+      "length": 12,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "CT-401",
+    "name": "Cooling Tower",
+    "position": {
+      "x": 45,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_tower",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CT-401",
+    "type": "cooling_tower",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_ct402",
+    "dimensions": {
+      "diameter": 3,
+      "height": 12,
+      "length": 12,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "CT-402",
+    "name": "Cooling Tower",
+    "position": {
+      "x": 60,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_tower",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CT-402",
+    "type": "cooling_tower",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_ct403",
+    "dimensions": {
+      "diameter": 3,
+      "height": 12,
+      "length": 12,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "CT-403",
+    "name": "Cooling Tower",
+    "position": {
+      "x": 75,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_tower",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CT-403",
+    "type": "cooling_tower",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_fl401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 65,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "FL-401",
+    "name": "Flare Stack",
+    "position": {
+      "x": 170,
+      "y": 55,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "relief",
+    "status": "online",
+    "synthetic": true,
+    "tag": "FL-401",
+    "type": "flare",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_p401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-401",
+    "name": "Cooling Water Pump",
+    "position": {
+      "x": 46,
+      "y": 67,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_water_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-401",
+    "type": "pump",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_v401",
+    "dimensions": {
+      "diameter": 5,
+      "height": 8,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "V-401",
+    "name": "Flare Knockout Drum",
+    "position": {
+      "x": 153,
+      "y": 55,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "flare_knockout_drum",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-401",
+    "type": "vessel",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_v402",
+    "dimensions": {
+      "diameter": 3,
+      "height": 9,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "V-402",
+    "name": "Utility Air Receiver",
+    "position": {
+      "x": 122,
+      "y": 69,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "utility_air_receiver",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-402",
+    "type": "vessel",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_p301",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-301",
+    "name": "Product Transfer Pump",
+    "position": {
+      "x": 137,
+      "y": -8,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "product_transfer_pump",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-301",
+    "type": "pump",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_p302",
+    "dimensions": {
+      "diameter": 3,
+      "height": 2,
+      "length": 5,
+      "width": 2
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "P-302",
+    "name": "Product Transfer Standby",
+    "position": {
+      "x": 137,
+      "y": -15,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "product_transfer_standby",
+    "status": "online",
+    "synthetic": true,
+    "tag": "P-302",
+    "type": "pump",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_t302",
+    "dimensions": {
+      "diameter": 3,
+      "height": 24,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "T-302",
+    "name": "Product Stabilizer",
+    "position": {
+      "x": 133,
+      "y": 19,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "product_stabilizer",
+    "status": "online",
+    "synthetic": true,
+    "tag": "T-302",
+    "type": "column",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_tk301",
+    "dimensions": {
+      "diameter": 24,
+      "height": 14.4,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "TK-301",
+    "name": "Diesel Product Tank",
+    "position": {
+      "x": 150,
+      "y": 12,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "diesel_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-301",
+    "type": "storage_tank",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_tk302",
+    "dimensions": {
+      "diameter": 22,
+      "height": 12.6,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "TK-302",
+    "name": "Naphtha Product Tank",
+    "position": {
+      "x": 150,
+      "y": -20,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "naphtha_product_tank",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-302",
+    "type": "storage_tank",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_tk303",
+    "dimensions": {
+      "diameter": 22,
+      "height": 12.6,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "TK-303",
+    "name": "Kerosene Product Tank",
+    "position": {
+      "x": 178,
+      "y": 12,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "kerosene_product_tank",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-303",
+    "type": "storage_tank",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_tk304",
+    "dimensions": {
+      "diameter": 22,
+      "height": 10.8,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "TK-304",
+    "name": "Residue Product Tank",
+    "position": {
+      "x": 178,
+      "y": -20,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "residue_product_tank",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-304",
+    "type": "storage_tank",
+    "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_v301",
+    "dimensions": {
+      "diameter": 4,
+      "height": 13,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": false,
+    "model_ref": "V-301",
+    "name": "Product Separator",
+    "position": {
+      "x": 132,
+      "y": 55,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "product_separator",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-301",
+    "type": "vessel",
+    "unit_id": "unit_products"
+  }
+]

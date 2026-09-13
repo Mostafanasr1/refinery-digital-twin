@@ -1,0 +1,100 @@
+[
+  {
+    "document_id": "doc_asset_tk101",
+    "asset_id": "asset_tk101",
+    "title": "TK-101 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_tk101"
+  },
+  {
+    "document_id": "doc_asset_p101a",
+    "asset_id": "asset_p101a",
+    "title": "P-101A Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_p101a"
+  },
+  {
+    "document_id": "doc_asset_p101b",
+    "asset_id": "asset_p101b",
+    "title": "P-101B Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_p101b"
+  },
+  {
+    "document_id": "doc_asset_e201",
+    "asset_id": "asset_e201",
+    "title": "E-201 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_e201"
+  },
+  {
+    "document_id": "doc_asset_f201",
+    "asset_id": "asset_f201",
+    "title": "F-201 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_f201"
+  },
+  {
+    "document_id": "doc_asset_t201",
+    "asset_id": "asset_t201",
+    "title": "T-201 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_t201"
+  },
+  {
+    "document_id": "doc_asset_v202",
+    "asset_id": "asset_v202",
+    "title": "V-202 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_v202"
+  },
+  {
+    "document_id": "doc_asset_tk301",
+    "asset_id": "asset_tk301",
+    "title": "TK-301 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_tk301"
+  },
+  {
+    "document_id": "doc_asset_fl401",
+    "asset_id": "asset_fl401",
+    "title": "FL-401 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_fl401"
+  },
+  {
+    "document_id": "doc_asset_tk102",
+    "asset_id": "asset_tk102",
+    "title": "TK-102 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_tk102"
+  },
+  {
+    "document_id": "doc_asset_e202",
+    "asset_id": "asset_e202",
+    "title": "E-202 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_e202"
+  },
+  {
+    "document_id": "doc_asset_e203",
+    "asset_id": "asset_e203",
+    "title": "E-203 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_e203"
+  },
+  {
+    "document_id": "doc_asset_v203",
+    "asset_id": "asset_v203",
+    "title": "V-203 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_v203"
+  },
+  {
+    "document_id": "doc_asset_t302",
+    "asset_id": "asset_t302",
+    "title": "T-302 Synthetic Equipment Register",
+    "document_type": "equipment_register",
+    "source_ref": "synthetic://equipment/asset_t302"
+  }
+]
