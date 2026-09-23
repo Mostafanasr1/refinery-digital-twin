@@ -46,7 +46,7 @@ The capture browser is Chrome 146.0.7680.153, selected with `VISUAL_BROWSER_PATH
 
 Exact flags: `--enable-gpu`, `--force_high_performance_gpu`, `--use-angle=d3d11`, `--force-color-profile=srgb`, `--disable-background-timer-throttling`, `--disable-renderer-backgrounding`, `--disable-backgrounding-occluded-windows`. The high-performance flag is necessary on this hybrid laptop: the initial attempt selected AMD integrated graphics and was rejected. The accepted renderer identifies **NVIDIA GeForce RTX 3050 Laptop GPU**, ANGLE Direct3D11; it is recorded in capture and metric JSON.
 
-Viewport is 1600 × 900, DPR 1, locale en-US and timezone UTC. Date is frozen at the camera fixture timestamp; the Three.js simulation clock and CSS animations are paused. Native performance timing remains real. A scripted camera overrides interactive controls only with `?measure=1`; ordinary runtime appearance and controls are unchanged. Captures wait for loaded geometry, a rendered frame, fonts and network settling. Both no-selection and fixed T-201 selection variants use the default data layer.
+Viewport is 1600 Ã— 900, DPR 1, locale en-US and timezone UTC. Date is frozen at the camera fixture timestamp; the Three.js simulation clock and CSS animations are paused. Native performance timing remains real. A scripted camera overrides interactive controls only with `?measure=1`; ordinary runtime appearance and controls are unchanged. Captures wait for loaded geometry, a rendered frame, fonts and network settling. Both no-selection and fixed T-201 selection variants use the default data layer.
 
 `npm run shots -- --baseline --reference` records the initial ten engineering images and the existing study/Geometry references; later runs use `npm run shots` without those flags. The reference flag is only for the pre-consolidation study. `npm run visual:check` compares fresh images against the committed baseline, refusing more than 0.5% differing pixels per frame. Pixelmatch uses color threshold 0.1 and includes antialiasing differences. Baselines must not be replaced to conceal a failed comparison.
 
@@ -55,3 +55,7 @@ Viewport is 1600 × 900, DPR 1, locale en-US and timezone UTC. Date is frozen at
 `npm run data:verify` checks 32 canonical files against the Stage A close snapshot: source JSON, normalized record JSON, schemas and `pipeline/catalog.py`. It normalizes JSON object key order and text line endings, while retaining array order and values. Added, removed and changed truth files fail verification. Generated model and preview outputs are excluded. `npm run test:visual-tools` tests this contract with temporary fixture files.
 
 No budget is final until the combined review.
+
+## Deployment status at hand-back
+
+The dual-look build and combined artifact succeeded, but GitHub rejected deployment because the github-pages environment permits only main. The allowlist remains unchanged; adding dual-look awaits explicit approval after automatic approval review rejected that security-setting mutation. The live main page and main ref are unchanged. `/next/` is not yet published. See the Task 0 hand-back for the run and evidence.

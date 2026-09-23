@@ -4,7 +4,7 @@
 
 Stage A closes at `fb2de98` with 57 assets, six units and 22 equipment types. This task starts `dual-look` from that completed plant and records its canonical truth before visual work. It adds repeatable cameras, screenshots, regression comparisons and active-workload measurements, without changing the normal appearance. The existing separate photoreal study and Geometry modes are recorded for consolidation in Task 1. Budgets below are proposals only; Stage B Task 1 waits for the combined external review of this task and Stage A Task 08.
 
-Implementation and local evidence complete; deployment and final review evidence pending.
+**Status: implementation and local evidence complete; Task 0 acceptance BLOCKED on GitHub Pages deployment permission.** Both internal implementation reviews passed. No later authorized task is independent: Stage B Task 1 requires the combined external review, so work stops here.
 
 ### Completed since the Task 02 external gate
 
@@ -469,6 +469,10 @@ Canonical data unchanged (32 files).
 
 The snapshot includes source and normalized record JSON, schemas and the equipment catalog. JSON key order and line endings are normalized; values and array ordering are preserved. Added, changed and deleted truth files fail verification. Fixture tests cover these failures and presentation exclusion without changing plant files. `git diff fb2de98 -- data schemas pipeline/catalog.py` is empty. Normalization was run as part of check and did not change canonical content.
 
+## Blocker
+
+GitHub Pages deployment environment allows only main. Explicit approval is needed to add the exact dual-look branch while retaining main and other protections; then rerun the failed deploy and verify /next/. All remaining Task 0 local work is complete.
+
 ## Known issues
 
 - The engineering draw-call total exceeds the proposed Task 2 target. Task 0 and Task 1 are not gated on those proposed limits; no budget is final yet.
@@ -482,8 +486,71 @@ The snapshot includes source and normalized record JSON, schemas and the equipme
 
 ## Internal reviews and deployment
 
-Spec implementation review: PASS (baseline_spec_review). Code-quality review: PASS (baseline_quality_review). Both agree; no blocking findings. Deployment evidence remains pending the first branch push.
+Spec implementation review: PASS (baseline_spec_review). Code-quality review: PASS (baseline_quality_review). Both agree on implementation quality; final Task 0 acceptance is blocked by deployment.
+
+The [branch run](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/35861506203) built and assembled the main-root plus `/next/` artifact successfully. GitHub rejected the deploy job because `github-pages` permits only `main`. The persistent allowlist has not changed. An attempt to authorize adding only `dual-look` was rejected by automatic approval review: preview-publication authorization did not explicitly authorize changing a persistent environment security boundary that can affect the public site. Explicit user approval for that one setting change is pending; no alternate environment or bypass was attempted.
+
+Main remains `6b4ee831512b0356e6904244f0477b37551c5b7f`, and the live root HTML has identical before/after SHA-256 `21B3D8DC4B507606261796C8F6175EAC8326674DBA953D3753C3B5091D8878CF`. `/next/` publication is **not complete**. The task must not be described as fully accepted.
 
 ## Commit hash
 
-Pending initial Task 0 commit. Deployment evidence is recorded in a follow-up documentation commit after the branch push, without starting Task 1.
+Implementation and baseline: `37a1fd1b5e4f6cbc85231bd43c87546caf48f1ef`, pushed on `dual-look`. This deployment-blocker write-up is a follow-up documentation commit. Stage B Task 1 has not started.
+
+### deployment.log
+
+```text
+X dual-look Deploy to GitHub Pages · 35861506203
+Triggered via push about 5 minutes ago
+
+JOBS
+✓ build in 39s (ID 107182581369)
+X deploy in 1s (ID 107182833607)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build: .github#2
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+build: .github#1
+
+X Branch "dual-look" is not allowed to deploy to github-pages due to environment protection rules.
+deploy: .github#1
+
+X The deployment was rejected or didn't satisfy other protection rules.
+deploy: .github#1
+
+
+ARTIFACTS
+github-pages
+
+To see what failed, try: gh run view 35861506203 --log-failed
+View this run on GitHub: https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/35861506203
+```
+
+### remote-refs.log
+
+```text
+fb2de982dee3b8eab0eec81de3256fcc4a4d016a	refs/heads/codex/stage-a
+37a1fd1b5e4f6cbc85231bd43c87546caf48f1ef	refs/heads/dual-look
+6b4ee831512b0356e6904244f0477b37551c5b7f	refs/heads/main
+```
+
+### main-preservation.log
+
+```text
+Algorithm : SHA256
+Hash      : 21B3D8DC4B507606261796C8F6175EAC8326674DBA953D3753C3B5091D8878CF
+Path      : C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\docs\handbacks\evidence\stageB-task-00\live-root-before.html
+
+Algorithm : SHA256
+Hash      : 21B3D8DC4B507606261796C8F6175EAC8326674DBA953D3753C3B5091D8878CF
+Path      : C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\docs\handbacks\evidence\stageB-task-00\live-root-after.html
+```
+
+### deployment-policy.json
+
+```text
+{"total_count":1,"branch_policies":[{"id":59881308,"node_id":"MDE2OkdhdGVCcmFuY2hQb2xpY3k1OTg4MTMwOA==","name":"main","type":"branch"}]}
+```
+
+Additional files touched for deployment evidence: `docs/handbacks/evidence/stageB-task-00/deployment.log`, `deployment-policy.json`, `remote-refs.log`, `main-preservation.log`, and `live-root-after.html` (all in that evidence directory).
