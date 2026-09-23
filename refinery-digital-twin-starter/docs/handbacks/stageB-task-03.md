@@ -710,4 +710,4 @@ Canonical data unchanged (32 files).
 
 ## Commit hash
 
-Candidate commit is recorded in the subsequent gate completion entry. This is a blocked review checkpoint, not an accepted/completed Task 3.
+Candidate and evidence: `bdcc098`. This final hand-back entry is committed separately. This is a blocked review checkpoint, not an accepted/completed Task 3.
