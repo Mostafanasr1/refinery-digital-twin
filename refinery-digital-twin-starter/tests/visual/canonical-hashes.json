@@ -1,0 +1,43 @@
+{
+  "algorithm": "SHA-256; sorted JSON keys, array order retained; LF text",
+  "exclusions": [
+    "data/presentation/**",
+    "tests/visual/cameras.json",
+    "data/normalized/models/**",
+    "data/normalized/preview/**"
+  ],
+  "files": {
+    "data/normalized/areas.json": "eedae40e5f647ce6e9d6b871b382d2429bbf92f8ca5ee2e08fb176c186b614e9",
+    "data/normalized/assets.json": "e11f288de8cc2e528f741545d2f141b57e14c54fab4049d0a2f62fd5fa2f0c64",
+    "data/normalized/connections.json": "b1387f5d0cfa23d5319a88cafd67426fe1df27ec8962216d005d8987fc4bd176",
+    "data/normalized/documents.json": "f71eb611e03daf64999ed1dd9db8f4bab11e4769bf6229ed1bc0eb1de03abe69",
+    "data/normalized/facilities.json": "05db3a852f32f27fa6937cb6de6edb1e8309005f3d3f3cd49d358e571d215efa",
+    "data/normalized/model_bindings.json": "b792fd89b9073c9fb9f1592b6a10013298dcb6ce67ba2da2cdf95a5dff292990",
+    "data/normalized/process_paths.json": "2d242e74fb7f105f008f1d5a8b5154f3f385b742cef0fbae7d7da65bffe057a9",
+    "data/normalized/scenarios.json": "4f2aad1e5fbb6df29cc42411d9cdfe8123d7b5f85c79c26c2521bba4e649bf53",
+    "data/normalized/telemetry.json": "87367f382688e53a862d3625c4cefee9eb562d51020a4e9131092e4589df269c",
+    "data/normalized/units.json": "57719cc3774d32dfbec88fce094328a3bcab8138ed274623b8c7530fd4b4e08c",
+    "data/synthetic/areas.json": "eedae40e5f647ce6e9d6b871b382d2429bbf92f8ca5ee2e08fb176c186b614e9",
+    "data/synthetic/assets.json": "55516c2b1a6a4c6dc2a137c209b0b1aa68f6b6b7060e3a3fad84a6c1e17365c9",
+    "data/synthetic/connections.json": "b1387f5d0cfa23d5319a88cafd67426fe1df27ec8962216d005d8987fc4bd176",
+    "data/synthetic/documents.json": "d13c2c4f9606446208450a912aff03f88981fb486db2f0ee6c1dda3139f902d0",
+    "data/synthetic/facilities.json": "05db3a852f32f27fa6937cb6de6edb1e8309005f3d3f3cd49d358e571d215efa",
+    "data/synthetic/model_bindings.json": "2552931ec171542cca221a95b2161691119e1a05beb5d0b5e93486a5cd5e84a6",
+    "data/synthetic/preview.json": "19deeaacd91aa708df6c4c429b0638b3c3475ac40b9943e6f6326f348d94e10d",
+    "data/synthetic/process_paths.json": "2d242e74fb7f105f008f1d5a8b5154f3f385b742cef0fbae7d7da65bffe057a9",
+    "data/synthetic/scenarios.json": "4f2aad1e5fbb6df29cc42411d9cdfe8123d7b5f85c79c26c2521bba4e649bf53",
+    "data/synthetic/telemetry.json": "8abd2cf6730bd11f65790a181e893de27d7affa81c468e3c67c6b85e6c8eee52",
+    "data/synthetic/units.json": "765148b099a231bb0e46f41d0f4b58feab5ac4abf00e619a1d1adf243ef82218",
+    "pipeline/catalog.py": "3ed93cc86369255365d741e71804283b284fa4647a1824e8edf678255b3715af",
+    "schemas/area.schema.json": "92590086e11cfa8a6c7821dcad4afd8539e4b6ff6bf2cf75c61faea0b759b54f",
+    "schemas/asset.schema.json": "351b9d6fffead4bfdea2df8155e0678cd1b70706371f5ff07a2c94314579157f",
+    "schemas/connection.schema.json": "982f198b797340c4421cd8fa7a93b6b84b2a14e246d0daaabd12d8c9c4c6ff81",
+    "schemas/document.schema.json": "d53fb7dcfe953ecadad83de0527ae20e735e9813b17828bac402599ead0076ff",
+    "schemas/facility.schema.json": "16728a1cd331a1296844a3f8543c343a562d47ef9d7e92501b2943b9a033adcd",
+    "schemas/model_binding.schema.json": "e53e43284dc4a1bab5b51d14cb2d2365dc2cfa5b3ca75072571e1037e802ec97",
+    "schemas/process_path.schema.json": "60c329a364e6b7564129c7b83ecc6e8022504c1fee73c3572917f52bbb29c448",
+    "schemas/scenario.schema.json": "d74122d2573ef79e1e297e7924b8b54ae8b953ab16e1245703767ca5a4003532",
+    "schemas/telemetry.schema.json": "44ebd5ddb8f3029639f4f5d6401fdbb9510d5da16d019954e9dd01d9f63e1537",
+    "schemas/unit.schema.json": "b69d85001080d1b89a728ae72fd345e3b2bb06089e4422c148d179878f6769fb"
+  }
+}

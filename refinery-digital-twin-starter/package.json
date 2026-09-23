@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "npm run dev -w app",
     "lint": "npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests",
-    "test": "npm run test -w app && node scripts/python.mjs -m pytest",
+    "test": "npm run test -w app && node scripts/python.mjs -m pytest && npm run test:visual-tools",
     "validate": "node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized",
     "build": "npm run build -w app",
     "check": "npm run normalize && npm run lint && npm test && npm run validate && npm run build",
@@ -19,10 +19,20 @@
     "build:models": "node scripts/python.mjs -m scripts.build_models",
     "check:generators": "node scripts/python.mjs -m scripts.check_generators",
     "start": "node scripts/serve.mjs",
-    "test:production": "node --test tests/production.test.mjs"
+    "test:production": "node --test tests/production.test.mjs",
+    "data:verify": "node scripts/data-verify.mjs",
+    "shots": "node scripts/shots.mjs",
+    "metrics": "node scripts/metrics.mjs",
+    "visual:check": "node scripts/visual-check.mjs",
+    "test:visual-tools": "node --test tests/visual/*.test.mjs"
   },
   "overrides": {
     "vitest": "4.1.11",
     "vite": "^6.3.5"
+  },
+  "devDependencies": {
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.58.2",
+    "pngjs": "^7.0.0"
   }
 }

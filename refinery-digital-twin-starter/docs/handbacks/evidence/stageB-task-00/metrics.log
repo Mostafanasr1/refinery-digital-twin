@@ -1,0 +1,15 @@
+
+> refinery-digital-twin@0.0.0 metrics
+> node scripts/metrics.mjs
+
+# Stage B Task 0 baseline
+
+Active workload: 3 s warm-up followed by 10 s orbit, 1600 × 900, DPR 1. Renderer and browser recorded in JSON.
+
+| View | Draw calls mean | Triangles mean | FPS median | Frame p95 ms | Geometries | Textures | Initial download bytes |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| engineering | 611.9 | 468082 | 133.3 | 12.10 | 443 | 16 | 12200115 |
+| photoreal-study | 43.0 | 80290 | 144.9 | 7.50 | 34 | 3 | 3506968 |
+
+Existing separate study loadable assets: 4120263 bytes. This is not yet a whole-plant photoreal look; future photoreal budgets remain proposals for review. Resource counts do not measure GPU memory.
+

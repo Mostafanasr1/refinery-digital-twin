@@ -9,3 +9,8 @@ __pycache__/
 /*.png
 *.zip
 *.blend1
+*.blend2
+.DS_Store
+Thumbs.db
+Desktop.ini
+tests/visual/output/

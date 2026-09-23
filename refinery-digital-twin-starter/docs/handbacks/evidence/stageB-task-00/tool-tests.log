@@ -1,0 +1,26 @@
+
+> refinery-digital-twin@0.0.0 test:visual-tools
+> node --test tests/visual/*.test.mjs
+
+TAP version 13
+# Subtest: capture rejects missing cameras, changed dimensions and non-finite positions
+ok 1 - capture rejects missing cameras, changed dimensions and non-finite positions
+  ---
+  duration_ms: 1.7593
+  type: 'test'
+  ...
+# Subtest: canonical lock detects added, changed and deleted data but excludes presentation and formatting
+ok 2 - canonical lock detects added, changed and deleted data but excludes presentation and formatting
+  ---
+  duration_ms: 738.9926
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 904.3608

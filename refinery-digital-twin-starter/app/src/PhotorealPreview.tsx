@@ -1,3 +1,4 @@
+import { VisualRuntime, visualMode } from '../../scripts/visual-runtime';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -18,7 +19,7 @@ function Rig({ reset }: { reset: number }) {
     return () => { controls.dispose(); scene.environment=null; target.dispose(); room.dispose(); generator.dispose(); };
   }, [camera,gl,scene]);
   useEffect(() => { camera.position.set(13,10,16); controlsRef.current?.target.set(0,1.9,0); controlsRef.current?.update(); }, [reset,camera]);
-  useFrame(() => controlsRef.current?.update());
+  useFrame(() => { if (!visualMode) controlsRef.current?.update(); });
   return null;
 }
 function Model({ model, onSelect }: { model: THREE.Group; onSelect: (id: string) => void }) {
@@ -56,7 +57,7 @@ export default function PhotorealPreview({ data }: { data: NormalizedData }) {
     <div className="preview-stage">
       {view==='3d' && model ? <Canvas fallback={<div className="preview-loading" role="status"><p>Interactive 3D is unavailable in this browser. Enable hardware acceleration or use the cinematic view.</p><button onClick={()=>setView('render')}>Show cinematic render</button></div>} shadows dpr={[1,2]} camera={{position:[13,10,16],fov:43,near:.1,far:250}} gl={{antialias:true}} onCreated={({gl})=>{gl.toneMapping=THREE.ACESFilmicToneMapping;gl.toneMappingExposure=.75;}}>
         <color attach="background" args={['#17222a']} /><fog attach="fog" args={['#17222a',45,110]} />
-        <Rig reset={reset} /><Model model={model} onSelect={select} />
+        <VisualRuntime look="photoreal-study" /><Rig reset={reset} /><Model model={model} onSelect={select} />
         <directionalLight position={[-8,12,6]} intensity={2} color="#ffe0b4" castShadow shadow-mapSize={[2048,2048]} shadow-camera-left={-12} shadow-camera-right={12} shadow-camera-top={12} shadow-camera-bottom={-12} shadow-normalBias={.035} />
         <directionalLight position={[8,6,-4]} intensity={1} color="#c3e7ff" />
         <mesh rotation={[-Math.PI/2,0,0]} position={[0,-.44,0]} receiveShadow><planeGeometry args={[250,250]} /><meshStandardMaterial color="#273137" roughness={.92} /></mesh>

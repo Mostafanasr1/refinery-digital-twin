@@ -1,3 +1,4 @@
+import { VisualRuntime, visualMode } from '../../scripts/visual-runtime';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -36,7 +37,7 @@ function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
     moving.current = true; invalidate();
   }, [selected, reset, invalidate]);
   useFrame((_state, delta) => {
-    if (!moving.current) return;
+    if (visualMode || !moving.current) return;
     const amount = 1 - Math.exp(-3 * Math.min(delta, 0.1));
     camera.position.lerp(destination.current, amount); controls.target.lerp(lookAt.current, amount);
     controls.update(); invalidate();
@@ -140,6 +141,6 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
       return from && to ? <Pipe key={connection.connection_id} from={from} to={to} name={connection.connection_id} route={connection.route_points} diameter={connection.diameter} active={trace.path?.connection_ids.includes(connection.connection_id) ?? false} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} /> : null;
     })}
     {data.assets.filter(asset => asset.asset_id === selected || asset.asset_id === trace.assetId || asset.status === 'trip').map(asset => <PlantLabel key={asset.asset_id} asset={asset} alert={asset.status === 'trip'} />)}
-    <Suspense fallback={null}>{data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} tint={asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color} dim={!!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id)} active={asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id)} onHover={onHover} onSelect={onSelect} />)}</Suspense>
+    <Suspense fallback={null}><VisualRuntime look="engineering" />{data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} tint={asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color} dim={!!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id)} active={asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id)} onHover={onHover} onSelect={onSelect} />)}</Suspense>
   </Canvas>;
 }

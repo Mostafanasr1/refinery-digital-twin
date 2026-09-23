@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, dual-look]
   workflow_dispatch:
 
 permissions:
@@ -20,6 +20,7 @@ defaults:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dual-look'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +34,32 @@ jobs:
       # Builds from the committed data/normalized output (same as the Dockerfile); run
       # `npm run normalize` locally after editing data/synthetic.
       - run: npm run build -w app
+      # Branch previews occupy /next/. The root is always built from main.
+      - uses: actions/checkout@v4
+        if: github.ref == 'refs/heads/dual-look'
+        with:
+          ref: main
+          path: main-site
+      - uses: actions/setup-node@v4
+        if: github.ref == 'refs/heads/dual-look'
+        with:
+          node-version: 22
+      - run: npm ci && npm run build -w app
+        if: github.ref == 'refs/heads/dual-look'
+        working-directory: main-site/refinery-digital-twin-starter
+      - name: Assemble main root and branch preview
+        if: github.ref == 'refs/heads/dual-look'
+        working-directory: .
+        run: |
+          mkdir -p site/next
+          cp -a main-site/refinery-digital-twin-starter/app/dist/. site/
+          cp -a refinery-digital-twin-starter/app/dist/. site/next/
       - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/dual-look'
+        with:
+          path: site
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref != 'refs/heads/dual-look'
         with:
           path: refinery-digital-twin-starter/app/dist
 

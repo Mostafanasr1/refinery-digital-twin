@@ -1,0 +1,113 @@
+{
+  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "look": "engineering",
+  "interactiveAt": 1625,
+  "dpr": 1,
+  "browser": "146.0.7680.153",
+  "flags": [
+    "--enable-gpu",
+    "--force_high_performance_gpu",
+    "--use-angle=d3d11",
+    "--force-color-profile=srgb",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-backgrounding-occluded-windows"
+  ],
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "config": {
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    },
+    "deviceScaleFactor": 1,
+    "frozenTime": "2026-09-24T12:00:00.000Z",
+    "selectedTag": "T-201",
+    "cameras": [
+      {
+        "id": "CAM-1",
+        "name": "overview",
+        "position": [
+          250,
+          140,
+          200
+        ],
+        "target": [
+          85,
+          9,
+          -24
+        ]
+      },
+      {
+        "id": "CAM-2",
+        "name": "heater",
+        "position": [
+          122,
+          40,
+          48
+        ],
+        "target": [
+          76,
+          10,
+          -15
+        ]
+      },
+      {
+        "id": "CAM-3",
+        "name": "column",
+        "position": [
+          156,
+          12,
+          65
+        ],
+        "target": [
+          102,
+          26,
+          -23
+        ]
+      },
+      {
+        "id": "CAM-4",
+        "name": "tanks",
+        "position": [
+          245,
+          85,
+          85
+        ],
+        "target": [
+          164,
+          8,
+          4
+        ]
+      },
+      {
+        "id": "CAM-5",
+        "name": "flare",
+        "position": [
+          220,
+          18,
+          -185
+        ],
+        "target": [
+          170,
+          36,
+          -55
+        ]
+      }
+    ],
+    "studyCamera": {
+      "position": [
+        13,
+        10,
+        16
+      ],
+      "target": [
+        0,
+        1.9,
+        0
+      ]
+    }
+  }
+}
