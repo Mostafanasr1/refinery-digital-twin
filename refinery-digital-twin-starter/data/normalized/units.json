@@ -16,6 +16,11 @@
   },
   {
     "area_id": "area_500",
+    "name": "LPG storage",
+    "unit_id": "unit_lpg"
+  },
+  {
+    "area_id": "area_500",
     "name": "Product handling",
     "unit_id": "unit_products"
   }

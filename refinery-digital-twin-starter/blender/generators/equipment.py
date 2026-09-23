@@ -422,7 +422,94 @@ def build_block(k):
             b("window_" + str(x), (x, -width / 2 - 0.03, h * 0.65), (1.5, 0.08, 1.2), steel)
 
 
+def build_floating_roof_tank(k):
+    h, r = k.h, k.r
+    deck = 0.6 + h * 0.8                                  # roof floats at a partly-full level
+    k.cyl('foundation', (0, 0, 0.3), r + 0.8, 0.6, k.concrete)
+    # Open profiles keep the floating deck visible below the rim at both LODs.
+    segments = 12 if k.detail == 0 else 40
+    k.lathe('shell', [(r, 0.6), (r, h + 0.6), (r - 0.12, h + 0.6),
+                      (r - 0.12, 0.6)], segments)
+    k.lathe('rim', [(r + 0.15, h + 0.4), (r + 0.15, h + 0.7),
+                    (r - 0.15, h + 0.7), (r - 0.15, h + 0.4),
+                    (r + 0.15, h + 0.4)], segments, k.steel)
+    k.cyl('deck', (0, 0, deck), r - 0.15, 0.12, k.steel)
+    k.torus('pontoon', (0, 0, deck + 0.3), r - 1.0, 0.55, k.shell, segments=64)
+    if k.detail:
+        girder_z = 0.6 + h * 0.62
+        k.lathe('wind_girder', [(r, girder_z - 0.07), (r + 0.55, girder_z - 0.07),
+                               (r + 0.55, girder_z + 0.07), (r, girder_z + 0.07),
+                               (r, girder_z - 0.07)], segments, k.steel)
+        wrap_stair(k, r, h)
+        for i in range(24):
+            angle = math.tau * i / 24
+            k.cyl(f'rim_post_{i}', ((r + 0.4) * math.cos(angle), (r + 0.4) * math.sin(angle), h + 1.2), 0.055, 1, k.rail)
+        k.torus('rim_handrail', (0, 0, h + 1.7), r + 0.4, 0.06, k.rail)
+        for i in range(8):
+            angle = math.tau * i / 8
+            k.box(f'foam_pourer_{i}', ((r + 0.3) * math.cos(angle), (r + 0.3) * math.sin(angle), h + 0.95),
+                  (0.5, 0.5, 0.5), k.rail)
+        obj = k.box('rolling_ladder', (r * 0.5, 0, (h + 0.7 + deck) / 2), (r * 0.9, 0.9, 0.12), k.rail)
+        obj.rotation_euler.y = -math.atan2(h + 0.7 - deck, r * 0.9)
+        for y in [-r / 3, r / 3]:
+            k.route('inlet_' + str(y), [(r - 0.2, y, 1.5), (r + 3, y, 1.5), (r + 3, y, 0.7)], 0.35)
+
+
+def build_sphere_tank(k):
+    h, r = k.h, k.r
+    centre = h - r                                        # overall height includes the crown
+    k.cyl('foundation', (0, 0, 0.25), r + 1.5, 0.5, k.concrete)
+    k.sphere('shell', (0, 0, centre), r)
+    legs = 12 if r >= 8 else 8
+    for i in range(legs):
+        angle = math.tau * i / legs
+        x, y = r * 0.92 * math.cos(angle), r * 0.92 * math.sin(angle)
+        k.cyl(f'leg_{i}', (x, y, centre / 2), 0.32, centre, k.steel)
+        k.box(f'leg_base_{i}', (x, y, 0.65), (1.2, 1.2, 0.3), k.concrete)
+    if k.detail:
+        for i in range(legs):
+            a0, a1 = math.tau * i / legs, math.tau * (i + 1) / legs
+            k.route(f'brace_{i}', [(r * 0.92 * math.cos(a0), r * 0.92 * math.sin(a0), 1.0),
+                                   (r * 0.92 * math.cos(a1), r * 0.92 * math.sin(a1), centre * 0.6)], 0.08, k.steel)
+        steps, points = 28, []
+        for i in range(steps + 1):
+            t = i / steps
+            angle, lift, rad = math.pi * 1.5 * t, math.pi / 2 * t, r + 0.6
+            points.append((rad * math.cos(lift) * math.cos(angle), rad * math.cos(lift) * math.sin(angle),
+                           centre + rad * math.sin(lift)))
+            if i < steps:
+                obj = k.box(f'sphere_stair_{i}', points[-1], (1.0, 0.4, 0.1), k.steel)
+                obj.rotation_euler.z = angle
+        k.route('sphere_stair_rail', [(x, y, z + 1.0) for x, y, z in points], 0.06, k.rail)
+        k.platform('crown_platform', h + 0.2, 1.8)
+        ladder(k, r * 0.92 + 0.5, centre)
+
+
+def build_bullet_tank(k):
+    length, r = k.length, k.r
+    cz = 1.5 + r
+    for x in [-length / 3, length / 3]:
+        k.box(f'saddle_{x}', (x, 0, 0.75), (1.0, 2 * r * 0.9, 1.5), k.concrete)
+    k.cyl('shell', (0, 0, cz), r, length - 1.2 * r, axis='X')
+    for sign in (-1, 1):
+        k.sphere(f'head_{sign}', (sign * (length / 2 - 0.6 * r), 0, cz), r, scale=(0.6, 1, 1))
+    if k.detail:
+        k.box('walkway', (0, 0, cz + r + 0.1), (length * 0.6, 1.2, 0.1), k.steel)
+        for i in range(int(length * 0.6 / 2) + 1):
+            for y in (-0.55, 0.55):
+                k.cyl(f'walkway_post_{i}_{y}', (-length * 0.3 + i * 2, y, cz + r + 0.6), 0.04, 1, k.rail)
+        for y in (-0.55, 0.55):
+            k.route(f'walkway_rail_{y}', [(-length * 0.3, y, cz + r + 1.1), (length * 0.3, y, cz + r + 1.1)], 0.05, k.rail)
+        k.cyl('relief_valve', (length * 0.1, 0, cz + r + 0.8), 0.18, 1.4, k.steel)
+        k.route('inlet', [(-length * 0.2, 0, cz - r + 0.2), (-length * 0.2, 0, 0.6), (-length * 0.2, r + 1.5, 0.6)], 0.15)
+        ladder(k, length / 2 + 0.3, cz + r + 0.1)
+
+
 BUILDERS = {
+    'floating_roof_tank': build_floating_roof_tank,
+    'sphere_tank': build_sphere_tank,
+    'bullet_tank': build_bullet_tank,
+
     "storage_tank": build_storage_tank,
     "column": build_vertical_vessel,
     "vessel": build_vertical_vessel,

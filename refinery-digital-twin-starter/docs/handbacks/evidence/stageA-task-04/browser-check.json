@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "errors": [],
+  "failed": [],
+  "selections": [
+    {
+      "tag": "TK-103",
+      "card": "X\nEQUIPMENT / floating roof tank\nTK-103\n\nCrude Storage Tank (floating roof)\n\nONLINE\nUnit\nCrude storage\nService\ncrude storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n95 percent\nLevel\n64 percent\nModel binding\nTK-103"
+    },
+    {
+      "tag": "SP-501",
+      "card": "X\nEQUIPMENT / sphere tank\nSP-501\n\nLPG Storage Sphere A\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n99 percent\nPressure\n7.8 barg\nModel binding\nSP-501"
+    },
+    {
+      "tag": "BT-501",
+      "card": "X\nEQUIPMENT / bullet tank\nBT-501\n\nPropane Bullet\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nBT-501"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0 -- C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+collecting ... collected 2 items
+
+tests/test_catalog.py::test_catalog_matches_asset_schema PASSED          [ 50%]
+tests/test_catalog.py::test_catalog_samples_are_complete PASSED          [100%]
+
+============================== 2 passed in 0.15s ==============================

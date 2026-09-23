@@ -10,6 +10,16 @@
     "node_name": "B-402"
   },
   {
+    "asset_id": "asset_bt501",
+    "model_ref": "BT-501",
+    "node_name": "BT-501"
+  },
+  {
+    "asset_id": "asset_bt502",
+    "model_ref": "BT-502",
+    "node_name": "BT-502"
+  },
+  {
     "asset_id": "asset_ct401",
     "model_ref": "CT-401",
     "node_name": "CT-401"
@@ -150,6 +160,16 @@
     "node_name": "PR-007"
   },
   {
+    "asset_id": "asset_sp501",
+    "model_ref": "SP-501",
+    "node_name": "SP-501"
+  },
+  {
+    "asset_id": "asset_sp502",
+    "model_ref": "SP-502",
+    "node_name": "SP-502"
+  },
+  {
     "asset_id": "asset_t201",
     "model_ref": "T-201",
     "node_name": "T-201"
@@ -168,6 +188,11 @@
     "asset_id": "asset_tk102",
     "model_ref": "TK-102",
     "node_name": "TK-102"
+  },
+  {
+    "asset_id": "asset_tk103",
+    "model_ref": "TK-103",
+    "node_name": "TK-103"
   },
   {
     "asset_id": "asset_tk301",

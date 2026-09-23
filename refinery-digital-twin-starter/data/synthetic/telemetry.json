@@ -488,5 +488,11 @@
     "status": "normal",
     "quality": "good",
     "timestamp": "synthetic"
-  }
+  },
+  {"point_id": "tp_asset_tk103_level", "asset_id": "asset_tk103", "parameter": "level", "value": 64, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {"point_id": "tp_asset_tk103_health", "asset_id": "asset_tk103", "parameter": "health", "value": 95, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {"point_id": "tp_asset_sp501_pressure", "asset_id": "asset_sp501", "parameter": "pressure", "value": 7.8, "unit": "barg", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {"point_id": "tp_asset_sp501_health", "asset_id": "asset_sp501", "parameter": "health", "value": 99, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {"point_id": "tp_asset_sp502_pressure", "asset_id": "asset_sp502", "parameter": "pressure", "value": 7.6, "unit": "barg", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {"point_id": "tp_asset_sp502_health", "asset_id": "asset_sp502", "parameter": "health", "value": 98, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"}
 ]

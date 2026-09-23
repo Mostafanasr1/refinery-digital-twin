@@ -18,5 +18,10 @@
     "unit_id": "unit_utilities",
     "area_id": "area_400",
     "name": "Utilities"
+  },
+  {
+    "unit_id": "unit_lpg",
+    "area_id": "area_500",
+    "name": "LPG storage"
   }
 ]

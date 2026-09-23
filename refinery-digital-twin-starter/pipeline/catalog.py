@@ -41,4 +41,16 @@ SILHOUETTES = {
         "description": "Mechanical-draft cooling tower with louvres and two fans",
         "sample": {"height": 12, "diameter": 3, "length": 12, "width": 10},
     },
+    "floating_roof_tank": {
+        "description": "External floating-roof tank: open top, pontoon deck below the rim, wind girder, rolling ladder",
+        "sample": {"height": 16.2, "diameter": 28, "length": 8, "width": 4},
+    },
+    "sphere_tank": {
+        "description": "LPG pressure sphere on tubular legs with cross bracing and a spiral stair to the crown",
+        "sample": {"height": 20, "diameter": 16, "length": 8, "width": 4},
+    },
+    "bullet_tank": {
+        "description": "Horizontal LPG bullet with dished heads on concrete saddles, top walkway and relief valve",
+        "sample": {"height": 5, "diameter": 3.5, "length": 20, "width": 4},
+    },
 }

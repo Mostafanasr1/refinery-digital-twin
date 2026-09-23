@@ -67,7 +67,10 @@
         "flare",
         "pipe_rack",
         "building",
-        "cooling_tower"
+        "cooling_tower",
+        "floating_roof_tank",
+        "sphere_tank",
+        "bullet_tank"
       ]
     },
     "position": {

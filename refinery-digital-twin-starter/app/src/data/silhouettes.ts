@@ -11,6 +11,9 @@ export const proxyFamily: Record<string, ProxyFamily> = {
   pipe_rack: 'rack',
   building: 'box',
   cooling_tower: 'box',
+  floating_roof_tank: 'vertical',
+  sphere_tank: 'sphere',
+  bullet_tank: 'horizontal',
 };
 /** Types whose generator draws its own foundation, so the site adds no concrete pad. */
-export const selfFoundation = new Set<string>(['storage_tank']);
+export const selfFoundation = new Set<string>(['storage_tank', 'floating_roof_tank', 'sphere_tank']);

@@ -1,0 +1,37 @@
+
+> refinery-digital-twin@0.0.0 check:generators
+> node scripts/python.mjs -m scripts.check_generators
+
+Traceback (most recent call last):
+  File "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\blender\scripts\check_generators.py", line 71, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\blender\scripts\check_generators.py", line 23, in main
+    require(
+    ~~~~~~~^
+        set(BUILDERS) == set(SILHOUETTES),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"Registry/catalog mismatch: missing={set(SILHOUETTES) - set(BUILDERS)}, "
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f"extra={set(BUILDERS) - set(SILHOUETTES)}",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\blender\scripts\check_generators.py", line 18, in require
+    raise AssertionError(message)
+AssertionError: Registry/catalog mismatch: missing={'sphere_tank', 'bullet_tank', 'floating_roof_tank'}, extra=set()
+
+Error: script failed, file: 'C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\blender\scripts\check_generators.py', exiting.
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\check_generators.py", line 32, in <module>
+    main()
+  File "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\check_generators.py", line 17, in main
+    subprocess.run(
+  File "C:\Program Files\Python311\Lib\subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['D:/blender/blender.exe', '--background', '--python-exit-code', '1', '--python', 'C:\\Users\\Mosta\\OneDrive\\Documents\\ChatGPT\\Oil and Gas\\refinery-digital-twin-starter\\blender\\scripts\\check_generators.py']' returned non-zero exit status 1.
