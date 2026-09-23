@@ -2,7 +2,7 @@
 
 ## Summary
 
-The top links now switch Engineering and Photoreal appearances over one persistent whole-plant scene. Camera, selection, operating state, process paths, data layers and scenarios stay shared; changing appearance does not reload the GLB or replace plant geometry. Look values are centralized, imported material sets are cached by mesh UUID, and returning to Engineering restores its materials and reapplies operating effects. Photoreal is the specified placeholder: plain sky, sand-colored ground and one active directional light with shadows. The separate preheat study is preserved under `reference/photoreal-study/`, with its original files unchanged. Task 1 is ready for the external gate after publication verification; Task 2 has not started.
+The top links now switch Engineering and Photoreal appearances over one persistent whole-plant scene. Camera, selection, operating state, process paths, data layers and scenarios stay shared; changing appearance does not reload the GLB or replace plant geometry. Look values are centralized, imported material sets are cached by mesh UUID, and returning to Engineering restores its materials and reapplies operating effects. Photoreal is the specified placeholder: plain sky, sand-colored ground and one active directional light with shadows. The separate preheat study is preserved under `reference/photoreal-study/`, with its original files unchanged. Task 1 is published and ready for the external review gate; Task 2 has not started.
 
 Stage A Task 08 and Stage B Task 0 are approved. Task 0 `/next/` publication was verified before this task began; closure and approved budgets were recorded in `ac3345d`. No non-gate task has been completed since that gate.
 
@@ -546,4 +546,22 @@ External approval by Claude and Mostafa is required at this Task 1 gate. Stop he
 
 ## Commit and publication
 
-Pending Task 1 commit and branch publication verification. A follow-up evidence commit will record the implementation hash and successful `/next/` check. No main merge or main push.
+Implementation: `a1e35fd617f6acd0677d231fb177056fb5fe97a2`, pushed on `dual-look`. [GitHub Pages run](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/35885521897) succeeded. `/next/` serves the Task 1 bundle `index-BHnt4lel.js` and 57 assets. A deployed browser check passes the look switch, identical selected card, proxy mode and return to Engineering with zero browser errors. Main still serves 43 assets; its HTML is identical to the saved pre-branch page and its ref remains `6b4ee831512b0356e6904244f0477b37551c5b7f`. No main merge or main push.
+
+Publication evidence was added in a follow-up documentation commit. Stop at this gate pending both external approvals. No non-gate task was completed since Task 0.
+
+### Published-browser verification
+
+```text
+{
+  "nextUrl": "https://mostafanasr1.github.io/refinery-digital-twin/next/?look=engineering",
+  "branchAssets": 57,
+  "rootAssets": 43,
+  "lookSwitch": "PASS",
+  "cardPreserved": "PASS",
+  "proxySelection": "PASS",
+  "browserErrors": []
+}
+```
+
+Additional evidence files touched: `docs/handbacks/evidence/stageB-task-01/deployed-browser.log`, `deployed-browser.json`, `deployment-verified.json`, and `remote-refs.log` (all in that directory).
