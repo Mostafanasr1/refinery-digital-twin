@@ -25,5 +25,5 @@ export async function snapshot(page) {
 }
 
 export function plantIdentity(state) {
-  return state.meshes.filter(mesh => mesh.assetId).map(mesh => `${mesh.assetId}:${mesh.uuid}:${mesh.geometry}`).sort();
+  return state.meshes.flatMap(mesh => (mesh.assetIds ?? (mesh.assetId ? [mesh.assetId] : [])).map(id => `${id}:${mesh.uuid}:${mesh.geometry}`)).sort();
 }

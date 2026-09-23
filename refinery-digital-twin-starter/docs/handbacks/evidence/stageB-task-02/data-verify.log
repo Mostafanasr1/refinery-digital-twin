@@ -1,0 +1,5 @@
+
+> refinery-digital-twin@0.0.0 data:verify
+> node scripts/data-verify.mjs
+
+Canonical data unchanged (32 files).

@@ -21,11 +21,17 @@ let glbRequests = 0;
 run.page.on('request', request => { if (new URL(request.url()).pathname.endsWith('/models/refinery.glb')) glbRequests++; });
 try {
   const hardware = await openLook(run);
+  for (const geometry of ['proxy', 'blender']) {
+    await run.page.getByRole('combobox', { name: 'Geometry', exact: true }).selectOption(geometry);
+    await run.page.waitForTimeout(500);
+    assert.deepEqual((await snapshot(run.page)).registryIds, assets.map(asset => asset.asset_id).sort(), 'geometry replacement preserves every registry binding before other interactions');
+  }
   for (const geometry of ['blender', 'proxy']) {
     await run.page.getByRole('combobox', { name: 'Geometry', exact: true }).selectOption(geometry);
     await select(run.page, 'T-201');
     await camera(run.page, config.cameras[0]);
     const before = await snapshot(run.page);
+    assert.deepEqual(before.registryIds, assets.map(asset => asset.asset_id).sort(), 'all canonical registry bindings survive geometry switches');
     const card = await run.page.locator('.card').innerText();
     assert.ok(plantIdentity(before).length, 'plant identity snapshot must not be empty');
     const requestsBefore = glbRequests;

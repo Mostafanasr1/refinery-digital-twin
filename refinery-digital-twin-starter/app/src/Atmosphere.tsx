@@ -68,19 +68,37 @@ export function Site({ assets }: { assets: Asset[] }) {
     const xs=assets.map(a=>a.position.x), zs=assets.map(a=>-a.position.y);
     return { x:(Math.min(...xs)+Math.max(...xs))/2,z:(Math.min(...zs)+Math.max(...zs))/2,w:Math.max(...xs)-Math.min(...xs)+52,d:Math.max(...zs)-Math.min(...zs)+52 };
   }, [assets]);
-  const {x,z,w,d}=bounds;
-  return <group>
-    <mesh receiveShadow position={[x,-1.5,z]}><boxGeometry args={[w,2,d]} /><meshStandardMaterial color={site.base} roughness={site.baseRoughness} /></mesh>
-    <mesh receiveShadow rotation={[-Math.PI/2,0,0]} position={[x,-0.45,z]}><planeGeometry args={[w-2,d-2]} /><meshStandardMaterial color={site.surface} roughness={site.surfaceRoughness} metalness={site.surfaceMetalness} /></mesh>
-    {[-1,1].map(side=><group key={side}>
-      <mesh rotation={[-Math.PI/2,0,0]} position={[x,-0.35,z+side*(d/2-9)]}><planeGeometry args={[w-10,8]} /><meshStandardMaterial color={site.road} /></mesh>
-      {Array.from({length:22},(_,i)=><mesh key={i} rotation={[-Math.PI/2,0,0]} position={[x-w/2+12+i*(w-24)/21,-0.3,z+side*(d/2-9)]}><planeGeometry args={[3,0.2]} /><meshBasicMaterial color={site.marking} /></mesh>)}
-      <mesh position={[x,-0.2,z+side*(d/2-1)]}><boxGeometry args={[w,0.1,0.13]} /><meshBasicMaterial color={site.edge} toneMapped={false} /></mesh>
-      {Array.from({length:10},(_,i)=><group key={i} position={[x-w/2+10+i*(w-20)/9,0,z+side*(d/2-4)]}>
-        <mesh position={[0,3,0]}><cylinderGeometry args={[0.08,0.12,6,6]} /><meshStandardMaterial color={site.pole} /></mesh>
-        <mesh position={[0,6,0]}><boxGeometry args={[1.4,0.16,0.7]} /><meshBasicMaterial color={site.lamp} toneMapped={false} /></mesh>
-      </group>)}
-    </group>)}
-    {assets.filter(a=>!selfFoundation.has(a.type)).map(a=><mesh key={a.asset_id} receiveShadow position={[a.position.x,-0.25,-a.position.y]}><boxGeometry args={[Math.max(a.dimensions.length,a.dimensions.diameter)+3,0.35,Math.max(a.dimensions.width,a.dimensions.diameter)+3]} /><meshStandardMaterial color={site.foundation} roughness={site.foundationRoughness} /></mesh>)}
-  </group>;
+  const object = useMemo(() => {
+    const { x, z, w, d } = bounds;
+    const group = new THREE.Group(); group.name = 'site';
+    const matrix = (position: number[], scale = [1, 1, 1], rotate = false) => new THREE.Matrix4().compose(new THREE.Vector3(...position), new THREE.Quaternion().setFromEuler(new THREE.Euler(rotate ? -Math.PI / 2 : 0, 0, 0)), new THREE.Vector3(...scale));
+    const add = (name: string, geometry: THREE.BufferGeometry, transforms: THREE.Matrix4[], basic = false, shadow = false) => {
+      const material = basic ? new THREE.MeshBasicMaterial() : new THREE.MeshStandardMaterial();
+      const mesh = new THREE.InstancedMesh(geometry, material, transforms.length); mesh.name = name;
+      mesh.receiveShadow = shadow; mesh.userData.category = name === 'pole' || name === 'lamp' ? 'lamps' : 'ground';
+      transforms.forEach((transform, index) => mesh.setMatrixAt(index, transform)); mesh.computeBoundingSphere(); group.add(mesh);
+    };
+    add('base', new THREE.BoxGeometry(w, 2, d), [matrix([x, -1.5, z])], false, true);
+    add('surface', new THREE.PlaneGeometry(w - 2, d - 2), [matrix([x, -.45, z], undefined, true)], false, true);
+    add('road', new THREE.PlaneGeometry(w - 10, 8), [-1, 1].map(side => matrix([x, -.35, z + side * (d / 2 - 9)], undefined, true)));
+    add('marking', new THREE.PlaneGeometry(3, .2), [-1, 1].flatMap(side => Array.from({ length: 22 }, (_, i) => matrix([x - w / 2 + 12 + i * (w - 24) / 21, -.3, z + side * (d / 2 - 9)], undefined, true))), true);
+    add('edge', new THREE.BoxGeometry(w, .1, .13), [-1, 1].map(side => matrix([x, -.2, z + side * (d / 2 - 1)])), true);
+    for (const [name, height, geometry] of [['pole', 3, new THREE.CylinderGeometry(.08, .12, 6, 6)], ['lamp', 6, new THREE.BoxGeometry(1.4, .16, .7)]] as const) {
+      add(name, geometry, [-1, 1].flatMap(side => Array.from({ length: 10 }, (_, i) => matrix([x - w / 2 + 10 + i * (w - 20) / 9, height, z + side * (d / 2 - 4)]))), name === 'lamp');
+    }
+    add('foundation', new THREE.BoxGeometry(1, .35, 1), assets.filter(asset => !selfFoundation.has(asset.type)).map(asset => matrix([asset.position.x, -.25, -asset.position.y], [Math.max(asset.dimensions.length, asset.dimensions.diameter) + 3, 1, Math.max(asset.dimensions.width, asset.dimensions.diameter) + 3])), false, true);
+    return group;
+  }, [assets, bounds]);
+  useEffect(() => {
+    object.children.forEach(child => {
+      const mesh = child as THREE.InstancedMesh, material = mesh.material as THREE.MeshStandardMaterial;
+      const key = mesh.name as 'base' | 'surface' | 'road' | 'marking' | 'edge' | 'pole' | 'lamp' | 'foundation';
+      const color = site[key]; if (Array.isArray(color)) material.color.setRGB(...color); else material.color.set(color); material.toneMapped = key !== 'edge' && key !== 'lamp';
+      if (key === 'base') material.roughness = site.baseRoughness;
+      if (key === 'surface') { material.roughness = site.surfaceRoughness; material.metalness = site.surfaceMetalness; }
+      if (key === 'foundation') material.roughness = site.foundationRoughness;
+    });
+  }, [object, site]);
+  useEffect(() => () => { object.children.forEach(child => { const mesh = child as THREE.InstancedMesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); mesh.dispose(); }); }, [object]);
+  return <primitive object={object} />;
 }

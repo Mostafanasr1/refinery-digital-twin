@@ -25,13 +25,17 @@
     "metrics": "node tests/visual/look-metrics.mjs",
     "visual:check": "node scripts/visual-check.mjs",
     "test:visual-tools": "node --test tests/visual/*.test.mjs",
-    "test:looks": "node tests/visual/look-flow.mjs"
+    "test:looks": "node tests/visual/look-flow.mjs",
+    "optimize:models": "node scripts/optimize-models.mjs"
   },
   "overrides": {
     "vitest": "4.1.11",
     "vite": "^6.3.5"
   },
   "devDependencies": {
+    "@gltf-transform/core": "^4.5.0",
+    "@gltf-transform/extensions": "^4.5.0",
+    "meshoptimizer": "^0.25.0",
     "pixelmatch": "^7.1.0",
     "playwright": "^1.58.2",
     "pngjs": "^7.0.0"
