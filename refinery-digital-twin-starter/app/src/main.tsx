@@ -1,4 +1,6 @@
-import { StrictMode, Suspense, lazy, useEffect, useMemo, useState } from 'react';
+import { LookProvider, useLook } from './looks/LookProvider';
+import { lookUrl } from './looks/looks';
+import { StrictMode, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { JsonNormalizedDataLoader, type NormalizedData } from './data/loader';
 import { AssetRegistry } from './data/registry';
@@ -7,7 +9,6 @@ import { effectiveData, evaluateScenario, traceAt, layers, type Layer } from './
 import './style.css';
 import './preview.css';
 const loader = new JsonNormalizedDataLoader(import.meta.env.BASE_URL);
-const PhotorealPreview = lazy(() => import('./PhotorealPreview'));
 function Explorer({ data: source }: { data: NormalizedData }) {
   const [pathId, setPathId] = useState('');
   const [scenarioId, setScenarioId] = useState('');
@@ -63,8 +64,7 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   </main>;
 }
 function App() {
-  const [tab, setTab] = useState(location.hash === '#preview' ? 'preview' : 'demo');
-  useEffect(() => { const sync = () => setTab(location.hash === '#preview' ? 'preview' : 'demo'); window.addEventListener('hashchange', sync); return () => window.removeEventListener('hashchange', sync); }, []);
+  const { look, choose, switching } = useLook();
   const [data, setData] = useState<NormalizedData | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -72,6 +72,6 @@ function App() {
     loader.load(controller.signal).then(value => { if (!controller.signal.aborted) setData(value); }).catch((e: unknown) => { if (!controller.signal.aborted) setError(String(e)); });
     return () => controller.abort();
   }, []);
-  return data ? <><nav className="app-tabs" aria-label="App views"><a href="#demo" aria-current={tab === 'demo' ? 'page' : undefined}>Refinery demo</a><a href="#preview" aria-current={tab === 'preview' ? 'page' : undefined}>Photoreal preview <span>NEW</span></a></nav>{tab === 'preview' ? <Suspense fallback={<div className="loading">Loading visual study…</div>}><PhotorealPreview data={data} /></Suspense> : <Explorer data={data} />}</> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
+  return data ? <><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-current={look.id === id ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}</a>)}</nav><Explorer data={data} /></> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
 }
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
+createRoot(document.getElementById('root')!).render(<StrictMode><LookProvider><App /></LookProvider></StrictMode>);

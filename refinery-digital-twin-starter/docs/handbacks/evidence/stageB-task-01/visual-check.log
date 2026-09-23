@@ -1,0 +1,14 @@
+
+> refinery-digital-twin@0.0.0 visual:check
+> node scripts/visual-check.mjs
+
+CAM-1-default.png: 0.2585% differing pixels (PASS)
+CAM-1-selected.png: 0.2585% differing pixels (PASS)
+CAM-2-default.png: 0.3098% differing pixels (PASS)
+CAM-2-selected.png: 0.3098% differing pixels (PASS)
+CAM-3-default.png: 0.2585% differing pixels (PASS)
+CAM-3-selected.png: 0.2585% differing pixels (PASS)
+CAM-4-default.png: 0.2541% differing pixels (PASS)
+CAM-4-selected.png: 0.2539% differing pixels (PASS)
+CAM-5-default.png: 0.2585% differing pixels (PASS)
+CAM-5-selected.png: 0.2585% differing pixels (PASS)

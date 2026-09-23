@@ -1,3 +1,4 @@
+import { useLook } from './looks/LookProvider';
 import { useEffect, useMemo, useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -9,23 +10,32 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import type { Asset } from './data/loader';
 import { selfFoundation } from './data/silhouettes';
 export function Atmosphere() {
+  const { look } = useLook();
   const { gl, scene, camera, size, invalidate } = useThree();
   const composer = useMemo(() => {
     const result = new EffectComposer(gl);
     result.addPass(new RenderPass(scene, camera));
-    result.addPass(new UnrealBloomPass(new THREE.Vector2(1,1), 0.35, 0.6, 1.1));
+    result.addPass(new UnrealBloomPass(new THREE.Vector2(1,1), 0, 0, 0));
     result.addPass(new OutputPass());
     return result;
   }, [gl, scene, camera]);
+  useEffect(() => {
+    const bloom = composer.passes[1] as UnrealBloomPass;
+    bloom.strength = look.post.bloom.intensity; bloom.radius = look.post.bloom.radius; bloom.threshold = look.post.bloom.threshold;
+    gl.toneMapping = { aces: THREE.ACESFilmicToneMapping }[look.post.toneMapping]; gl.toneMappingExposure = look.post.exposure;
+    invalidate();
+  }, [composer, gl, look, invalidate]);
+  useEffect(() => () => { composer.passes.forEach(pass => pass.dispose()); composer.dispose(); }, [composer]);
   useEffect(() => { composer.setSize(size.width, size.height); invalidate(); }, [composer, size, invalidate]);
   useEffect(() => {
+    if (!look.environment.room) { scene.environment = null; invalidate(); return; }
     const generator = new THREE.PMREMGenerator(gl);
     const room = new RoomEnvironment();
     const target = generator.fromScene(room, 0.04);
-    scene.environment = target.texture; scene.environmentIntensity = 0.3;
+    scene.environment = target.texture; scene.environmentIntensity = look.environment.intensity;
     invalidate();
     return () => { scene.environment = null; target.dispose(); room.dispose(); generator.dispose(); };
-  }, [gl, scene, invalidate]);
+  }, [gl, scene, invalidate, look.environment.room, look.environment.intensity]);
   const timing = useRef({ start: 0, frames: 0 });
   useFrame(() => {
     const now=performance.now();
@@ -52,23 +62,25 @@ export function PlantLabel({ asset, alert = false }: { asset: Asset; alert?: boo
   return <sprite position={[asset.position.x, asset.position.z + asset.dimensions.height + 3, -asset.position.y]} scale={[28,6.1,1]}><spriteMaterial map={texture} depthTest={false} toneMapped={false} /></sprite>;
 }
 export function Site({ assets }: { assets: Asset[] }) {
+  const { look } = useLook();
+  const site = look.environment.site;
   const bounds = useMemo(() => {
     const xs=assets.map(a=>a.position.x), zs=assets.map(a=>-a.position.y);
     return { x:(Math.min(...xs)+Math.max(...xs))/2,z:(Math.min(...zs)+Math.max(...zs))/2,w:Math.max(...xs)-Math.min(...xs)+52,d:Math.max(...zs)-Math.min(...zs)+52 };
   }, [assets]);
   const {x,z,w,d}=bounds;
   return <group>
-    <mesh receiveShadow position={[x,-1.5,z]}><boxGeometry args={[w,2,d]} /><meshStandardMaterial color="#162a35" roughness={0.8} /></mesh>
-    <mesh receiveShadow rotation={[-Math.PI/2,0,0]} position={[x,-0.45,z]}><planeGeometry args={[w-2,d-2]} /><meshStandardMaterial color="#0b1a24" roughness={0.85} metalness={0.1} /></mesh>
+    <mesh receiveShadow position={[x,-1.5,z]}><boxGeometry args={[w,2,d]} /><meshStandardMaterial color={site.base} roughness={site.baseRoughness} /></mesh>
+    <mesh receiveShadow rotation={[-Math.PI/2,0,0]} position={[x,-0.45,z]}><planeGeometry args={[w-2,d-2]} /><meshStandardMaterial color={site.surface} roughness={site.surfaceRoughness} metalness={site.surfaceMetalness} /></mesh>
     {[-1,1].map(side=><group key={side}>
-      <mesh rotation={[-Math.PI/2,0,0]} position={[x,-0.35,z+side*(d/2-9)]}><planeGeometry args={[w-10,8]} /><meshStandardMaterial color="#0c1720" /></mesh>
-      {Array.from({length:22},(_,i)=><mesh key={i} rotation={[-Math.PI/2,0,0]} position={[x-w/2+12+i*(w-24)/21,-0.3,z+side*(d/2-9)]}><planeGeometry args={[3,0.2]} /><meshBasicMaterial color="#6e8591" /></mesh>)}
-      <mesh position={[x,-0.2,z+side*(d/2-1)]}><boxGeometry args={[w,0.1,0.13]} /><meshBasicMaterial color="#35cddd" toneMapped={false} /></mesh>
+      <mesh rotation={[-Math.PI/2,0,0]} position={[x,-0.35,z+side*(d/2-9)]}><planeGeometry args={[w-10,8]} /><meshStandardMaterial color={site.road} /></mesh>
+      {Array.from({length:22},(_,i)=><mesh key={i} rotation={[-Math.PI/2,0,0]} position={[x-w/2+12+i*(w-24)/21,-0.3,z+side*(d/2-9)]}><planeGeometry args={[3,0.2]} /><meshBasicMaterial color={site.marking} /></mesh>)}
+      <mesh position={[x,-0.2,z+side*(d/2-1)]}><boxGeometry args={[w,0.1,0.13]} /><meshBasicMaterial color={site.edge} toneMapped={false} /></mesh>
       {Array.from({length:10},(_,i)=><group key={i} position={[x-w/2+10+i*(w-20)/9,0,z+side*(d/2-4)]}>
-        <mesh position={[0,3,0]}><cylinderGeometry args={[0.08,0.12,6,6]} /><meshStandardMaterial color="#4b626f" /></mesh>
-        <mesh position={[0,6,0]}><boxGeometry args={[1.4,0.16,0.7]} /><meshBasicMaterial color={[2.6,1.9,0.8]} toneMapped={false} /></mesh>
+        <mesh position={[0,3,0]}><cylinderGeometry args={[0.08,0.12,6,6]} /><meshStandardMaterial color={site.pole} /></mesh>
+        <mesh position={[0,6,0]}><boxGeometry args={[1.4,0.16,0.7]} /><meshBasicMaterial color={site.lamp} toneMapped={false} /></mesh>
       </group>)}
     </group>)}
-    {assets.filter(a=>!selfFoundation.has(a.type)).map(a=><mesh key={a.asset_id} receiveShadow position={[a.position.x,-0.25,-a.position.y]}><boxGeometry args={[Math.max(a.dimensions.length,a.dimensions.diameter)+3,0.35,Math.max(a.dimensions.width,a.dimensions.diameter)+3]} /><meshStandardMaterial color="#24333b" roughness={0.95} /></mesh>)}
+    {assets.filter(a=>!selfFoundation.has(a.type)).map(a=><mesh key={a.asset_id} receiveShadow position={[a.position.x,-0.25,-a.position.y]}><boxGeometry args={[Math.max(a.dimensions.length,a.dimensions.diameter)+3,0.35,Math.max(a.dimensions.width,a.dimensions.diameter)+3]} /><meshStandardMaterial color={site.foundation} roughness={site.foundationRoughness} /></mesh>)}
   </group>;
 }

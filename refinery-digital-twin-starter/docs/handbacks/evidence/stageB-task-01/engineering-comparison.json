@@ -1,0 +1,62 @@
+[
+  {
+    "name": "CAM-1-default.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-1-selected.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-2-default.png",
+    "pixels": 4461,
+    "percent": 0.3097916666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-2-selected.png",
+    "pixels": 4461,
+    "percent": 0.3097916666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-3-default.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-3-selected.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-4-default.png",
+    "pixels": 3659,
+    "percent": 0.2540972222222222,
+    "passed": true
+  },
+  {
+    "name": "CAM-4-selected.png",
+    "pixels": 3656,
+    "percent": 0.2538888888888889,
+    "passed": true
+  },
+  {
+    "name": "CAM-5-default.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-5-selected.png",
+    "pixels": 3723,
+    "percent": 0.25854166666666667,
+    "passed": true
+  }
+]

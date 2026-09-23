@@ -1,3 +1,7 @@
+import { LookSnapshot } from './looks/LookSnapshot';
+import { useLook } from './looks/LookProvider';
+import { effects } from './looks/looks';
+import { MaterialCache } from './looks/materials';
 import { VisualRuntime, visualMode } from '../../scripts/visual-runtime';
 import { Suspense, useEffect, useMemo, useRef } from 'react';
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
@@ -46,10 +50,11 @@ function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
   return null;
 }
 function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; tint?: string; dim?: boolean }) {
+  const { look } = useLook();
   const { height: h, diameter: d, length: l, width: w } = asset.dimensions;
   const family = proxyFamily[asset.type] ?? 'vertical';
-  const color = dim ? '#26353d' : active ? '#4ed9e8' : tint ? tint : asset.type === 'pipe_rack' ? '#536b77' : asset.type === 'fired_heater' ? '#b99671' : '#a9bcc4';
-  const material = <meshStandardMaterial color={color} metalness={0.45} roughness={0.48} emissive={active ? '#167382' : '#000000'} emissiveIntensity={0.3} />;
+  const color = dim ? effects.proxyDim : active ? effects.selected : tint ? tint : asset.type === 'pipe_rack' ? effects.proxyRack : asset.type === 'fired_heater' ? effects.proxyHeater : effects.proxyDefault;
+  const material = <meshStandardMaterial color={color} metalness={look.materials.proxy.metalness} roughness={look.materials.proxy.roughness} emissive={active ? effects.proxyEmissive : effects.off} emissiveIntensity={0.3} />;
   const box = (key: string, pos: [number, number, number], scale: [number, number, number]) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={pos}><boxGeometry args={scale} />{material}</mesh>;
   const cylinder = (key: string, y: number, radius: number, height: number) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={[0, y, 0]}><cylinderGeometry args={[radius, radius, height, 24]} />{material}</mesh>;
   if (family === 'rack') return <>
@@ -68,6 +73,7 @@ function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; ti
   </>;
 }
 function BlenderAsset({ asset, active, tint, dim }: { asset: Asset; active: boolean; tint?: string; dim?: boolean }) {
+  const { look } = useLook();
   const invalidate = useThree(state => state.invalidate);
   const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}models/refinery.glb`);
   const object = useMemo(() => {
@@ -79,18 +85,9 @@ function BlenderAsset({ asset, active, tint, dim }: { asset: Asset; active: bool
     });
     return clone;
   }, [gltf, asset.asset_id, asset.model_ref, asset.tag, asset.type, asset.unit_id]);
-  useEffect(() => {
-    object.traverse(node => { if (node instanceof THREE.Mesh) {
-      const materials = Array.isArray(node.material) ? node.material : [node.material];
-      for (const mat of materials) {
-        if (!mat.userData.baseColor) { mat.userData.baseColor = mat.color.clone(); mat.roughness = mat.name.includes('Concrete') ? 0.92 : mat.name.includes('Safety') ? 0.4 : 0.32; }
-        mat.color.copy(mat.userData.baseColor);
-        if (dim) mat.color.multiplyScalar(0.32); else if (active) mat.color.set('#4ed9e8'); else if (tint) mat.color.set(tint);
-        mat.emissive.set(active ? '#197688' : '#000000'); mat.emissiveIntensity = active ? 0.7 : 0;
-      }
-    }});
-    invalidate();
-  }, [object, active, tint, dim, invalidate]);
+  const materials = useMemo(() => new MaterialCache(object), [object]);
+  useEffect(() => { materials.apply(look, { active, tint, dim }); invalidate(); }, [materials, look, active, tint, dim, invalidate]);
+  useEffect(() => () => materials.dispose(), [materials]);
   return <primitive object={object} />;
 }
 function Equipment({ asset, registry, active, onHover, onSelect, geometry, tint, dim }: { asset: Asset; registry: AssetRegistry; active: boolean; geometry: 'blender' | 'proxy'; tint?: string; dim?: boolean; onHover: (id: string | null) => void; onSelect: (id: string) => void }) {
@@ -101,6 +98,7 @@ function Equipment({ asset, registry, active, onHover, onSelect, geometry, tint,
   </group>;
 }
 function Pipe({ from, to, name, active, running, route, diameter = 0.6 }: { from: Asset; to: Asset; name: string; active: boolean; running: boolean; route?: { x: number; y: number; z: number }[]; diameter?: number }) {
+  const { look } = useLook();
   const points = useMemo(() => {
     if (route) return route.map(p => new THREE.Vector3(p.x,p.z,-p.y));
     const a = worldPosition(from), b = worldPosition(to);
@@ -122,25 +120,27 @@ function Pipe({ from, to, name, active, running, route, diameter = 0.6 }: { from
       if (length < 0.01) return null;
       const center = start.clone().add(end).multiplyScalar(0.5);
       const rotation = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), delta.normalize());
-      return <mesh key={i} name={`${name}_${i}`} position={center} quaternion={rotation} userData={{ asset_id: from.asset_id, tag: from.tag, type: from.type, unit_id: from.unit_id, model_ref: from.model_ref }}><cylinderGeometry args={[diameter / 2, diameter / 2, length, 10]} /><meshStandardMaterial color={active ? "#f0b55e" : "#7899a2"} metalness={0.5} roughness={0.45} /></mesh>;
+      return <mesh key={i} name={`${name}_${i}`} position={center} quaternion={rotation} userData={{ asset_id: from.asset_id, tag: from.tag, type: from.type, unit_id: from.unit_id, model_ref: from.model_ref }}><cylinderGeometry args={[diameter / 2, diameter / 2, length, 10]} /><meshStandardMaterial color={active ? effects.pipeActive : look.materials.pipe.color} metalness={look.materials.pipe.metalness} roughness={look.materials.pipe.roughness} /></mesh>;
     })}
   </group>;
 }
 export default function Scene({ data, registry, selected, hovered, reset, onHover, onSelect, geometry, layer, trace, running, scenarioState }: { geometry: 'blender' | 'proxy'; layer: Layer; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState; data: NormalizedData; registry: AssetRegistry; selected: string | null; hovered: string | null; reset: number; onHover: (id: string | null) => void; onSelect: (id: string | null) => void }) {
-  return <Canvas shadows gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 0.85 }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
-    <color attach="background" args={['#08151e']} />
-    <ambientLight intensity={0.25} /><hemisphereLight args={['#90bed8', '#15202a', 0.4]} />
-    <directionalLight castShadow position={[30,100,30]} intensity={2.1} color="#ffe0ad" shadow-mapSize={[2048,2048]} shadow-camera-left={-160} shadow-camera-right={160} shadow-camera-top={130} shadow-camera-bottom={-130} shadow-camera-far={400} shadow-normalBias={0.2} shadow-bias={-0.0002} />
-    <directionalLight position={[150,60,-100]} color="#5bb9ee" intensity={1.3} />
+  const { look } = useLook();
+  const light = look.lighting;
+  return <Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
+    <color attach="background" args={[look.environment.background]} />
+    <ambientLight intensity={light.ambient} /><hemisphereLight args={light.hemisphere} />
+    <directionalLight castShadow={light.shadows} position={light.sun.position} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
+    <directionalLight position={light.fill.position} color={light.fill.color} intensity={light.fill.intensity} />
     <Atmosphere />
     <Controls selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
-    <gridHelper args={[500, 50, '#142c3a', '#10232f']} position={[85, -3, -25]} />
+    <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
     <Site assets={data.assets} />
     {data.connections.map(connection => {
       const from = registry.assets.get(connection.from_asset_id), to = registry.assets.get(connection.to_asset_id);
       return from && to ? <Pipe key={connection.connection_id} from={from} to={to} name={connection.connection_id} route={connection.route_points} diameter={connection.diameter} active={trace.path?.connection_ids.includes(connection.connection_id) ?? false} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} /> : null;
     })}
     {data.assets.filter(asset => asset.asset_id === selected || asset.asset_id === trace.assetId || asset.status === 'trip').map(asset => <PlantLabel key={asset.asset_id} asset={asset} alert={asset.status === 'trip'} />)}
-    <Suspense fallback={null}><VisualRuntime look="engineering" />{data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} tint={asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color} dim={!!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id)} active={asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id)} onHover={onHover} onSelect={onSelect} />)}</Suspense>
+    <Suspense fallback={null}><VisualRuntime look={look.id} /><LookSnapshot />{data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} tint={asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color} dim={!!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id)} active={asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id)} onHover={onHover} onSelect={onSelect} />)}</Suspense>
   </Canvas>;
 }

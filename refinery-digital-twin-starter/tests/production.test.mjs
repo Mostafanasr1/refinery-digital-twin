@@ -27,6 +27,7 @@ test('production server serves the complete build with correct types and real mi
     assert.doesNotMatch(await missing.text(),/<!doctype/i);
     assert.equal((await fetch(base+'/package.json')).status,404);
     assert.equal((await fetch(base+'/',{method:'POST'})).status,405);
-    assert.equal((await fetch(base+'/preview/render.png',{method:'HEAD'})).status,200);
+    assert.equal((await fetch(base+'/models/refinery.glb',{method:'HEAD'})).status,200);
+    assert.equal((await fetch(base+'/preview/render.png',{method:'HEAD'})).status,404);
   } finally { await new Promise(resolve=>server.close(resolve)); }
 });
