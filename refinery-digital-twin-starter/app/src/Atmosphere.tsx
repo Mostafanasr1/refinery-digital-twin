@@ -7,6 +7,7 @@ import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import type { Asset } from './data/loader';
+import { selfFoundation } from './data/silhouettes';
 export function Atmosphere() {
   const { gl, scene, camera, size, invalidate } = useThree();
   const composer = useMemo(() => {
@@ -68,6 +69,6 @@ export function Site({ assets }: { assets: Asset[] }) {
         <mesh position={[0,6,0]}><boxGeometry args={[1.4,0.16,0.7]} /><meshBasicMaterial color={[2.6,1.9,0.8]} toneMapped={false} /></mesh>
       </group>)}
     </group>)}
-    {assets.filter(a=>a.type!=='storage_tank').map(a=><mesh key={a.asset_id} receiveShadow position={[a.position.x,-0.25,-a.position.y]}><boxGeometry args={[Math.max(a.dimensions.length,a.dimensions.diameter)+3,0.35,Math.max(a.dimensions.width,a.dimensions.diameter)+3]} /><meshStandardMaterial color="#24333b" roughness={0.95} /></mesh>)}
+    {assets.filter(a=>!selfFoundation.has(a.type)).map(a=><mesh key={a.asset_id} receiveShadow position={[a.position.x,-0.25,-a.position.y]}><boxGeometry args={[Math.max(a.dimensions.length,a.dimensions.diameter)+3,0.35,Math.max(a.dimensions.width,a.dimensions.diameter)+3]} /><meshStandardMaterial color="#24333b" roughness={0.95} /></mesh>)}
   </group>;
 }

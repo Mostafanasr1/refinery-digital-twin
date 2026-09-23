@@ -8,6 +8,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { layerStyle, type Layer, type ScenarioState, type traceAt } from './data/operations';
 import type { Asset, NormalizedData } from './data/loader';
 import { AssetRegistry, worldPosition } from './data/registry';
+import { proxyFamily } from './data/silhouettes';
 
 function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
   const { camera, gl, invalidate } = useThree();
@@ -45,19 +46,23 @@ function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
 }
 function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; tint?: string; dim?: boolean }) {
   const { height: h, diameter: d, length: l, width: w } = asset.dimensions;
+  const family = proxyFamily[asset.type] ?? 'vertical';
   const color = dim ? '#26353d' : active ? '#4ed9e8' : tint ? tint : asset.type === 'pipe_rack' ? '#536b77' : asset.type === 'fired_heater' ? '#b99671' : '#a9bcc4';
   const material = <meshStandardMaterial color={color} metalness={0.45} roughness={0.48} emissive={active ? '#167382' : '#000000'} emissiveIntensity={0.3} />;
   const box = (key: string, pos: [number, number, number], scale: [number, number, number]) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={pos}><boxGeometry args={scale} />{material}</mesh>;
   const cylinder = (key: string, y: number, radius: number, height: number) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={[0, y, 0]}><cylinderGeometry args={[radius, radius, height, 24]} />{material}</mesh>;
-  if (asset.type === 'pipe_rack') return <>
+  if (family === 'rack') return <>
     {[-l / 2, 0, l / 2].flatMap((x, i) => [-w / 2, w / 2].map((z, j) => box(`post_${i}_${j}`, [x, h / 2, z], [0.6, h, 0.6])))}
     {[h * 0.6, h].flatMap((y, i) => [box(`beam_${i}`, [0, y, 0], [l + 1, 0.6, w + 1]), ...[-2, 0, 2].map((z, j) => box(`pipe_${i}_${j}`, [0, y + 0.6, z], [l + 1, 0.25, 0.25]))])}
   </>;
-  if (asset.type === 'pump') return <>{box('base', [0, 0.3, 0], [l + 1, 0.6, w + 1])}<mesh name={`${asset.model_ref}_motor`} position={[0, 1.3, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.85, 0.85, l, 16]} />{material}</mesh>{box('discharge', [l / 2, 2, 0], [0.5, 2, 0.5])}</>;
-  if (asset.type === 'heat_exchanger') return <><mesh name={`${asset.model_ref}_shell`} position={[0, d / 2 + 1, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[d / 2, d / 2, l, 24]} />{material}</mesh>{[-l / 3, l / 3].map((x,i) => box(`saddle_${i}`, [x, 0.7, 0], [1, 1.4, d]))}</>;
-  if (['building', 'fired_heater', 'cooling_tower'].includes(asset.type)) return <>{box('body', [0, h / 2, 0], [l, h, w])}{asset.type === 'fired_heater' ? cylinder('stack', h + 6, 1.1, 12) : box('roof', [0, h + 0.3, 0], [l + 1, 0.6, w + 1])}</>;
+  if (family === 'pump') return <>{box('base', [0, 0.3, 0], [l + 1, 0.6, w + 1])}<mesh name={`${asset.model_ref}_motor`} position={[0, 1.3, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[0.85, 0.85, l, 16]} />{material}</mesh>{box('discharge', [l / 2, 2, 0], [0.5, 2, 0.5])}</>;
+  if (family === 'horizontal') return <><mesh name={`${asset.model_ref}_shell`} position={[0, d / 2 + 1, 0]} rotation={[0, 0, Math.PI / 2]}><cylinderGeometry args={[d / 2, d / 2, l, 24]} />{material}</mesh>{[-l / 3, l / 3].map((x,i) => box(`saddle_${i}`, [x, 0.7, 0], [1, 1.4, d]))}</>;
+  if (family === 'box') return <>{box('body', [0, h / 2, 0], [l, h, w])}{asset.type === 'fired_heater' ? cylinder('stack', h + 6, 1.1, 12) : box('roof', [0, h + 0.3, 0], [l + 1, 0.6, w + 1])}</>;
+  if (family === 'sphere') return <><mesh name={`${asset.model_ref}_shell`} position={[0, h - d / 2, 0]}><sphereGeometry args={[d / 2, 24, 16]} />{material}</mesh>
+    {[0, 1, 2, 3].map(i => <mesh key={i} name={`${asset.model_ref}_leg_${i}`} position={[Math.cos(i * Math.PI / 2) * d * 0.4, (h - d / 2) / 2, Math.sin(i * Math.PI / 2) * d * 0.4]}><cylinderGeometry args={[0.3, 0.3, h - d / 2, 8]} />{material}</mesh>)}</>;
+  if (family === 'stack') return <>{cylinder('shell', h / 2, d / 2, h)}{cylinder('foundation', 0.3, d / 2 + 1.5, 0.6)}</>;
   return <>{cylinder('shell', h / 2, d / 2, h)}{cylinder('foundation', 0.3, d / 2 + 0.7, 0.6)}
-    {asset.type === 'storage_tank' ? <mesh name={`${asset.model_ref}_roof`} position={[0, h + 0.6, 0]}><coneGeometry args={[d / 2, 1.2, 32]} />{material}</mesh> : [0.25, 0.5, 0.75, 1].map((fraction, i) => cylinder(`platform_${i}`, h * fraction, d / 2 + 0.7, 0.3))}
+    {asset.type === 'storage_tank' || asset.type === 'floating_roof_tank' ? <mesh name={`${asset.model_ref}_roof`} position={[0, h + 0.6, 0]}><coneGeometry args={[d / 2, 1.2, 32]} />{material}</mesh> : [0.25, 0.5, 0.75, 1].map((fraction, i) => cylinder(`platform_${i}`, h * fraction, d / 2 + 0.7, 0.3))}
     {asset.type === 'column' ? box('ladder', [d / 2 + 0.5, h / 2, 0], [0.4, h, 0.7]) : null}
   </>;
 }

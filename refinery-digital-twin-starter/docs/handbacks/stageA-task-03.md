@@ -1,42 +1,204 @@
-# Stage A Task 03 hand-back: blocked before implementation
+# Stage A Task 03: Runtime proxy families
 
-## Status
+Status: completed after internal spec and code-quality review; no external gate required.
 
-Blocked. No Task 03 implementation changes were made. The overnight instruction removes the Task 08 gate but explicitly retains ambiguity hard stops and requires this write-up before skipping to independent later tasks.
+## Summary
 
-Starting commit: `b4c99fb524feb9c4d0fa3b50d997fab62ae1b843` on `codex/stage-a`.
+Added the schema-aligned proxy-family table and its parity test. Proxy rendering and site pad filtering use the tables. Existing equipment geometry is preserved; separate sphere and stack branches support the upcoming new types.
 
-## Ruling needed: existing flare proxy appearance
+## Files touched
 
-The Phase 1 plan (`docs/superpowers/plans/2026-09-14-phase-1-silhouette-library.md`, Task 3, line 609) says that all ten existing types must look identical in proxy mode. Its prescribed table maps `flare` to `stack` (line 650), but its new stack branch (line 691) draws only a shell and a foundation with radius `d / 2 + 1.5`.
+- `app/src/data/silhouettes.ts`: proxy-family and self-foundation tables.
+- `app/src/data/silhouettes.test.ts`: schema parity and foundation membership test.
+- `app/src/Scene.tsx`: family dispatch and future sphere/standalone-stack branches.
+- `app/src/Atmosphere.tsx`: shared foundation filter.
+- `docs/handbacks/stageA-task-03.md` and `docs/handbacks/evidence/stageA-task-03/`: hand-back, test logs, screenshots and browser evidence.
 
-The current `Proxy` in `app/src/Scene.tsx` sends flare through the vertical fallback: shell, foundation radius `d / 2 + 0.7`, and four platforms at quarter-height intervals. Implementing the prescribed stack branch would remove those platforms and increase foundation radius by 0.8 m. These are incompatible visual requirements.
+No dependencies or third-party assets added. No canonical files changed. Assets: 43 before / 43 after. Units: 4 before / 4 after.
 
-Recommended ruling: preserve the current flare appearance in Task 03, and reserve the new stack geometry for standalone stacks. This recommendation is not implemented or treated as approved. The alternative is explicit approval of the simplified flare appearance in the prescribed code.
+## Known issues
 
-## Later-task dependency audit
+Mostafa explicitly approved preserving the current flare appearance exactly: four platforms and foundation radius `d / 2 + 0.7`. Flare remains in the vertical family; the new stack geometry applies only to standalone stack types added later. This ruling supersedes the Phase 1 Task 03 sample mapping `flare: 'stack'` and resolves the blocker recorded in commit `b317257`.
 
-- Task 04 adds tank families to `app/src/data/silhouettes.ts` and runs the Task 03 schema-parity test. It depends on the blocked task.
-- Task 05 extends the same table and the growing canonical plant. It depends on Task 03 and earlier expansion work.
-- Task 06 extends the same table with the stack family at issue and grows the plant further. It depends on Task 03.
-- Task 07 extends the same table and proxy renderer, with cumulative plant verification. It depends on Task 03.
-- Task 08 documents and verifies the completed 22-type, 57-asset, six-unit plant. It depends on Tasks 03–07.
-- Stage B Task 0 must baseline and hash the plant at Stage A close. Stage A is not complete; measuring the existing 43-asset plant would not satisfy that requirement.
+## Reviews
 
-No later task can be completed independently under its acceptance criteria. Partial builders or draft completion documentation would not unblock their required runtime parity and final-plant verification, so no downstream implementation was started. The `dual-look` branch was not created.
+Internal spec review: PASS; independent comparison against b317257 confirmed all scoped requirements and the flare ruling.
+Internal code-quality review: PASS; no actionable findings. Both reviewers agree.
 
-## Files touched and canonical data
+## Manual visual evidence
 
-Only `docs/handbacks/stageA-task-03.md` is added by this blocker write-up. No canonical files, application code, generated models, dependencies, or plans changed.
+Screenshots captured from the local production build at 1600 x 900, device pixel ratio 1. Manual review only; no pixel comparison or metrics. No new or changed unit geometry in this refactor. Default GLB, default proxy, and selected flare proxy frames are supplied. Visual inspection: the GLB overview loads, proxy geometry is coherent, and the flare retains its four platforms and existing foundation. No visible hangs or new sluggishness during the smoke check; no performance measurements claimed. Browser check recorded zero page errors.
 
-Assets: 43 before / 43 after. Units: 4 before / 4 after.
+![default-view.png](evidence/stageA-task-03/default-view.png)
 
-## Verification and evidence
+![proxy-default.png](evidence/stageA-task-03/proxy-default.png)
 
-Read the Phase 1 Task 03 requirements, current proxy implementation, later-task dependencies, and Stage B baseline prerequisites. Confirmed branch and starting commit against the remote tracking ref. Tests and screenshots were not run: implementation stopped before changes, and this is a blocker hand-back, not a passing task hand-back. No runtime slowdown assessment was performed.
+![proxy-flare.png](evidence/stageA-task-03/proxy-flare.png)
 
-Internal implementation spec/code-quality reviews are pending because there is no implementation to review. No reviewer disagreement occurred.
+## Test output
 
-## Budgets and next action
+### silhouettes-red.log
 
-No Stage B measurements or proposed budget numbers exist for this run. Do not use the current smaller plant as the final baseline. Resolve the flare appearance ruling, resume Task 03, then follow the authorized overnight sequence through Stage B Task 0. Budget proposals remain subject to the combined morning review; Stage B Task 1 must wait.
+```text
+
+> @refinery/app@0.0.0 test
+> vitest run silhouettes
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+ ❯ src/data/silhouettes.test.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/data/silhouettes.test.ts [ src/data/silhouettes.test.ts ]
+Error: Cannot find module './silhouettes' imported from C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app/src/data/silhouettes.test.ts
+
+ ❯ src/data/silhouettes.test.ts:3:1
+      1| import { expect, it } from 'vitest';
+      2| import schema from '../../../schemas/asset.schema.json';
+      3| import { proxyFamily, selfFoundation } from './silhouettes';
+       | ^
+      4|
+      5| it('every canonical asset type has a proxy family and nothing else doe…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  06:51:38
+   Duration  684ms (transform 88ms, setup 0ms, import 0ms, tests 0ms, environment 0ms)
+
+npm error Lifecycle script `test` failed with error:
+npm error code 1
+npm error path C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\app
+npm error workspace @refinery/app@0.0.0
+npm error location C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\app
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c vitest run silhouettes
+```
+
+### silhouettes-green.log
+
+```text
+
+> @refinery/app@0.0.0 test
+> vitest run silhouettes
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  06:53:08
+   Duration  465ms (transform 77ms, setup 0ms, import 112ms, tests 6ms, environment 0ms)
+```
+
+### generators.log
+
+```text
+
+> refinery-digital-twin@0.0.0 check:generators
+> node scripts/python.mjs -m scripts.check_generators
+
+00:00.109  reports          | WARNING Unable to open 'C:\Users\Mosta\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\Mosta\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Checked 10 silhouettes at 2 detail levels
+
+Blender quit
+```
+
+### project-check.log
+
+```text
+
+> refinery-digital-twin@0.0.0 check
+> npm run normalize && npm run lint && npm test && npm run validate && npm run build
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 lint
+> npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests
+
+
+> @refinery/app@0.0.0 lint
+> eslint src
+
+All checks passed!
+
+> refinery-digital-twin@0.0.0 test
+> npm run test -w app && node scripts/python.mjs -m pytest
+
+
+> @refinery/app@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  5 passed (5)
+      Tests  12 passed (12)
+   Start at  06:53:33
+   Duration  1.65s (transform 723ms, setup 0ms, import 3.55s, tests 341ms, environment 1ms)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+testpaths: tests
+collected 18 items
+
+tests\test_catalog.py ..                                                 [ 11%]
+tests\test_glb.py ..                                                     [ 22%]
+tests\test_normalization.py ........                                     [ 66%]
+tests\test_validation.py ......                                          [100%]
+
+============================= 18 passed in 3.16s ==============================
+
+> refinery-digital-twin@0.0.0 validate
+> node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized
+
+Validated all collections in data\synthetic
+Validated all collections in data\normalized
+
+> refinery-digital-twin@0.0.0 prebuild
+> npm run normalize
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 build
+> npm run build -w app
+
+
+> @refinery/app@0.0.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 255 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                               0.37 kB │ gzip:   0.27 kB
+dist/assets/index-DupH9ZgS.css               10.54 kB │ gzip:   3.12 kB
+dist/assets/PhotorealPreview-J1pK14k6.js      5.30 kB │ gzip:   2.37 kB
+dist/assets/index-DsBuxWNe.js             1,316.37 kB │ gzip: 369.69 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.00s
+```
+
+
