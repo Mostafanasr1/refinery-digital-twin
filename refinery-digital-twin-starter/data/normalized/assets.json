@@ -1021,6 +1021,36 @@
   },
   {
     "area_id": "area_400",
+    "asset_id": "asset_cr401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 4.5,
+      "length": 20,
+      "width": 12
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "CR-401",
+    "name": "Central Control Room",
+    "position": {
+      "x": 178,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "operations",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CR-401",
+    "type": "control_room",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
     "asset_id": "asset_ct401",
     "dimensions": {
       "diameter": 3,
@@ -1111,6 +1141,36 @@
   },
   {
     "area_id": "area_400",
+    "asset_id": "asset_ct404",
+    "dimensions": {
+      "diameter": 34,
+      "height": 45,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "CT-404",
+    "name": "Natural Draft Cooling Tower",
+    "position": {
+      "x": 30,
+      "y": 118,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_water",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CT-404",
+    "type": "hyperbolic_cooling_tower",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
     "asset_id": "asset_fl401",
     "dimensions": {
       "diameter": 3,
@@ -1167,6 +1227,36 @@
     "synthetic": true,
     "tag": "P-401",
     "type": "pump",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_ss401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 5,
+      "length": 16,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "SS-401",
+    "name": "Main Substation",
+    "position": {
+      "x": 152,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "power_distribution",
+    "status": "online",
+    "synthetic": true,
+    "tag": "SS-401",
+    "type": "substation",
     "unit_id": "unit_utilities"
   },
   {

@@ -20,6 +20,16 @@
     "value": 4.2
   },
   {
+    "asset_id": "asset_ct404",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_ct404_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 29
+  },
+  {
     "asset_id": "asset_e201",
     "parameter": "health",
     "point_id": "tp_asset_e201_health",
@@ -358,6 +368,16 @@
     "timestamp": "synthetic",
     "unit": "barg",
     "value": 7.6
+  },
+  {
+    "asset_id": "asset_ss401",
+    "parameter": "power",
+    "point_id": "tp_asset_ss401_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 22.4
   },
   {
     "asset_id": "asset_t201",

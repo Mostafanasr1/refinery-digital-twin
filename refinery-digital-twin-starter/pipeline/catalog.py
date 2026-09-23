@@ -77,4 +77,16 @@ SILHOUETTES = {
         "description": "Free-standing tapered steel stack with base ring, two platforms and aviation lights",
         "sample": {"height": 45, "diameter": 2.5, "length": 8, "width": 4},
     },
+    "hyperbolic_cooling_tower": {
+        "description": "Natural-draft hyperboloid concrete cooling tower on diagonal legs with a basin",
+        "sample": {"height": 45, "diameter": 34, "length": 8, "width": 4},
+    },
+    "substation": {
+        "description": "Electrical substation building with a fenced transformer yard",
+        "sample": {"height": 5, "diameter": 3, "length": 16, "width": 10},
+    },
+    "control_room": {
+        "description": "Low blast-resistant control building with canopy, slit windows and rooftop HVAC",
+        "sample": {"height": 4.5, "diameter": 3, "length": 20, "width": 12},
+    },
 }

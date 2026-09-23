@@ -76,7 +76,10 @@
         "air_cooler",
         "compressor",
         "cylindrical_heater",
-        "stack"
+        "stack",
+        "hyperbolic_cooling_tower",
+        "substation",
+        "control_room"
       ]
     },
     "position": {

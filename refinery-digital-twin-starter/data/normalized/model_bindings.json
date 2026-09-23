@@ -25,6 +25,11 @@
     "node_name": "C-501"
   },
   {
+    "asset_id": "asset_cr401",
+    "model_ref": "CR-401",
+    "node_name": "CR-401"
+  },
+  {
     "asset_id": "asset_ct401",
     "model_ref": "CT-401",
     "node_name": "CT-401"
@@ -38,6 +43,11 @@
     "asset_id": "asset_ct403",
     "model_ref": "CT-403",
     "node_name": "CT-403"
+  },
+  {
+    "asset_id": "asset_ct404",
+    "model_ref": "CT-404",
+    "node_name": "CT-404"
   },
   {
     "asset_id": "asset_e201",
@@ -188,6 +198,11 @@
     "asset_id": "asset_sp502",
     "model_ref": "SP-502",
     "node_name": "SP-502"
+  },
+  {
+    "asset_id": "asset_ss401",
+    "model_ref": "SS-401",
+    "node_name": "SS-401"
   },
   {
     "asset_id": "asset_stk401",

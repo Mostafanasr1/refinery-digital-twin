@@ -636,7 +636,72 @@ def build_stack(k):
         k.route('flue_inlet', [(r + 4, 0, 3.0), (r * 0.95, 0, 3.0)], r * 0.55, k.steel)
 
 
+def build_hyperbolic_cooling_tower(k):
+    h, r = k.h, k.r
+    throat_z, throat_r = h * 0.78, r * 0.62
+    spread = 0.66 * h / math.sqrt((r / throat_r) ** 2 - 1)   # hyperbola meets the base radius at 0.12 h
+    rings = 20 if k.detail else 8
+    profile = []
+    for i in range(rings + 1):
+        z = h * (0.12 + 0.88 * i / rings)
+        profile.append((throat_r * math.sqrt(1 + ((z - throat_z) / spread) ** 2), z))
+    k.lathe('shell', profile, 48 if k.detail else 24, k.concrete)
+    k.cyl('basin', (0, 0, 0.3), r + 1.0, 0.6, k.concrete)
+    legs = 24 if k.detail else 12
+    for i in range(legs):
+        a0 = math.tau * i / legs
+        for suffix, a1 in (('leg', math.tau * (i + 1.5) / legs), ('leg_x', math.tau * (i - 1.5) / legs)):
+            k.route(f'{suffix}_{i}', [(r * math.cos(a0), r * math.sin(a0), 0.6),
+                                      (r * math.cos(a1), r * math.sin(a1), h * 0.12)], 0.35, k.concrete)
+    if k.detail:
+        k.cyl('fill_deck', (0, 0, h * 0.14), r * 0.98, 0.3, k.steel)
+        k.route('riser', [(r + 3, 0, 0.6), (r + 3, 0, h * 0.2), (r * 0.9, 0, h * 0.2)], 0.8)
+
+
+def build_substation(k):
+    length, width, h = k.length, k.width, k.h
+    k.box('body', (-length * 0.15, 0, h / 2), (length * 0.7, width, h), k.concrete)
+    k.box('roof', (-length * 0.15, 0, h + 0.15), (length * 0.7 + 0.4, width + 0.4, 0.3), k.steel)
+    for j, y in enumerate((-width / 4, width / 4)):
+        x = length * 0.32
+        k.box(f'plinth_{j}', (x, y, 0.1), (3.6, 2.8, 0.2), k.concrete)
+        k.box(f'transformer_{j}', (x, y, 1.4), (3.0, 2.2, 2.4), k.shell)
+        for i in range(4):
+            k.box(f'radiator_{j}_{i}', (x - 1.85, y - 1.05 + i * 0.7, 1.3), (0.6, 0.12, 2.0), k.steel)
+        for i in range(3):
+            k.cyl(f'bushing_{j}_{i}', (x - 0.8 + i * 0.8, y, 3.2), 0.12, 1.2, k.rail)
+    if k.detail:
+        for i in range(int(width / 2) + 1):
+            for x in (length * 0.2, length * 0.5):
+                k.cyl(f'fence_post_{i}_{x}', (x, -width / 2 + i * 2, 1.1), 0.05, 2.2, k.steel)
+        for y in (-width / 2, width / 2):
+            k.route(f'fence_rail_{y}', [(length * 0.2, y, 2.1), (length * 0.5, y, 2.1)], 0.03, k.steel)
+        for i in range(3):
+            k.box(f'louvre_{i}', (-length * 0.5 - 0.02, -width / 4 + i * width / 4, h * 0.6), (0.05, 1.6, 1.2), k.steel)
+        k.box('cable_trench', (length * 0.05, 0, 0.05), (0.8, width, 0.1), k.steel)
+
+
+def build_control_room(k):
+    length, width, h = k.length, k.width, k.h
+    k.box('body', (0, 0, h / 2), (length, width, h), k.concrete)
+    k.box('roof', (0, 0, h + 0.2), (length + 0.6, width + 0.6, 0.4), k.steel)
+    k.box('canopy', (0, -width / 2 - 1.5, h * 0.7), (5, 3, 0.25), k.steel)
+    for x in (-2, 2):
+        k.cyl(f'canopy_post_{x}', (x, -width / 2 - 2.8, h * 0.35), 0.1, h * 0.7, k.steel)
+    if k.detail:
+        for x in range(-int(length / 2) + 2, int(length / 2) - 1, 3):
+            k.box('window_' + str(x), (x, -width / 2 - 0.03, h * 0.6), (1.5, 0.08, 0.6), k.steel)
+        for i, x in enumerate((-length / 4, 0, length / 4)):
+            k.box(f'hvac_{i}', (x, width / 6, h + 1.0), (2.4, 1.6, 1.2), k.steel)
+            k.cyl(f'hvac_fan_{i}', (x, width / 6, h + 1.65), 0.5, 0.1, k.rail)
+        k.cyl('mast', (length / 2 - 1, width / 2 - 1, h + 2.2), 0.06, 4.4, k.steel)
+        k.box('blast_wall', (0, width / 2 + 0.6, 1.2), (length * 0.6, 0.3, 2.4), k.concrete)
+
+
 BUILDERS = {
+    'hyperbolic_cooling_tower': build_hyperbolic_cooling_tower,
+    'substation': build_substation,
+    'control_room': build_control_room,
     'cylindrical_heater': build_cylindrical_heater,
     'stack': build_stack,
     'reactor': build_reactor,

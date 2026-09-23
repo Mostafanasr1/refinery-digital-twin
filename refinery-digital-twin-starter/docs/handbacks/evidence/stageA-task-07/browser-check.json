@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "errors": [],
+  "failed": [],
+  "selections": [
+    {
+      "tag": "CT-404",
+      "card": "X\nEQUIPMENT / hyperbolic cooling tower\nCT-404\n\nNatural Draft Cooling Tower\n\nONLINE\nUnit\nUtilities\nService\ncooling water\nSYNTHETIC OPERATING SNAPSHOT\nOutlet Temperature\n29 degC\nModel binding\nCT-404"
+    },
+    {
+      "tag": "SS-401",
+      "card": "X\nEQUIPMENT / substation\nSS-401\n\nMain Substation\n\nONLINE\nUnit\nUtilities\nService\npower distribution\nSYNTHETIC OPERATING SNAPSHOT\nPower\n22.4 MW\nModel binding\nSS-401"
+    },
+    {
+      "tag": "CR-401",
+      "card": "X\nEQUIPMENT / control room\nCR-401\n\nCentral Control Room\n\nONLINE\nUnit\nUtilities\nService\noperations\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nCR-401"
+    }
+  ]
+}

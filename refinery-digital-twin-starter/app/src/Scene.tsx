@@ -32,7 +32,7 @@ function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
       const size = Math.max(selected.dimensions.height, selected.dimensions.diameter, selected.dimensions.length, 12);
       lookAt.current.set(x, y + selected.dimensions.height * 0.6, z);
       destination.current.set(x + size * 2.1, y + size * 1.35, z + size * 2.3);
-    } else { lookAt.current.set(85, 9, -24); destination.current.set(228, 116, 176); }
+    } else { lookAt.current.set(85, 9, -24); destination.current.set(250, 140, 200); }
     moving.current = true; invalidate();
   }, [selected, reset, invalidate]);
   useFrame((_state, delta) => {

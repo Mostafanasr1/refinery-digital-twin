@@ -504,5 +504,25 @@
   {"point_id": "tp_asset_v501_pressure", "asset_id": "asset_v501", "parameter": "pressure", "value": 58, "unit": "barg", "status": "normal", "quality": "good", "timestamp": "synthetic"},
   {"point_id": "tp_asset_f501_temperature", "asset_id": "asset_f501", "parameter": "outlet_temperature", "value": 348, "unit": "degC", "status": "normal", "quality": "good", "timestamp": "synthetic"},
   {"point_id": "tp_asset_f501_power", "asset_id": "asset_f501", "parameter": "power", "value": 18.5, "unit": "MW", "status": "normal", "quality": "good", "timestamp": "synthetic"},
-  {"point_id": "tp_asset_f501_health", "asset_id": "asset_f501", "parameter": "health", "value": 94, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"}
+  {"point_id": "tp_asset_f501_health", "asset_id": "asset_f501", "parameter": "health", "value": 94, "unit": "percent", "status": "normal", "quality": "good", "timestamp": "synthetic"},
+  {
+    "point_id": "tp_asset_ss401_power",
+    "asset_id": "asset_ss401",
+    "parameter": "power",
+    "value": 22.4,
+    "unit": "MW",
+    "status": "normal",
+    "quality": "good",
+    "timestamp": "synthetic"
+  },
+  {
+    "point_id": "tp_asset_ct404_temperature",
+    "asset_id": "asset_ct404",
+    "parameter": "outlet_temperature",
+    "value": 29,
+    "unit": "degC",
+    "status": "normal",
+    "quality": "good",
+    "timestamp": "synthetic"
+  }
 ]
