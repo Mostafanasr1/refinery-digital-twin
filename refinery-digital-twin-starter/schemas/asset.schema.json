@@ -70,7 +70,11 @@
         "cooling_tower",
         "floating_roof_tank",
         "sphere_tank",
-        "bullet_tank"
+        "bullet_tank",
+        "reactor",
+        "horizontal_drum",
+        "air_cooler",
+        "compressor"
       ]
     },
     "position": {

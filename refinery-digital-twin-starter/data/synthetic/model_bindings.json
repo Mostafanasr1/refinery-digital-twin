@@ -218,5 +218,9 @@
   {"asset_id": "asset_sp501", "model_ref": "SP-501", "node_name": "SP-501"},
   {"asset_id": "asset_sp502", "model_ref": "SP-502", "node_name": "SP-502"},
   {"asset_id": "asset_bt501", "model_ref": "BT-501", "node_name": "BT-501"},
-  {"asset_id": "asset_bt502", "model_ref": "BT-502", "node_name": "BT-502"}
+  {"asset_id": "asset_bt502", "model_ref": "BT-502", "node_name": "BT-502"},
+  {"asset_id": "asset_c501", "model_ref": "C-501", "node_name": "C-501"},
+  {"asset_id": "asset_r501", "model_ref": "R-501", "node_name": "R-501"},
+  {"asset_id": "asset_ea501", "model_ref": "EA-501", "node_name": "EA-501"},
+  {"asset_id": "asset_v501", "model_ref": "V-501", "node_name": "V-501"}
 ]

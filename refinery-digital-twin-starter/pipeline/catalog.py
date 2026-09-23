@@ -53,4 +53,20 @@ SILHOUETTES = {
         "description": "Horizontal LPG bullet with dished heads on concrete saddles, top walkway and relief valve",
         "sample": {"height": 5, "diameter": 3.5, "length": 20, "width": 4},
     },
+    "reactor": {
+        "description": "Thick-walled hydrotreating reactor: tall skirt, hemispherical heads, top inlet, two platforms",
+        "sample": {"height": 24, "diameter": 3.6, "length": 8, "width": 4},
+    },
+    "horizontal_drum": {
+        "description": "Horizontal separator drum with dished heads on steel saddles, water boot and top platform",
+        "sample": {"height": 5, "diameter": 2.6, "length": 8, "width": 4},
+    },
+    "air_cooler": {
+        "description": "Fin-fan air cooler: elevated bundle with header boxes, fan rings, motors and side walkway",
+        "sample": {"height": 8, "diameter": 3, "length": 12, "width": 6},
+    },
+    "compressor": {
+        "description": "Motor-driven centrifugal compressor on a concrete base under an open shelter",
+        "sample": {"height": 6, "diameter": 3, "length": 9, "width": 4},
+    },
 }

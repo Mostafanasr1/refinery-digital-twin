@@ -1,5 +1,25 @@
 [
   {
+    "asset_id": "asset_c501",
+    "parameter": "health",
+    "point_id": "tp_asset_c501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 93
+  },
+  {
+    "asset_id": "asset_c501",
+    "parameter": "power",
+    "point_id": "tp_asset_c501_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 4.2
+  },
+  {
     "asset_id": "asset_e201",
     "parameter": "health",
     "point_id": "tp_asset_e201_health",
@@ -88,6 +108,16 @@
     "timestamp": "synthetic",
     "unit": "degC",
     "value": 120
+  },
+  {
+    "asset_id": "asset_ea501",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_ea501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 55
   },
   {
     "asset_id": "asset_f201",
@@ -228,6 +258,36 @@
     "timestamp": "synthetic",
     "unit": "degC",
     "value": 120
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "health",
+    "point_id": "tp_asset_r501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 96
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "inlet_temperature",
+    "point_id": "tp_asset_r501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 345
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "pressure",
+    "point_id": "tp_asset_r501_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 62
   },
   {
     "asset_id": "asset_sp501",
@@ -548,5 +608,15 @@
     "timestamp": "synthetic",
     "unit": "degC",
     "value": 120
+  },
+  {
+    "asset_id": "asset_v501",
+    "parameter": "pressure",
+    "point_id": "tp_asset_v501_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 58
   }
 ]

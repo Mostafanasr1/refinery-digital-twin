@@ -505,7 +505,101 @@ def build_bullet_tank(k):
         ladder(k, length / 2 + 0.3, cz + r + 0.1)
 
 
+def build_reactor(k):
+    h, r = k.h, k.r
+    skirt = 3.0
+    body = h - skirt - r
+    k.cyl('skirt', (0, 0, skirt / 2), r + 0.25, skirt, k.concrete)
+    k.sphere('bottom_head', (0, 0, skirt), r, scale=(1, 1, 0.5))
+    k.cyl('shell', (0, 0, skirt + body / 2), r, body)
+    k.sphere('head', (0, 0, skirt + body), r)
+    if k.detail:
+        for i in range(1, 3):
+            k.platform(f'platform_{i}', skirt + body * i / 2.5, r + 0.8)
+        ladder(k, r + 0.8, h - r)
+        k.cyl('inlet_nozzle', (0, 0, h - 0.2), r * 0.3, 1.6, k.steel)
+        k.route('inlet', [(0, 0, h + 0.5), (0, r + 2, h + 0.5), (0, r + 2, 1.0)], 0.28)
+        k.route('outlet', [(0, 0, skirt - r * 0.5), (0, 0, 0.8), (r + 3, 0, 0.8)], 0.28)
+        for i in range(3):
+            k.cyl(f'insulation_band_{i}', (0, 0, skirt + body * (0.2 + 0.3 * i)), r + 0.05, 0.2, k.steel)
+
+
+def build_horizontal_drum(k):
+    length, r, h = k.length, k.r, k.h
+    cz = max(h - r, r + 0.8)                              # h is the top of the shell
+    support = cz - r
+    for x in [-length / 3, length / 3]:
+        k.box(f'saddle_{x}', (x, 0, support / 2), (0.8, 2 * r * 0.9, support),
+              k.steel if support > 1.5 else k.concrete)
+        k.box(f'saddle_base_{x}', (x, 0, 0.15), (1.4, 2 * r + 0.4, 0.3), k.concrete)
+    k.cyl('shell', (0, 0, cz), r, length - 1.2 * r, axis='X')
+    for sign in (-1, 1):
+        k.sphere(f'head_{sign}', (sign * (length / 2 - 0.6 * r), 0, cz), r, scale=(0.6, 1, 1))
+    if k.detail:
+        k.cyl('boot', (length / 4, 0, cz - r - 0.35), r * 0.35, 0.8)
+        for i, x in enumerate([-length / 3, 0, length / 3]):
+            k.cyl(f'nozzle_{i}', (x, 0, cz + r + 0.4), 0.22, 0.9, k.steel)
+        k.box('platform', (0, r + 0.6, cz + r * 0.6), (length * 0.6, 1.0, 0.1), k.steel)
+        for y in (r + 0.15, r + 1.05):
+            k.route(f'platform_rail_{y}', [(-length * 0.3, y, cz + r * 0.6 + 1.0),
+                                           (length * 0.3, y, cz + r * 0.6 + 1.0)], 0.05, k.rail)
+        ladder(k, length / 2 + 0.3, cz + r * 0.6)
+
+
+def build_air_cooler(k):
+    length, width, h = k.length, k.width, k.h
+    deck = h - 1.6                                        # bundle top; fan rings sit above it
+    for x in (-length / 2 + 0.5, length / 2 - 0.5):
+        for y in (-width / 2 + 0.5, width / 2 - 0.5):
+            k.box(f'leg_{x}_{y}', (x, y, deck / 2), (0.45, 0.45, deck), k.steel)
+    k.box('plenum', (0, 0, deck - 0.9), (length - 0.6, width - 0.6, 1.8), k.steel)
+    k.box('bundle', (0, 0, deck + 0.3), (length, width, 0.6), k.shell)
+    for sign in (-1, 1):
+        k.box(f'header_{sign}', (sign * (length / 2 + 0.25), 0, deck + 0.3), (0.5, width - 0.4, 0.9), k.steel)
+    fans = max(1, round(length / max(width, 1)))
+    for i in range(fans):
+        x = -length / 2 + (i + 0.5) * length / fans
+        radius = min(width, length / fans) * 0.42
+        k.torus(f'fan_ring_{i}', (x, 0, deck + 0.9), radius, 0.12, k.steel, segments=32)
+        k.cyl(f'hub_{i}', (x, 0, deck + 0.9), 0.3, 0.5, k.rail)
+        if k.detail:
+            for b in range(4):
+                obj = k.box(f'blade_{i}_{b}', (x, 0, deck + 0.9), (radius * 1.8, 0.35, 0.05), k.steel)
+                obj.rotation_euler.z = math.pi * b / 4
+            k.cyl(f'motor_{i}', (x, 0, deck - 2.1), 0.35, 0.8, k.steel)
+    if k.detail:
+        k.box('walkway', (0, width / 2 + 0.7, deck + 0.05), (length, 1.2, 0.1), k.steel)
+        for i in range(int(length / 2) + 1):
+            k.cyl(f'walkway_post_{i}', (-length / 2 + i * 2, width / 2 + 1.25, deck + 0.55), 0.04, 1, k.rail)
+        k.route('walkway_rail', [(-length / 2, width / 2 + 1.25, deck + 1.05),
+                                 (length / 2, width / 2 + 1.25, deck + 1.05)], 0.05, k.rail)
+        ladder(k, length / 2 + 0.6, deck)
+
+
+def build_compressor(k):
+    length, width, h = k.length, k.width, k.h
+    k.box('base', (0, 0, 0.4), (length + 1.5, width + 1.5, 0.8), k.concrete)
+    k.cyl('motor', (-length / 4, 0, 1.75), 0.95, length * 0.42, k.steel, axis='X')
+    k.box('casing', (length / 4, 0, 1.9), (length * 0.38, width * 0.8, 2.2), k.shell)
+    k.cyl('coupling_guard', (0, 0, 1.75), 0.5, length * 0.14, k.rail, axis='X')
+    k.route('suction', [(length / 4, 0, 3.0), (length / 4, 0, 4.4), (length / 4, width / 2 + 2, 4.4),
+                        (length / 4, width / 2 + 2, 1.0)], 0.35)
+    k.route('discharge', [(length / 4 + 1.2, 0, 3.0), (length / 4 + 1.2, 0, 4.9),
+                          (length / 4 + 1.2, -width / 2 - 2, 4.9), (length / 4 + 1.2, -width / 2 - 2, 1.0)], 0.3)
+    if k.detail:
+        for x in (-length / 2 - 0.5, length / 2 + 0.5):
+            for y in (-width / 2 - 0.5, width / 2 + 0.5):
+                k.box(f'shelter_post_{x}_{y}', (x, y, h / 2), (0.3, 0.3, h), k.steel)
+        k.box('shelter_roof', (0, 0, h + 0.15), (length + 2.2, width + 2.2, 0.3), k.steel)
+        k.box('local_panel', (-length / 2, width / 2 + 0.2, 1.6), (0.8, 0.3, 1.6), k.steel)
+        k.cyl('lube_skid', (-length / 4, -width / 2 - 0.2, 1.2), 0.5, 1.0, k.steel)
+
+
 BUILDERS = {
+    'reactor': build_reactor,
+    'horizontal_drum': build_horizontal_drum,
+    'air_cooler': build_air_cooler,
+    'compressor': build_compressor,
     'floating_roof_tank': build_floating_roof_tank,
     'sphere_tank': build_sphere_tank,
     'bullet_tank': build_bullet_tank,

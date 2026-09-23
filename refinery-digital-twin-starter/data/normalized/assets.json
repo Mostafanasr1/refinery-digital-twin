@@ -151,6 +151,36 @@
   },
   {
     "area_id": "area_200",
+    "asset_id": "asset_c501",
+    "dimensions": {
+      "diameter": 3,
+      "height": 6,
+      "length": 9,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "C-501",
+    "name": "Recycle Gas Compressor",
+    "position": {
+      "x": 58,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "recycle_gas",
+    "status": "online",
+    "synthetic": true,
+    "tag": "C-501",
+    "type": "compressor",
+    "unit_id": "unit_hds"
+  },
+  {
+    "area_id": "area_200",
     "asset_id": "asset_e201",
     "dimensions": {
       "diameter": 2.5,
@@ -358,6 +388,36 @@
     "tag": "E-207",
     "type": "heat_exchanger",
     "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_ea501",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 12,
+      "width": 6
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "EA-501",
+    "name": "Reactor Effluent Air Cooler",
+    "position": {
+      "x": 90,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "effluent_cooling",
+    "status": "online",
+    "synthetic": true,
+    "tag": "EA-501",
+    "type": "air_cooler",
+    "unit_id": "unit_hds"
   },
   {
     "area_id": "area_200",
@@ -721,6 +781,36 @@
   },
   {
     "area_id": "area_200",
+    "asset_id": "asset_r501",
+    "dimensions": {
+      "diameter": 3.6,
+      "height": 24,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "R-501",
+    "name": "Diesel Hydrotreater Reactor",
+    "position": {
+      "x": 72,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "hydrotreating",
+    "status": "online",
+    "synthetic": true,
+    "tag": "R-501",
+    "type": "reactor",
+    "unit_id": "unit_hds"
+  },
+  {
+    "area_id": "area_200",
     "asset_id": "asset_t201",
     "dimensions": {
       "diameter": 6,
@@ -808,6 +898,36 @@
     "tag": "V-203",
     "type": "vessel",
     "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_v501",
+    "dimensions": {
+      "diameter": 2.6,
+      "height": 5,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "V-501",
+    "name": "Cold Separator",
+    "position": {
+      "x": 108,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "separation",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-501",
+    "type": "horizontal_drum",
+    "unit_id": "unit_hds"
   },
   {
     "area_id": "area_400",

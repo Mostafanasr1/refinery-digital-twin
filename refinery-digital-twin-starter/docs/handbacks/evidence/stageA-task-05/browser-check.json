@@ -1,0 +1,27 @@
+{
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "errors": [],
+  "failed": [],
+  "selections": [
+    {
+      "tag": "R-501",
+      "card": "X\nEQUIPMENT / reactor\nR-501\n\nDiesel Hydrotreater Reactor\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nhydrotreating\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n96 percent\nInlet Temperature\n345 degC\nPressure\n62 barg\nModel binding\nR-501"
+    },
+    {
+      "tag": "EA-501",
+      "card": "X\nEQUIPMENT / air cooler\nEA-501\n\nReactor Effluent Air Cooler\n\nONLINE\nUnit\nDiesel hydrotreater\nService\neffluent cooling\nSYNTHETIC OPERATING SNAPSHOT\nOutlet Temperature\n55 degC\nModel binding\nEA-501"
+    },
+    {
+      "tag": "C-501",
+      "card": "X\nEQUIPMENT / compressor\nC-501\n\nRecycle Gas Compressor\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nrecycle gas\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n93 percent\nPower\n4.2 MW\nModel binding\nC-501"
+    },
+    {
+      "tag": "V-501",
+      "card": "X\nEQUIPMENT / horizontal drum\nV-501\n\nCold Separator\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nseparation\nSYNTHETIC OPERATING SNAPSHOT\nPressure\n58 barg\nModel binding\nV-501"
+    }
+  ]
+}
