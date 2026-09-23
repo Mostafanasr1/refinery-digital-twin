@@ -59,3 +59,7 @@ No budget is final until the combined review.
 ## Deployment status at hand-back
 
 The dual-look build and combined artifact succeeded, but GitHub rejected deployment because the github-pages environment permits only main. The allowlist remains unchanged; adding dual-look awaits explicit approval after automatic approval review rejected that security-setting mutation. The live main page and main ref are unchanged. `/next/` is not yet published. See the Task 0 hand-back for the run and evidence.
+
+## Deployment resolution and approved budgets
+
+The user added dual-look to the existing github-pages allowlist. The failed deployment was rerun successfully. `/next/` serves 57 assets and main root serves 43, with identical root HTML and unchanged main commit. Task 0's prior blocker is resolved; Stage A Task 08 and Stage B Task 0 are approved. See `docs/APPROVED_BUDGETS.md` for the final limits applying from Task 2.

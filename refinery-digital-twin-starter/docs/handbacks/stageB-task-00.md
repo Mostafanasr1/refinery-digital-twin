@@ -1,5 +1,13 @@
 # Stage B Task 00 — Baseline and hygiene
 
+## Approval and deployment resolution
+
+Mostafa approved Stage A Task 08 and Stage B Task 0 pending `/next/`, then added `dual-look` to the GitHub Pages environment allowlist. Rerunning the failed deploy in run 35861506203 succeeded. HTTP verification confirms `/next/` serves the 57-asset branch build (`index-CtNyou2R.js`), while the root serves main's 43 assets and identical saved HTML (`index-36ejCEUz.js`). Main remains `6b4ee831512b0356e6904244f0477b37551c5b7f`. See `evidence/stageB-task-00/deployment-verified.json`.
+
+**Task 0 is now approved and complete; its deployment blocker is resolved.** The following original submission and blocker evidence is retained as history. The budget proposals below are superseded by Mostafa's final ruling in `docs/APPROVED_BUDGETS.md`: engineering 150 draw calls / 60 FPS / 20 ms p95; photoreal 200 calls / 40 FPS / 33 ms p95; initial baseline plus 1 MB; lazy assets 40 MB; 500-asset engineering stress at least 40 FPS. These limits apply from Task 2. Task 1 may now start and must stop at its gate.
+
+## Original submission and blocker history
+
 ## Summary
 
 Stage A closes at `fb2de98` with 57 assets, six units and 22 equipment types. This task starts `dual-look` from that completed plant and records its canonical truth before visual work. It adds repeatable cameras, screenshots, regression comparisons and active-workload measurements, without changing the normal appearance. The existing separate photoreal study and Geometry modes are recorded for consolidation in Task 1. Budgets below are proposals only; Stage B Task 1 waits for the combined external review of this task and Stage A Task 08.
