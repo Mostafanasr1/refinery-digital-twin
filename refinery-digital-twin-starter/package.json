@@ -17,6 +17,7 @@
     "prebuild": "npm run normalize",
     "build:preview": "node scripts/python.mjs -m scripts.build_preview",
     "build:models": "node scripts/python.mjs -m scripts.build_models",
+    "check:generators": "node scripts/python.mjs -m scripts.check_generators",
     "start": "node scripts/serve.mjs",
     "test:production": "node --test tests/production.test.mjs"
   },
