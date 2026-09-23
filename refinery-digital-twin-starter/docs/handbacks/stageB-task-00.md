@@ -437,25 +437,15 @@ The two study images document the existing separate experience. There is no whol
 
 | Capture | Differing pixels | Result |
 |---|---:|---|
-
 | CAM-1-default.png | 0.0000% | PASS |
-
 | CAM-1-selected.png | 0.0000% | PASS |
-
 | CAM-2-default.png | 0.0000% | PASS |
-
 | CAM-2-selected.png | 0.0000% | PASS |
-
 | CAM-3-default.png | 0.0000% | PASS |
-
 | CAM-3-selected.png | 0.0000% | PASS |
-
 | CAM-4-default.png | 0.0000% | PASS |
-
 | CAM-4-selected.png | 0.0000% | PASS |
-
 | CAM-5-default.png | 0.0000% | PASS |
-
 | CAM-5-selected.png | 0.0000% | PASS |
 
 
@@ -486,7 +476,7 @@ GitHub Pages deployment environment allows only main. Explicit approval is neede
 
 ## Internal reviews and deployment
 
-Spec implementation review: PASS (baseline_spec_review). Code-quality review: PASS (baseline_quality_review). Both agree on implementation quality; final Task 0 acceptance is blocked by deployment.
+Spec implementation review: PASS (baseline_spec_review). Code-quality review: PASS (baseline_quality_review). Both agree on implementation quality. The final spec audit also passed local evidence and confirmed that full Task 0 acceptance is blocked solely by deployment.
 
 The [branch run](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/35861506203) built and assembled the main-root plus `/next/` artifact successfully. GitHub rejected the deploy job because `github-pages` permits only `main`. The persistent allowlist has not changed. An attempt to authorize adding only `dual-look` was rejected by automatic approval review: preview-publication authorization did not explicitly authorize changing a persistent environment security boundary that can affect the public site. Explicit user approval for that one setting change is pending; no alternate environment or bypass was attempted.
 
