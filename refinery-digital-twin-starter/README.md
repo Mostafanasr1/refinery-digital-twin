@@ -42,3 +42,6 @@ Process tracing, layers, scenarios and Blender generation are implemented. See [
 
 ## Phase 8
 The plant layout and presentation have been refined. See [PHASE_8.md](PHASE_8.md) for changes and measured verification.
+
+## Phase 9
+Stage A expands the equipment catalog to 22 types and the synthetic plant to 57 assets across six units. See [PHASE_9.md](PHASE_9.md) for the generator workflow, validation, evidence and pending combined A08/B0 review.
