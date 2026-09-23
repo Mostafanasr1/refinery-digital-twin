@@ -21,6 +21,8 @@ let glbRequests = 0;
 run.page.on('request', request => { if (new URL(request.url()).pathname.endsWith('/models/refinery.glb')) glbRequests++; });
 try {
   const hardware = await openLook(run);
+  await switchLook(run.page, 'photoreal');
+  await switchLook(run.page, 'engineering'); // warm the intentionally retained lazy environment before resource stability comparisons
   for (const geometry of ['proxy', 'blender']) {
     await run.page.getByRole('combobox', { name: 'Geometry', exact: true }).selectOption(geometry);
     await run.page.waitForTimeout(500);

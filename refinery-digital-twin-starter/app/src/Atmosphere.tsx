@@ -92,13 +92,15 @@ export function Site({ assets }: { assets: Asset[] }) {
   useEffect(() => {
     object.children.forEach(child => {
       const mesh = child as THREE.InstancedMesh, material = mesh.material as THREE.MeshStandardMaterial;
+      mesh.visible = look.id !== 'photoreal' || !['base', 'surface', 'road', 'marking', 'edge'].includes(mesh.name);
+      mesh.castShadow = look.id === 'photoreal' && mesh.name === 'pole';
       const key = mesh.name as 'base' | 'surface' | 'road' | 'marking' | 'edge' | 'pole' | 'lamp' | 'foundation';
       const color = site[key]; if (Array.isArray(color)) material.color.setRGB(...color); else material.color.set(color); material.toneMapped = key !== 'edge' && key !== 'lamp';
       if (key === 'base') material.roughness = site.baseRoughness;
       if (key === 'surface') { material.roughness = site.surfaceRoughness; material.metalness = site.surfaceMetalness; }
       if (key === 'foundation') material.roughness = site.foundationRoughness;
     });
-  }, [object, site]);
+  }, [object, site, look.id]);
   useEffect(() => () => { object.children.forEach(child => { const mesh = child as THREE.InstancedMesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); mesh.dispose(); }); }, [object]);
   return <primitive object={object} />;
 }

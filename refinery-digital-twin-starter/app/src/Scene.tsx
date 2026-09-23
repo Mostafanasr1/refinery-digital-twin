@@ -1,3 +1,4 @@
+import { PhotorealEnvironment } from './PhotorealEnvironment';
 import { BudgetProfiler } from './BudgetProfiler';
 import { LookSnapshot } from './looks/LookSnapshot';
 import { useLook } from './looks/LookProvider';
@@ -148,7 +149,7 @@ function Pipes({ data, registry, trace, running, scenarioState }: { data: Normal
   useEffect(() => () => { lines.forEach(line => line.parts.forEach(part => part.dispose())); }, [lines]);
   useEffect(() => () => { geometries.forEach(geometry => geometry?.dispose()); }, [geometries]);
   return <group name="pipes">
-    {geometries.map((geometry, index) => geometry ? <mesh key={index} geometry={geometry} userData={{ category: 'pipes' }}><meshStandardMaterial color={index ? effects.pipeActive : look.materials.pipe.color} metalness={look.materials.pipe.metalness} roughness={look.materials.pipe.roughness} /></mesh> : null)}
+    {geometries.map((geometry, index) => geometry ? <mesh key={index} geometry={geometry} castShadow={look.id === 'photoreal'} receiveShadow={look.id === 'photoreal'} userData={{ category: 'pipes' }}><meshStandardMaterial color={index ? effects.pipeActive : look.materials.pipe.color} metalness={look.materials.pipe.metalness} roughness={look.materials.pipe.roughness} /></mesh> : null)}
     {lines.filter(line => trace.path?.connection_ids.includes(line.connection.connection_id)).map(line => <FlowOverlay key={line.connection.connection_id} from={line.from} to={line.to} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} name={line.connection.connection_id} />)}
   </group>;
 }
@@ -156,6 +157,16 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
   const { look } = useLook();
   const light = look.lighting;
   const sourceAssets = useMemo(() => [...registry.assets.values()], [registry]);
+  const sunTarget = useMemo(() => {
+    const target = new THREE.Object3D();
+    if (look.id === 'photoreal') {
+      const xs = sourceAssets.map(asset => asset.position.x), zs = sourceAssets.map(asset => -asset.position.y);
+      target.position.set((Math.min(...xs) + Math.max(...xs)) / 2, 0, (Math.min(...zs) + Math.max(...zs)) / 2);
+      target.updateMatrixWorld(true);
+    }
+    return target;
+  }, [look.id, sourceAssets]);
+  const sunPosition = new THREE.Vector3(...light.sun.position).add(sunTarget.position);
   const effectiveAssets = useMemo(() => new Map(data.assets.map(asset => [asset.asset_id, asset])), [data.assets]);
   const style = (source: Asset): AssetStyle => {
     const asset = effectiveAssets.get(source.asset_id) ?? source;
@@ -164,12 +175,12 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
   return <Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
     <color attach="background" args={[look.environment.background]} />
     <ambientLight intensity={light.ambient} /><hemisphereLight args={light.hemisphere} />
-    <directionalLight castShadow={light.shadows} position={light.sun.position} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
+    <directionalLight castShadow={light.shadows} position={sunPosition} target={sunTarget} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
     <directionalLight position={light.fill.position} color={light.fill.color} intensity={light.fill.intensity} />
     <Atmosphere /><BudgetProfiler />
     <Controls selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
-    <Site assets={sourceAssets} />
+    <Site assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
     <Pipes data={data} registry={registry} trace={trace} running={running} scenarioState={scenarioState} />
     {data.assets.filter(asset => asset.asset_id === selected || asset.asset_id === trace.assetId || asset.status === 'trip').map(asset => <PlantLabel key={asset.asset_id} asset={asset} alert={asset.status === 'trip'} />)}
     <Suspense fallback={null}><VisualRuntime look={look.id} /><LookSnapshot registry={registry} />{geometry === 'blender' ? <BlenderPlant assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /> : data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} {...style(asset)} onHover={onHover} onSelect={onSelect} />)}</Suspense>

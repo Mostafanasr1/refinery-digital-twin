@@ -11,3 +11,19 @@ Sizes below are committed file bytes at Stage A close. Procedural runtime materi
 | Preheat Cycles still | [Generator source](https://github.com/Mostafanasr1/refinery-digital-twin/blob/codex/stage-a/refinery-digital-twin-starter/blender/scripts/build_preview.py) | Original project-generated render; no third-party asset | `reference/photoreal-study/render.png` | 2,032,838 | Archived Cycles study (Task 4 reference) |
 
 The Three.js RoomEnvironment is code from the installed MIT-licensed Three.js dependency, not an imported HDRI. Software dependencies retain their own licenses and are not represented as CC0 art.
+
+## Stage B Task 3 environment
+
+External sources below are CC0-1.0, verified on their official asset pages and https://polyhaven.com/license before download. Source URLs, MD5 and output SHA256 are pinned in `data/normalized/assets/env/sources.json`.
+
+| Asset | Source / license | Local file | Bytes |
+|---|---|---|---:|
+| sky.hdr | https://polyhaven.com/a/kloofendal_43d_clear_puresky / CC0-1.0 | `data/normalized/assets/env/sky.hdr` | 4624289 |
+| sand-color.webp | https://polyhaven.com/a/sand_01 / CC0-1.0 | `data/normalized/assets/env/sand-color.webp` | 1170648 |
+| sand-normal.webp | https://polyhaven.com/a/sand_01 / CC0-1.0 | `data/normalized/assets/env/sand-normal.webp` | 1928894 |
+| sand-rough.webp | https://polyhaven.com/a/sand_01 / CC0-1.0 | `data/normalized/assets/env/sand-rough.webp` | 278954 |
+| Site context: pad, marked roads, fence, three cabins | Original project procedural geometry from `blender/scripts/build_site_context.py`; no third-party art | `data/normalized/assets/env/context.glb` | 1,800,372 |
+
+Terrain and mountain ring are original procedural runtime geometry. User-supplied PetroMind screenshots under `docs/reference/` are review references, not shipped assets and not represented as CC0.
+
+Rebuild textures with `node scripts/python.mjs scripts/build_environment.py` after installing declared development dependencies. Pillow 12.3.0 uses lossless WebP, method 6; source pixels are not quantized. KTX2 is deferred because these three texture files total 3,378,496 bytes and the environment fits the approved 40 MB transfer budget. WebP does not reduce GPU texture memory; all three maps are 1K. The 2K RGBE HDR retains its full lighting range. Rebuild context with `node scripts/python.mjs scripts/build_context.py`.

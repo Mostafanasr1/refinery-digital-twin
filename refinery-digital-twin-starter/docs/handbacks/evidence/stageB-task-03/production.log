@@ -1,0 +1,20 @@
+
+> refinery-digital-twin@0.0.0 test:production
+> node --test tests/production.test.mjs
+
+TAP version 13
+# Subtest: production server serves the complete build with correct types and real missing-file errors
+ok 1 - production server serves the complete build with correct types and real missing-file errors
+  ---
+  duration_ms: 831.3327
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1200.0456

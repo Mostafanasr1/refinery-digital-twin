@@ -64,7 +64,7 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   </main>;
 }
 function App() {
-  const { look, choose, switching } = useLook();
+  const { look, choose, switching, environmentLoading } = useLook();
   const [data, setData] = useState<NormalizedData | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -72,6 +72,6 @@ function App() {
     loader.load(controller.signal).then(value => { if (!controller.signal.aborted) setData(value); }).catch((e: unknown) => { if (!controller.signal.aborted) setError(String(e)); });
     return () => controller.abort();
   }, []);
-  return data ? <><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-current={look.id === id ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}</a>)}</nav><Explorer data={data} /></> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
+  return data ? <><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-label={id === 'engineering' ? 'Engineering' : 'Photoreal'} aria-busy={id === 'photoreal' && environmentLoading} aria-current={look.id === id ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}{id === 'photoreal' && environmentLoading ? <span aria-hidden="true" style={{ marginLeft: 6, fontSize: 10 }}>Loading...</span> : null}</a>)}</nav><Explorer data={data} /></> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
 }
 createRoot(document.getElementById('root')!).render(<StrictMode><LookProvider><App /></LookProvider></StrictMode>);
