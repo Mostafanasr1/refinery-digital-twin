@@ -1,0 +1,982 @@
+{
+  "blender": "5.2.1 LTS",
+  "tolerance": 1e-05,
+  "cases": 106,
+  "failures": [
+    {
+      "case": "catalog:CHK-column/detail-1",
+      "parts_before": 169,
+      "parts_after": 169,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-column_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-vessel/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-vessel_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-vessel/detail-1",
+      "parts_before": 72,
+      "parts_after": 72,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-vessel_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-flare/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-flare_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-flare/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-flare_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-201/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-201_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-201/detail-1",
+      "parts_before": 169,
+      "parts_after": 169,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-201_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-202/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-202_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-202/detail-1",
+      "parts_before": 62,
+      "parts_after": 62,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-202_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-203/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-203_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-203/detail-1",
+      "parts_before": 72,
+      "parts_after": 72,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-203_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:FL-401/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 FL-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:FL-401/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 FL-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-401/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-401/detail-1",
+      "parts_before": 67,
+      "parts_after": 67,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-402/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-402_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-402/detail-1",
+      "parts_before": 69,
+      "parts_after": 69,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-402_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-302/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-302_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-302/detail-1",
+      "parts_before": 119,
+      "parts_after": 119,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-302_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-301/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-301_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-301/detail-1",
+      "parts_before": 79,
+      "parts_after": 79,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-301_head: polygons differs"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "case": "catalog:CHK-storage_tank/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-storage_tank/detail-1",
+      "parts_before": 158,
+      "parts_after": 158,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-pump/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-pump/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-heat_exchanger/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-heat_exchanger/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-fired_heater/detail-0",
+      "parts_before": 16,
+      "parts_after": 16,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-fired_heater/detail-1",
+      "parts_before": 16,
+      "parts_after": 16,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-column/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-column/detail-1",
+      "parts_before": 169,
+      "parts_after": 169,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-column_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-vessel/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-vessel_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-vessel/detail-1",
+      "parts_before": 72,
+      "parts_after": 72,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-vessel_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-flare/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-flare_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-flare/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 CHK-flare_head: polygons differs"
+      ]
+    },
+    {
+      "case": "catalog:CHK-pipe_rack/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-pipe_rack/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-building/detail-0",
+      "parts_before": 2,
+      "parts_after": 2,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-building/detail-1",
+      "parts_before": 9,
+      "parts_after": 9,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-cooling_tower/detail-0",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "catalog:CHK-cooling_tower/detail-1",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-101A/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-101A/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-101B/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-101B/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-101/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-101/detail-1",
+      "parts_before": 158,
+      "parts_after": 158,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-102/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-102/detail-1",
+      "parts_before": 158,
+      "parts_after": 158,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-201/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-201/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-202/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-202/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-203/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-203/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-204/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-204/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-205/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-205/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-206/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-206/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-207/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:E-207/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:F-201/detail-0",
+      "parts_before": 16,
+      "parts_after": 16,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:F-201/detail-1",
+      "parts_before": 16,
+      "parts_after": 16,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-201/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-201/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-202/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-202/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-203/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-203/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-204/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-204/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-001/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-001/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-002/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-002/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-003/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-003/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-004/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-004/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-005/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-005/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-006/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-006/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-007/detail-0",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:PR-007/detail-1",
+      "parts_before": 24,
+      "parts_after": 24,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:T-201/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-201_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-201/detail-1",
+      "parts_before": 169,
+      "parts_after": 169,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-201_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-202/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-202_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-202/detail-1",
+      "parts_before": 62,
+      "parts_after": 62,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-202_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-203/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-203_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-203/detail-1",
+      "parts_before": 72,
+      "parts_after": 72,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-203_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:B-401/detail-0",
+      "parts_before": 2,
+      "parts_after": 2,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:B-401/detail-1",
+      "parts_before": 9,
+      "parts_after": 9,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:B-402/detail-0",
+      "parts_before": 2,
+      "parts_after": 2,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:B-402/detail-1",
+      "parts_before": 9,
+      "parts_after": 9,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-401/detail-0",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-401/detail-1",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-402/detail-0",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-402/detail-1",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-403/detail-0",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:CT-403/detail-1",
+      "parts_before": 26,
+      "parts_after": 26,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:FL-401/detail-0",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 FL-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:FL-401/detail-1",
+      "parts_before": 7,
+      "parts_after": 7,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 FL-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:P-401/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-401/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:V-401/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-401/detail-1",
+      "parts_before": 67,
+      "parts_after": 67,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-401_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-402/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-402_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-402/detail-1",
+      "parts_before": 69,
+      "parts_after": 69,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-402_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:P-301/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-301/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-302/detail-0",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:P-302/detail-1",
+      "parts_before": 5,
+      "parts_after": 5,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:T-302/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-302_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:T-302/detail-1",
+      "parts_before": 119,
+      "parts_after": 119,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 T-302_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:TK-301/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-301/detail-1",
+      "parts_before": 144,
+      "parts_after": 144,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-302/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-302/detail-1",
+      "parts_before": 131,
+      "parts_after": 131,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-303/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-303/detail-1",
+      "parts_before": 131,
+      "parts_after": 131,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-304/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:TK-304/detail-1",
+      "parts_before": 117,
+      "parts_after": 117,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": []
+    },
+    {
+      "case": "plant:V-301/detail-0",
+      "parts_before": 3,
+      "parts_after": 3,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-301_head: polygons differs"
+      ]
+    },
+    {
+      "case": "plant:V-301/detail-1",
+      "parts_before": 79,
+      "parts_after": 79,
+      "max_coordinate_or_transform_delta": 0.0,
+      "issues": [
+        "part 2 V-301_head: polygons differs"
+      ]
+    }
+  ]
+}
