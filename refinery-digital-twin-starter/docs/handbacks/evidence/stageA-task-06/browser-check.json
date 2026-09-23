@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "errors": [],
+  "failed": [],
+  "selections": [
+    {
+      "tag": "F-501",
+      "card": "X\nEQUIPMENT / cylindrical heater\nF-501\n\nReactor Charge Heater\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nfeed heating\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n94 percent\nOutlet Temperature\n348 degC\nPower\n18.5 MW\nModel binding\nF-501"
+    },
+    {
+      "tag": "STK-401",
+      "card": "X\nEQUIPMENT / stack\nSTK-401\n\nUtility Boiler Stack\n\nONLINE\nUnit\nUtilities\nService\nflue gas\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nSTK-401"
+    }
+  ]
+}

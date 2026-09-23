@@ -595,7 +595,50 @@ def build_compressor(k):
         k.cyl('lube_skid', (-length / 4, -width / 2 - 0.2, 1.2), 0.5, 1.0, k.steel)
 
 
+def build_cylindrical_heater(k):
+    h, r = k.h, k.r
+    legs, radiant = 2.2, h * 0.62
+    k.cyl('base', (0, 0, 0.3), r + 0.6, 0.6, k.concrete)
+    for i in range(8):
+        angle = math.tau * i / 8
+        k.cyl(f'leg_{i}', (r * 0.85 * math.cos(angle), r * 0.85 * math.sin(angle), legs / 2), 0.2, legs, k.steel)
+    k.cyl('floor', (0, 0, legs + 0.2), r, 0.4, k.steel)
+    k.cyl('radiant', (0, 0, legs + 0.4 + radiant / 2), r, radiant)
+    k.cone('transition', (0, 0, legs + 0.4 + radiant + h * 0.08), r, r * 0.6, h * 0.16)
+    convection = h - (legs + 0.4 + radiant + h * 0.16)
+    k.box('convection', (0, 0, h - convection / 2), (r * 1.3, r * 1.3, max(convection, 1.0)), k.steel)
+    k.cyl('stack', (0, 0, h + h * 0.2), r * 0.3, h * 0.4, k.steel)
+    if k.detail:
+        for i in range(6):
+            angle = math.tau * i / 6
+            k.cyl(f'burner_{i}', (r * 0.55 * math.cos(angle), r * 0.55 * math.sin(angle), legs - 0.5), 0.22, 1.0, k.rail)
+        k.platform('platform_1', legs + 0.4 + radiant * 0.5, r + 0.8)
+        k.platform('platform_2', legs + 0.4 + radiant, r + 0.8)
+        ladder(k, r + 0.8, h)
+        k.platform('stack_platform', h + h * 0.35, r * 0.3 + 0.7)
+        k.route('crossover', [(r, 0, legs + 0.4 + radiant), (r + 1.2, 0, legs + 0.4 + radiant),
+                              (r + 1.2, 0, legs + 1.0), (r, 0, legs + 1.0)], 0.2)
+
+
+def build_stack(k):
+    h, r = k.h, k.r
+    k.cyl('foundation', (0, 0, 0.4), r + 1.5, 0.8, k.concrete)
+    k.cone('shell', (0, 0, 0.8 + (h - 0.8) / 2), r, r * 0.7, h - 0.8, k.steel, vertices=40)
+    k.cyl('base_ring', (0, 0, 1.3), r + 0.3, 1.0, k.steel)
+    if k.detail:
+        for i, level in enumerate((0.5, 0.92)):
+            k.platform(f'platform_{i}', h * level, r * (1 - 0.3 * level) + 0.8)
+        ladder(k, r * 0.85 + 0.8, h * 0.92)
+        for i in range(4):
+            angle = math.tau * i / 4
+            k.box(f'aviation_light_{i}', ((r * 0.7 + 0.3) * math.cos(angle), (r * 0.7 + 0.3) * math.sin(angle), h + 0.3),
+                  (0.3, 0.3, 0.3), k.rail)
+        k.route('flue_inlet', [(r + 4, 0, 3.0), (r * 0.95, 0, 3.0)], r * 0.55, k.steel)
+
+
 BUILDERS = {
+    'cylindrical_heater': build_cylindrical_heater,
+    'stack': build_stack,
     'reactor': build_reactor,
     'horizontal_drum': build_horizontal_drum,
     'air_cooler': build_air_cooler,

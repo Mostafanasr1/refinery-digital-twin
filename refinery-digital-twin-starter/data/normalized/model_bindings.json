@@ -85,6 +85,11 @@
     "node_name": "F-201"
   },
   {
+    "asset_id": "asset_f501",
+    "model_ref": "F-501",
+    "node_name": "F-501"
+  },
+  {
     "asset_id": "asset_fl401",
     "model_ref": "FL-401",
     "node_name": "FL-401"
@@ -183,6 +188,11 @@
     "asset_id": "asset_sp502",
     "model_ref": "SP-502",
     "node_name": "SP-502"
+  },
+  {
+    "asset_id": "asset_stk401",
+    "model_ref": "STK-401",
+    "node_name": "STK-401"
   },
   {
     "asset_id": "asset_t201",

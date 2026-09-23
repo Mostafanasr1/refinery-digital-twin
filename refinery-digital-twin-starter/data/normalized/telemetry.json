@@ -150,6 +150,36 @@
     "value": 28.1
   },
   {
+    "asset_id": "asset_f501",
+    "parameter": "health",
+    "point_id": "tp_asset_f501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 94
+  },
+  {
+    "asset_id": "asset_f501",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_f501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 348
+  },
+  {
+    "asset_id": "asset_f501",
+    "parameter": "power",
+    "point_id": "tp_asset_f501_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 18.5
+  },
+  {
     "asset_id": "asset_fl401",
     "parameter": "health",
     "point_id": "tp_asset_fl401_health",

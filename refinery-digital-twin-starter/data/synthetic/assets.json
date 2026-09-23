@@ -1351,5 +1351,19 @@
     "service": "separation", "status": "online", "model_ref": "V-501",
     "position": {"x": 108, "y": 62, "z": 0}, "rotation": {"x": 0, "y": 0, "z": 0},
     "dimensions": {"height": 5, "length": 8, "width": 4, "diameter": 2.6}, "interactive": true, "synthetic": true
+  },
+  {
+    "asset_id": "asset_f501", "tag": "F-501", "name": "Reactor Charge Heater",
+    "type": "cylindrical_heater", "facility_id": "demo_refinery", "area_id": "area_200", "unit_id": "unit_hds",
+    "service": "feed_heating", "status": "online", "model_ref": "F-501",
+    "position": {"x": 44, "y": 62, "z": 0}, "rotation": {"x": 0, "y": 0, "z": 0},
+    "dimensions": {"height": 20, "length": 8, "width": 4, "diameter": 6}, "interactive": true, "synthetic": true
+  },
+  {
+    "asset_id": "asset_stk401", "tag": "STK-401", "name": "Utility Boiler Stack",
+    "type": "stack", "facility_id": "demo_refinery", "area_id": "area_400", "unit_id": "unit_utilities",
+    "service": "flue_gas", "status": "online", "model_ref": "STK-401",
+    "position": {"x": 136, "y": 83, "z": 0}, "rotation": {"x": 0, "y": 0, "z": 0},
+    "dimensions": {"height": 45, "length": 8, "width": 4, "diameter": 2.5}, "interactive": true, "synthetic": true
   }
 ]

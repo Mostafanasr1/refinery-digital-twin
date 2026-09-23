@@ -74,7 +74,9 @@
         "reactor",
         "horizontal_drum",
         "air_cooler",
-        "compressor"
+        "compressor",
+        "cylindrical_heater",
+        "stack"
       ]
     },
     "position": {

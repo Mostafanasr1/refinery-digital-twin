@@ -1,0 +1,25 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+collected 2 items
+
+tests\test_catalog.py F.                                                 [100%]
+
+================================== FAILURES ===================================
+______________________ test_catalog_matches_asset_schema ______________________
+
+    def test_catalog_matches_asset_schema():
+        schema = json.loads((ROOT / "schemas" / "asset.schema.json").read_text(encoding="utf-8"))
+>       assert set(SILHOUETTES) == set(schema["properties"]["type"]["enum"])
+E       AssertionError: assert {'air_cooler'...g_tower', ...} == {'air_cooler'...g_tower', ...}
+E         
+E         Extra items in the left set:
+E         'cylindrical_heater'
+E         'stack'
+E         Use -v to get more diff
+
+tests\test_catalog.py:9: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_catalog.py::test_catalog_matches_asset_schema - AssertionEr...
+========================= 1 failed, 1 passed in 0.29s =========================

@@ -1,0 +1,62 @@
+
+> @refinery/app@0.0.0 test
+> vitest run src/data/silhouettes.test.ts
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+ ❯ src/data/silhouettes.test.ts (1 test | 1 failed) 12ms
+   × every canonical asset type has a proxy family and nothing else does 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/data/silhouettes.test.ts > every canonical asset type has a proxy family and nothing else does
+AssertionError: expected [ 'air_cooler', 'building', …(15) ] to deeply equal [ 'air_cooler', 'building', …(17) ]
+
+- Expected
++ Received
+
+@@ -3,19 +3,17 @@
+    "building",
+    "bullet_tank",
+    "column",
+    "compressor",
+    "cooling_tower",
+-   "cylindrical_heater",
+    "fired_heater",
+    "flare",
+    "floating_roof_tank",
+    "heat_exchanger",
+    "horizontal_drum",
+    "pipe_rack",
+    "pump",
+    "reactor",
+    "sphere_tank",
+-   "stack",
+    "storage_tank",
+    "vessel",
+  ]
+
+ ❯ src/data/silhouettes.test.ts:7:43
+      5| it('every canonical asset type has a proxy family and nothing else doe…
+      6|   const types = schema.properties.type.enum as string[];
+      7|   expect(Object.keys(proxyFamily).sort()).toEqual([...types].sort());
+       |                                           ^
+      8|   for (const type of selfFoundation) expect(types).toContain(type);
+      9| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  07:15:20
+   Duration  456ms (transform 58ms, setup 0ms, import 96ms, tests 12ms, environment 0ms)
+
+npm error Lifecycle script `test` failed with error:
+npm error code 1
+npm error path C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\app
+npm error workspace @refinery/app@0.0.0
+npm error location C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\app
+npm error command failed
+npm error command C:\WINDOWS\system32\cmd.exe /d /s /c vitest run src/data/silhouettes.test.ts

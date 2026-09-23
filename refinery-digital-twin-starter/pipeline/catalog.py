@@ -69,4 +69,12 @@ SILHOUETTES = {
         "description": "Motor-driven centrifugal compressor on a concrete base under an open shelter",
         "sample": {"height": 6, "diameter": 3, "length": 9, "width": 4},
     },
+    "cylindrical_heater": {
+        "description": "Vertical cylindrical fired heater on legs: radiant section, conical transition, convection box, stack",
+        "sample": {"height": 20, "diameter": 6, "length": 8, "width": 4},
+    },
+    "stack": {
+        "description": "Free-standing tapered steel stack with base ring, two platforms and aviation lights",
+        "sample": {"height": 45, "diameter": 2.5, "length": 8, "width": 4},
+    },
 }

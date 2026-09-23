@@ -1,0 +1,13 @@
+
+> @refinery/app@0.0.0 test
+> vitest run src/data/silhouettes.test.ts
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  07:15:47
+   Duration  446ms (transform 62ms, setup 0ms, import 96ms, tests 7ms, environment 0ms)
+
