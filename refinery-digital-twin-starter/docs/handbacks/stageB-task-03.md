@@ -52,7 +52,7 @@ The earlier rerun was rejected because an external monitor was active. After ask
 
 ### Evidence logs and final review
 
-Correction output and approved-rerun logs are appended below. Final internal spec review: PASS; final internal code-quality review: PASS. Both independently inspected the rerun evidence and confirmed that the measurement blocker is resolved. Quality review reproduced the reported FPS and p95 values from raw samples. The spec review's administrative request to replace the stale opening status is addressed by this closure section; the old submission is explicitly retained as history. Both reviews agree. The correction commit is identified in the follow-up closure record.
+Correction output and approved-rerun logs are appended below. Final internal spec review: PASS; final internal code-quality review: PASS. Both independently inspected the rerun evidence and confirmed that the measurement blocker is resolved. Quality review reproduced the reported FPS and p95 values from raw samples. The spec review's administrative request to replace the stale opening status is addressed by this closure section; the old submission is explicitly retained as history. Both reviews agree. Correction and evidence commit: `c4b1871`. This commit identification is recorded separately. Task 3 is complete under the user's conditional continuation ruling.
 
 ---
 
