@@ -140,12 +140,30 @@ function contextGroup(source: THREE.Group) {
   return group;
 }
 function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: boolean }) {
+  const { look } = useLook();
+  const night = look.id === 'photoreal-night';
   const config = looks.photoreal.environment.desert!;
   const { gl, scene, camera, invalidate } = useThree();
   const hdr = useLoader(RGBELoader, `${import.meta.env.BASE_URL}${config.assets.sky}`);
   const textures = useLoader(THREE.TextureLoader, [config.assets.color, config.assets.normal, config.assets.roughness].map(path => `${import.meta.env.BASE_URL}${path}`));
   const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}${config.assets.context}`, loader => loader.setMeshoptDecoder(MeshoptDecoder));
   const environmentTarget = useRef<THREE.WebGLRenderTarget | null>(null);
+  const dusk = useMemo(() => {
+    const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 512;
+    const ctx = canvas.getContext('2d')!;
+    const gradient = ctx.createLinearGradient(0, 0, 0, 512);
+    for (const [stop, color] of [[0, '#08142b'], [.36, '#25364c'], [.48, '#986853'], [.51, '#d59260'], [.56, '#303442'], [1, '#111b2b']] as const) gradient.addColorStop(stop, color);
+    ctx.fillStyle = gradient; ctx.fillRect(0, 0, 1024, 512);
+    // Deterministic original cloud bands; this is presentation art, not plant data.
+    for (let i = 0; i < 70; i++) {
+      const x = (i * 233) % 1024, y = 170 + (i * 31) % 76;
+      ctx.fillStyle = `rgba(25,30,46,${.08 + (i % 4) * .025})`;
+      ctx.beginPath(); ctx.ellipse(x, y, 70 + i % 50, 2 + i % 5, -.02, 0, Math.PI * 2); ctx.fill();
+    }
+    const texture = new THREE.CanvasTexture(canvas); texture.mapping = THREE.EquirectangularReflectionMapping; texture.colorSpace = THREE.SRGBColorSpace;
+    return texture;
+  }, []);
+  useEffect(() => () => dusk.dispose(), [dusk]);
   useEffect(() => {
     hdr.mapping = THREE.EquirectangularReflectionMapping;
     const generator = new THREE.PMREMGenerator(gl), target = generator.fromEquirectangular(hdr); generator.dispose();
@@ -198,18 +216,18 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
   useEffect(() => {
     if (!enabled) return;
     const previousFar = camera.far;
-    scene.environment = environmentTarget.current!.texture; scene.environmentIntensity = config.intensity;
-    scene.background = hdr; scene.backgroundIntensity = config.backgroundIntensity;
+    scene.environment = environmentTarget.current!.texture; scene.environmentIntensity = night ? .16 : config.intensity;
+    scene.background = night ? dusk : hdr; scene.backgroundIntensity = night ? .8 : config.backgroundIntensity;
     scene.environmentRotation.set(0, config.rotation, 0); scene.backgroundRotation.set(0, config.rotation, 0);
-    scene.fog = new THREE.Fog(config.fog.color, config.fog.near, config.fog.far);
+    scene.fog = new THREE.Fog(night ? '#45434b' : config.fog.color, config.fog.near, config.fog.far);
     camera.far = Math.max(previousFar, 6000); camera.updateProjectionMatrix(); gl.domElement.dataset.environmentReady = 'true'; invalidate();
     return () => {
       if (scene.environment === environmentTarget.current?.texture) scene.environment = null;
-      if (scene.background === hdr) scene.background = new THREE.Color(looks.engineering.environment.background);
+      if (scene.background === hdr || scene.background === dusk) scene.background = new THREE.Color(looks.engineering.environment.background);
       scene.environmentRotation.set(0, 0, 0); scene.backgroundRotation.set(0, 0, 0); scene.backgroundIntensity = 1;
       scene.fog = null; camera.far = previousFar; camera.updateProjectionMatrix(); invalidate();
     };
-  }, [camera, config, enabled, gl, hdr, invalidate, resources, scene]);
+  }, [camera, config, enabled, gl, hdr, dusk, night, invalidate, resources, scene]);
   useEffect(() => () => { resources.terrain.dispose(); resources.mountains.dispose(); resources.mountainMaterial.dispose(); resources.material.dispose(); resources.context.children.forEach(node => (node as THREE.Mesh).geometry.dispose()); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
   return <group visible={enabled} name="photoreal-environment" dispose={null}>
     <mesh geometry={resources.terrain} material={resources.material} receiveShadow userData={{ category: 'ground' }} />
@@ -220,7 +238,7 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
 }
 export function PhotorealEnvironment({ assets }: { assets: Asset[] }) {
   const { look } = useLook();
-  const enabled = look.id === 'photoreal';
+  const enabled = look.id !== 'engineering';
   const [visited, setVisited] = useState(enabled);
   useEffect(() => { if (enabled) setVisited(true); }, [enabled]);
   return visited ? <Suspense fallback={<LoadingEnvironment />}><LoadedEnvironment assets={assets} enabled={enabled} /></Suspense> : null;

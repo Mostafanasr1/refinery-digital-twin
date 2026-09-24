@@ -9,7 +9,7 @@ const results = [];
 const run = await openRun();
 try {
   const hardware = await openLook(run);
-  for (const look of ['engineering', 'photoreal']) {
+  for (const look of process.argv.includes('--night-only') ? ['photoreal-night'] : ['engineering', 'photoreal']) {
     await openLook(run, look);
     for (const geometry of ['blender', 'proxy']) {
       await run.page.getByRole('combobox', { name: 'Geometry', exact: true }).selectOption(geometry);

@@ -1,0 +1,12 @@
+CAM-1-default.png: 0.2825% differing pixels (PASS)
+CAM-1-selected.png: 0.2802% differing pixels (PASS)
+CAM-2-default.png: 0.3146% differing pixels (PASS)
+CAM-2-selected.png: 0.3135% differing pixels (PASS)
+CAM-3-default.png: 0.2610% differing pixels (PASS)
+CAM-3-selected.png: 0.2603% differing pixels (PASS)
+CAM-4-default.png: 0.2654% differing pixels (PASS)
+CAM-4-selected.png: 0.2649% differing pixels (PASS)
+CAM-5-default.png: 0.2647% differing pixels (PASS)
+CAM-5-selected.png: 0.2630% differing pixels (PASS)
+CAM-6-default.png: CAPTURED — new approved camera, no baseline comparison
+CAM-6-selected.png: CAPTURED — new approved camera, no baseline comparison

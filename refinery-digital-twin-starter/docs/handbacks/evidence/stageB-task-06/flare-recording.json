@@ -1,0 +1,16 @@
+{
+  "mimeType": "video/webm;codecs=vp9",
+  "durationMs": 11080.39999999106,
+  "width": 1600,
+  "height": 900,
+  "flags": [
+    "--enable-gpu",
+    "--force_high_performance_gpu",
+    "--use-angle=d3d11",
+    "--force-color-profile=srgb",
+    "--disable-background-timer-throttling",
+    "--disable-renderer-backgrounding",
+    "--disable-backgrounding-occluded-windows"
+  ],
+  "errors": []
+}

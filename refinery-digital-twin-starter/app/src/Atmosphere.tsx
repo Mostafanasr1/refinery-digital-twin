@@ -7,6 +7,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import type { Asset } from './data/loader';
 import { selfFoundation } from './data/silhouettes';
 export function Atmosphere() {
@@ -15,18 +16,37 @@ export function Atmosphere() {
   const composer = useMemo(() => {
     const result = new EffectComposer(gl);
     result.addPass(new RenderPass(scene, camera));
+    const ao = new SSAOPass(scene, camera, 800, 450, 12);
+    ao.kernelRadius = 2.5; ao.minDistance = .0002; ao.maxDistance = .018; ao.enabled = false;
+    const renderAO = ao.render.bind(ao);
+    ao.render = (...args) => {
+      ao.ssaoMaterial.uniforms.cameraNear.value = camera.near;
+      ao.ssaoMaterial.uniforms.cameraFar.value = camera.far;
+      ao.ssaoMaterial.uniforms.cameraProjectionMatrix.value.copy(camera.projectionMatrix);
+      ao.ssaoMaterial.uniforms.cameraInverseProjectionMatrix.value.copy(camera.projectionMatrixInverse);
+      ao.depthRenderMaterial.uniforms.cameraNear.value = camera.near;
+      ao.depthRenderMaterial.uniforms.cameraFar.value = camera.far;
+      const atmosphere = scene.getObjectByName('plant-atmosphere'), visible = atmosphere?.visible;
+      const shadows = gl.shadowMap.autoUpdate;
+      try { if (atmosphere) atmosphere.visible = false; gl.shadowMap.autoUpdate = false; renderAO(...args); }
+      finally { if (atmosphere) atmosphere.visible = visible!; gl.shadowMap.autoUpdate = shadows; }
+    };
+    result.addPass(ao);
     result.addPass(new UnrealBloomPass(new THREE.Vector2(1,1), 0, 0, 0));
     result.addPass(new OutputPass());
     return result;
   }, [gl, scene, camera]);
   useEffect(() => {
-    const bloom = composer.passes[1] as UnrealBloomPass;
+    const bloom = composer.passes[2] as UnrealBloomPass;
+    composer.passes[1].enabled = !!look.post.ao;
     bloom.strength = look.post.bloom.intensity; bloom.radius = look.post.bloom.radius; bloom.threshold = look.post.bloom.threshold;
-    gl.toneMapping = { aces: THREE.ACESFilmicToneMapping }[look.post.toneMapping]; gl.toneMappingExposure = look.post.exposure;
+    const comparison = new URLSearchParams(location.search).get('tone');
+    const tone = look.id !== 'engineering' && (comparison === 'aces' || comparison === 'agx') ? comparison : look.post.toneMapping;
+    gl.toneMapping = { aces: THREE.ACESFilmicToneMapping, agx: THREE.AgXToneMapping }[tone]; gl.toneMappingExposure = look.post.exposure;
     invalidate();
   }, [composer, gl, look, invalidate]);
-  useEffect(() => () => { composer.passes.forEach(pass => pass.dispose()); composer.dispose(); }, [composer]);
-  useEffect(() => { composer.setSize(size.width, size.height); invalidate(); }, [composer, size, invalidate]);
+  useEffect(() => () => { const ao = composer.passes[1] as SSAOPass; ao.ssaoMaterial.dispose(); ao.noiseTexture.dispose(); composer.passes.forEach(pass => pass.dispose()); composer.dispose(); }, [composer]);
+  useEffect(() => { composer.setSize(size.width, size.height); (composer.passes[1] as SSAOPass).setSize(Math.ceil(size.width / 2), Math.ceil(size.height / 2)); invalidate(); }, [composer, size, invalidate]);
   useEffect(() => {
     if (!look.environment.room) { scene.environment = null; invalidate(); return; }
     const generator = new THREE.PMREMGenerator(gl);
@@ -39,6 +59,13 @@ export function Atmosphere() {
   const timing = useRef({ start: 0, frames: 0 });
   useFrame(() => {
     const now=performance.now();
+    // Canvas configuration can run again when lazy look resources become ready.
+    // The post stack owns the final renderer mapping immediately before output.
+    const requested = new URLSearchParams(location.search).get('tone');
+    const tone = look.id !== 'engineering' && (requested === 'aces' || requested === 'agx') ? requested : look.post.toneMapping;
+    gl.toneMapping = tone === 'agx' ? THREE.AgXToneMapping : THREE.ACESFilmicToneMapping;
+    gl.toneMappingExposure = look.post.exposure;
+    gl.domElement.dataset.toneMapping = tone;
     if (!timing.current.start) timing.current.start=now;
     gl.info.autoReset=false; gl.info.reset(); composer.render(); timing.current.frames++;
     if (now-timing.current.start > 2000) {
@@ -92,8 +119,8 @@ export function Site({ assets }: { assets: Asset[] }) {
   useEffect(() => {
     object.children.forEach(child => {
       const mesh = child as THREE.InstancedMesh, material = mesh.material as THREE.MeshStandardMaterial;
-      mesh.visible = look.id !== 'photoreal' || !['base', 'surface', 'road', 'marking', 'edge'].includes(mesh.name);
-      mesh.castShadow = look.id === 'photoreal' && mesh.name === 'pole';
+      mesh.visible = look.id === 'engineering' || !['base', 'surface', 'road', 'marking', 'edge'].includes(mesh.name);
+      mesh.castShadow = look.id !== 'engineering' && mesh.name === 'pole';
       const key = mesh.name as 'base' | 'surface' | 'road' | 'marking' | 'edge' | 'pole' | 'lamp' | 'foundation';
       const color = site[key]; if (Array.isArray(color)) material.color.setRGB(...color); else material.color.set(color); material.toneMapped = key !== 'edge' && key !== 'lamp';
       if (key === 'base') material.roughness = site.baseRoughness;

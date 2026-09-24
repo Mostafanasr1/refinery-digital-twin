@@ -21,7 +21,7 @@ export function MaterialPackProvider({ children }: { children: ReactNode }) {
   const released = useRef(false);
   const loader = useMemo(() => new KTX2Loader().setTranscoderPath(`${import.meta.env.BASE_URL}assets/materials/`).detectSupport(gl), [gl]);
   useEffect(() => {
-    if (look.id !== 'photoreal') return;
+    if (look.id === 'engineering') return;
     let active = true;
     setMaterialLoading(!owned.current);
     gl.domElement.dataset.materialsReady = 'false';

@@ -1,0 +1,6 @@
+{
+  "steam": {"types": ["cooling_tower"], "maxSources": 3, "particlesPerSource": 6, "riseMetres": 10, "periodSeconds": 7},
+  "flame": {"heightMetres": 7, "widthMetres": 3.4, "lightIntensity": 12000, "lightRangeMetres": 95},
+  "floodlight": {"mountType": "column", "mountFraction": 0.75, "intensity": 8000, "color": "#ffd4a0", "shadowSize": 1024},
+  "platformLamps": {"types": ["column", "flare", "pipe_rack"], "color": [9, 4.5, 1.5]}
+}

@@ -43,3 +43,9 @@ Rebuild with `node scripts/python.mjs scripts/build_materials.py`, then `npm run
 ## Stage B Task 5 hero detail
 
 `data/normalized/assets/detail/hero.glb` is original procedural geometry from `blender/generators/hero_detail.py`, exported by `blender/scripts/build_hero_detail.py`. No third-party art is used. Six type builders cover all 18 matching plant instances, with 71,236 triangles and a 3,654,168-byte GLB. `manifest.json` records asset identities, named parts, materials and counts. The optional model is lazy-loaded in Photoreal and retained without rendering or raycasting in Engineering/proxy modes. The approved base model is untouched. Rebuild with `node scripts/python.mjs scripts/build_hero.py`.
+
+## Stage B Task 6 atmosphere and dressing
+
+Flame shader, steam canvas texture, dusk sky canvas texture, platform lamp geometry and stored-pipe dressing are original procedural project artwork. They introduce no downloaded art. `app/src/PlantAtmosphere.tsx` and `data/presentation/atmosphere.json` define effect placement by equipment type; `app/src/SiteDressing.tsx` makes a separate non-canonical, noninteractive group avoiding canonical equipment footprints. Neither adds asset IDs, telemetry, process connections or scenarios. Lamps are emissive except the explicitly limited real lights. The reused daytime CC0 HDR lights night surfaces at reduced intensity; the night background is procedural.
+
+`docs/reference/mood-dusk.png` is a byte-for-byte copy of Mostafa's supplied refinery dusk HUD reference (`codex-clipboard-517077ab-9eab-4f7e-b08c-fc9e2ca89d4e.png`). It is review-only, not shipped runtime art and not represented as CC0. Other existing CC0 environment/material assets remain unchanged.

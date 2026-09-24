@@ -1,3 +1,5 @@
+import { SiteDressing } from './SiteDressing';
+import { PlantAtmosphere } from './PlantAtmosphere';
 import { PhotorealEnvironment } from './PhotorealEnvironment';
 import { MaterialPackProvider, useMaterialPack, materialUVs } from './looks/MaterialPack';
 import materialConfig from '../../data/presentation/materials.json';
@@ -60,7 +62,7 @@ function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; ti
   const { look } = useLook();
   const pack = useMaterialPack();
   const role = (materialConfig.types as Record<string, Record<string, string>>)[asset.type]?.['Equipment shell'];
-  const surface = look.id === 'photoreal' ? pack?.[role] : undefined;
+  const surface = look.id !== 'engineering' ? pack?.[role] : undefined;
   const { height: h, diameter: d, length: l, width: w } = asset.dimensions;
   const family = proxyFamily[asset.type] ?? 'vertical';
   const color = dim ? effects.proxyDim : active ? effects.selected : tint ? tint : surface?.color ?? (asset.type === 'pipe_rack' ? effects.proxyRack : asset.type === 'fired_heater' ? effects.proxyHeater : effects.proxyDefault);
@@ -168,8 +170,8 @@ function Pipes({ data, registry, trace, running, scenarioState }: { data: Normal
   useEffect(() => () => { geometries.forEach(geometry => geometry?.dispose()); }, [geometries]);
   return <group name="pipes">
     {geometries.map((geometry, index) => {
-      const surface = look.id === 'photoreal' && index < 2 ? pack?.[index === 1 ? 'insulation' : 'painted-steel'] : undefined;
-      return geometry ? <mesh key={index} geometry={geometry} castShadow={look.id === 'photoreal'} receiveShadow={look.id === 'photoreal'} userData={{ category: 'pipes' }}><meshStandardMaterial color={index === 2 ? effects.pipeActive : surface?.color ?? look.materials.pipe.color} map={surface?.map ?? null} normalMap={surface?.normalMap ?? null} roughnessMap={surface?.roughnessMap ?? null} metalness={surface?.metalness ?? look.materials.pipe.metalness} roughness={surface?.roughness ?? look.materials.pipe.roughness} /></mesh> : null;
+      const surface = look.id !== 'engineering' && index < 2 ? pack?.[index === 1 ? 'insulation' : 'painted-steel'] : undefined;
+      return geometry ? <mesh key={index} geometry={geometry} castShadow={look.id !== 'engineering'} receiveShadow={look.id !== 'engineering'} userData={{ category: 'pipes' }}><meshStandardMaterial color={index === 2 ? effects.pipeActive : surface?.color ?? look.materials.pipe.color} map={surface?.map ?? null} normalMap={surface?.normalMap ?? null} roughnessMap={surface?.roughnessMap ?? null} metalness={surface?.metalness ?? look.materials.pipe.metalness} roughness={surface?.roughness ?? look.materials.pipe.roughness} /></mesh> : null;
     })}
     {lines.filter(line => trace.path?.connection_ids.includes(line.connection.connection_id)).map(line => <FlowOverlay key={line.connection.connection_id} from={line.from} to={line.to} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} name={line.connection.connection_id} />)}
   </group>;
@@ -182,7 +184,7 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
   const sourceAssets = useMemo(() => [...registry.assets.values()], [registry]);
   const sunTarget = useMemo(() => {
     const target = new THREE.Object3D();
-    if (look.id === 'photoreal') {
+    if (look.id !== 'engineering') {
       const xs = sourceAssets.map(asset => asset.position.x), zs = sourceAssets.map(asset => -asset.position.y);
       target.position.set((Math.min(...xs) + Math.max(...xs)) / 2, 0, (Math.min(...zs) + Math.max(...zs)) / 2);
       target.updateMatrixWorld(true);
@@ -195,16 +197,16 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
     const asset = effectiveAssets.get(source.asset_id) ?? source;
     return { tint: asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color, dim: !!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id), active: asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id) };
   };
-  return <Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
+  return <Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping, agx: THREE.AgXToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
     <MaterialPackProvider>
     <color attach="background" args={[look.environment.background]} />
     <ambientLight intensity={light.ambient} /><hemisphereLight args={light.hemisphere} />
     <directionalLight castShadow={light.shadows} position={sunPosition} target={sunTarget} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
     <directionalLight position={light.fill.position} color={light.fill.color} intensity={light.fill.intensity} />
-    <Atmosphere /><BudgetProfiler />
+    <Atmosphere /><PlantAtmosphere assets={sourceAssets} /><BudgetProfiler />
     <Controls selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
-    <Site assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
+    <Site assets={sourceAssets} /><SiteDressing assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
     <MaterialSwatches />
     {detailSeen && <Suspense fallback={null}><BlenderPlant detail visible={look.detailLevel === 1 && geometry === 'blender' && new URLSearchParams(location.search).get('materialSwatches') !== '1'} assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /></Suspense>}
     <Pipes data={data} registry={registry} trace={trace} running={running} scenarioState={scenarioState} />

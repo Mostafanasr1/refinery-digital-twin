@@ -1,0 +1,13 @@
+
+> @refinery/app@0.0.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 277 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.37 kB │ gzip:   0.27 kB
+dist/assets/index-DBIp-N-9.css     10.76 kB │ gzip:   3.18 kB
+dist/assets/index-GeCDiHw7.js   1,464.07 kB │ gzip: 422.49 kB
+✓ built in 6.13s

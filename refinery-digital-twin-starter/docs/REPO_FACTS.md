@@ -128,3 +128,7 @@ Effective protocol: metrics use `--disable-gpu-vsync` and `--disable-frame-rate-
 ## Internal review correction-loop ruling — 24 September 2026
 
 Mostafa clarified during Task 5: reviewer disagreement means opposite verdicts on the same question. One pass and one correctable in-scope finding is a correction loop: fix and re-review without stopping. Stop if resolution needs an out-of-scope decision or would break another acceptance criterion. The earlier Task 5 pause was resolved by explicit approval to disable hidden-detail raycasting, verify both visibility transitions, complete selection checks, improve F-201 framing, rerun reviews, commit/push and continue to the Task 6 gate.
+
+## Task 6 gate submission — 25 September 2026
+
+Task 4 (`2726b90`) and Task 5 (`b208f23`) completed under non-gate cadence. Task 6 adds post/atmosphere, procedural night, animated flare/steam and a separate non-canonical dressing group; all frozen data remains unchanged. Internal verification and budgets pass; handback is `docs/handbacks/stageB-task-06.md`. Stop at the external Task 6 gate for Claude and Mostafa. Whole-image acceptance, density dressing and whether Tasks 5b/7 run remain Mostafa's decisions. No later task has started. The reviewer-disagreement clarification above remains effective.

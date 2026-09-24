@@ -61,7 +61,7 @@ export function buildEquipmentBatches(scene: THREE.Object3D, assets: Asset[]): E
 export function applyBatchStyle(batch: EquipmentBatch, look: Look, style: (asset: Asset) => AssetStyle, pack?: MaterialPack | null) {
   const material = look.id === 'engineering' ? batch.engineering : batch.photoreal;
   const role = material.name.split('::')[1];
-  const surface = look.id === 'photoreal' ? pack?.[role] : undefined;
+  const surface = look.id !== 'engineering' ? pack?.[role] : undefined;
   if (surface && material.map !== surface.map) {
     material.map = surface.map; material.normalMap = surface.normalMap; material.roughnessMap = surface.roughnessMap;
     materialUVs(batch.geometry, surface.tileMetres); material.needsUpdate = true;
