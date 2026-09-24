@@ -4,8 +4,8 @@ import { InstancedMesh, Matrix4, Mesh, Raycaster, Vector2, Vector3 } from 'three
 import { assetAtFace, type PickRange } from '../equipmentBatches';
 import { useLook } from './LookProvider';
 import type { AssetRegistry } from '../data/registry';
-type Snapshot = { registryIds: string[]; look: string; camera: { position: number[]; quaternion: number[] }; geometries: number; textures: number; meshes: { uuid: string; geometry: string; material: string[]; assetId: string | null; assetIds: string[] }[] };
-declare global { interface Window { __refineryLookSnapshot?: () => Snapshot; __refineryPickPoint?: (assetId: string) => { x: number; y: number } | null } }
+type Snapshot = { optionalDetail: { meshes: string[]; visibleMeshes: number; assetIds: string[] }; registryIds: string[]; look: string; camera: { position: number[]; quaternion: number[] }; geometries: number; textures: number; meshes: { uuid: string; geometry: string; material: string[]; assetId: string | null; assetIds: string[] }[] };
+declare global { interface Window { __refineryDetailHits?: () => number; __refineryLookSnapshot?: () => Snapshot; __refineryPickPoint?: (assetId: string) => { x: number; y: number } | null } }
 export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
   const { scene, camera, gl } = useThree();
   const { look } = useLook();
@@ -13,13 +13,17 @@ export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
     if (new URLSearchParams(location.search).get('measure') !== '1') return;
     const snapshot = (): Snapshot => {
       const meshes: Snapshot['meshes'] = [];
+      const detailMeshes: string[] = [], detailAssets = new Set<string>();
+      let visibleDetail = 0;
+      scene.traverseVisible(node => { if (node instanceof Mesh && node.userData.optionalDetail) visibleDetail++; });
       scene.traverse(node => {
         if (!(node instanceof Mesh)) return;
+        if (node.userData.optionalDetail) { detailMeshes.push(node.uuid); (node.userData.assetRanges ?? []).forEach((range: PickRange) => detailAssets.add(range.asset.asset_id)); return; }
         const ranges: PickRange[] = node.userData.assetRanges ?? [];
         const assetId = node.userData.asset_id ?? null;
         meshes.push({ uuid: node.uuid, geometry: node.geometry.uuid, assetId, assetIds: [...new Set(ranges.map(range => range.asset.asset_id).concat(assetId ? [assetId] : []))], material: (Array.isArray(node.material) ? node.material : [node.material]).map(material => material.uuid) });
       });
-      return { registryIds: [...registry.objects.keys()].sort(), look: look.id, camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray() }, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, meshes };
+      return { optionalDetail: { meshes: detailMeshes.sort(), visibleMeshes: visibleDetail, assetIds: [...detailAssets].sort() }, registryIds: [...registry.objects.keys()].sort(), look: look.id, camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray() }, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, meshes };
     };
     // This locates a visible surface; the test still dispatches an actual canvas mouse click.
     const pickPoint = (assetId: string) => {
@@ -51,10 +55,27 @@ export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
       }
       return null;
     };
-    window.__refineryLookSnapshot = snapshot; window.__refineryPickPoint = pickPoint;
+    // Probe the actual mesh raycast directly, including hidden parents, as R3F does.
+    const detailHits = () => {
+      scene.updateMatrixWorld(true);
+      let hits = 0;
+      scene.traverse(node => {
+        if (!(node instanceof InstancedMesh) || !node.userData.optionalDetail) return;
+        const matrix = new Matrix4(); node.getMatrixAt(0, matrix); matrix.premultiply(node.matrixWorld);
+        const positions = node.geometry.getAttribute('position');
+        const vertices = [0, 1, 2].map(index => new Vector3().fromBufferAttribute(positions, node.geometry.index?.getX(index) ?? index).applyMatrix4(matrix));
+        const center = vertices[0].clone().add(vertices[1]).add(vertices[2]).multiplyScalar(1 / 3);
+        const normal = vertices[1].clone().sub(vertices[0]).cross(vertices[2].clone().sub(vertices[0])).normalize();
+        const ray = new Raycaster(center.clone().add(normal), normal.negate());
+        hits += ray.intersectObject(node, false).length;
+      });
+      return hits;
+    };
+    window.__refineryLookSnapshot = snapshot; window.__refineryPickPoint = pickPoint; window.__refineryDetailHits = detailHits;
     return () => {
       if (window.__refineryLookSnapshot === snapshot) delete window.__refineryLookSnapshot;
       if (window.__refineryPickPoint === pickPoint) delete window.__refineryPickPoint;
+      if (window.__refineryDetailHits === detailHits) delete window.__refineryDetailHits;
     };
   }, [scene, camera, gl, look.id, registry]);
   return null;

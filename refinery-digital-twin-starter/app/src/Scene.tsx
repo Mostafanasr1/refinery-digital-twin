@@ -10,7 +10,7 @@ import { buildEquipmentBatches, applyBatchStyle, disposeBatches, assetAtFace, ty
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { VisualRuntime, visualMode } from '../../scripts/visual-runtime';
-import { Suspense, useEffect, useMemo, useRef } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import * as THREE from 'three';
@@ -83,13 +83,16 @@ function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; ti
     {asset.type === 'column' ? box('ladder', [d / 2 + 0.5, h / 2, 0], [0.4, h, 0.7]) : null}
   </>;
 }
-function BlenderPlant({ assets, registry, style, onHover, onSelect }: { assets: Asset[]; registry: AssetRegistry; style: (asset: Asset) => AssetStyle; onHover: (id: string | null) => void; onSelect: (id: string) => void }) {
-  const { look } = useLook(); const invalidate = useThree(state => state.invalidate);
+function BlenderPlant({ assets, registry, style, onHover, onSelect, detail = false, visible = true }: { detail?: boolean; visible?: boolean; assets: Asset[]; registry: AssetRegistry; style: (asset: Asset) => AssetStyle; onHover: (id: string | null) => void; onSelect: (id: string) => void }) {
+  const { look } = useLook(); const { invalidate, gl } = useThree();
   const materialPack = useMaterialPack();
-  const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}models/refinery.glb`, loader => loader.setMeshoptDecoder(MeshoptDecoder));
+  const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}${detail ? 'assets/detail/hero.glb' : 'models/refinery.glb'}`, loader => loader.setMeshoptDecoder(MeshoptDecoder));
+  const batchAssets = useMemo(() => detail ? assets.filter(asset => gltf.scene.getObjectByName(asset.model_ref)) : assets, [assets, detail, gltf]);
+  useEffect(() => { if (detail) { gl.domElement.dataset.detailReady = 'true'; invalidate(); } }, [detail, gl, invalidate, gltf]);
   // Keep canonical object bindings available to generic consumers without submitting
   // these lightweight hierarchy clones to the renderer; geometry is shared with GLTF.
   useEffect(() => {
+    if (detail) return;
     const owned = new Map<string, THREE.Object3D>();
     for (const asset of assets) {
       const object = gltf.scene.getObjectByName(asset.model_ref)!.clone(true);
@@ -97,29 +100,30 @@ function BlenderPlant({ assets, registry, style, onHover, onSelect }: { assets: 
       object.updateMatrixWorld(true); registry.bind(asset.asset_id, object); owned.set(asset.asset_id, object);
     }
     return () => { owned.forEach((object, id) => { if (registry.objects.get(id) === object) registry.bind(id, null); }); };
-  }, [assets, gltf, registry]);
+  }, [assets, gltf, registry, detail]);
   const stress = Number(new URLSearchParams(location.search).get('stress')) === 500;
   const copies = stress ? Math.floor(500 / assets.length) : 1;
-  const batches = useMemo(() => buildEquipmentBatches(gltf.scene, assets), [gltf, assets]);
-  const remainder = useMemo(() => stress ? buildEquipmentBatches(gltf.scene, assets.slice(0, 500 % assets.length)) : [], [gltf, assets, stress]);
+  const batches = useMemo(() => buildEquipmentBatches(gltf.scene, batchAssets), [gltf, batchAssets]);
+  const remainder = useMemo(() => stress ? buildEquipmentBatches(gltf.scene, batchAssets.filter(asset => assets.slice(0, 500 % assets.length).includes(asset))) : [], [gltf, assets, batchAssets, stress]);
   const objects = useMemo(() => [...batches, ...remainder].map((batch, index) => {
     const partial = index >= batches.length;
     const mesh = new THREE.InstancedMesh(batch.geometry, batch.engineering, partial ? 1 : copies);
     mesh.name = `equipment-batch-${index}`; mesh.castShadow = true; mesh.receiveShadow = true;
-    mesh.userData.category = 'equipment'; mesh.userData.assetRanges = batch.ranges;
+    mesh.userData.category = 'equipment'; mesh.userData.optionalDetail = detail; mesh.userData.assetRanges = batch.ranges;
     mesh.userData.stressInstances = Array.from({ length: mesh.count }, (_, instance) => batch.ranges.map(range => ({ asset_id: range.asset.asset_id, instance_id: `${range.asset.asset_id}::${partial ? copies : instance}` })));
     for (let instance = 0; instance < mesh.count; instance++) {
       const copy = partial ? copies : instance;
       mesh.setMatrixAt(instance, new THREE.Matrix4().makeTranslation((copy % 3) * 280, 0, -Math.floor(copy / 3) * 210));
     }
     mesh.computeBoundingSphere(); return mesh;
-  }), [batches, remainder, copies]);
+  }), [batches, remainder, copies, detail]);
   useEffect(() => {
     [...batches, ...remainder].forEach((batch, index) => { objects[index].material = applyBatchStyle(batch, look, style, materialPack); }); invalidate();
   }, [batches, remainder, objects, look, style, materialPack, invalidate]);
   useEffect(() => () => { disposeBatches(batches); disposeBatches(remainder); objects.forEach(object => object.dispose()); }, [batches, remainder, objects]);
-  return <group name="equipment" userData={{ renderedAssetCount: stress ? 500 : assets.length }}>
-    {objects.map((object, index) => <primitive key={object.uuid} object={object}
+  return <group name={detail ? "hero-detail" : "equipment"} visible={visible} userData={{ detailLevel: detail ? 1 : 0, renderedAssetCount: detail ? 0 : stress ? 500 : assets.length }}>
+      {objects.map((object, index) => <primitive key={object.uuid} object={object}
+        raycast={visible ? THREE.InstancedMesh.prototype.raycast : () => undefined}
       onPointerOver={(event: import('@react-three/fiber').ThreeEvent<PointerEvent>) => { const asset = assetAtFace([...batches, ...remainder][index].ranges, event.faceIndex); if (asset) { event.stopPropagation(); onHover(asset.asset_id); } }}
       onPointerMove={(event: import('@react-three/fiber').ThreeEvent<PointerEvent>) => { const asset = assetAtFace([...batches, ...remainder][index].ranges, event.faceIndex); if (asset) { event.stopPropagation(); onHover(asset.asset_id); } }}
       onPointerOut={() => onHover(null)}
@@ -172,6 +176,8 @@ function Pipes({ data, registry, trace, running, scenarioState }: { data: Normal
 }
 export default function Scene({ data, registry, selected, hovered, reset, onHover, onSelect, geometry, layer, trace, running, scenarioState }: { geometry: 'blender' | 'proxy'; layer: Layer; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState; data: NormalizedData; registry: AssetRegistry; selected: string | null; hovered: string | null; reset: number; onHover: (id: string | null) => void; onSelect: (id: string | null) => void }) {
   const { look } = useLook();
+  const [detailSeen, setDetailSeen] = useState(look.detailLevel === 1);
+  useEffect(() => { if (look.detailLevel === 1) setDetailSeen(true); }, [look.detailLevel]);
   const light = look.lighting;
   const sourceAssets = useMemo(() => [...registry.assets.values()], [registry]);
   const sunTarget = useMemo(() => {
@@ -200,6 +206,7 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
     <Site assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
     <MaterialSwatches />
+    {detailSeen && <Suspense fallback={null}><BlenderPlant detail visible={look.detailLevel === 1 && geometry === 'blender' && new URLSearchParams(location.search).get('materialSwatches') !== '1'} assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /></Suspense>}
     <Pipes data={data} registry={registry} trace={trace} running={running} scenarioState={scenarioState} />
     {data.assets.filter(asset => asset.asset_id === selected || asset.asset_id === trace.assetId || asset.status === 'trip').map(asset => <PlantLabel key={asset.asset_id} asset={asset} alert={asset.status === 'trip'} />)}
     <Suspense fallback={null}><VisualRuntime look={look.id} /><LookSnapshot registry={registry} />{geometry === 'blender' ? <BlenderPlant assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /> : data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} {...style(asset)} onHover={onHover} onSelect={onSelect} />)}</Suspense>

@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 from pipeline.catalog import SILHOUETTES  # noqa: E402
 from blender.generators.equipment import BUILDERS, build  # noqa: E402
 from blender.generators.material_stage import CONFIG, role_for  # noqa: E402
+from blender.generators.hero_detail import BUILDERS as HERO_BUILDERS, build as build_hero  # noqa: E402
 
 
 def require(condition, message):
@@ -67,7 +68,31 @@ def main():
                 bpy.data.objects.remove(obj, do_unlink=True)
                 if mesh.users == 0:
                     bpy.data.meshes.remove(mesh)
-    print(f"Checked {len(SILHOUETTES)} silhouettes at 2 detail levels")
+    required = {'column': 'hero_cage', 'flare': 'hero_platform', 'fired_heater': 'hero_stair', 'storage_tank': 'hero_tank_manway', 'floating_roof_tank': 'hero_tank_manway', 'pipe_rack': 'hero_tray'}
+    require(set(required) == set(HERO_BUILDERS), 'Hero type registry mismatch')
+    for kind in HERO_BUILDERS:
+        asset = {'model_ref': 'HERO-' + kind, 'type': kind, 'dimensions': SILHOUETTES[kind]['sample']}
+        require(build_hero(asset, 0) == [], f'{kind}: level 0 must add no geometry')
+        objects = build_hero(asset, 1)
+        bpy.context.view_layer.update()
+        names = [obj.name for obj in objects]
+        require(len(set(names)) == len(names), f'{kind}: duplicate hero part names')
+        require(any(required[kind] in name for name in names), f'{kind}: required secondary detail missing')
+        limit = max(asset['dimensions'].values()) + 14
+        for obj in objects:
+            require(obj.type == 'MESH' and obj.name.startswith(asset['model_ref'] + '_hero_'), f'{kind}: invalid hero part')
+            corners = [obj.matrix_world @ Vector(corner) for corner in obj.bound_box]
+            require(min(point.z for point in corners) >= -.001, f'{obj.name}: hero detail below grade')
+            require(max(abs(point.x) for point in corners) <= limit and max(abs(point.y) for point in corners) <= limit, f'{obj.name}: unreasonable footprint')
+            require(max(point.z for point in corners) <= asset['dimensions']['height'] * 2.2 + 2, f'{obj.name}: unreasonable height')
+            for mat in obj.data.materials:
+                require(role_for(kind, obj.name.removeprefix(asset['model_ref'] + '_'), mat.name) in CONFIG['materials'], f'{obj.name}: unmapped material')
+        for obj in objects:
+            mesh = obj.data
+            bpy.data.objects.remove(obj, do_unlink=True)
+            if not mesh.users:
+                bpy.data.meshes.remove(mesh)
+    print(f"Checked {len(SILHOUETTES)} silhouettes at 2 detail levels; {len(HERO_BUILDERS)} hero types at levels 0 and 1")
 
 
 if __name__ == "__main__":

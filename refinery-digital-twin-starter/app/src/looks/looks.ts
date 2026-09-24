@@ -12,13 +12,14 @@ export interface DesertEnvironment {
 export interface Look {
   id: LookId;
   label: string;
+  detailLevel: 0 | 1;
   materials: { roughness: { concrete: number; safety: number; metal: number }; proxy: { metalness: number; roughness: number }; pipe: { color: string; metalness: number; roughness: number } };
   environment: { desert?: DesertEnvironment; background: string; grid: boolean; gridColors: [string, string]; room: boolean; intensity: number; site: { base: string; surface: string; road: string; marking: string; edge: string; pole: string; lamp: Vec3; foundation: string; baseRoughness: number; surfaceRoughness: number; surfaceMetalness: number; foundationRoughness: number } };
   lighting: { ambient: number; hemisphere: [string, string, number]; sun: { position: Vec3; color: string; intensity: number }; fill: { position: Vec3; color: string; intensity: number }; shadows: boolean; shadow: { size: [number, number]; left: number; right: number; top: number; bottom: number; far: number; normalBias: number; bias: number } };
   post: { toneMapping: 'aces'; exposure: number; bloom: { intensity: number; radius: number; threshold: number } };
 }
 const engineering: Look = {
-  id: 'engineering', label: 'Engineering',
+  id: 'engineering', label: 'Engineering', detailLevel: 0,
   materials: { roughness: { concrete: .92, safety: .4, metal: .32 }, proxy: { metalness: .45, roughness: .48 }, pipe: { color: '#7899a2', metalness: .5, roughness: .45 } },
   environment: { background: '#08151e', grid: true, gridColors: ['#142c3a', '#10232f'], room: true, intensity: .3,
     site: { base: '#162a35', surface: '#0b1a24', road: '#0c1720', marking: '#6e8591', edge: '#35cddd', pole: '#4b626f', lamp: [2.6,1.9,.8], foundation: '#24333b', baseRoughness: .8, surfaceRoughness: .85, surfaceMetalness: .1, foundationRoughness: .95 } },
@@ -27,7 +28,7 @@ const engineering: Look = {
 };
 export const looks: Record<LookId, Look> = {
   engineering,
-  photoreal: { ...engineering, id: 'photoreal', label: 'Photoreal',
+  photoreal: { ...engineering, id: 'photoreal', label: 'Photoreal', detailLevel: 1,
     materials: { roughness: { concrete: .95, safety: .65, metal: .6 }, proxy: { metalness: .25, roughness: .65 }, pipe: { color: '#7899a2', metalness: .4, roughness: .6 } },
     environment: { ...engineering.environment, background: '#a9c9df', grid: false, room: false, intensity: 0,
       desert: { assets: { sky: 'assets/env/sky.hdr', color: 'assets/env/sand-color.webp', normal: 'assets/env/sand-normal.webp', roughness: 'assets/env/sand-rough.webp', context: 'assets/env/context.glb' }, terrain: { size: 4200, segments: 160, tileMetres: 11, height: 4.5, color: '#e1ccb0', pad: '#aaa18e', normalScale: .24, darkTint: '#b9a58d' }, scatter: { rocks: 900, scrub: 650, falloff: 160, rockColor: '#a28d70', scrubColor: '#655a36' }, track: { gate: [-26, 37], width: 7 }, fog: { color: '#c8d4d5', near: 550, far: 3400 }, mountains: { radius: 650, height: 180, color: '#74634f' }, intensity: .65, backgroundIntensity: .85, rotation: 0 },

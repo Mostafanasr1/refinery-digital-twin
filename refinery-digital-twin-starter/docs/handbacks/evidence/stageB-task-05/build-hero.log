@@ -1,0 +1,48 @@
+00:00.500  reports          | WARNING Unable to open 'C:\Users\Mosta\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\Mosta\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Info: Saved as "hero-detail.blend"
+INFO Draco is available, use library at D:\blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+23:18:39 | INFO: Starting glTF 2.0 export
+23:18:39 | INFO: Extracting primitive: F-201_hero_platform_0_mesh
+23:18:39 | INFO: Primitives created: 3
+23:18:39 | INFO: Extracting primitive: FL-401_hero_platform_0_mesh
+23:18:39 | INFO: Primitives created: 3
+23:18:39 | INFO: Extracting primitive: PR-001_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-002_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-003_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-004_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-005_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-006_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: PR-007_hero_cross_brace_0_-1_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: T-201_hero_cage_hoop_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: T-302_hero_cage_hoop_0_mesh
+23:18:39 | INFO: Primitives created: 1
+23:18:39 | INFO: Extracting primitive: TK-101_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-102_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-103_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-301_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-302_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-303_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Extracting primitive: TK-304_hero_tank_manway_neck_mesh
+23:18:39 | INFO: Primitives created: 2
+23:18:39 | INFO: Finished glTF 2.0 export in 0.22847890853881836 s
+
+{"assets": 18, "types": 6, "triangles": 71236}
+
+Blender quit

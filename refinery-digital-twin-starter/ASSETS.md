@@ -39,3 +39,7 @@ Seven roles derive their subtle variation from Poly Haven [metal_plate_02](https
 `data/normalized/assets/materials/` holds 24 1K KTX2 maps with mipmaps, plus manifest and Basis transcoder. It loads only when Photoreal is first used and is cached across look changes. All equipment, fallback proxies and pipes use physical metre-based tiling; engineering retains flat materials.
 
 Rebuild with `node scripts/python.mjs scripts/build_materials.py`, then `npm run build:models`. The pinned official Binomial Basis Universal 2.50.0 WASI encoder runs through `scripts/basis-encode.mjs`; its Apache-2.0 software license is distinct from CC0 texture licensing. The installed Three.js Basis runtime transcoder retains Apache-2.0 licensing. Per-file sizes and output SHA256 hashes are in `data/normalized/assets/materials/manifest.json`.
+
+## Stage B Task 5 hero detail
+
+`data/normalized/assets/detail/hero.glb` is original procedural geometry from `blender/generators/hero_detail.py`, exported by `blender/scripts/build_hero_detail.py`. No third-party art is used. Six type builders cover all 18 matching plant instances, with 71,236 triangles and a 3,654,168-byte GLB. `manifest.json` records asset identities, named parts, materials and counts. The optional model is lazy-loaded in Photoreal and retained without rendering or raycasting in Engineering/proxy modes. The approved base model is untouched. Rebuild with `node scripts/python.mjs scripts/build_hero.py`.

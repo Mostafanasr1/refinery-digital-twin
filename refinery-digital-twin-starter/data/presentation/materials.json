@@ -209,7 +209,7 @@
   },
   "partRules": [
     {
-      "pattern": "^(platform_[0-9]+|platform|crown_platform|stack_platform|deck|fill_deck)$",
+      "pattern": "^(hero_platform_[0-9]+|hero_platform_landing|platform_[0-9]+|platform|crown_platform|stack_platform|deck|fill_deck)$",
       "materials": [
         "Brushed steel"
       ],
