@@ -11,3 +11,10 @@ test('refresh-capped results are invalid rather than budget failures', () => {
 test('invalid power/display setup cannot pass a budget', () => {
   assert.equal(measurementValidity({ fpsMedian: 145, previousFps: 145, refreshHz: 144, state: {...state, noExternalMonitor: false} }).valid, false);
 });
+test('confirmed uncapped protocol permits external displays but still requires power and display records', () => {
+  const external = { ...state, noExternalMonitor: false, displays: [{ width: 1920, height: 1080, refreshHz: 144, primary: false }, { width: 2560, height: 1440, refreshHz: 144, primary: true }] };
+  const input = { fpsMedian: 144, previousFps: 500, refreshHz: 144, state: external, uncapped: true };
+  assert.equal(measurementValidity(input).valid, true);
+  assert.equal(measurementValidity({ ...input, state: { ...external, acConnected: false } }).valid, false);
+  assert.equal(measurementValidity({ ...input, state: { ...external, displays: [] } }).valid, false);
+});

@@ -1,0 +1,19 @@
+{
+  "confirmed": false,
+  "comparisons": [
+    {
+      "look": "engineering",
+      "laptopFps": 2000,
+      "externalFps": 1111.1111221490085,
+      "differencePercent": 44.44444389254958,
+      "pass": false
+    },
+    {
+      "look": "photoreal",
+      "laptopFps": 1111.1111221490085,
+      "externalFps": 714.2857188472942,
+      "differencePercent": 35.71428594236472,
+      "pass": false
+    }
+  ]
+}

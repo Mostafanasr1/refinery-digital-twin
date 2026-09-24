@@ -22,7 +22,7 @@
     "test:production": "node --test tests/production.test.mjs",
     "data:verify": "node scripts/data-verify.mjs",
     "shots": "node scripts/shots.mjs",
-    "metrics": "node tests/visual/look-metrics.mjs",
+    "metrics": "node tests/visual/environment-metrics.mjs",
     "visual:check": "node scripts/visual-check.mjs",
     "test:visual-tools": "node --test tests/visual/*.test.mjs",
     "test:looks": "node tests/visual/look-flow.mjs",

@@ -1,0 +1,288 @@
+{
+  "materials": {
+    "painted-steel": {
+      "color": "#c9cbc3",
+      "metalness": 0.25,
+      "roughness": 0.48,
+      "weathering": 0.12,
+      "relief": 0.05,
+      "tileMetres": 2,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/painted-steel-color.ktx2",
+        "normal": "assets/materials/painted-steel-normal.ktx2",
+        "roughness": "assets/materials/painted-steel-roughness.ktx2"
+      }
+    },
+    "weathered-steel": {
+      "color": "#a5aaa4",
+      "metalness": 0.35,
+      "roughness": 0.62,
+      "weathering": 0.28,
+      "relief": 0.1,
+      "tileMetres": 2,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/weathered-steel-color.ktx2",
+        "normal": "assets/materials/weathered-steel-normal.ktx2",
+        "roughness": "assets/materials/weathered-steel-roughness.ktx2"
+      }
+    },
+    "insulation": {
+      "color": "#b6bec0",
+      "metalness": 0.82,
+      "roughness": 0.35,
+      "weathering": 0.08,
+      "relief": 0.04,
+      "tileMetres": 1,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/insulation-color.ktx2",
+        "normal": "assets/materials/insulation-normal.ktx2",
+        "roughness": "assets/materials/insulation-roughness.ktx2"
+      }
+    },
+    "galvanized": {
+      "color": "#8b989a",
+      "metalness": 0.8,
+      "roughness": 0.48,
+      "weathering": 0.18,
+      "relief": 0.12,
+      "tileMetres": 1,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/galvanized-color.ktx2",
+        "normal": "assets/materials/galvanized-normal.ktx2",
+        "roughness": "assets/materials/galvanized-roughness.ktx2"
+      }
+    },
+    "safety-yellow": {
+      "color": "#d9a52c",
+      "metalness": 0.15,
+      "roughness": 0.5,
+      "weathering": 0.08,
+      "relief": 0.02,
+      "tileMetres": 0.5,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/safety-yellow-color.ktx2",
+        "normal": "assets/materials/safety-yellow-normal.ktx2",
+        "roughness": "assets/materials/safety-yellow-roughness.ktx2"
+      }
+    },
+    "concrete": {
+      "color": "#a5a197",
+      "metalness": 0,
+      "roughness": 0.98,
+      "weathering": 0.35,
+      "relief": 0.45,
+      "tileMetres": 3,
+      "source": "concrete_wall_007",
+      "maps": {
+        "color": "assets/materials/concrete-color.ktx2",
+        "normal": "assets/materials/concrete-normal.ktx2",
+        "roughness": "assets/materials/concrete-roughness.ktx2"
+      }
+    },
+    "grating": {
+      "color": "#687775",
+      "metalness": 0.8,
+      "roughness": 0.65,
+      "weathering": 0.22,
+      "relief": 0.15,
+      "tileMetres": 0.5,
+      "source": "Original procedural recessed grid; 50 mm pitch, 5 mm nominal bars; opaque",
+      "maps": {
+        "color": "assets/materials/grating-color.ktx2",
+        "normal": "assets/materials/grating-normal.ktx2",
+        "roughness": "assets/materials/grating-roughness.ktx2"
+      }
+    },
+    "dark-steel": {
+      "color": "#555650",
+      "metalness": 0.45,
+      "roughness": 0.7,
+      "weathering": 0.24,
+      "relief": 0.08,
+      "tileMetres": 2,
+      "source": "metal_plate_02",
+      "maps": {
+        "color": "assets/materials/dark-steel-color.ktx2",
+        "normal": "assets/materials/dark-steel-normal.ktx2",
+        "roughness": "assets/materials/dark-steel-roughness.ktx2"
+      }
+    }
+  },
+  "sources": [
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/metal_plate_02/metal_plate_02_diff_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "5cb02c12674de25264222511214e3c62"
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/metal_plate_02/metal_plate_02_nor_gl_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "95504e9795834d3bd9b7818031d19f86"
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/metal_plate_02/metal_plate_02_rough_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "743fdbd128ed05ddb90af1d1c28c20a0"
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/concrete_wall_007/concrete_wall_007_diff_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "ab501a290c68239f9166e9ee69814d3e"
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/concrete_wall_007/concrete_wall_007_nor_gl_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "d18ba67fbf9dbbf0968a3c2d83307326"
+    },
+    {
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/concrete_wall_007/concrete_wall_007_rough_1k.png",
+      "license": "CC0-1.0",
+      "sourceMd5": "d2ce4d4f0cc2b92ddfca35563906f736"
+    }
+  ],
+  "encoder": {
+    "url": "https://raw.githubusercontent.com/BinomialLLC/basis_universal/99f52d63aa6799cbdaecfe977111dc5ec3b31d47/bin/basisu_st.wasm",
+    "sha256": "b42d951b1bf146133578e8c7927ad4a4a857552846a46a3ee33b541b2a06bc7d",
+    "version": "2.50.0",
+    "license": "Apache-2.0"
+  },
+  "files": [
+    {
+      "file": "painted-steel-color.ktx2",
+      "bytes": 405850,
+      "sha256": "b20bf11a07bcae0ff051f634eeb278097901b2047b01d74dfe6fe836bbc7539d"
+    },
+    {
+      "file": "painted-steel-normal.ktx2",
+      "bytes": 344621,
+      "sha256": "e1384668010e6ebf7d4ad6674e4b9f40f1fb785bb697d7202616b61a9eee0dd6"
+    },
+    {
+      "file": "painted-steel-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "weathered-steel-color.ktx2",
+      "bytes": 624432,
+      "sha256": "89dcedd5fa5572cc01fe58003dc31616cfa70c27439048ba32a41a11144e1a90"
+    },
+    {
+      "file": "weathered-steel-normal.ktx2",
+      "bytes": 357986,
+      "sha256": "4fd4359b786c1e587dfc388f4af042cc0479b87c3cda1e4b7504080fdc8e442e"
+    },
+    {
+      "file": "weathered-steel-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "insulation-color.ktx2",
+      "bytes": 275766,
+      "sha256": "fe5bc71ee58ddd66fac6d1fb91bfc1886bfe5b3fd44c23c43d385e0883260430"
+    },
+    {
+      "file": "insulation-normal.ktx2",
+      "bytes": 343228,
+      "sha256": "fbcf1375556c3bcb87f6db64a46292b144549090226fca181c5b1f9f43a83f6e"
+    },
+    {
+      "file": "insulation-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "galvanized-color.ktx2",
+      "bytes": 489985,
+      "sha256": "d70b7457c8a9b0fa00205bcc2e14a02f7e03ba1ef83f8f8dc5413706bece51da"
+    },
+    {
+      "file": "galvanized-normal.ktx2",
+      "bytes": 363811,
+      "sha256": "7b56095d6ce69d6cdb1fe3a1a932b5267f28925f9ecfa8d7a43f3a4accee7413"
+    },
+    {
+      "file": "galvanized-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "safety-yellow-color.ktx2",
+      "bytes": 275766,
+      "sha256": "fe5bc71ee58ddd66fac6d1fb91bfc1886bfe5b3fd44c23c43d385e0883260430"
+    },
+    {
+      "file": "safety-yellow-normal.ktx2",
+      "bytes": 337813,
+      "sha256": "bcb0cf1673ad288e7210e6b00aef87fcee0a9ceeccd0d7fc772da4afcf5362f4"
+    },
+    {
+      "file": "safety-yellow-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "concrete-color.ktx2",
+      "bytes": 709768,
+      "sha256": "dc98ff6f6daf2bf32594335d693b2cb0a197d4ea651ebac107398024773ed905"
+    },
+    {
+      "file": "concrete-normal.ktx2",
+      "bytes": 929997,
+      "sha256": "aab14666c9f3eff9fa9db55759a6d1586bb864250e6ce8df6f6a39f56d2db7ad"
+    },
+    {
+      "file": "concrete-roughness.ktx2",
+      "bytes": 661287,
+      "sha256": "9a9844c578a24c5b2049155e8fbb56134d5eb2c1dbad5f6b61fd55243edfc72e"
+    },
+    {
+      "file": "grating-color.ktx2",
+      "bytes": 12331,
+      "sha256": "582db36f110593c60c4dd84866f8bb07803f6cbc3f89aba337ba567eb3f3b00f"
+    },
+    {
+      "file": "grating-normal.ktx2",
+      "bytes": 15423,
+      "sha256": "f8807a8faefb58efe593b69200598747765a8387373c32f56c273256ada65fef"
+    },
+    {
+      "file": "grating-roughness.ktx2",
+      "bytes": 9701,
+      "sha256": "c6e34044c61b525e1d7a4a284b9dc372b4322c21e7866a2327a9e0b2ee8e48dd"
+    },
+    {
+      "file": "dark-steel-color.ktx2",
+      "bytes": 586525,
+      "sha256": "60ad2856d8da4ceb6c99728f20e83a7dd4ae6cfd922df171bf55c4b2d6a90a7b"
+    },
+    {
+      "file": "dark-steel-normal.ktx2",
+      "bytes": 350363,
+      "sha256": "beae60996d54020950e0a490a78812f384073af9469c3bfecebc313623e936ec"
+    },
+    {
+      "file": "dark-steel-roughness.ktx2",
+      "bytes": 1755,
+      "sha256": "297eb270fa63b28f4d5a4e4502fd7ba4d779754cd8115d7da90e4709cddd16d3"
+    },
+    {
+      "file": "basis_transcoder.js",
+      "bytes": 57529,
+      "license": "Apache-2.0",
+      "source": "Installed Three.js Basis transcoder"
+    },
+    {
+      "file": "basis_transcoder.wasm",
+      "bytes": 527333,
+      "license": "Apache-2.0",
+      "source": "Installed Three.js Basis transcoder"
+    }
+  ]
+}

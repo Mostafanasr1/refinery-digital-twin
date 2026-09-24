@@ -22,7 +22,16 @@ def test_exported_glb_binding_coverage_and_geometry():
     for mesh in model["meshes"]:
         assert not mesh["name"].startswith(("Cube.", "Cylinder."))
         assert mesh["primitives"]
-    assert len(model["materials"]) <= 6
+    # Task 4 splits shader-identical engineering materials by presentation role.
+    # Validate the role library instead of the pre-material-pack six-slot limit.
+    roles = json.loads((ROOT / 'data/presentation/materials.json').read_text())['materials']
+    for material in model['materials']:
+        name = material['name']
+        if name == 'Route steel':
+            continue
+        source, role = name.split('::')
+        assert source in {'Brushed steel', 'Equipment shell', 'Safety ochre', 'Concrete'}
+        assert role in roles
     assert all("uri" not in image for image in model.get("images", []))
 
 

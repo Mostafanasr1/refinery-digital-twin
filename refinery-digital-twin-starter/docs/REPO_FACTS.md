@@ -63,3 +63,64 @@ The dual-look build and combined artifact succeeded, but GitHub rejected deploym
 ## Deployment resolution and approved budgets
 
 The user added dual-look to the existing github-pages allowlist. The failed deployment was rerun successfully. `/next/` serves 57 assets and main root serves 43, with identical root HTML and unchanged main commit. Task 0's prior blocker is resolved; Stage A Task 08 and Stage B Task 0 are approved. See `docs/APPROVED_BUDGETS.md` for the final limits applying from Task 2.
+
+
+## Display-independent metrics ruling — 24 September 2026 (proof pending)
+
+Mostafa authorized adding `--disable-gpu-vsync` and `--disable-frame-rate-limit` to metrics runs only. Screenshot flags and the engineering screenshot baseline remain unchanged. Record display count, resolutions, refresh rates, primary display and power state for each run. Confirm the protocol only after engineering and photoreal median FPS agree within 5% between laptop-only and laptop-plus-external conditions; otherwise report both and stop. Comparison formula: absolute difference divided by laptop-only median. Existing performance budgets are unchanged.
+
+The controlled proof serves the preserved GitHub Pages Task 3 artifact from run 36025950895, commit c1c5b70ce6e3e6af075306ee25c8b6d0c78c4ef3. Its entire served tree is SHA256-hashed in the output. Local Task 4 changes are excluded. Both conditions use the same browser, renderer, viewport, camera, flags, three-second warm-up and ten-second orbit. `tests/visual/display-protocol.mjs` records before/after display and power state and compares the artifact and run settings between conditions.
+
+Connected-monitor condition completed:
+- Engineering median: 1111.111 FPS; p95 1.40 ms; 32 draw calls; 479,196 triangles.
+- Photoreal median: 714.286 FPS; p95 2.20 ms; 47 draw calls; 745,510 triangles.
+- Internal 1920 x 1080 at 144 Hz; external primary 2560 x 1440 at 144 Hz; AC connected; Performance plan.
+- These are uncapped browser frame-loop timings, not frames physically displayed by a 144 Hz monitor. They are not compared to the old capped FPS as a performance improvement.
+- Raw samples and hardware/setup: `docs/metrics/display-protocol/external.json`.
+
+Outcome: PENDING laptop-only condition. No claim of display independence yet. The new launch mode is available for the controlled proof; normal budget measurements are not resumed until the proof is resolved. Screenshot launch defaults are unchanged. The server's configurable static root passed its production test. Task 4 remains paused pending the second condition and protocol outcome.
+
+
+## Display-independent proof outcome — 24 September 2026
+
+The laptop-only half completed with AC connected, Performance plan, and the internal primary 1920 x 1080 display at 144 Hz. Both comparisons exceed Mostafa's 5% limit. **Protocol NOT CONFIRMED; hard stop.** This supersedes the pending outcome above.
+
+| Look | Laptop-only median FPS | With external median FPS | Difference / laptop median | Result |
+|---|---:|---:|---:|---|
+| engineering | 2000.000 | 1111.111 | 44.444% | FAIL |
+| photoreal | 1111.111 | 714.286 | 35.714% | FAIL |
+
+The comparison verified identical served-artifact SHA256, source commit, browser, renderer, viewport, camera, warm-up/orbit duration, flags and power plan. Draw calls and triangles match across conditions: engineering 32 / 479,196; photoreal 47 / 745,510. Display configuration and power were recorded before and after each workload. Battery charge advanced from 83% in the connected condition to 85% laptop-only; AC remained connected. Background OS activity and thermal state were not controlled or measured, so the difference does not establish that the monitor alone caused it.
+
+These uncapped values represent browser frame-loop intervals, not displayed frame rates. No adjustment of thresholds, repeated trials, replacement baseline or alternative timing definition was applied to obtain a pass. Screenshot flags remain unchanged. Measurement processes have exited; Task 4 has not resumed. Await Mostafa's ruling on protocol resolution.
+
+Evidence: `docs/metrics/display-protocol/external.json`, `laptop.json`, `comparison.json`; logs under `docs/handbacks/evidence/stageB-task-04/display-protocol-*.log`.
+
+
+## Revised stress protocol — 24 September 2026 (supersedes 5% FPS test)
+
+Mostafa replaced the normal-scene FPS-ratio agreement criterion with frame-time p95 under 500-asset load in both looks. Frame time in ms is primary; FPS is derived as 1000 / median frame time. Budgets remain unchanged (normal engineering median approximately 16.7 ms, normal photoreal 25 ms; existing p95 limits remain separate). Agreement tolerance is max(1.0 ms, 10% of laptop-only p95). Both looks must pass. Metrics use the two uncapping flags; screenshots retain original flags. Per-run display and power records remain mandatory.
+
+Mostafa first authorized Task 4 to resume before the comparison, then explicitly prioritized resolving the protocol first so the monitor can be connected. Task 4 therefore remains paused during this controlled comparison.
+
+Laptop-only 500-asset condition completed against the same preserved Task 3 artifact:
+- Engineering: median 0.90 ms, p95 11.40 ms; tolerance 1.14 ms.
+- Photoreal: median 1.00 ms, p95 11.70 ms; tolerance 1.17 ms.
+- Internal display 1920 x 1080 at 144 Hz, AC connected, Performance plan.
+- Raw samples: `docs/metrics/display-protocol-stress/laptop.json`.
+
+Outcome pending matching external-monitor condition. Earlier normal-load measurements remain historical evidence and are not paired with these stress measurements. All measurement processes have exited. Await user connecting the external monitor and confirming readiness; then run the matching external condition once and stop if either comparison exceeds tolerance.
+
+
+## Stress protocol confirmed — 24 September 2026
+
+Both 500-asset comparisons passed the replacement criterion:
+
+| Look | Laptop p95 ms | External p95 ms | Absolute difference ms | Allowed ms |
+|---|---:|---:|---:|---:|
+| Engineering | 11.40 | 12.30 | 0.90 | 1.14 |
+| Photoreal | 11.70 | 12.50 | 0.80 | 1.17 |
+
+The artifact hash, browser, GPU, camera, viewport, warm-up/orbit duration, flags and power plan matched. Raw samples and before/after display/power records are in `docs/metrics/display-protocol-stress/{laptop,external}.json`; comparison is in `comparison.json`. This confirms the user's operational criterion on this reference setup, not universal invariance on arbitrary hardware.
+
+Effective protocol: metrics use `--disable-gpu-vsync` and `--disable-frame-rate-limit`; frame-time median and p95 in milliseconds are primary, FPS derives from median frame time. Keep recording display count, resolutions, refresh rates, primary display and power. AC and Performance plan remain required. External monitor may stay connected. Screenshot flags and frozen screenshot baseline are unchanged. Earlier normal-scene FPS-ratio failure is superseded by this successful stress-p95 proof; historical results remain intact. Task 4 resumes.

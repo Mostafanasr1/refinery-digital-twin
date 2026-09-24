@@ -3,6 +3,19 @@ import * as THREE from 'three';
 import { buildEquipmentBatches, assetAtFace, applyBatchStyle, disposeBatches } from './equipmentBatches';
 import { looks } from './looks/looks';
 import type { Asset } from './data/loader';
+import { materialUVs } from './looks/MaterialPack';
+it('keeps texture periods in metres across equipment sizes and preserves positions', () => {
+  for (const width of [2, 20]) {
+    const geometry = new THREE.PlaneGeometry(width, 4);
+    const before = Array.from(geometry.getAttribute('position').array);
+    materialUVs(geometry, .5);
+    const uv = geometry.getAttribute('uv');
+    expect(Math.abs(uv.getX(1) - uv.getX(0))).toBe(width / .5);
+    expect(Math.abs(uv.getY(2) - uv.getY(0))).toBe(4 / .5);
+    expect(Array.from(geometry.getAttribute('position').array)).toEqual(before);
+    geometry.dispose();
+  }
+});
 const asset = (id: string, x: number): Asset => ({ asset_id: id, tag: id, name: id, type: 'pump', unit_id: 'unit', facility_id: 'facility', area_id: 'area', model_ref: id, position: { x, y: 0, z: 0 }, rotation: { x: 0, y: 0, z: 0 }, dimensions: { length: 2, width: 2, height: 2, diameter: 2 }, status: 'normal', service: '', interactive: true, synthetic: true });
 it('preserves transformed triangles, canonical picks and cached look materials', () => {
   const scene = new THREE.Group(), material = new THREE.MeshStandardMaterial({ color: '#789abc' });

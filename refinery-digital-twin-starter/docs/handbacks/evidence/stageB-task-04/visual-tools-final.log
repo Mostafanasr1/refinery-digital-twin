@@ -1,0 +1,50 @@
+
+> refinery-digital-twin@0.0.0 test:visual-tools
+> node --test tests/visual/*.test.mjs
+
+TAP version 13
+# Subtest: capture rejects missing cameras, changed dimensions and non-finite positions
+ok 1 - capture rejects missing cameras, changed dimensions and non-finite positions
+  ---
+  duration_ms: 1.5394
+  type: 'test'
+  ...
+# Subtest: approved CAM-6 is capture-only while the original engineering protocol stays frozen
+ok 2 - approved CAM-6 is capture-only while the original engineering protocol stays frozen
+  ---
+  duration_ms: 5.7411
+  type: 'test'
+  ...
+# Subtest: canonical lock detects added, changed and deleted data but excludes presentation and formatting
+ok 3 - canonical lock detects added, changed and deleted data but excludes presentation and formatting
+  ---
+  duration_ms: 568.5325
+  type: 'test'
+  ...
+# Subtest: refresh-capped results are invalid rather than budget failures
+ok 4 - refresh-capped results are invalid rather than budget failures
+  ---
+  duration_ms: 1.119
+  type: 'test'
+  ...
+# Subtest: invalid power/display setup cannot pass a budget
+ok 5 - invalid power/display setup cannot pass a budget
+  ---
+  duration_ms: 0.9546
+  type: 'test'
+  ...
+# Subtest: confirmed uncapped protocol permits external displays but still requires power and display records
+ok 6 - confirmed uncapped protocol permits external displays but still requires power and display records
+  ---
+  duration_ms: 0.2521
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 706.8058

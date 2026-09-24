@@ -7,13 +7,15 @@ import { validateCaptureConfig } from './visual-config.mjs';
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const config = validateCaptureConfig(JSON.parse(await readFile(resolve(root, 'tests/visual/cameras.json'), 'utf8')));
 export const flags = ['--enable-gpu', '--force_high_performance_gpu', '--use-angle=d3d11', '--force-color-profile=srgb', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'];
-export async function openRun() {
-  const server = createStaticServer();
+export const metricsFlags = [...flags, '--disable-gpu-vsync', '--disable-frame-rate-limit'];
+export async function openRun({ metrics = false, staticRoot } = {}) {
+  const runFlags = metrics ? metricsFlags : flags;
+  const server = createStaticServer(staticRoot);
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const url = `http://127.0.0.1:${server.address().port}/?measure=1`;
   let browser;
   try {
-    browser = await chromium.launch({ headless: true, args: flags, ...(process.env.VISUAL_BROWSER_PATH ? { executablePath: process.env.VISUAL_BROWSER_PATH } : {}) });
+    browser = await chromium.launch({ headless: true, args: runFlags, ...(process.env.VISUAL_BROWSER_PATH ? { executablePath: process.env.VISUAL_BROWSER_PATH } : {}) });
   } catch (error) { server.close(); throw error; }
   try {
     const context = await browser.newContext({ viewport: config.viewport, deviceScaleFactor: config.deviceScaleFactor, reducedMotion: 'reduce', locale: 'en-US', timezoneId: 'UTC' });
@@ -31,7 +33,7 @@ export async function openRun() {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     page.on('requestfailed', request => errors.push(`${request.url()}: ${request.failure()?.errorText}`));
-    return { browser, page, url, errors, close: async () => { try { await browser.close(); } finally { await new Promise(resolve => server.close(resolve)); } } };
+    return { browser, page, url, errors, flags: runFlags, close: async () => { try { await browser.close(); } finally { await new Promise(resolve => server.close(resolve)); } } };
   } catch (error) {
     try { await browser.close(); } finally { server.close(); }
     throw error;
@@ -44,7 +46,7 @@ export async function navigate(run, view = 'demo') {
   await run.page.waitForFunction(() => window.__refineryVisual?.ready);
   const info = await run.page.evaluate(() => ({ renderer: window.__refineryVisual.renderer, look: window.__refineryVisual.look, interactiveAt: window.__refineryVisual.interactiveAt, dpr: devicePixelRatio }));
   if (!/NVIDIA.*3050/i.test(info.renderer) || /swiftshader|llvmpipe|software|basic render/i.test(info.renderer)) throw new Error(`Reference hardware not confirmed: ${info.renderer}`);
-  return { ...info, browser: run.browser.version(), flags, viewport: config.viewport };
+  return { ...info, browser: run.browser.version(), flags: run.flags, viewport: config.viewport };
 }
 export async function camera(page, spec) {
   await page.evaluate(spec => window.__refineryVisual.setCamera(spec), spec);

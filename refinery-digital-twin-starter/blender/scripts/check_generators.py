@@ -11,6 +11,7 @@ sys.path.insert(0, str(ROOT))
 
 from pipeline.catalog import SILHOUETTES  # noqa: E402
 from blender.generators.equipment import BUILDERS, build  # noqa: E402
+from blender.generators.material_stage import CONFIG, role_for  # noqa: E402
 
 
 def require(condition, message):
@@ -45,6 +46,8 @@ def main():
                     len(obj.data.materials) > 0 and all(obj.data.materials),
                     f"{label}: {obj.name} has no material",
                 )
+                for mat in obj.data.materials:
+                    require(role_for(kind, obj.name.removeprefix(prefix + '_'), mat.name) in CONFIG['materials'], f'{label}: unmapped part {obj.name}')
             corners = [
                 obj.matrix_world @ Vector(corner) for obj in objects for corner in obj.bound_box
             ]

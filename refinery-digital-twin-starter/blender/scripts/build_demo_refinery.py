@@ -8,6 +8,7 @@ import bpy
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "blender" / "generators"))
 from equipment import build, pipe_route, material  # noqa: E402
+from material_stage import apply_part_materials  # noqa: E402
 
 parser=argparse.ArgumentParser()
 parser.add_argument('--detail',type=int,choices=[0,1,2],default=1)
@@ -26,10 +27,12 @@ root=empty('REFINERY_ROOT')
 area_nodes={a['area_id']:empty(a['area_id'].upper(),root) for a in areas}
 unit_nodes={u['unit_id']:empty(u['unit_id'].upper(),area_nodes[u['area_id']]) for u in units}
 asset_nodes={}
+material_parts={}
 for asset in assets:
     node=empty(asset['model_ref'],unit_nodes[asset['unit_id']]);asset_nodes[asset['asset_id']]=node
     for key in ['asset_id','tag','type','unit_id','area_id','model_ref']:node[key]=asset[key]
     parts=build(asset,args.detail)
+    material_parts[asset['asset_id']]=apply_part_materials(asset,parts)
     # Join by material-preserving mesh to keep object/draw overhead controlled.
     bpy.ops.object.select_all(action='DESELECT')
     for obj in parts:obj.select_set(True)
@@ -55,4 +58,5 @@ bpy.ops.wm.save_as_mainfile(filepath=str(blend))
 bpy.ops.export_scene.gltf(filepath=str(output/'refinery.glb'),export_format='GLB',export_extras=True,export_yup=True)
 report={'assets':len(assets),'detail':args.detail,'mesh_objects':sum(o.type=='MESH' for o in bpy.data.objects),'triangles':sum(sum(len(p.vertices)-2 for p in o.data.polygons) for o in bpy.data.objects if o.type=='MESH')}
 (output/'build-report.json').write_text(json.dumps(report,indent=2))
+(output/'material-parts.json').write_text(json.dumps(material_parts,indent=2))
 print(json.dumps(report))

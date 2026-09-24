@@ -1,0 +1,162 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 1802.2000000029802,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "materialRequestsOnEngineeringLoad": 0,
+  "textureRequests": 24,
+  "cached": true,
+  "plantIdentity": "unchanged",
+  "lazyBytes": 18404972,
+  "files": [
+    {
+      "file": "env/context.glb",
+      "bytes": 1800372
+    },
+    {
+      "file": "env/sand-color.webp",
+      "bytes": 1170648
+    },
+    {
+      "file": "env/sand-normal.webp",
+      "bytes": 1928894
+    },
+    {
+      "file": "env/sand-rough.webp",
+      "bytes": 278954
+    },
+    {
+      "file": "env/sky.hdr",
+      "bytes": 4624289
+    },
+    {
+      "file": "env/sources.json",
+      "bytes": 1317
+    },
+    {
+      "file": "materials/basis_transcoder.js",
+      "bytes": 57529
+    },
+    {
+      "file": "materials/basis_transcoder.wasm",
+      "bytes": 527333
+    },
+    {
+      "file": "materials/concrete-color.ktx2",
+      "bytes": 709768
+    },
+    {
+      "file": "materials/concrete-normal.ktx2",
+      "bytes": 929997
+    },
+    {
+      "file": "materials/concrete-roughness.ktx2",
+      "bytes": 661287
+    },
+    {
+      "file": "materials/dark-steel-color.ktx2",
+      "bytes": 586525
+    },
+    {
+      "file": "materials/dark-steel-normal.ktx2",
+      "bytes": 350363
+    },
+    {
+      "file": "materials/dark-steel-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/galvanized-color.ktx2",
+      "bytes": 489985
+    },
+    {
+      "file": "materials/galvanized-normal.ktx2",
+      "bytes": 363811
+    },
+    {
+      "file": "materials/galvanized-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/grating-color.ktx2",
+      "bytes": 561428
+    },
+    {
+      "file": "materials/grating-normal.ktx2",
+      "bytes": 375288
+    },
+    {
+      "file": "materials/grating-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/insulation-color.ktx2",
+      "bytes": 275766
+    },
+    {
+      "file": "materials/insulation-normal.ktx2",
+      "bytes": 343228
+    },
+    {
+      "file": "materials/insulation-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/manifest.json",
+      "bytes": 9437
+    },
+    {
+      "file": "materials/painted-steel-color.ktx2",
+      "bytes": 405850
+    },
+    {
+      "file": "materials/painted-steel-normal.ktx2",
+      "bytes": 344621
+    },
+    {
+      "file": "materials/painted-steel-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/safety-yellow-color.ktx2",
+      "bytes": 275766
+    },
+    {
+      "file": "materials/safety-yellow-normal.ktx2",
+      "bytes": 337813
+    },
+    {
+      "file": "materials/safety-yellow-roughness.ktx2",
+      "bytes": 1755
+    },
+    {
+      "file": "materials/weathered-steel-color.ktx2",
+      "bytes": 624432
+    },
+    {
+      "file": "materials/weathered-steel-normal.ktx2",
+      "bytes": 357986
+    },
+    {
+      "file": "materials/weathered-steel-roughness.ktx2",
+      "bytes": 1755
+    }
+  ],
+  "errors": []
+}

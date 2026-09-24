@@ -3,6 +3,7 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import type { Asset } from './data/loader';
 import { worldPosition } from './data/registry';
 import { effects, type Look } from './looks/looks';
+import { materialUVs, type MaterialPack } from './looks/MaterialPack';
 
 export type AssetStyle = { active: boolean; tint?: string; dim?: boolean };
 export type PickRange = { start: number; count: number; asset: Asset };
@@ -57,17 +58,24 @@ export function buildEquipmentBatches(scene: THREE.Object3D, assets: Asset[]): E
     return { geometry, ranges: group.ranges, styleKeys: new WeakMap<PickRange, string>(), originalColor: group.material.color.clone(), engineering: materialWithAssetState(group.material), photoreal: materialWithAssetState(group.material) };
   });
 }
-export function applyBatchStyle(batch: EquipmentBatch, look: Look, style: (asset: Asset) => AssetStyle) {
+export function applyBatchStyle(batch: EquipmentBatch, look: Look, style: (asset: Asset) => AssetStyle, pack?: MaterialPack | null) {
   const material = look.id === 'engineering' ? batch.engineering : batch.photoreal;
-  material.roughness = material.name.includes('Concrete') ? look.materials.roughness.concrete : material.name.includes('Safety') ? look.materials.roughness.safety : look.materials.roughness.metal;
+  const role = material.name.split('::')[1];
+  const surface = look.id === 'photoreal' ? pack?.[role] : undefined;
+  if (surface && material.map !== surface.map) {
+    material.map = surface.map; material.normalMap = surface.normalMap; material.roughnessMap = surface.roughnessMap;
+    materialUVs(batch.geometry, surface.tileMetres); material.needsUpdate = true;
+  }
+  material.roughness = surface?.roughness ?? (material.name.includes('Concrete') ? look.materials.roughness.concrete : material.name.includes('Safety') ? look.materials.roughness.safety : look.materials.roughness.metal);
+  if (surface) material.metalness = surface.metalness;
   const colors = batch.geometry.getAttribute('color') as THREE.BufferAttribute;
   const emissions = batch.geometry.getAttribute('assetEmissive') as THREE.BufferAttribute;
   let changed = false;
   for (const range of batch.ranges) {
-    const state = style(range.asset), key = `${!!state.dim}/${state.active}/${state.tint ?? ''}`;
+    const state = style(range.asset), key = `${look.id}/${surface?.color ?? ''}/${!!state.dim}/${state.active}/${state.tint ?? ''}`;
     if (batch.styleKeys.get(range) === key) continue;
     batch.styleKeys.set(range, key); changed = true;
-    const color = batch.originalColor.clone();
+    const color = surface ? new THREE.Color(surface.color) : batch.originalColor.clone();
     if (state.dim) color.multiplyScalar(effects.dim); else if (state.active) color.set(effects.selected); else if (state.tint) color.set(state.tint);
     const emission = new THREE.Color(state.active ? effects.emissive : effects.off).multiplyScalar(state.active ? .7 : 0);
     for (let i = range.start; i < range.start + range.count; i++) { colors.setXYZ(i, color.r, color.g, color.b); emissions.setXYZ(i, emission.r, emission.g, emission.b); }

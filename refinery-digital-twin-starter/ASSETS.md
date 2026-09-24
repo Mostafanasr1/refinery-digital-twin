@@ -29,3 +29,13 @@ Terrain and mountain ring are original procedural runtime geometry. User-supplie
 Rebuild textures with `node scripts/python.mjs scripts/build_environment.py` after installing declared development dependencies. Pillow 12.3.0 uses lossless WebP, method 6; source pixels are not quantized. KTX2 is deferred because these three texture files total 3,378,496 bytes and the environment fits the approved 40 MB transfer budget. WebP does not reduce GPU texture memory; all three maps are 1K. The 2K RGBE HDR retains its full lighting range. Rebuild context with `node scripts/python.mjs scripts/build_context.py`.
 
 Task 3 review correction: 900 rock instances, 650 dry-scrub instances, macro sand tint and the west-gate dirt track are original procedural runtime geometry/shading. They add no downloaded files; the existing environment asset byte total is unchanged.
+
+## Stage B Task 4 materials
+
+Eight presentation roles are defined in `data/presentation/materials.json`, including physical texture tile sizes in metres. Model geometry is unchanged; exported material names retain both original engineering material and photoreal role. `data/normalized/models/material-parts.json` records every exported part assignment.
+
+Seven roles derive their subtle variation from Poly Haven [metal_plate_02](https://polyhaven.com/a/metal_plate_02) or [concrete_wall_007](https://polyhaven.com/a/concrete_wall_007), both CC0 under [Poly Haven's asset license](https://polyhaven.com/license). Source URLs and checksums are pinned in `scripts/build_materials.py` and the output manifest. Grating replaces these source maps with original procedural 50 mm grid spacing, 5 mm nominal bars and shallow normal-map relief. Its dark recesses suggest openings; the opaque material does not create physical holes.
+
+`data/normalized/assets/materials/` holds 24 1K KTX2 maps with mipmaps, plus manifest and Basis transcoder. It loads only when Photoreal is first used and is cached across look changes. All equipment, fallback proxies and pipes use physical metre-based tiling; engineering retains flat materials.
+
+Rebuild with `node scripts/python.mjs scripts/build_materials.py`, then `npm run build:models`. The pinned official Binomial Basis Universal 2.50.0 WASI encoder runs through `scripts/basis-encode.mjs`; its Apache-2.0 software license is distinct from CC0 texture licensing. The installed Three.js Basis runtime transcoder retains Apache-2.0 licensing. Per-file sizes and output SHA256 hashes are in `data/normalized/assets/materials/manifest.json`.
