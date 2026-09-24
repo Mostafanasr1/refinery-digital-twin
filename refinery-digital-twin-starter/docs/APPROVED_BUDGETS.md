@@ -14,3 +14,9 @@ Mostafa's ruling after Stage A Task 08 approval and Stage B Task 0 deployment ap
 Use the approved Task 0 capture/active-orbit protocol. The initial-download baseline is 12,200,115 bytes; interpreting MB as decimal gives a maximum of **13,200,115 bytes**. Lazy asset maximum is **40,000,000 bytes**. Source measurements are in `docs/metrics/baseline.json`; they are not overwritten by later runs.
 
 Stage B Task 1 remains an external review gate. Stop after its hand-back and push; do not start Task 2 until both reviewers approve.
+
+## Measurement validity ruling, 24 September 2026
+
+Record the active display refresh rate, AC state, power plan and active monitor topology for every run. The approved setup is AC connected, Performance plan, laptop display only. A median within 2% of refresh is INVALID rather than a budget failure when the prior comparable run was well above that refresh; the tool defines well above as more than 10%. Invalid measurements have no budget verdict and exit with code 2. Genuine budget failures retain exit code 1 and the thresholds above remain unchanged. Task 2 is the prior comparable workload reference. The historical 59.9 FPS cluster is classified by the user as display-capped; its original measurements remain preserved.
+
+Mostafa explicitly approved the more-than-10% definition and authorized the Task 3 rerun on 24 September 2026 after disconnecting the external monitor. The pre-resume inspection confirmed one internal 1920 x 1080 display at 144 Hz, AC connected and the Performance power plan. Each workload run must still record and validate its own setup; this approval does not waive any budget.

@@ -1,0 +1,41 @@
+{
+  "displayState": {
+    "capturedAt": "2026-09-24T00:01:59.1047493Z",
+    "acConnected": true,
+    "batteryPercent": 96,
+    "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+    "displays": [
+      {
+        "device": "\\\\.\\DISPLAY1",
+        "primary": false,
+        "width": 1920,
+        "height": 1080,
+        "refreshHz": 144
+      },
+      {
+        "device": "\\\\.\\DISPLAY2",
+        "primary": true,
+        "width": 2560,
+        "height": 1440,
+        "refreshHz": 144
+      }
+    ],
+    "connections": [
+      {
+        "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+        "VideoOutputTechnology": 2147483648
+      },
+      {
+        "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+        "VideoOutputTechnology": 5
+      }
+    ],
+    "noExternalMonitor": false
+  },
+  "validity": {
+    "valid": false,
+    "reasons": [
+      "Laptop display only is required"
+    ]
+  }
+}

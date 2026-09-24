@@ -27,3 +27,5 @@ External sources below are CC0-1.0, verified on their official asset pages and h
 Terrain and mountain ring are original procedural runtime geometry. User-supplied PetroMind screenshots under `docs/reference/` are review references, not shipped assets and not represented as CC0.
 
 Rebuild textures with `node scripts/python.mjs scripts/build_environment.py` after installing declared development dependencies. Pillow 12.3.0 uses lossless WebP, method 6; source pixels are not quantized. KTX2 is deferred because these three texture files total 3,378,496 bytes and the environment fits the approved 40 MB transfer budget. WebP does not reduce GPU texture memory; all three maps are 1K. The 2K RGBE HDR retains its full lighting range. Rebuild context with `node scripts/python.mjs scripts/build_context.py`.
+
+Task 3 review correction: 900 rock instances, 650 dry-scrub instances, macro sand tint and the west-gate dirt track are original procedural runtime geometry/shading. They add no downloaded files; the existing environment asset byte total is unchanged.

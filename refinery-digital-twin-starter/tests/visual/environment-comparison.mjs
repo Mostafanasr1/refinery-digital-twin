@@ -11,12 +11,20 @@ const percent = pixelmatch(baseline.data, returned.data, null, baseline.width, b
 await writeFile(resolve(folder, 'return-engineering.json'), JSON.stringify({ differingPixelsPercent: percent, passed: percent <= .5 }, null, 2));
 assert.ok(percent <= .5, 'engineering restored after visiting photoreal');
 const reference = (await readFile(resolve(root, 'docs/reference/petromind-wide.png'))).toString('base64');
-const current = (await readFile(resolve(folder, 'CAM-1-photoreal-default.png'))).toString('base64');
 const run = await openRun();
 try {
+  const image = async name => (await readFile(resolve(folder, name))).toString('base64');
+  const current = await image('CAM-1-photoreal-default.png');
   await run.page.setViewportSize({ width: 2400, height: 800 });
   await run.page.setContent(`<style>body{margin:0;background:#101923;color:#eef2f5;font:22px Arial}main{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}img{width:100%;height:660px;object-fit:contain;background:#172331}h2{font-size:22px;margin:8px 0}</style><main><section><h2>Mostafa's PetroMind reference — wide view</h2><img src="data:image/png;base64,${reference}"></section><section><h2>Stage B Task 3 — fixed CAM-1, environment only</h2><img src="data:image/png;base64,${current}"></section></main>`);
   await run.page.evaluate(() => Promise.all([...document.images].map(image => image.decode())));
   await run.page.screenshot({ path: resolve(folder, 'CAM-1-benchmark-comparison.png') });
-  console.log(`Engineering after round trip: ${percent.toFixed(4)}% PASS; benchmark comparison rendered.`);
+  const engineering = (await readFile(resolve(root, 'tests/visual/output/engineering/CAM-6-default.png'))).toString('base64');
+  const photoreal = await image('CAM-6-photoreal-default.png');
+  await writeFile(resolve(folder, 'CAM-6-engineering-default.png'), Buffer.from(engineering, 'base64'));
+  await run.page.setViewportSize({ width: 2400, height: 1500 });
+  await run.page.setContent(`<style>body{margin:0;background:#101923;color:#eef2f5;font:22px Arial}main{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px}img{width:100%;height:620px;object-fit:contain;background:#172331}h2{font-size:22px;margin:8px 0}p{line-height:1.6;padding:20px}</style><main><section><h2>Mostafa's PetroMind reference — wide view</h2><img src="data:image/png;base64,${reference}"></section><section><h2>Stage B Task 3 — approved CAM-6, Photoreal</h2><img src="data:image/png;base64,${photoreal}"></section><section><h2>Approved CAM-6 — Engineering</h2><img src="data:image/png;base64,${engineering}"></section><section><h2>Review protocol</h2><p>CAM-6 is the approved low wide frame for judging the photoreal look from Task 3 onward. Compare the horizon, ridges, terrain variation and overall composition here.<br><br>CAM-1 remains unchanged as the engineering regression anchor. Its original baseline and separate benchmark comparison remain intact.<br><br>CAM-6 is a new approved camera. It has no original engineering baseline and no pixel-difference percentage.</p></section></main>`);
+  await run.page.evaluate(() => Promise.all([...document.images].map(image => image.decode())));
+  await run.page.screenshot({ path: resolve(folder, 'CAM-6-benchmark-comparison.png') });
+  console.log(`Engineering after round trip: ${percent.toFixed(4)}% PASS; CAM-1 and CAM-6 benchmark comparisons rendered.`);
 } finally { await run.close(); }

@@ -1,0 +1,49 @@
+# Task 03 rerun
+
+| Look | Stress assets | Draw calls | Triangles | FPS median | p95 ms | Initial bytes | Budget |
+|---|---:|---:|---:|---:|---:|---:|---|
+| engineering | normal | 32.0 | 479196 | 144.9 | 7.40 | 8623896 | PASS |
+| photoreal | normal | 47.0 | 745510 | 144.9 | 7.50 | 16627881 | PASS |
+| engineering | 500 | 35.8 | 3917838 | 142.9 | 7.50 | 8623896 | PASS |
+
+## engineering / normal submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 4.0 | 4.0 |
+| pipes | 1.0 | 0.0 |
+| lamps | 2.0 | 0.0 |
+| ground | 6.0 | 0.0 |
+| helpers | 2.0 | 0.0 |
+
+Post passes: 13.0.
+
+## photoreal / normal submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 4.0 | 4.0 |
+| pipes | 1.0 | 1.0 |
+| lamps | 2.0 | 1.0 |
+| ground | 12.0 | 7.0 |
+| helpers | 1.0 | 0.0 |
+
+Post passes: 14.0.
+
+## engineering / 500 submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 7.8 | 4.0 |
+| pipes | 1.0 | 0.0 |
+| lamps | 2.0 | 0.0 |
+| ground | 6.0 | 0.0 |
+| helpers | 2.0 | 0.0 |
+
+Post passes: 13.0.

@@ -8,7 +8,8 @@
     { "id": "CAM-2", "name": "heater", "position": [122, 40, 48], "target": [76, 10, -15] },
     { "id": "CAM-3", "name": "column", "position": [156, 12, 65], "target": [102, 26, -23] },
     { "id": "CAM-4", "name": "tanks", "position": [245, 85, 85], "target": [164, 8, 4] },
-    { "id": "CAM-5", "name": "flare", "position": [220, 18, -185], "target": [170, 36, -55] }
+    { "id": "CAM-5", "name": "flare", "position": [220, 18, -185], "target": [170, 36, -55] },
+    { "id": "CAM-6", "name": "benchmark-low-wide", "position": [370, 85, 320], "target": [115, 26, -35] }
   ],
   "studyCamera": { "position": [13, 10, 16], "target": [0, 1.9, 0] }
 }

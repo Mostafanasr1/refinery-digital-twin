@@ -1,4 +1,62 @@
-# Stage B Task 03 — Environment gate, blocked by FPS budget
+# Stage B Task 03 — Environment gate
+
+## Correction and approved rerun — 24 September 2026
+
+The original blocked submission below is retained as history. Mostafa approved the site as ground, sky and sun, requested the terrain correction and CAM-6, and authorized continuation into Task 4 once the rerun passed and the correction was captured at CAM-6. Software approval was conditional on those same corrections. The more-than-10% interpretation of "well above" refresh was explicitly approved before this rerun.
+
+### Summary
+
+Added procedural macro sand tint, up to 900 instanced rocks and 650 dry scrub clumps thinning away from the plant, and a dirt track from the gate. Added the approved CAM-6 low wide view with both-look captures and benchmark comparison, leaving CAM-1 through CAM-5 and their engineering baseline unchanged. Measurement tooling now records monitor topology, refresh rate, AC and power plan, and separates invalid runs from budget failures. The approved laptop-only rerun passes all three workloads; the historical invalid setup and 59.9 FPS measurements remain preserved. These results satisfy the user's stated continuation conditions; this is not a claim of final reference-level visual acceptance, which belongs to Task 6.
+
+### Correction files touched
+
+- `ASSETS.md`: procedural correction provenance, no new external assets.
+- `app/src/PhotorealEnvironment.tsx`: macro tint, instanced scatter, dirt track, resource disposal.
+- `app/src/looks/looks.ts`: presentation settings for scatter, tint and track.
+- `docs/APPROVED_BUDGETS.md`: measurement-validity ruling and explicit cutoff approval.
+- `scripts/display-state.ps1`: Windows display and power inspection.
+- `scripts/measurement-validity.mjs`: setup and refresh-cap validity checks.
+- `scripts/visual-check.mjs`, `scripts/visual-config.mjs`: preserve original regression set; CAM-6 capture-only.
+- `tests/visual/cameras.json`: approved sixth camera.
+- `tests/visual/config.test.mjs`, `tests/visual/measurement-validity.test.mjs`: camera and validity checks.
+- `tests/visual/environment-comparison.mjs`: CAM-6 comparison alongside CAM-1.
+- `tests/visual/environment-metrics.mjs`: per-workload setup recording, prior-run comparison, separate rerun outputs.
+- `docs/metrics/stageB-task-03-invalid-setup.json`: historical rejected two-display setup.
+- `docs/metrics/stageB-task-03-rerun.json` and `.md`: approved valid rerun, raw samples and summary.
+- `docs/handbacks/evidence/stageB-task-03/`: updated CAM-1 to CAM-5 photoreal defaults and CAM-1 comparison; CAM-6 both-look images and comparison; correction check, visual, comparison, environment-flow and metrics logs; historical display-power inspection; approved-rerun metrics and canonical-check logs.
+- `docs/handbacks/stageB-task-03.md`: this closure and original submission history.
+
+The camera and measurement changes are explicitly authorized corrections. No canonical content or budget threshold changed. No new dependency or downloaded art asset was introduced. Procedural additions do not increase the registered environment asset package: 9,804,474 bytes against 40,000,000 allowed.
+
+### Approved rerun
+
+Command: `node tests/visual/environment-metrics.mjs` with the reference `VISUAL_BROWSER_PATH` from `docs/REPO_FACTS.md`. Exit 0. Same browser, GPU, viewport, warm-up and orbit protocol as before. Every workload records AC connected, Performance power plan and one internal 1920 x 1080 display at 144 Hz. No external display is active. Windows WMI inspection required execution outside the sandbox after its read was denied; no Windows settings were changed.
+
+| Look | Stress assets | Draw calls | Triangles | FPS median | Frame p95 ms | Initial bytes | Validity | Budget |
+|---|---:|---:|---:|---:|---:|---:|---|---|
+| Engineering | normal | 32.0 | 479196 | 144.9 | 7.40 | 8623896 | VALID | PASS |
+| Photoreal | normal | 47.0 | 745510 | 144.9 | 7.50 | 16627881 | VALID | PASS |
+| Engineering | 500 | 35.8 | 3917838 | 142.9 | 7.50 | 8623896 | VALID | PASS |
+
+Engineering first-load bytes remain below 13,200,115. Direct Photoreal navigation includes environment requests; its initial-byte figure is not subject to the Engineering initial-load threshold. The full registered lazy package remains within its independent limit. Timing results near 144 Hz demonstrate compliance on this setup, not unlimited performance headroom or a long-duration thermal benchmark. The previous 59.9 FPS cause is not independently proven by this rerun.
+
+### Verification and visual evidence
+
+Saved correction checks passed: 18 Vitest tests, 18 pytest tests, five visual-tool tests, lint, schema validation, TypeScript and build. Both internal correction reviewers previously passed the implementation. No rendering source changed after those checks; the resumed run adds measurement evidence and the approved ruling. Canonical verification was repeated after the valid rerun and reports all 32 files unchanged.
+
+All ten original engineering comparisons pass at 0.2603% to 0.3147%; CAM-6 is captured without inventing a new baseline. The environment-flow result reports zero browser errors, no Engineering environment requests, cached reuse, and unchanged plant identity. The CAM-6 comparison was visually inspected: horizon/ridges, scattered dressing and sand variation are present. The mountain treatment remains visibly simpler than the reference; whole-image approval remains at Task 6.
+
+### Paused-state history
+
+The earlier rerun was rejected because an external monitor was active. After asking Mostafa to resolve that condition, Codex continued work it considered independent; Mostafa ruled that this was a complete hard stop. That process error is acknowledged, and the workspace working agreement now states the pause/resume rule explicitly. Work resumed only after Mostafa disconnected the monitor and approved the outstanding cutoff and rerun. Task 4 had not started during that pause.
+
+### Evidence logs and final review
+
+Correction output and approved-rerun logs are appended below. Final internal spec review: PASS; final internal code-quality review: PASS. Both independently inspected the rerun evidence and confirmed that the measurement blocker is resolved. Quality review reproduced the reported FPS and p95 values from raw samples. The spec review's administrative request to replace the stale opening status is addressed by this closure section; the old submission is explicitly retained as history. Both reviews agree. The correction commit is identified in the follow-up closure record.
+
+---
+
+## Original submission and blocker history
 
 ## Summary
 
@@ -711,3 +769,276 @@ Canonical data unchanged (32 files).
 ## Commit hash
 
 Candidate and evidence: `bdcc098`. This final hand-back entry is committed separately. This is a blocked review checkpoint, not an accepted/completed Task 3.
+
+## Correction and approved rerun log output
+
+### correction-check.log
+```text
+
+> refinery-digital-twin@0.0.0 check
+> npm run normalize && npm run lint && npm test && npm run validate && npm run build
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 lint
+> npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests
+
+
+> @refinery/app@0.0.0 lint
+> eslint src
+
+All checks passed!
+
+> refinery-digital-twin@0.0.0 test
+> npm run test -w app && node scripts/python.mjs -m pytest && npm run test:visual-tools
+
+
+> @refinery/app@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  7 passed (7)
+      Tests  18 passed (18)
+   Start at  02:57:33
+   Duration  11.21s (transform 3.75s, setup 0ms, import 31.32s, tests 1.25s, environment 5ms)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+testpaths: tests
+collected 18 items
+
+tests\test_catalog.py ..                                                 [ 11%]
+tests\test_glb.py ..                                                     [ 22%]
+tests\test_normalization.py ........                                     [ 66%]
+tests\test_validation.py ......                                          [100%]
+
+============================= 18 passed in 13.29s =============================
+
+> refinery-digital-twin@0.0.0 test:visual-tools
+> node --test tests/visual/*.test.mjs
+
+TAP version 13
+# Subtest: capture rejects missing cameras, changed dimensions and non-finite positions
+ok 1 - capture rejects missing cameras, changed dimensions and non-finite positions
+  ---
+  duration_ms: 9.2849
+  type: 'test'
+  ...
+# Subtest: approved CAM-6 is capture-only while the original engineering protocol stays frozen
+ok 2 - approved CAM-6 is capture-only while the original engineering protocol stays frozen
+  ---
+  duration_ms: 27.5974
+  type: 'test'
+  ...
+# Subtest: canonical lock detects added, changed and deleted data but excludes presentation and formatting
+ok 3 - canonical lock detects added, changed and deleted data but excludes presentation and formatting
+  ---
+  duration_ms: 2374.2523
+  type: 'test'
+  ...
+# Subtest: refresh-capped results are invalid rather than budget failures
+ok 4 - refresh-capped results are invalid rather than budget failures
+  ---
+  duration_ms: 6.0004
+  type: 'test'
+  ...
+# Subtest: invalid power/display setup cannot pass a budget
+ok 5 - invalid power/display setup cannot pass a budget
+  ---
+  duration_ms: 4.9771
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2888.1538
+
+> refinery-digital-twin@0.0.0 validate
+> node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized
+
+Validated all collections in data\synthetic
+Validated all collections in data\normalized
+
+> refinery-digital-twin@0.0.0 prebuild
+> npm run normalize
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 build
+> npm run build -w app
+
+
+> @refinery/app@0.0.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 263 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.37 kB │ gzip:   0.27 kB
+dist/assets/index-DupH9ZgS.css     10.54 kB │ gzip:   3.12 kB
+dist/assets/index-DJAtT_sT.js   1,369.29 kB │ gzip: 387.05 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 22.78s
+```
+### correction-visual.log
+```text
+
+> refinery-digital-twin@0.0.0 visual:check
+> node scripts/visual-check.mjs
+
+CAM-1-default.png: 0.2822% differing pixels (PASS)
+CAM-1-selected.png: 0.2801% differing pixels (PASS)
+CAM-2-default.png: 0.3147% differing pixels (PASS)
+CAM-2-selected.png: 0.3135% differing pixels (PASS)
+CAM-3-default.png: 0.2610% differing pixels (PASS)
+CAM-3-selected.png: 0.2603% differing pixels (PASS)
+CAM-4-default.png: 0.2649% differing pixels (PASS)
+CAM-4-selected.png: 0.2644% differing pixels (PASS)
+CAM-5-default.png: 0.2644% differing pixels (PASS)
+CAM-5-selected.png: 0.2629% differing pixels (PASS)
+CAM-6-default.png: CAPTURED — new approved camera, no baseline comparison
+CAM-6-selected.png: CAPTURED — new approved camera, no baseline comparison
+```
+### correction-comparison.log
+```text
+Engineering after round trip: 0.2822% PASS; CAM-1 and CAM-6 benchmark comparisons rendered.
+```
+### correction-environment-flow.log
+```text
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 6811.5999999996275,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "loadingIndicator": "PASS while HDR request held",
+  "engineeringEnvironmentRequests": 0,
+  "loadedRequests": 5,
+  "repeatSwitchRequests": 0,
+  "lazyBytes": 9804474,
+  "files": [
+    {
+      "name": "context.glb",
+      "bytes": 1800372
+    },
+    {
+      "name": "sand-color.webp",
+      "bytes": 1170648
+    },
+    {
+      "name": "sand-normal.webp",
+      "bytes": 1928894
+    },
+    {
+      "name": "sand-rough.webp",
+      "bytes": 278954
+    },
+    {
+      "name": "sky.hdr",
+      "bytes": 4624289
+    },
+    {
+      "name": "sources.json",
+      "bytes": 1317
+    }
+  ],
+  "plantIdentity": "unchanged",
+  "errors": []
+}
+```
+### approved-rerun-metrics.log
+```text
+# Task 03 rerun
+
+| Look | Stress assets | Draw calls | Triangles | FPS median | p95 ms | Initial bytes | Budget |
+|---|---:|---:|---:|---:|---:|---:|---|
+| engineering | normal | 32.0 | 479196 | 144.9 | 7.40 | 8623896 | PASS |
+| photoreal | normal | 47.0 | 745510 | 144.9 | 7.50 | 16627881 | PASS |
+| engineering | 500 | 35.8 | 3917838 | 142.9 | 7.50 | 8623896 | PASS |
+
+## engineering / normal submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 4.0 | 4.0 |
+| pipes | 1.0 | 0.0 |
+| lamps | 2.0 | 0.0 |
+| ground | 6.0 | 0.0 |
+| helpers | 2.0 | 0.0 |
+
+Post passes: 13.0.
+
+## photoreal / normal submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 4.0 | 4.0 |
+| pipes | 1.0 | 1.0 |
+| lamps | 2.0 | 1.0 |
+| ground | 12.0 | 7.0 |
+| helpers | 1.0 | 0.0 |
+
+Post passes: 14.0.
+
+## engineering / 500 submissions
+
+Display: 144 Hz; AC: true; laptop only: true; Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance). Previous comparable FPS: 144.9. Measurement: VALID.
+
+| Category | Color | Shadow |
+|---|---:|---:|
+| equipment | 7.8 | 4.0 |
+| pipes | 1.0 | 0.0 |
+| lamps | 2.0 | 0.0 |
+| ground | 6.0 | 0.0 |
+| helpers | 2.0 | 0.0 |
+
+Post passes: 13.0.
+
+```
+### approved-rerun-data-verify.log
+```text
+Canonical data unchanged (32 files).
+```
