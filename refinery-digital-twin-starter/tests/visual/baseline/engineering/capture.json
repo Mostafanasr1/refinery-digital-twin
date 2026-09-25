@@ -1,7 +1,7 @@
 {
   "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
   "look": "engineering",
-  "interactiveAt": 1625,
+  "interactiveAt": 2044.199999988079,
   "dpr": 1,
   "browser": "146.0.7680.153",
   "flags": [
@@ -95,6 +95,20 @@
           36,
           -55
         ]
+      },
+      {
+        "id": "CAM-6",
+        "name": "benchmark-low-wide",
+        "position": [
+          370,
+          85,
+          320
+        ],
+        "target": [
+          115,
+          26,
+          -35
+        ]
       }
     ],
     "studyCamera": {
@@ -109,5 +123,16 @@
         0
       ]
     }
+  },
+  "status": "approved",
+  "approval": {
+    "date": "2026-09-25",
+    "reviewers": [
+      "Mostafa",
+      "Claude"
+    ],
+    "sourceCommit": "952d004",
+    "source": "docs/handbacks/evidence/stageB-task-08/engineering-candidate",
+    "ruling": "Task 8 approved by both reviewers; promote candidate captures."
   }
 }

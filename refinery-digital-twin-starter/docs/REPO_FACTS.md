@@ -145,3 +145,12 @@ The unspecified additional Task 5b types triggered a clarification pause. Mostaf
 Task 6 night correction completed and pushed as 3d2c575; narrow sphere-only Task 5b completed and pushed as 8729348. Task 7 is skipped; dressing is unchanged and density deferred to Stage C. Task 8 adds shared card styling, selection rims, fixed-screen-size labels, separate presentation tours and a 60-second idle attract mode. All 228 selection checks, complete tours in both looks, reveal, interruption, attract cycle and repeated look/state continuity pass. Tests and budgets pass; canonical data remains frozen.
 
 Current gate: stop for both external Task 8 approvals. Candidate screenshots are under docs/handbacks/evidence/stageB-task-08/engineering-candidate; the approved tests/visual/baseline is unchanged. Only promote the candidate after approval. Task 9 has not started; no main changes. See docs/handbacks/stageB-task-08.md for all evidence and completed-task commits.
+
+
+## Task 8 approval and Task 9 recording ruling — 25 September 2026
+
+Mostafa reports Task 8 approved by both external reviewers and authorizes promotion of the exact engineering candidate from 952d004. All twelve PNGs (six cameras, default and selected) are copied byte-for-byte into tests/visual/baseline/engineering; approval provenance is in capture.json. Historical candidate evidence remains unchanged. Regression now covers CAM-6 too, retaining the same 0.5 percent tolerance and unchanged cameras.
+
+From Task 9 onward, review motion videos must use 60 fps frame-by-frame capture stitched with ffmpeg CRF 18, or canvas captureStream/MediaRecorder at a high fixed bitrate. Playwright recorder output is interaction evidence only, not visual-review evidence. Task 8 recordings are historical and are not retroactively relabeled.
+
+Task 9 is authorized: release dual-look to main, finalize README/ASSETS/REPO_FACTS, verify Chrome, Edge and one physical phone, and stop at its gate. Stage C is not authorized before Task 9 approval. Preflight found the current main deployment removes /next/, whose retention is explicitly a reviewer decision in the plan. Chrome and Edge are installed; no phone connector or ADB command/default Android SDK is available. Phone verification arrangements and /next/ disposition need a ruling before release work continues.

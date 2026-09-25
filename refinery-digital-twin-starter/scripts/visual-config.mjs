@@ -8,10 +8,14 @@ export function validateCaptureConfig(config) {
   return config;
 }
 
-// CAM-6 was approved after the original five-camera engineering baseline.
-// Validate the entire original protocol without manufacturing a CAM-6 baseline.
+// Retain support for historical five-camera evidence. Task 8 approval promotes
+// all six candidate cameras; that baseline must match the complete protocol.
 export function validateBaselineProtocol(config, baselineConfig) {
   validateCaptureConfig(config);
+  if (baselineConfig.cameras?.length === 6) {
+    if (JSON.stringify(config) !== JSON.stringify(baselineConfig)) throw new Error('Approved fixed camera protocol changed; review is required before replacing the baseline.');
+    return { regressionCameras: config.cameras, captureOnlyCameras: [] };
+  }
   const originalIds = ['CAM-1', 'CAM-2', 'CAM-3', 'CAM-4', 'CAM-5'];
   const originalProtocol = { ...config, cameras: config.cameras.filter(camera => originalIds.includes(camera.id)) };
   if (baselineConfig.cameras?.length !== originalIds.length || JSON.stringify(originalProtocol) !== JSON.stringify(baselineConfig)) throw new Error('Original fixed camera protocol changed; review is required before replacing the baseline.');

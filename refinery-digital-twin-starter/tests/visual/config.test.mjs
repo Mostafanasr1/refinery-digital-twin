@@ -11,8 +11,8 @@ test('capture rejects missing cameras, changed dimensions and non-finite positio
   assert.throws(() => validateCaptureConfig(invalid), /Invalid camera/);
 });
 
-test('approved CAM-6 is capture-only while the original engineering protocol stays frozen', async () => {
-  const { config: baseline } = JSON.parse(await readFile(new URL('./baseline/engineering/capture.json', import.meta.url), 'utf8'));
+test('historical five-camera protocol leaves CAM-6 capture-only', () => {
+  const baseline = { ...config, cameras: config.cameras.slice(0, 5) };
   const protocol = validateBaselineProtocol(config, baseline);
   assert.deepEqual(protocol.regressionCameras, baseline.cameras);
   assert.deepEqual(protocol.captureOnlyCameras.map(camera => camera.id), ['CAM-6']);
@@ -24,5 +24,17 @@ test('approved CAM-6 is capture-only while the original engineering protocol sta
   ]) {
     const changed = structuredClone(config); alter(changed);
     assert.throws(() => validateBaselineProtocol(changed, baseline), /Original fixed camera protocol changed/);
+  }
+});
+
+test('Task 8 approved baseline compares all six cameras and rejects drift', async () => {
+  const { config: baseline, status } = JSON.parse(await readFile(new URL('./baseline/engineering/capture.json', import.meta.url), 'utf8'));
+  assert.equal(status, 'approved');
+  const protocol = validateBaselineProtocol(config, baseline);
+  assert.equal(protocol.regressionCameras.length, 6);
+  assert.deepEqual(protocol.captureOnlyCameras, []);
+  for (const change of [value => { value.cameras[5].position[0] += 1; }, value => { value.selectedTag = 'T-202'; }]) {
+    const changed = structuredClone(config); change(changed);
+    assert.throws(() => validateBaselineProtocol(changed, baseline), /Approved fixed camera protocol changed/);
   }
 });
