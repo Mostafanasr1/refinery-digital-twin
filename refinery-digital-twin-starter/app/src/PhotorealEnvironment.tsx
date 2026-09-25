@@ -1,3 +1,4 @@
+import atmosphereConfig from '../../data/presentation/atmosphere.json';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -136,7 +137,7 @@ function contextGroup(source: THREE.Group) {
     sourceGeometry.dispose();
   });
   const group = new THREE.Group(); group.name = 'photoreal-site-context';
-  groups.forEach((parts, material) => { const mesh = new THREE.Mesh(mergeGeometries(parts)!, material); parts.forEach(part => part.dispose()); mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData.category = 'ground'; group.add(mesh); });
+  groups.forEach((parts, material) => { const mesh = new THREE.Mesh(mergeGeometries(parts)!, material.clone()); parts.forEach(part => part.dispose()); mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData.category = 'ground'; group.add(mesh); });
   return group;
 }
 function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: boolean }) {
@@ -214,6 +215,10 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
     return { terrain, mountains, mountainMaterial, material, context: contextGroup(gltf.scene), scatter: desertScatter(terrain, assets, config) };
   }, [assets, config, gl, gltf, hdr, textures]);
   useEffect(() => {
+    resources.context.children.forEach(node=>{
+      const material=(node as THREE.Mesh).material as THREE.MeshStandardMaterial;
+      if(material.name==='Context_window') {material.emissive.set(night ? atmosphereConfig.nightLighting.windowEmissive : '#000000');material.emissiveIntensity=night ? atmosphereConfig.nightLighting.windowIntensity : 0;}
+    });
     if (!enabled) return;
     const previousFar = camera.far;
     scene.environment = environmentTarget.current!.texture; scene.environmentIntensity = night ? .16 : config.intensity;
@@ -228,7 +233,7 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
       scene.fog = null; camera.far = previousFar; camera.updateProjectionMatrix(); invalidate();
     };
   }, [camera, config, enabled, gl, hdr, dusk, night, invalidate, resources, scene]);
-  useEffect(() => () => { resources.terrain.dispose(); resources.mountains.dispose(); resources.mountainMaterial.dispose(); resources.material.dispose(); resources.context.children.forEach(node => (node as THREE.Mesh).geometry.dispose()); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
+  useEffect(() => () => { resources.terrain.dispose(); resources.mountains.dispose(); resources.mountainMaterial.dispose(); resources.material.dispose(); resources.context.children.forEach(node => { const mesh=node as THREE.Mesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
   return <group visible={enabled} name="photoreal-environment" dispose={null}>
     <mesh geometry={resources.terrain} material={resources.material} receiveShadow userData={{ category: 'ground' }} />
     <mesh geometry={resources.mountains} material={resources.mountainMaterial} userData={{ category: 'ground' }} />

@@ -3,7 +3,7 @@ import {mkdir,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {openRun,camera,config,root} from '../../scripts/visual-common.mjs';
 import {openLook,switchLook,snapshot,plantIdentity} from './look-common.mjs';
-const output=resolve(root,'docs/handbacks/evidence/stageB-task-06');await mkdir(output,{recursive:true});
+const output=resolve(root,'docs/handbacks/evidence/stageB-task-06',process.argv.includes('--correction')?'correction':'.');await mkdir(output,{recursive:true});
 const preview=process.argv.includes('--preview');
 const run=await openRun();
 const knownWarnings=[];

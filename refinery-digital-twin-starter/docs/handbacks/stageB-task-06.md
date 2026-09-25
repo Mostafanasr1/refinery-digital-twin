@@ -1,6 +1,19 @@
 # Stage B Task 06 — Post-processing and atmosphere
 
-25 September 2026. Branch: `dual-look`. Implementation and internal verification complete; submitted for the Task 6 external gate. Stop here for both Claude and Mostafa. No approval of reference-level realism is claimed.
+25 September 2026. Branch: `dual-look`. Both external reviewers approved the direction, conditional on broader night illumination. The correction below closes that condition under the authorized correction loop. Task 5b is sphere smoothing only; Task 7 is skipped; next external gate is Task 8.
+
+
+## Night-lighting correction — final candidate
+
+Distributed emissive roof/platform lamps and road bollards now reach the whole plant. Cabin-window materials are cloned and warmed only at night. Red warning bulbs follow actual chimney radii and asset rotation. Six non-shadow point lights create warm process-unit pools. Existing shadow lights, canonical data and dressing are unchanged. All additions are procedural; lazy asset bytes remain 21,417,040.
+
+Final metrics (`docs/metrics/stageB-task-06-night-correction.json`): engineering median/p95 1.00/1.60 ms, 47 calls; day 2.40/3.40 ms, 128 calls; night 3.20/4.90 ms, 153 calls; engineering 500 assets 1.30/10.40 ms. All valid and within budgets. Initial engineering download 8,758,199 bytes. Recorded AC Performance power and both 144 Hz displays under the approved uncapped protocol.
+
+All 24 corrected camera/tone captures and identity continuity pass without application errors in `evidence/stageB-task-06/correction/`. CAM-6 shows broader warm illumination around the process areas and perimeter, with the mood reference used for review. The existing faceted spheres remain for the explicitly authorized 5b. No claim that the procedural terrain or density equals the photographic reference is made.
+
+Correction check suite: 19 Vitest, 31 pytest and six visual-tool tests pass, as do lint, validation, TypeScript and build. Final warning-position revision also passes lint/build. All 32 frozen canonical files remain unchanged. Internal quality review PASS; internal spec review found a heater-warning offset issue, which was corrected to the chimney radius and re-reviewed PASS. No reviewer disagreement remains.
+
+Mostafa confirmed sphere smoothing only after the additional-type placeholder was queried. No other type detailing is authorized. Task 7 is skipped, dressing stays unchanged, and density is deferred to Stage C. Earlier gate requests below are historical and superseded by this ruling.
 
 ## Tasks since the Task 3 gate
 

@@ -41,7 +41,7 @@ const photoreal: Look = dayLooks.photoreal;
 export const looks: Record<LookId, Look> = {
   ...dayLooks,
   'photoreal-night': { ...photoreal, id: 'photoreal-night', label: 'Photoreal night',
-    environment: { ...photoreal.environment, background: '#152239', site: { ...photoreal.environment.site, lamp: [7, 3.8, 1.2] } },
+    environment: { ...photoreal.environment, background: '#152239', site: { ...photoreal.environment.site, lamp: [14, 7, 2] } },
     lighting: { ...photoreal.lighting, sun: { position: [-180, 35, -90], color: '#ffb776', intensity: .55 }, hemisphere: ['#718fca', '#463323', .25] },
     post: { toneMapping: 'aces', ao: true, exposure: 1.1, bloom: { intensity: .3, radius: .45, threshold: 1.8 } },
   },

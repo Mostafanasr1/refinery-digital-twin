@@ -132,3 +132,9 @@ Mostafa clarified during Task 5: reviewer disagreement means opposite verdicts o
 ## Task 6 gate submission — 25 September 2026
 
 Task 4 (`2726b90`) and Task 5 (`b208f23`) completed under non-gate cadence. Task 6 adds post/atmosphere, procedural night, animated flare/steam and a separate non-canonical dressing group; all frozen data remains unchanged. Internal verification and budgets pass; handback is `docs/handbacks/stageB-task-06.md`. Stop at the external Task 6 gate for Claude and Mostafa. Whole-image acceptance, density dressing and whether Tasks 5b/7 run remain Mostafa's decisions. No later task has started. The reviewer-disagreement clarification above remains effective.
+
+## Task 6 correction and onward ruling — 25 September 2026
+
+Mostafa reports both external reviewers approve Task 6 as direction, conditional on broader night illumination. Authorized correction: emissive platform/road lamps, cabin windows, red stack/flare warning lights, and warm process-pad pools using emissive meshes and non-shadow point lights; judge CAM-6 against mood-dusk.png within night budgets. Existing shadow lights remain unchanged. Dressing is frozen; density moves to Stage C.
+
+The unspecified additional Task 5b types triggered a clarification pause. Mostafa's "Confirmed - proceed" resolves it as sphere-tank smoothing only; no additional builder-detail types are authorized. Task 7 is skipped. After the Task 6 correction and narrow Task 5b pass internal review/evidence, continue Task 8 and stop at its external gate. The new engineering baseline requires approval before replacement. Branch remains dual-look; push each completed task. Canonical data stays frozen.

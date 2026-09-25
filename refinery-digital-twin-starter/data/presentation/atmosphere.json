@@ -1,6 +1,48 @@
 {
-  "steam": {"types": ["cooling_tower"], "maxSources": 3, "particlesPerSource": 6, "riseMetres": 10, "periodSeconds": 7},
-  "flame": {"heightMetres": 7, "widthMetres": 3.4, "lightIntensity": 12000, "lightRangeMetres": 95},
-  "floodlight": {"mountType": "column", "mountFraction": 0.75, "intensity": 8000, "color": "#ffd4a0", "shadowSize": 1024},
-  "platformLamps": {"types": ["column", "flare", "pipe_rack"], "color": [9, 4.5, 1.5]}
+  "steam": {
+    "types": [
+      "cooling_tower"
+    ],
+    "maxSources": 3,
+    "particlesPerSource": 6,
+    "riseMetres": 10,
+    "periodSeconds": 7
+  },
+  "flame": {
+    "heightMetres": 7,
+    "widthMetres": 3.4,
+    "lightIntensity": 12000,
+    "lightRangeMetres": 95
+  },
+  "floodlight": {
+    "mountType": "column",
+    "mountFraction": 0.75,
+    "intensity": 8000,
+    "color": "#ffd4a0",
+    "shadowSize": 1024
+  },
+  "platformLamps": {
+    "types": [
+      "column",
+      "flare",
+      "pipe_rack"
+    ],
+    "color": [
+      18,
+      8,
+      2
+    ]
+  },
+  "nightLighting": {
+    "poolIntensity": 850,
+    "poolRangeMetres": 65,
+    "poolHeightMetres": 2.5,
+    "warningColor": [
+      12,
+      0.015,
+      0.005
+    ],
+    "windowEmissive": "#ffbb65",
+    "windowIntensity": 2.5
+  }
 }
