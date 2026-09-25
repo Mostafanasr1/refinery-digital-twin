@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "desktop engineering: measured byte progress, HUD capture, completion after drawn frame",
+    "desktop photoreal: measured byte progress, HUD capture, completion after drawn frame",
+    "Warm look switch does not repeat the download indicator or requests",
+    "mobile-viewport engineering: measured byte progress, HUD capture, completion after drawn frame",
+    "mobile-viewport photoreal: measured byte progress, HUD capture, completion after drawn frame",
+    "412x915: collapsed panels, search/select, geometry controls and no page overflow PASS (desktop viewport emulation, not a physical phone)",
+    "915x412: collapsed panels, search/select, geometry controls and no page overflow PASS (desktop viewport emulation, not a physical phone)",
+    "360x640: collapsed panels, search/select, geometry controls and no page overflow PASS (desktop viewport emulation, not a physical phone)",
+    "Canceled history switch recovers; first Photoreal draw in proxy mode completes"
+  ],
+  "errors": [],
+  "video": null
+}

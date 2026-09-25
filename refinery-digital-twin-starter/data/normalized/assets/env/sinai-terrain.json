@@ -1,0 +1,22 @@
+{
+  "source": "N28E033.tif",
+  "sourceSha256": "2e581371c5197611e498a2b9182988c1888f52f8205fa600df549f30d66976cc",
+  "cropPixels": [
+    2340,
+    540,
+    3420,
+    1620
+  ],
+  "bounds": {
+    "west": 33.65,
+    "east": 33.95,
+    "north": 28.85,
+    "south": 28.55
+  },
+  "grid": 257,
+  "format": "little-endian float32 metres, north-up rows",
+  "resampling": "bilinear",
+  "presentationExtentMetres": 4200,
+  "verticalScale": 0.28,
+  "notes": "Recenter elevations and flatten a protected plant pad with smooth transition in runtime. Synthetic plant placement, not a surveyed Egyptian facility."
+}

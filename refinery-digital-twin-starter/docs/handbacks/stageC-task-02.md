@@ -1,6 +1,10 @@
 # Stage C Task 02 — CAM-6 vertical slice
 
-Status: submitted at the slice gate; implementation, local verification and live Chrome/Edge checks complete. Awaiting both external approvals.
+Status: approved by both external reviewers, as reported by Mostafa on 2026-09-25. Software: budgets and regression pass, evidence complete.
+
+## External visual verdict and next task
+
+Mostafa's verdict: the slice does not reach the PetroMind reference at CAM-6; the gap is terrain, ground and sourced assets, not generator detail. This is the brief for Stage C Task 3. Approval closes the Task 2 gate; it does not assert reference-level realism. Mostafa authorizes proceeding with Task 3 as scoped.
 
 ## Authority and boundary
 
@@ -70,7 +74,7 @@ The distant tank seams still show dotted/aliased detail in the before and after 
 
 ## Review and publication
 
-Internal spec and code-quality reviewers both gave final local PASS after all inherited metrics, generators and selection checks completed. See `evidence/stageC-task-02/internal-reviews.md`. External approval is pending. No Stage C task beyond this gate is authorized to start.
+Internal spec and code-quality reviewers both gave final local PASS after all inherited metrics, generators and selection checks completed. See `evidence/stageC-task-02/internal-reviews.md`. Historical submission state superseded: both external reviewers approved Task 2; Task 3 is now authorized as recorded above.
 
 
 ## Files touched

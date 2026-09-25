@@ -3,7 +3,8 @@ import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { openRun, camera, config, root } from '../../scripts/visual-common.mjs';
 import { openLook, switchLook, snapshot, plantIdentity } from './look-common.mjs';
-const output=resolve(root,'docs/handbacks/evidence/stageC-task-02');
+const task = process.argv.find(a => a.startsWith('--task='))?.split('=')[1] ?? '02';
+const output=resolve(root,`docs/handbacks/evidence/stageC-task-${task}`);
 const run=await openRun(), checks=[];
 run.page.on('console',m=>{if(m.type()==='error' && !m.location().url?.endsWith('/favicon.ico'))run.errors.push(m.text());});
 try {
@@ -11,17 +12,20 @@ try {
   assert.equal(original.dressing.visible,false);
   await switchLook(run.page,'photoreal'); await camera(run.page,config.cameras[5]);
   const photo=await snapshot(run.page);
+  if(task === '03') { assert.equal(photo.sourced.names.length,6); assert.equal(photo.sourced.visible.length,6); }
   assert.equal(photo.dressing.visible,true); assert.ok(photo.dressing.modules>10);
   assert.deepEqual(plantIdentity(photo),plantIdentity(original));
   assert.deepEqual(photo.registryIds,original.registryIds);
   assert.equal(photo.optionalDetail.assetIds.length,57);
   await run.page.getByLabel('Dressing',{exact:true}).uncheck();
   assert.equal((await snapshot(run.page)).dressing.visible,false);
+  if(task === '03') assert.deepEqual((await snapshot(run.page)).sourced.visible,[]);
   await run.page.screenshot({path:resolve(output,'CAM-6-dressing-off.png')});
   await run.page.getByLabel('Dressing',{exact:true}).check();
   assert.equal((await snapshot(run.page)).dressing.visible,true);
   await switchLook(run.page,'engineering');
   assert.equal((await snapshot(run.page)).dressing.visible,false);
+  if(task === '03') assert.deepEqual((await snapshot(run.page)).sourced.visible,[]);
   assert.equal(await run.page.evaluate(()=>window.__refineryDetailHits()),0);
   await switchLook(run.page,'photoreal');
   assert.ok(await run.page.evaluate(()=>window.__refineryDetailHits())>0);

@@ -96,12 +96,7 @@ export function buildSliceDressing(assets: Asset[], connections: NormalizedData[
         for (const dz of [-3, -2]) beam('rail', [x + dx, .6, z + dz], [x + dx, .6, z + dz + .1], .65);
       }
     } else {
-      // Parked maintenance truck; separate from the moving road actors.
-      cube('dark', 0, .35, 0, 5.8, .3, 2.2);
-      cube('pipe', -1.7, 1.25, 0, 2, 1.6, 2.1);
-      cube('glass', -1.7, 1.65, 0, 2.05, .65, 2.12);
-      cube('pipe', 1, .8, 0, 3.2, .35, 2.1);
-      for (const dx of [-1.8, 1.8]) for (const dz of [-1.05, 1.05]) beam('dark', [x + dx, .03, z + dz - .18], [x + dx, .03, z + dz + .18], .48);
+      // Vehicles are sourced instances; keep the existing lighting mast.
       cube('steel', 4, 4, 3, .16, 8.8, .16);
       cube('dark', 4, 8.4, 2.5, 1, .18, 1.2);
     }
@@ -129,6 +124,7 @@ export function buildSliceDressing(assets: Asset[], connections: NormalizedData[
   const group = new THREE.Group(); group.name = 'non-canonical-slice-dressing';
   group.userData = { category: 'ground', presentationOnly: true, moduleCount: sites.length, sites };
   for (const [role, geometries] of parts) {
+    if (!geometries.length) continue;
     const geometry = mergeGeometries(geometries)!; geometries.forEach(g => g.dispose());
     const material = new THREE.MeshStandardMaterial({ color: config.dressing.palette[role], roughness: role === 'glass' ? .25 : .68, metalness: ['steel', 'pipe', 'rail'].includes(role) ? .5 : .05 });
     const mesh = new THREE.Mesh(geometry, material); mesh.name = `slice-${role}`;

@@ -217,3 +217,30 @@ Mostafa supplied and authorized the vertical slice brief, saved verbatim first a
 Candidate: 62 switchable/non-selectable procedural dressing modules; route fittings; optional Blender detail for 57 assets across all 22 types; per-material metre-scale grime and pad wear; restrained daylight/post/shadow adjustment. Six-camera before/after set and unaltered reference comparison are in docs/handbacks/evidence/stageC-task-02. CAM-6 day p95 3.7/4.3/3.7 ms, conservative lazy inventory 29,647,667 bytes. Engineering captures: all 12 exactly match the approved baseline; 32 canonical hashes unchanged. External slice judgment is pending.
 
 Task 2 gate candidate published from `4a1646979ff768cef8e1ec1752b22a16c04b9474`; Pages run 36145021604 succeeded. Installed Chrome and Edge live checks pass, root main remains `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`. All 342 selection checks and 22-type generator checks pass. Both internal reviewers give final local PASS. Awaiting Mostafa and Claude at the slice gate; do not begin a later task. Publication-evidence follow-up is documentation only.
+
+## 2026-09-25 — Stage C Task 2 approved; Task 3 authorized
+
+Mostafa reports approval by both reviewers: software budgets and regression pass, evidence complete. His visual verdict is that the slice does not reach PetroMind at CAM-6; the remaining gap is terrain, ground and sourced assets, not generator detail. This supersedes the pending Task 2 gate above. Task 3 proceeds under docs/superpowers/plans/2026-09-25-stage-c-task-03-real-assets.md on dual-look, photoreal only, canonical and engineering unchanged. CAM-6 day p95 <=25 ms; lazy assets <=80 MB. Verify each asset license on its own page before download; stop at Task 3 gate.
+
+Task 3 source preflight paused: Fab's free container download requires explicit EULA acceptance (https://www.fab.com/eula). Browser confirmation policy requires action-time confirmation; agreement remains unchecked and unaccepted. See stageC-task-03.md for the source findings and resume condition. No assets downloaded or runtime/canonical changes. All task execution pauses pending Mostafa's answer and continuation authorization.
+
+Task 3 container acquisition stop resolved: Mostafa personally accepted the agreement and downloaded D:/Downloads/low-poly-shipping-container.zip, verified present (16,012,423 bytes). Continue using the local archive; no repeated agent EULA acceptance. Browser sessions are separate. Runtime implementation and remaining asset acquisition are still outstanding.
+
+Task 3 now pauses for a separate source-boundary ruling: relevant Sketchfab tanker candidates are CC BY, while the brief specifies Sketchfab CC0-only. Request a narrow allowance for verified CC BY 4.0 cabin/vehicle models with attribution. No such model downloaded. Container preparation succeeded (2,493,696-byte GLB), not scene-integrated; all 32 canonical hashes pass. No background jobs, new deployment or acceptance claims. Full details and resume condition in stageC-task-03.md.
+
+
+Task 3 sourcing pause resolved by Mostafa: "get all the assets you need to build a better than petromind photo mate". Broader verified-license sourcing, including CC BY models, is authorized. Continue free acquisition with provenance; budgets, canonical freeze, engineering regression and Task 3 gate remain. Earlier source-boundary pause is superseded.
+
+
+Task 3 acquired Poly Haven terrain maps/rock scan and Egyptian SRTM N28E033; hashes in source-intake.json and ASSETS.md. Two CC0 vehicle candidates rejected after Blender inspection. Current blocker is authentication, not license authorization: Sketchfab download redirects to Google password challenge in the in-app browser. Ask Mostafa to finish sign-in there and confirm resumption. No background jobs/agents, no runtime/canonical changes or deployment.
+
+
+Sign-in pause resolved: Mostafa confirmed completion; signed-in Sketchfab session verified. Tanker Truck by ezbreneman acquired through the official download UI (CC BY 4.0), copied to local source intake and successfully imported/rendered with Blender. 11,069,784 bytes, SHA-256 bf15aa18bdb055291ebe5ca7b7c37eece5a72303ccc8cc7cc5454547cf85c4f6. Not yet integrated or visually accepted. The browser download arrived in D:/Downloads/tanker_truck.glb. No new agreement was accepted by the agent.
+
+
+Task 3 sourcing checkpoint: all required asset categories acquired locally; source licenses, hashes and sizes recorded in ASSETS.md and source-intake.json. Truck/cabin source preview renders inspected. Authentication blocker resolved. Task 3 implementation/evidence/gate remains outstanding; no deployment changes.
+
+
+## Stage C Task 3 local completion — 26 September 2026
+
+Acquisition pauses are resolved by Mostafa’s explicit implementation authorization. Adapted Sinai SRTM terrain, slope/height-blended Poly Haven surfaces, instanced sourced rocks/cabins/containers/vehicles are integrated. CC BY sourcing exception, attribution, crop/flattening and derivative hashes are documented in ASSETS.md. Engineering/canonical truth untouched (32 files,57 assets,6 units). All12 approved engineering captures0% difference;342 selections pass; code/generator/motion/loading/mobile/production checks pass. Final CAM6p95 6.1/4.6/5.2ms;lazy42,333,254bytes/80MB. Night8.1msp95,191.2calls;all inherited budgets pass. Both internal reviews PASS. Publication verification follows on dual-look /next/ only. Main remains83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494. Stop at Task3 external gate; no reference-level realism claim and no later task authorized.

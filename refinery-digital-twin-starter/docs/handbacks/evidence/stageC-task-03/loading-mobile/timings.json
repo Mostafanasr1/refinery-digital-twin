@@ -1,0 +1,22 @@
+{
+  "engineering": {
+    "pack": "engineering",
+    "received": 7263344,
+    "total": 7263344,
+    "phase": "done",
+    "started": 1721.5,
+    "drawn": 13043,
+    "finished": 13084.90000000596
+  },
+  "photoreal": {
+    "pack": "photoreal",
+    "received": 41833478,
+    "total": 41833478,
+    "phase": "done",
+    "started": 13706.40000000596,
+    "drawn": 56726.90000000596,
+    "finished": 56727.69999998808
+  },
+  "conditions": "Desktop reference machine; deliberately throttled 1,200,000 bytes/s, 40 ms latency for visible progress evidence. Not phone timings.",
+  "phone": "Historical Stage C Task 1 report from Mostafa: Samsung A35 Chrome, first engineering loader 2 s, first photoreal switch 2 s, mobile layout clean. No new physical-phone timing measured for Task 3 enlarged assets."
+}

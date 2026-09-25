@@ -4,6 +4,8 @@ import { resolve } from 'node:path';
 import { openRun, camera, config, root } from '../../scripts/visual-common.mjs';
 import { openLook } from './look-common.mjs';
 import { readMeasurementState, measurementValidity } from '../../scripts/measurement-validity.mjs';
+const task = process.argv.find(a => a.startsWith('--task='))?.split('=')[1] ?? '02';
+const lazyBudget = task === '03' ? 80000000 : 60000000;
 const before = process.argv.includes('--before');
 const results = [];
 const quantile = (values, q) => values.toSorted((a,b) => a-b)[Math.ceil(values.length*q)-1];
@@ -36,6 +38,6 @@ for (const dressing of before ? [true] : [false, true]) {
 async function bytes(path) { let total=0; for(const entry of await readdir(path,{withFileTypes:true})) { const file=resolve(path,entry.name); total+=entry.isDirectory()?await bytes(file):(await stat(file)).size; } return total; }
 const lazyBytes = await bytes(resolve(root,'app/dist/assets/env')) + await bytes(resolve(root,'app/dist/assets/materials')) + await bytes(resolve(root,'app/dist/assets/detail'));
 const output=resolve(root,'docs/metrics'); await mkdir(output,{recursive:true});
-await writeFile(resolve(output,`stageC-task-02-${before?'before':'after'}.json`),JSON.stringify({method:'Uncapped requestAnimationFrame intervals, fixed CAM-6, active motion, 3s warmup and 10s sample; three repeats',lazyBytes,lazyPass:lazyBytes<=60000000,results},null,2));
+await writeFile(resolve(output,`stageC-task-${task}-${before?'before':'after'}.json`),JSON.stringify({method:'Uncapped requestAnimationFrame intervals, fixed CAM-6, active motion, 3s warmup and 10s sample; three repeats',lazyBytes,lazyPass:lazyBytes<=lazyBudget,results},null,2));
 console.log(JSON.stringify({lazyBytes,results:results.map(({samples,...rest})=>rest)},null,2));
-assert.ok(lazyBytes<=60000000 && results.every(r=>r.pass),'HARD STOP: slice budget missed');
+assert.ok(lazyBytes<=lazyBudget && results.every(r=>r.pass),'HARD STOP: slice budget missed');

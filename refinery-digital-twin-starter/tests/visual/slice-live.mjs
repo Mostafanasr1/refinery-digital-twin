@@ -6,7 +6,8 @@ import { openLook, switchLook } from './look-common.mjs';
 const expected = process.argv.find(a => a.startsWith('--preview='))?.split('=')[1];
 assert.match(expected ?? '', /^[a-f0-9]{40}$/);
 const base = 'https://mostafanasr1.github.io/refinery-digital-twin/';
-const output = resolve(root, 'docs/handbacks/evidence/stageC-task-02/live');
+const task = process.argv.find(a => a.startsWith('--task='))?.split('=')[1] ?? '02';
+const output = resolve(root, `docs/handbacks/evidence/stageC-task-${task}/live`);
 await mkdir(output, { recursive: true });
 for (const [name, executable] of [['chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe'], ['edge', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']]) {
   process.env.VISUAL_BROWSER_PATH = executable;

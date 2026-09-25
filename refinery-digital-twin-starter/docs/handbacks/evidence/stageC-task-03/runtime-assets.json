@@ -1,0 +1,72 @@
+[
+  {
+    "file": "data/normalized/assets/env/container.glb",
+    "bytes": 2493696,
+    "sha256": "c1f9e73528911db560d7794843e54642e7bfddf58f872aa4093bae7fd9d43db7"
+  },
+  {
+    "file": "data/normalized/assets/env/sinai-height.bin",
+    "bytes": 264196,
+    "sha256": "70583f5d65e78be3a183c949e890e85c1b1ca4d9619aa825a98dcb513f3c4ed0"
+  },
+  {
+    "file": "data/normalized/assets/env/sinai-terrain.json",
+    "bytes": 622,
+    "sha256": "1ec4bd70b757820e2c4ccdce4030c2248e6c9adf0995e526caac8425f3f608ec"
+  },
+  {
+    "file": "data/normalized/assets/env/sourced-models.json",
+    "bytes": 1391,
+    "sha256": "d767468e415d7884f9798fcecca1a6374c312d525fcb59bfc347df341f02bcb1"
+  },
+  {
+    "file": "data/normalized/assets/env/gravel-color.webp",
+    "bytes": 390532,
+    "sha256": "4fe9f5d803d3b4cdc18ebc15eec6eec4c745ba6820b845dc3cec596875a4756d"
+  },
+  {
+    "file": "data/normalized/assets/env/gravel-normal.webp",
+    "bytes": 533952,
+    "sha256": "c7cea1b65349354d859914c728a501ab93c24d47ee7863f6787c07ebe40c8c5e"
+  },
+  {
+    "file": "data/normalized/assets/env/gravel-rough.webp",
+    "bytes": 32742,
+    "sha256": "6315bd7622421713e3683c4ed8b391ec34f4e2916c64a0454c8e5815678451de"
+  },
+  {
+    "file": "data/normalized/assets/env/rock-color.webp",
+    "bytes": 299380,
+    "sha256": "2fbbed8b17b274e3cdcc9a396acd6b33d9207c847bf05891a8e082130e79bfd7"
+  },
+  {
+    "file": "data/normalized/assets/env/rock-normal.webp",
+    "bytes": 378900,
+    "sha256": "caabc3298c804f510cfdcdf7b8d02d4ab13635e0f7381db1fce6716721a28658"
+  },
+  {
+    "file": "data/normalized/assets/env/rock-rough.webp",
+    "bytes": 198192,
+    "sha256": "e39cc1e7e71565d6d3af4331b5b897f08843ad5beafd66286f8416a0821480a2"
+  },
+  {
+    "file": "data/normalized/assets/env/source-rock.glb",
+    "bytes": 2596804,
+    "sha256": "2e6bc55154a3074ac585f46b117f15a349630eea34f7d749c10d3f9866160af0"
+  },
+  {
+    "file": "data/normalized/assets/env/source-cabin.glb",
+    "bytes": 1003296,
+    "sha256": "f09a88c767183a3eaa57a903f62dec74bc94c586e3c724d7c3cd246b0fbf33c4"
+  },
+  {
+    "file": "data/normalized/assets/env/source-pickup.glb",
+    "bytes": 1072696,
+    "sha256": "affe2402b3fc78193ade8c68cb214313b0617e96084eea4193f28f46db6f0d83"
+  },
+  {
+    "file": "data/normalized/assets/env/source-tanker.glb",
+    "bytes": 3419188,
+    "sha256": "551c033320f90ed3599cd1c57c7ea89f3a52d4503a38a5ef20c8a5a4916b10c1"
+  }
+]

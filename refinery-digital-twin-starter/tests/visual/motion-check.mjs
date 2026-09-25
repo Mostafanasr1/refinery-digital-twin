@@ -3,7 +3,8 @@ import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
 import { openRun, camera, config, root } from '../../scripts/visual-common.mjs';
 import { openLook, switchLook } from './look-common.mjs';
-const output = resolve(root, 'docs/handbacks/evidence/stageC-task-01');
+const task = process.argv.find(a => a.startsWith('--task='))?.split('=')[1] ?? '01';
+const output = resolve(root, `docs/handbacks/evidence/stageC-task-${task}`);
 await mkdir(output, { recursive: true });
 const run = await openRun();
 try {

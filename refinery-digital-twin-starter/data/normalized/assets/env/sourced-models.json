@@ -1,0 +1,58 @@
+[
+  {
+    "file": "source-rock.glb",
+    "source": "sand_rocks_small_01/sand_rocks_small_01_1k.gltf",
+    "bytes": 2596804,
+    "sha256": "2e6bc55154a3074ac585f46b117f15a349630eea34f7d749c10d3f9866160af0",
+    "triangles": 900,
+    "bounds": [
+      [
+        4.613467216491699,
+        3.895911931991577,
+        0.5276820063591003
+      ]
+    ]
+  },
+  {
+    "file": "source-cabin.glb",
+    "source": "cabins-sketchfab.glb",
+    "bytes": 1003296,
+    "sha256": "f09a88c767183a3eaa57a903f62dec74bc94c586e3c724d7c3cd246b0fbf33c4",
+    "triangles": 282,
+    "bounds": [
+      [
+        11.999999046325684,
+        4.804859638214111,
+        4.6976776123046875
+      ]
+    ]
+  },
+  {
+    "file": "source-pickup.glb",
+    "source": "pickup-sketchfab.glb",
+    "bytes": 1072696,
+    "sha256": "affe2402b3fc78193ade8c68cb214313b0617e96084eea4193f28f46db6f0d83",
+    "triangles": 12140,
+    "bounds": [
+      [
+        5.399999141693115,
+        2.2809884548187256,
+        2.1732096672058105
+      ]
+    ]
+  },
+  {
+    "file": "source-tanker.glb",
+    "source": "tanker-sketchfab.glb",
+    "bytes": 3419188,
+    "sha256": "551c033320f90ed3599cd1c57c7ea89f3a52d4503a38a5ef20c8a5a4916b10c1",
+    "triangles": 64337,
+    "bounds": [
+      [
+        8.59999942779541,
+        3.3760793209075928,
+        3.6295831203460693
+      ]
+    ]
+  }
+]

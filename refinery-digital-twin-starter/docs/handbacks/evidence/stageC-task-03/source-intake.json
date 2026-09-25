@@ -1,0 +1,175 @@
+[
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/gravelly_sand/gravelly_sand_diff_1k.jpg",
+    "md5": "16b7593a26ce1bd43f1d95e61dc25f05",
+    "file": "gravelly_sand/gravelly_sand_diff_1k.jpg",
+    "source": "https://polyhaven.com/a/gravelly_sand",
+    "license": "CC0-1.0",
+    "bytes": 1062525,
+    "sha256": "bc1624594ce807f04eaa023f6f9df93ffefd20904570cd46ca302b954ef80eec",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/gravelly_sand/gravelly_sand_nor_gl_1k.jpg",
+    "md5": "92053a3e135c938def2dc974c76e3763",
+    "file": "gravelly_sand/gravelly_sand_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/gravelly_sand",
+    "license": "CC0-1.0",
+    "bytes": 1387739,
+    "sha256": "7ccb08525d46520a6d00262f4f73483b3569cc6cbc2908da069f033290d1c2f8",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/gravelly_sand/gravelly_sand_rough_1k.jpg",
+    "md5": "1152ab34b85ec42a5d4d6c8ed2c1100b",
+    "file": "gravelly_sand/gravelly_sand_rough_1k.jpg",
+    "source": "https://polyhaven.com/a/gravelly_sand",
+    "license": "CC0-1.0",
+    "bytes": 419895,
+    "sha256": "57188f62c17950f96a5f2b8ce11bc9776e2b5bff8eff5c903402d89553ba3654",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_face_03/rock_face_03_diff_1k.jpg",
+    "md5": "e4c34abb1aad5befe12754fad507147a",
+    "file": "rock_face_03/rock_face_03_diff_1k.jpg",
+    "source": "https://polyhaven.com/a/rock_face_03",
+    "license": "CC0-1.0",
+    "bytes": 927082,
+    "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_face_03/rock_face_03_nor_gl_1k.jpg",
+    "md5": "cbd30858439ece391480c5e67e09de89",
+    "file": "rock_face_03/rock_face_03_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/rock_face_03",
+    "license": "CC0-1.0",
+    "bytes": 1146788,
+    "sha256": "c6423169583f31715cf0636954bad524e806848a5f2861fcea6794275f726ff0",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_face_03/rock_face_03_rough_1k.jpg",
+    "md5": "bbb2c7dafde3f81808fa7404d4527a56",
+    "file": "rock_face_03/rock_face_03_rough_1k.jpg",
+    "source": "https://polyhaven.com/a/rock_face_03",
+    "license": "CC0-1.0",
+    "bytes": 638904,
+    "sha256": "9e3d9a2fd75244892e7acb6bab2eaed1279299510a7970672c0ee27ff1c19fea",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/sand_rocks_small_01/sand_rocks_small_01_1k.gltf",
+    "md5": "b6c774681b156d8e969c81e263f6c7ff",
+    "file": "sand_rocks_small_01/sand_rocks_small_01_1k.gltf",
+    "source": "https://polyhaven.com/a/sand_rocks_small_01",
+    "license": "CC0-1.0",
+    "bytes": 2887,
+    "sha256": "8d5dd6fc49f00646f3df1cee18c731c72b843fc9d448830bac5f151180a63d0e",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/sand_rocks_small_01/sand_rocks_small_01_nor_gl_1k.jpg",
+    "md5": "c1d26206377745357b0e03d71c7c9412",
+    "file": "sand_rocks_small_01/textures/sand_rocks_small_01_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/sand_rocks_small_01",
+    "license": "CC0-1.0",
+    "bytes": 1008354,
+    "sha256": "764d7d9aa1229c0b4716da35b0e0d6cc769c2ce25e4854cc7bbd480dba42cc6c",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/sand_rocks_small_01/sand_rocks_small_01_diff_1k.jpg",
+    "md5": "d819c51a8f18f0a496b0fcf8d672824a",
+    "file": "sand_rocks_small_01/textures/sand_rocks_small_01_diff_1k.jpg",
+    "source": "https://polyhaven.com/a/sand_rocks_small_01",
+    "license": "CC0-1.0",
+    "bytes": 788042,
+    "sha256": "86f57a6fefdc145dd1a386917ae8a73dbcc9230e2eed276df03e930310cd1cd6",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/sand_rocks_small_01/sand_rocks_small_01.bin",
+    "md5": "327c5e2efdde87ecf9d89bbe90ed923e",
+    "file": "sand_rocks_small_01/sand_rocks_small_01.bin",
+    "source": "https://polyhaven.com/a/sand_rocks_small_01",
+    "license": "CC0-1.0",
+    "bytes": 21253052,
+    "sha256": "77ea63c7cb39654b3e804f3b3a3dafdb5a39ff828192465276908dc3a963a44e",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/sand_rocks_small_01/sand_rocks_small_01_arm_1k.jpg",
+    "md5": "7c8f7fb524059726d323f60df943807c",
+    "file": "sand_rocks_small_01/textures/sand_rocks_small_01_arm_1k.jpg",
+    "source": "https://polyhaven.com/a/sand_rocks_small_01",
+    "license": "CC0-1.0",
+    "bytes": 758948,
+    "sha256": "6b80000330bfe8710fca1210d1f4a6080f6abb3634294f834810da8e83b5d27b",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "file": "N28E033.tif",
+    "url": "https://opentopography.s3.sdsc.edu/raster/SRTM_GL1/SRTM_GL1_srtm/N28E033.tif",
+    "source": "https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.042013.4326.1",
+    "license": "US government public-domain SRTM; USGS dataset use constraints retained",
+    "licenseEvidence": "https://data.usgs.gov/datacatalog/metadata/USGS.EROS5e83a3ee1af480c5.xml",
+    "status": "acquired; crop not selected",
+    "bytes": 11779400,
+    "sha256": "2e581371c5197611e498a2b9182988c1888f52f8205fa600df549f30d66976cc",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "file": "pickup-candidate.glb",
+    "source": "https://3dassets.dev/assets/car-park-and-road-vehicle-fleet-double-cab-pickup-5198b9ad",
+    "license": "CC0-1.0",
+    "aiGenerated": true,
+    "status": "rejected after local Blender render; inadequate visual quality",
+    "bytes": 959376,
+    "sha256": "1f51df1e4f17991c72aa19c9e6eba5d99319f57ae651cbfd422f6561180d0496",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "file": "tanker-candidate.glb",
+    "source": "https://3dassets.dev/assets/long-haul-trucking-and-truck-stop-tanker-hoses-out-7b9bd7df",
+    "license": "CC0-1.0",
+    "aiGenerated": true,
+    "status": "rejected after local Blender render; inadequate visual quality",
+    "bytes": 209288,
+    "sha256": "8056d575fdb65fa2d91cb2775972e22767700ca08babec5c9cdea3fb35c70df4",
+    "licenseChecked": "2026-09-25"
+  },
+  {
+    "file": "tanker-sketchfab.glb",
+    "source": "https://sketchfab.com/3d-models/tanker-truck-0bfeafdb2eb94612ad89ea2e794cf249",
+    "author": "ezbreneman",
+    "license": "CC-BY-4.0",
+    "licenseChecked": "2026-09-25",
+    "bytes": 11069784,
+    "sha256": "bf15aa18bdb055291ebe5ca7b7c37eece5a72303ccc8cc7cc5454547cf85c4f6",
+    "status": "Downloaded through signed-in UI; Blender import passes; visual inspection pending final selection"
+  },
+  {
+    "file": "pickup-sketchfab.glb",
+    "title": "Toyota Hilux 1983",
+    "author": "elkarimeldino",
+    "source": "https://sketchfab.com/3d-models/toyota-hilux-1983-d874f5e016fe41bd8461adb0c6d41ede",
+    "license": "CC-BY-4.0",
+    "licenseChecked": "2026-09-25",
+    "bytes": 4070956,
+    "sha256": "de8b4828ccc68cc420f470399cb07fb131552770ef570dfeccb4f3912025f134",
+    "status": "Official UI download; local Blender import/render verified; selected source candidate, not runtime-integrated"
+  },
+  {
+    "file": "cabins-sketchfab.glb",
+    "title": "Containers Cabins",
+    "author": "ROGUE (ROGUEENGINEER)",
+    "source": "https://sketchfab.com/3d-models/containers-cabins-d839483bc2c04404a562c0d6947f5171",
+    "license": "CC-BY-4.0",
+    "licenseChecked": "2026-09-25",
+    "bytes": 1091484,
+    "sha256": "a0237230d009d666fc2be751cfef65524a58d2e1a407d4817047302d7da05f8a",
+    "status": "Official UI download; local Blender import/render verified; selected source candidate, not runtime-integrated"
+  }
+]

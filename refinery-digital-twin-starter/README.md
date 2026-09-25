@@ -85,4 +85,9 @@ Phone: there is currently no automatic mobile quality reduction; presets retain 
 
 ### Stage C Task 2 preview candidate
 
-The dual-look preview adds switchable procedural site dressing, optional detail across all equipment types, and material/ground wear. Use **Photoreal → Dressing** to compare. Canonical data and the approved engineering baseline stay unchanged. CAM-6 day is the slice judgment frame; see [the hand-back](docs/handbacks/stageC-task-02.md) and [before/after/reference comparison](docs/handbacks/evidence/stageC-task-02/comparison.html). External slice approval is pending.
+The dual-look preview adds switchable procedural site dressing, optional detail across all equipment types, and material/ground wear. Use **Photoreal → Dressing** to compare. Canonical data and the approved engineering baseline stay unchanged. CAM-6 day is the slice judgment frame; see [the hand-back](docs/handbacks/stageC-task-02.md) and [before/after/reference comparison](docs/handbacks/evidence/stageC-task-02/comparison.html). Both reviewers approved Task 2. Mostafa judges the remaining reference gap to be terrain, ground and sourced assets; Stage C Task 3 addresses that gap.
+
+
+### Stage C Task 3 — real environment assets
+
+The `/next/` candidate replaces generated ridges with adapted SRTM terrain from Sinai and blends Poly Haven sand, gravel and rock. Instanced sourced cabins, containers and vehicles remain presentation-only and can be hidden with **Photoreal → Dressing**. Engineering and canonical equipment are unchanged. Sources, licenses and derivative transformations are listed in [ASSETS.md](ASSETS.md); see the [Task 3 hand-back](docs/handbacks/stageC-task-03.md) and [CAM-6 comparison](docs/handbacks/evidence/stageC-task-03/comparison.html). External visual acceptance is pending; no reference-level realism claim.

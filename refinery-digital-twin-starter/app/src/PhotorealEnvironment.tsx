@@ -1,3 +1,5 @@
+import { SourcedDressing, sourceMesh } from './SourcedDressing';
+import { useDressing } from './sliceState';
 import { TimeSky } from './TimeSky';
 import { surfaceWear } from './looks/surfaceWear';
 import { useMotion } from './motionState';
@@ -21,7 +23,8 @@ function LoadingEnvironment() {
   useEffect(() => { gl.domElement.dataset.environmentReady = 'false'; setEnvironmentLoading(true); return () => setEnvironmentLoading(false); }, [gl, setEnvironmentLoading]);
   return null;
 }
-function terrainGeometry(assets: Asset[], config: DesertEnvironment) {
+function terrainGeometry(assets: Asset[], config: DesertEnvironment, heights: Float32Array) {
+  if (heights.length !== (config.terrain.segments + 1) ** 2 || !heights.every(Number.isFinite)) throw new Error('DEM grid samples do not match terrain resolution');
   const xs = assets.map(asset => asset.position.x), zs = assets.map(asset => -asset.position.y);
   const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cz = (Math.min(...zs) + Math.max(...zs)) / 2;
   const halfWidth = (Math.max(...xs) - Math.min(...xs)) / 2 + 30, halfDepth = (Math.max(...zs) - Math.min(...zs)) / 2 + 30;
@@ -31,14 +34,14 @@ function terrainGeometry(assets: Asset[], config: DesertEnvironment) {
   for (let i = 0; i < positions.count; i++) {
     const x = positions.getX(i), z = positions.getZ(i);
     const distance = Math.max(Math.abs(x - cx) - halfWidth, Math.abs(z - cz) - halfDepth, 0);
-    const ramp = THREE.MathUtils.smoothstep(distance, 0, 180);
-    const undulation = Math.sin(x * .014 + z * .008) * .48 + Math.sin(z * .021 - x * .006) * .32 + Math.cos(x * .033 + z * .026) * .2;
-    positions.setY(i, -.55 + ramp * config.terrain.height * undulation);
+    const ramp = THREE.MathUtils.smoothstep(distance, 80, 650);
+    const base = heights[Math.floor(heights.length / 2)];
+    positions.setY(i, -.55 + ramp * Math.max(0, (heights[i] - base + 420) * .28));
   }
   geometry.computeVertexNormals(); return geometry;
 }
-/** Deterministic procedural dressing; no downloaded assets or canonical plant objects. */
-function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: DesertEnvironment) {
+/** Deterministic sourced rocks and procedural scrub; no canonical plant objects. */
+function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: DesertEnvironment, rock: THREE.Group) {
   let seed = 739391;
   const random = () => { seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296; };
   const positions = terrain.getAttribute('position'), segments = config.terrain.segments;
@@ -54,14 +57,8 @@ function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: D
   const xs = assets.map(asset => asset.position.x), zs = assets.map(asset => -asset.position.y);
   const minX = Math.min(...xs) - 36, maxX = Math.max(...xs) + 36, minZ = Math.min(...zs) - 36, maxZ = Math.max(...zs) + 36;
   const centerX = (minX + maxX) / 2, centerZ = (minZ + maxZ) / 2;
-  const rockGeometry = new THREE.IcosahedronGeometry(1, 0);
-  const rockPositions = rockGeometry.getAttribute('position');
-  for (let i = 0; i < rockPositions.count; i++) {
-    const x = rockPositions.getX(i), y = rockPositions.getY(i), z = rockPositions.getZ(i);
-    const uneven = 1 + .18 * Math.sin(x * 8 + z * 5);
-    rockPositions.setXYZ(i, x * uneven, y * .55 * uneven + .42, z * uneven);
-  }
-  rockGeometry.computeVertexNormals();
+  const preparedRock = sourceMesh(rock);
+  const rockGeometry = preparedRock.geometry;
   const twigs: THREE.BufferGeometry[] = [];
   for (let i = 0; i < 11; i++) {
     const angle = i * 2.39996, length = .6 + random() * .5;
@@ -77,7 +74,7 @@ function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: D
     ['rocks', rockGeometry, config.scatter.rocks, config.scatter.rockColor],
     ['dry-scrub', scrubGeometry, config.scatter.scrub, config.scatter.scrubColor],
   ] as const) {
-    const material = new THREE.MeshStandardMaterial({ color, roughness: 1 });
+    const material = name === 'rocks' ? preparedRock.material : new THREE.MeshStandardMaterial({ color, roughness: 1 });
     const mesh = new THREE.InstancedMesh(geometry, material, count); mesh.name = name; mesh.userData.category = 'ground'; mesh.receiveShadow = true;
     let placed = 0;
     for (let attempt = 0; placed < count && attempt < count * 100; attempt++) {
@@ -88,7 +85,7 @@ function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: D
       const alongTrack = Math.max(0, config.track.gate[0] - x);
       const trackZ = config.track.gate[1] + alongTrack * .14 + Math.sin(alongTrack * .003) * 25;
       if (x < config.track.gate[0] && Math.abs(z - trackZ) < config.track.width + 2) continue;
-      const scale = name === 'rocks' ? .25 + Math.pow(random(), 3) * 2.2 : .4 + random() * .85;
+      const scale = name === 'rocks' ? .12 + Math.pow(random(), 3) * .65 : .4 + random() * .85;
       transform.position.set(x, heightAt(x, z) - .025, z);
       transform.rotation.set(0, random() * Math.PI * 2, 0); transform.scale.set(scale, scale * (.75 + random() * .5), scale * (.8 + random() * .6)); transform.updateMatrix();
       mesh.setMatrixAt(placed, transform.matrix); tint.setScalar(.65 + random() * .6); mesh.setColorAt(placed, tint); placed++;
@@ -97,29 +94,6 @@ function desertScatter(terrain: THREE.BufferGeometry, assets: Asset[], config: D
     mesh.computeBoundingSphere(); group.add(mesh);
   }
   return group;
-}
-function mountainGeometry(config: DesertEnvironment, center: THREE.Vector3) {
-  const segments = 320, rings = 19, vertices: number[] = [], indices: number[] = [], colors: number[] = [];
-  const earth = new THREE.Color(config.mountains.color);
-  for (let ring = 0; ring < rings; ring++) {
-    const t = ring / (rings - 1);
-    for (let segment = 0; segment <= segments; segment++) {
-      const angle = segment / segments * Math.PI * 2;
-      const ridge = .63 + .19 * Math.sin(angle * 7 + .9) + .12 * Math.sin(angle * 17 - .6) + .06 * Math.cos(angle * 43);
-      const radial = config.mountains.radius + t * 430 + Math.sin(angle * 19 + t * 3) * 22 * Math.sin(t * Math.PI);
-      const profile = Math.pow(Math.sin(t * Math.PI), 1.2);
-      const folded = 1 + .15 * Math.sin(angle * 83 + t * 9) + .09 * Math.sin(angle * 137 - t * 17);
-      const height = -3 + ridge * config.mountains.height * profile * folded;
-      vertices.push(center.x + Math.cos(angle) * radial, height, center.z + Math.sin(angle) * radial);
-      const strata = .83 + .09 * Math.sin(height * .09 + angle * 13) + .08 * Math.cos(angle * 61 + t * 12);
-      colors.push(earth.r * strata, earth.g * strata, earth.b * strata);
-    }
-  }
-  for (let ring = 0; ring < rings - 1; ring++) for (let segment = 0; segment < segments; segment++) {
-    const a = ring * (segments + 1) + segment, b = a + segments + 1;
-    indices.push(a, a + 1, b, b, a + 1, b + 1);
-  }
-  const geometry = new THREE.BufferGeometry(); geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3)); geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3)); geometry.setIndex(indices); geometry.computeVertexNormals(); return geometry;
 }
 /** Context meshes are non-selectable and merged by their Blender material. */
 function contextGroup(source: THREE.Group) {
@@ -131,7 +105,9 @@ function contextGroup(source: THREE.Group) {
     const sourceGeometry = node.geometry.index ? node.geometry.toNonIndexed() : node.geometry.clone();
     const segments = Array.isArray(node.material) ? node.geometry.groups : [{ start: 0, count: sourceGeometry.getAttribute('position').count, materialIndex: 0 }];
     for (const segment of segments) {
-      const material = materials[segment.materialIndex ?? 0], geometry = new THREE.BufferGeometry();
+      const material = materials[segment.materialIndex ?? 0];
+      if (['Context_cabin','Context_trim','Context_window'].includes(material.name)) continue;
+      const geometry = new THREE.BufferGeometry();
       for (const name of ['position', 'normal', 'uv']) {
         const attribute = sourceGeometry.getAttribute(name);
         if (attribute) geometry.setAttribute(name, new THREE.BufferAttribute(new Float32Array(attribute.array.slice(segment.start * attribute.itemSize, (segment.start + segment.count) * attribute.itemSize)), attribute.itemSize));
@@ -165,6 +141,7 @@ function contextGroup(source: THREE.Group) {
 }
 function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: boolean }) {
   const { hour } = useMotion();
+  const dressing = useDressing();
   const { day } = daylight(hour);
   const dark = 1 - day;
   const config = looks.photoreal.environment.desert!;
@@ -172,6 +149,10 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
   const hdr = useLoader(RGBELoader, `${import.meta.env.BASE_URL}${config.assets.sky}`);
   const textures = useLoader(THREE.TextureLoader, [config.assets.color, config.assets.normal, config.assets.roughness].map(path => `${import.meta.env.BASE_URL}${path}`));
   const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}${config.assets.context}`, loader => loader.setMeshoptDecoder(MeshoptDecoder));
+  const heights = useLoader(THREE.FileLoader, `${import.meta.env.BASE_URL}assets/env/sinai-height.bin`, loader => loader.setResponseType('arraybuffer')) as ArrayBuffer;
+  const blends = useLoader(THREE.TextureLoader, ['gravel-color','gravel-normal','gravel-rough','rock-color','rock-normal','rock-rough'].map(name => `${import.meta.env.BASE_URL}assets/env/${name}.webp`));
+  const models = useLoader(GLTFLoader, ['source-rock','source-cabin','container','source-pickup','source-tanker'].map(name => `${import.meta.env.BASE_URL}assets/env/${name}.glb`));
+  const dressingSources = useMemo(() => models.slice(1).map(model => model.scene), [models]);
   const environmentTarget = useRef<THREE.WebGLRenderTarget | null>(null);
   const dusk = useMemo(() => {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 512;
@@ -198,17 +179,21 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
   const resources = useMemo(() => {
     textures.forEach(texture => { texture.wrapS = texture.wrapT = THREE.RepeatWrapping; texture.repeat.setScalar(config.terrain.size / config.terrain.tileMetres); texture.anisotropy = Math.min(8, gl.capabilities.getMaxAnisotropy()); });
     textures[0].colorSpace = THREE.SRGBColorSpace;
-    const terrain = terrainGeometry(assets, config);
-    terrain.computeBoundingBox(); const center = terrain.boundingBox!.getCenter(new THREE.Vector3());
-    const mountains = mountainGeometry(config, center);
-    const mountainMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, side: THREE.DoubleSide });
+    blends.forEach((texture, i) => { texture.wrapS = texture.wrapT = THREE.RepeatWrapping; texture.anisotropy = Math.min(8, gl.capabilities.getMaxAnisotropy()); if (i % 3 === 0) texture.colorSpace = THREE.SRGBColorSpace; });
+    const terrain = terrainGeometry(assets, config, new Float32Array(heights));
     const material = new THREE.MeshStandardMaterial({ color: config.terrain.color, map: textures[0], normalMap: textures[1], roughnessMap: textures[2], roughness: 1, normalScale: new THREE.Vector2(config.terrain.normalScale, config.terrain.normalScale) });
     material.onBeforeCompile = shader => {
-      shader.vertexShader = `varying vec3 terrainPosition;\n${shader.vertexShader}`.replace('#include <begin_vertex>', '#include <begin_vertex>\nterrainPosition = position;');
+      shader.vertexShader = `varying vec3 terrainPosition; varying float terrainSlope;\n${shader.vertexShader}`.replace('#include <begin_vertex>', '#include <begin_vertex>\nterrainPosition = position; terrainSlope = 1.0 - abs(normal.y);');
+      shader.uniforms.gravelMap = { value: blends[0] };
+      shader.uniforms.rockMap = { value: blends[3] };
+      shader.uniforms.gravelNormal = { value: blends[1] }; shader.uniforms.rockNormal = { value: blends[4] };
+      shader.uniforms.gravelRough = { value: blends[2] }; shader.uniforms.rockRough = { value: blends[5] };
       shader.uniforms.sandDarkTint = { value: new THREE.Color(config.terrain.darkTint) };
       shader.uniforms.trackGate = { value: new THREE.Vector2(...config.track.gate) };
       shader.uniforms.trackWidth = { value: config.track.width };
-      shader.fragmentShader = `varying vec3 terrainPosition;
+      shader.fragmentShader = `varying vec3 terrainPosition; varying float terrainSlope;
+        uniform sampler2D gravelMap; uniform sampler2D rockMap;
+        uniform sampler2D gravelNormal; uniform sampler2D rockNormal; uniform sampler2D gravelRough; uniform sampler2D rockRough;
         uniform vec3 sandDarkTint;
         uniform vec2 trackGate;
         uniform float trackWidth;
@@ -227,6 +212,12 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
         float macro = desertNoise(terrainPosition.xz * .009) * .7 + desertNoise(terrainPosition.xz * .027 + 19.0) * .3;
         float darkPatch = smoothstep(.27, .75, macro);
         diffuseColor.rgb *= mix(vec3(1.1, 1.06, .99), sandDarkTint, darkPatch * .72);
+        vec3 gravel = texture2D(gravelMap, terrainPosition.xz / 2.5).rgb;
+        vec3 rock = texture2D(rockMap, terrainPosition.xz / 2.7).rgb;
+        float gravelMix = smoothstep(.25, .7, macro) * (1.0 - smoothstep(15.0, 130.0, terrainPosition.y));
+        float rockMix = max(smoothstep(.04, .32, terrainSlope), smoothstep(60.0, 240.0, terrainPosition.y) * .8);
+        diffuseColor.rgb = mix(diffuseColor.rgb, gravel * vec3(1.05, .98, .87), gravelMix * .65);
+        diffuseColor.rgb = mix(diffuseColor.rgb, rock * vec3(1.05, .97, .86), rockMix);
         float alongTrack = max(0.0, trackGate.x - terrainPosition.x);
         float trackCenter = trackGate.y + alongTrack * .14 + sin(alongTrack * .003) * 25.0;
         float trackOffset = abs(terrainPosition.z - trackCenter);
@@ -234,10 +225,12 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
         float track = (1.0 - smoothstep(trackWidth * .5 - .5, trackWidth * .5 + .7, trackOffset + edgeNoise)) * step(terrainPosition.x, trackGate.x);
         float ruts = 1.0 - smoothstep(.18, .46, abs(trackOffset - trackWidth * .27));
         diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * vec3(.75, .71, .63) * (1.0 - ruts * .13), track * .7);`);
+      shader.fragmentShader = shader.fragmentShader.replace('#include <normal_fragment_maps>', THREE.ShaderChunk.normal_fragment_maps.replace('texture2D( normalMap, vNormalMapUv ).xyz', 'mix(mix(texture2D(normalMap, vNormalMapUv).xyz, texture2D(gravelNormal, terrainPosition.xz / 2.5).xyz, gravelMix * .65), texture2D(rockNormal, terrainPosition.xz / 2.7).xyz, rockMix)'));
+      shader.fragmentShader = shader.fragmentShader.replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\nroughnessFactor = mix(mix(roughnessFactor, texture2D(gravelRough, terrainPosition.xz / 2.5).r, gravelMix * .65), texture2D(rockRough, terrainPosition.xz / 2.7).r, rockMix);');
     };
-    material.customProgramCacheKey = () => 'desert-macro-track-v2';
-    return { terrain, mountains, mountainMaterial, material, context: contextGroup(gltf.scene), scatter: desertScatter(terrain, assets, config) };
-  }, [assets, config, gl, gltf, hdr, textures]);
+    material.customProgramCacheKey = () => 'sinai-slope-height-three-surfaces-v1';
+    return { terrain, material, context: contextGroup(gltf.scene), scatter: desertScatter(terrain, assets, config, models[0].scene) };
+  }, [assets, config, gl, gltf, textures, blends, heights, models]);
   useEffect(() => {
     resources.context.children.forEach(node=>{
       const material=(node as THREE.Mesh).material as THREE.MeshStandardMaterial;
@@ -257,12 +250,13 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
       scene.fog = null; camera.far = previousFar; camera.updateProjectionMatrix(); invalidate();
     };
   }, [camera, config, enabled, gl, hdr, dusk, day, dark, invalidate, resources, scene]);
-  useEffect(() => () => { resources.terrain.dispose(); resources.mountains.dispose(); resources.mountainMaterial.dispose(); resources.material.dispose(); resources.context.children.forEach(node => { const mesh=node as THREE.Mesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
+  useEffect(() => () => { resources.terrain.dispose(); resources.material.dispose(); resources.context.children.forEach(node => { const mesh=node as THREE.Mesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
   return <group visible={enabled} name="photoreal-environment" dispose={null}>
     <mesh geometry={resources.terrain} material={resources.material} receiveShadow userData={{ category: 'ground' }} />
-    <mesh geometry={resources.mountains} material={resources.mountainMaterial} userData={{ category: 'ground' }} />
+
     <TimeSky dayTexture={hdr} duskTexture={dusk} /><primitive object={resources.context} />
-    <primitive object={resources.scatter} />
+    <primitive object={resources.scatter} visible={dressing} />
+    <SourcedDressing sources={dressingSources} assets={assets} enabled={enabled} />
   </group>;
 }
 export function PhotorealEnvironment({ assets }: { assets: Asset[] }) {

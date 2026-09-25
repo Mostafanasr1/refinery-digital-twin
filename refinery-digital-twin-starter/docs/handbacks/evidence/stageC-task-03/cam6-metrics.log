@@ -1,0 +1,395 @@
+{
+  "lazyBytes": 42333254,
+  "results": [
+    {
+      "dressing": false,
+      "repeat": 1,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 6975,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:18:05.1614882Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 2.600000000002183,
+      "p95Ms": 4.700000000000728,
+      "derivedFps": 384.6153846150617,
+      "callsMean": 123.14958044509304,
+      "pass": true
+    },
+    {
+      "dressing": false,
+      "repeat": 2,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 4441.699999988079,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:18:34.3147164Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 2.600000000000364,
+      "p95Ms": 4.700000000000728,
+      "derivedFps": 384.6153846153308,
+      "callsMean": 123.19073869900772,
+      "pass": true
+    },
+    {
+      "dressing": false,
+      "repeat": 3,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 4258.0999999940395,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:18:59.1780526Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 2.399999999999636,
+      "p95Ms": 3.899999999999636,
+      "derivedFps": 416.66666666672984,
+      "callsMean": 123.19025100036377,
+      "pass": true
+    },
+    {
+      "dressing": true,
+      "repeat": 1,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 4166.199999988079,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:19:23.9513465Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 3.599999999998545,
+      "p95Ms": 6.100000000000364,
+      "derivedFps": 277.77777777789004,
+      "callsMean": 159.19335832886983,
+      "pass": true
+    },
+    {
+      "dressing": true,
+      "repeat": 2,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 4318.5999999940395,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:19:50.0013653Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 2.900000000001455,
+      "p95Ms": 4.599999999998545,
+      "derivedFps": 344.82758620672354,
+      "callsMean": 159.18297872340426,
+      "pass": true
+    },
+    {
+      "dressing": true,
+      "repeat": 3,
+      "camera": "CAM-6 fixed",
+      "hardware": {
+        "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+        "look": "photoreal",
+        "interactiveAt": 4255.9000000059605,
+        "dpr": 1,
+        "browser": "146.0.7680.153",
+        "flags": [
+          "--enable-gpu",
+          "--force_high_performance_gpu",
+          "--use-angle=d3d11",
+          "--force-color-profile=srgb",
+          "--disable-background-timer-throttling",
+          "--disable-renderer-backgrounding",
+          "--disable-backgrounding-occluded-windows",
+          "--disable-gpu-vsync",
+          "--disable-frame-rate-limit"
+        ],
+        "viewport": {
+          "width": 1600,
+          "height": 900
+        }
+      },
+      "displayState": {
+        "capturedAt": "2026-09-25T21:20:16.7148483Z",
+        "acConnected": true,
+        "batteryPercent": 100,
+        "powerPlan": "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+        "displays": [
+          {
+            "device": "\\\\.\\DISPLAY1",
+            "primary": false,
+            "width": 1920,
+            "height": 1080,
+            "refreshHz": 144
+          },
+          {
+            "device": "\\\\.\\DISPLAY2",
+            "primary": true,
+            "width": 2560,
+            "height": 1440,
+            "refreshHz": 144
+          }
+        ],
+        "connections": [
+          {
+            "InstanceName": "DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0",
+            "VideoOutputTechnology": 2147483648
+          },
+          {
+            "InstanceName": "DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0",
+            "VideoOutputTechnology": 5
+          }
+        ],
+        "noExternalMonitor": false
+      },
+      "medianMs": 3.2000000000007276,
+      "p95Ms": 5.200000000000728,
+      "derivedFps": 312.49999999992895,
+      "callsMean": 159.17549491706794,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "sourceCommit": "4a1646979ff768cef8e1ec1752b22a16c04b9474",
+  "source": "approved Task 2 after captures",
+  "files": [
+    {
+      "file": "CAM-1-engineering.png",
+      "sha256": "7b12ca5a7d78c5b48f7b015878e1952bc0c20928b75df63112f1916f8f2963b4"
+    },
+    {
+      "file": "CAM-1-photoreal.png",
+      "sha256": "adeec3a9075bb81d4a9ff90ad81341a3eb5b0321f04f10c7d14021df0dcae094"
+    },
+    {
+      "file": "CAM-2-engineering.png",
+      "sha256": "ce96074fdb156252a7a6475cf6310512a0473d195ab900ebe52c2348c8ecd3d4"
+    },
+    {
+      "file": "CAM-2-photoreal.png",
+      "sha256": "4a97355dd680dfd8d8ea175bdd6f87021d52bad815fa3f8e155066ade1f43671"
+    },
+    {
+      "file": "CAM-3-engineering.png",
+      "sha256": "54f093a6ee21368feac7bcc63526004ba2c3a778ee18be19a462c7d41a5903fc"
+    },
+    {
+      "file": "CAM-3-photoreal.png",
+      "sha256": "48cb481aa3a005592cd1c98ffbb7ef72993a9f43a03d2b4238eedaa052eefcc3"
+    },
+    {
+      "file": "CAM-4-engineering.png",
+      "sha256": "d8509223d2c0ef101b9c5582f4614e0e25f63d61429fe0d5858a95f03f6430f9"
+    },
+    {
+      "file": "CAM-4-photoreal.png",
+      "sha256": "e9379954ea2c33ffe7e8b1f9c7599a6da114b5b9d59c947ab4b26dba30b6783f"
+    },
+    {
+      "file": "CAM-5-engineering.png",
+      "sha256": "3e691e9861ffe193af70b6c96b53da6748cf7720de014b9ac314937dda9a2c0b"
+    },
+    {
+      "file": "CAM-5-photoreal.png",
+      "sha256": "a4ddc9c39bbdc9ad90d918aca35c810791793dbdc905655b0d2e4df5da519b04"
+    },
+    {
+      "file": "CAM-6-engineering.png",
+      "sha256": "538dd91bc124254e2290de731d5a678ef4037f39ada703c5f70e30aeb76b28f1"
+    },
+    {
+      "file": "CAM-6-photoreal.png",
+      "sha256": "49a21d3f22242bb617c721b2bec48ebbc78fd9308f1f7170febaec0d2ebbd319"
+    }
+  ]
+}

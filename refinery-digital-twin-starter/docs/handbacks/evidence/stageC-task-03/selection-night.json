@@ -1,0 +1,708 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 6386.699999988079,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "results": [
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p101a",
+      "tag": "P-101A"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p101b",
+      "tag": "P-101B"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk101",
+      "tag": "TK-101"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk102",
+      "tag": "TK-102"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk103",
+      "tag": "TK-103"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_c501",
+      "tag": "C-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e201",
+      "tag": "E-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e202",
+      "tag": "E-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e203",
+      "tag": "E-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e204",
+      "tag": "E-204"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e205",
+      "tag": "E-205"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e206",
+      "tag": "E-206"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_e207",
+      "tag": "E-207"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ea501",
+      "tag": "EA-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_f201",
+      "tag": "F-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_f501",
+      "tag": "F-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p201",
+      "tag": "P-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p202",
+      "tag": "P-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p203",
+      "tag": "P-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p204",
+      "tag": "P-204"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr001",
+      "tag": "PR-001"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr002",
+      "tag": "PR-002"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr003",
+      "tag": "PR-003"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr004",
+      "tag": "PR-004"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr005",
+      "tag": "PR-005"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr006",
+      "tag": "PR-006"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_pr007",
+      "tag": "PR-007"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_r501",
+      "tag": "R-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_t201",
+      "tag": "T-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v202",
+      "tag": "V-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v203",
+      "tag": "V-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v501",
+      "tag": "V-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_b401",
+      "tag": "B-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_b402",
+      "tag": "B-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_cr401",
+      "tag": "CR-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ct401",
+      "tag": "CT-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ct402",
+      "tag": "CT-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ct403",
+      "tag": "CT-403"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ct404",
+      "tag": "CT-404"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_fl401",
+      "tag": "FL-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p401",
+      "tag": "P-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_ss401",
+      "tag": "SS-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_stk401",
+      "tag": "STK-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v401",
+      "tag": "V-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v402",
+      "tag": "V-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_bt501",
+      "tag": "BT-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_bt502",
+      "tag": "BT-502"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p301",
+      "tag": "P-301"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_p302",
+      "tag": "P-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_sp501",
+      "tag": "SP-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_sp502",
+      "tag": "SP-502"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_t302",
+      "tag": "T-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk301",
+      "tag": "TK-301"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk302",
+      "tag": "TK-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk303",
+      "tag": "TK-303"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_tk304",
+      "tag": "TK-304"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "blender",
+      "assetId": "asset_v301",
+      "tag": "V-301"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p101a",
+      "tag": "P-101A"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p101b",
+      "tag": "P-101B"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk101",
+      "tag": "TK-101"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk102",
+      "tag": "TK-102"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk103",
+      "tag": "TK-103"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_c501",
+      "tag": "C-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e201",
+      "tag": "E-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e202",
+      "tag": "E-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e203",
+      "tag": "E-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e204",
+      "tag": "E-204"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e205",
+      "tag": "E-205"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e206",
+      "tag": "E-206"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_e207",
+      "tag": "E-207"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ea501",
+      "tag": "EA-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_f201",
+      "tag": "F-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_f501",
+      "tag": "F-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p201",
+      "tag": "P-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p202",
+      "tag": "P-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p203",
+      "tag": "P-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p204",
+      "tag": "P-204"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr001",
+      "tag": "PR-001"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr002",
+      "tag": "PR-002"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr003",
+      "tag": "PR-003"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr004",
+      "tag": "PR-004"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr005",
+      "tag": "PR-005"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr006",
+      "tag": "PR-006"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_pr007",
+      "tag": "PR-007"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_r501",
+      "tag": "R-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_t201",
+      "tag": "T-201"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v202",
+      "tag": "V-202"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v203",
+      "tag": "V-203"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v501",
+      "tag": "V-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_b401",
+      "tag": "B-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_b402",
+      "tag": "B-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_cr401",
+      "tag": "CR-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ct401",
+      "tag": "CT-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ct402",
+      "tag": "CT-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ct403",
+      "tag": "CT-403"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ct404",
+      "tag": "CT-404"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_fl401",
+      "tag": "FL-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p401",
+      "tag": "P-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_ss401",
+      "tag": "SS-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_stk401",
+      "tag": "STK-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v401",
+      "tag": "V-401"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v402",
+      "tag": "V-402"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_bt501",
+      "tag": "BT-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_bt502",
+      "tag": "BT-502"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p301",
+      "tag": "P-301"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_p302",
+      "tag": "P-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_sp501",
+      "tag": "SP-501"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_sp502",
+      "tag": "SP-502"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_t302",
+      "tag": "T-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk301",
+      "tag": "TK-301"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk302",
+      "tag": "TK-302"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk303",
+      "tag": "TK-303"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_tk304",
+      "tag": "TK-304"
+    },
+    {
+      "look": "photoreal-night",
+      "geometry": "proxy",
+      "assetId": "asset_v301",
+      "tag": "V-301"
+    }
+  ]
+}

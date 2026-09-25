@@ -1,0 +1,37 @@
+{
+  "boundsMargin": 26,
+  "cabins": {
+    "count": 3,
+    "offsetX": 21,
+    "spacing": 17,
+    "offsetZ": -21,
+    "y": 0,
+    "length": 12,
+    "width": 4
+  },
+  "containers": {
+    "offsetsX": [
+      75,
+      84
+    ],
+    "offsetZ": -21,
+    "y": -0.45,
+    "width": 2.5
+  },
+  "parkedPickup": {
+    "length": 5.4,
+    "width": 2.1,
+    "y": -0.45
+  },
+  "windows": {
+    "width": 1.25,
+    "height": 0.8,
+    "offsetsX": [
+      0.4,
+      2.6
+    ],
+    "y": 1.9,
+    "offsetZ": -18.99,
+    "intensity": 2.5
+  }
+}
