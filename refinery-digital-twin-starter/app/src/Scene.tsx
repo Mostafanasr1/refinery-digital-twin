@@ -1,3 +1,4 @@
+import { interpolatePose, type CameraMove } from './presentation';
 import { SiteDressing } from './SiteDressing';
 import { PlantAtmosphere } from './PlantAtmosphere';
 import { PhotorealEnvironment } from './PhotorealEnvironment';
@@ -24,7 +25,7 @@ import type { Asset, NormalizedData } from './data/loader';
 import { AssetRegistry, worldPosition } from './data/registry';
 import { proxyFamily } from './data/silhouettes';
 
-function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
+function Controls({ selected, reset, cameraMove }: { selected?: Asset; reset: number; cameraMove: CameraMove | null }) {
   const { camera, gl, invalidate } = useThree();
   const controls = useMemo(() => new OrbitControls(camera, gl.domElement), [camera, gl]);
   const moving = useRef(false);
@@ -49,7 +50,12 @@ function Controls({ selected, reset }: { selected?: Asset; reset: number }) {
     } else { lookAt.current.set(85, 9, -24); destination.current.set(250, 140, 200); }
     moving.current = true; invalidate();
   }, [selected, reset, invalidate]);
+  useEffect(() => { if (cameraMove) { moving.current = false; invalidate(); } }, [cameraMove, invalidate]);
   useFrame((_state, delta) => {
+    if (cameraMove) {
+      const pose = interpolatePose(cameraMove, performance.now());
+      camera.position.fromArray(pose.position); controls.target.fromArray(pose.target); controls.update(); invalidate(); return;
+    }
     if (visualMode || !moving.current) return;
     const amount = 1 - Math.exp(-3 * Math.min(delta, 0.1));
     camera.position.lerp(destination.current, amount); controls.target.lerp(lookAt.current, amount);
@@ -65,8 +71,8 @@ function Proxy({ asset, active, tint, dim }: { asset: Asset; active: boolean; ti
   const surface = look.id !== 'engineering' ? pack?.[role] : undefined;
   const { height: h, diameter: d, length: l, width: w } = asset.dimensions;
   const family = proxyFamily[asset.type] ?? 'vertical';
-  const color = dim ? effects.proxyDim : active ? effects.selected : tint ? tint : surface?.color ?? (asset.type === 'pipe_rack' ? effects.proxyRack : asset.type === 'fired_heater' ? effects.proxyHeater : effects.proxyDefault);
-  const material = <meshStandardMaterial color={color} map={surface?.map ?? null} normalMap={surface?.normalMap ?? null} roughnessMap={surface?.roughnessMap ?? null} metalness={surface?.metalness ?? look.materials.proxy.metalness} roughness={surface?.roughness ?? look.materials.proxy.roughness} emissive={active ? effects.proxyEmissive : effects.off} emissiveIntensity={0.3} />;
+  const color = dim ? effects.proxyDim : active && look.id === 'engineering' ? effects.selected : tint ? tint : surface?.color ?? (asset.type === 'pipe_rack' ? effects.proxyRack : asset.type === 'fired_heater' ? effects.proxyHeater : effects.proxyDefault);
+  const material = <meshStandardMaterial onBeforeCompile={shader => { shader.fragmentShader = shader.fragmentShader.replace('vec3 totalEmissiveRadiance = emissive;', 'vec3 totalEmissiveRadiance = emissive * .05;').replace('#include <opaque_fragment>', 'outgoingLight += emissive * pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 3.0) * 3.0;\n#include <opaque_fragment>'); }} color={color} map={surface?.map ?? null} normalMap={surface?.normalMap ?? null} roughnessMap={surface?.roughnessMap ?? null} metalness={surface?.metalness ?? look.materials.proxy.metalness} roughness={surface?.roughness ?? look.materials.proxy.roughness} emissive={active ? effects.proxyEmissive : effects.off} emissiveIntensity={0.3} />;
   const mapGeometry = (geometry: THREE.BufferGeometry) => materialUVs(geometry, materialConfig.materials[role as keyof typeof materialConfig.materials]?.tileMetres ?? 1);
   const box = (key: string, pos: [number, number, number], scale: [number, number, number]) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={pos}><boxGeometry onUpdate={mapGeometry} args={scale} />{material}</mesh>;
   const cylinder = (key: string, y: number, radius: number, height: number) => <mesh key={key} name={`${asset.model_ref}_${key}`} position={[0, y, 0]}><cylinderGeometry onUpdate={mapGeometry} args={[radius, radius, height, 24]} />{material}</mesh>;
@@ -176,7 +182,7 @@ function Pipes({ data, registry, trace, running, scenarioState }: { data: Normal
     {lines.filter(line => trace.path?.connection_ids.includes(line.connection.connection_id)).map(line => <FlowOverlay key={line.connection.connection_id} from={line.from} to={line.to} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} name={line.connection.connection_id} />)}
   </group>;
 }
-export default function Scene({ data, registry, selected, hovered, reset, onHover, onSelect, geometry, layer, trace, running, scenarioState }: { geometry: 'blender' | 'proxy'; layer: Layer; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState; data: NormalizedData; registry: AssetRegistry; selected: string | null; hovered: string | null; reset: number; onHover: (id: string | null) => void; onSelect: (id: string | null) => void }) {
+export default function Scene({ cameraMove, data, registry, selected, hovered, reset, onHover, onSelect, geometry, layer, trace, running, scenarioState }: { cameraMove: CameraMove | null; geometry: 'blender' | 'proxy'; layer: Layer; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState; data: NormalizedData; registry: AssetRegistry; selected: string | null; hovered: string | null; reset: number; onHover: (id: string | null) => void; onSelect: (id: string | null) => void }) {
   const { look } = useLook();
   const [detailSeen, setDetailSeen] = useState(look.detailLevel === 1);
   useEffect(() => { if (look.detailLevel === 1) setDetailSeen(true); }, [look.detailLevel]);
@@ -204,7 +210,7 @@ export default function Scene({ data, registry, selected, hovered, reset, onHove
     <directionalLight castShadow={light.shadows} position={sunPosition} target={sunTarget} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
     <directionalLight position={light.fill.position} color={light.fill.color} intensity={light.fill.intensity} />
     <Atmosphere /><PlantAtmosphere assets={sourceAssets} /><BudgetProfiler />
-    <Controls selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
+    <Controls cameraMove={cameraMove} selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
     <Site assets={sourceAssets} /><SiteDressing assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
     <MaterialSwatches />

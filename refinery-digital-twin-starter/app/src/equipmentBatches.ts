@@ -18,9 +18,9 @@ function materialWithAssetState(source: THREE.MeshStandardMaterial) {
   material.color.set(0xffffff); material.vertexColors = true;
   material.onBeforeCompile = shader => {
     shader.vertexShader = `attribute vec3 assetEmissive; varying vec3 vAssetEmissive;\n${shader.vertexShader}`.replace('#include <color_vertex>', '#include <color_vertex>\nvAssetEmissive = assetEmissive;');
-    shader.fragmentShader = `varying vec3 vAssetEmissive;\n${shader.fragmentShader}`.replace('vec3 totalEmissiveRadiance = emissive;', 'vec3 totalEmissiveRadiance = vAssetEmissive;');
+    shader.fragmentShader = `varying vec3 vAssetEmissive;\n${shader.fragmentShader}`.replace('vec3 totalEmissiveRadiance = emissive;', 'vec3 totalEmissiveRadiance = vAssetEmissive * 0.05;').replace('#include <opaque_fragment>', 'float selectionRim = pow(1.0 - abs(dot(normal, normalize(vViewPosition))), 3.0); outgoingLight += vAssetEmissive * selectionRim * 3.0;\n#include <opaque_fragment>');
   };
-  material.customProgramCacheKey = () => 'asset-state-v1';
+  material.customProgramCacheKey = () => 'asset-state-rim-v2';
   return material;
 }
 /** World-space static batches retain a triangle-to-canonical-asset lookup. */
@@ -76,8 +76,8 @@ export function applyBatchStyle(batch: EquipmentBatch, look: Look, style: (asset
     if (batch.styleKeys.get(range) === key) continue;
     batch.styleKeys.set(range, key); changed = true;
     const color = surface ? new THREE.Color(surface.color) : batch.originalColor.clone();
-    if (state.dim) color.multiplyScalar(effects.dim); else if (state.active) color.set(effects.selected); else if (state.tint) color.set(state.tint);
-    const emission = new THREE.Color(state.active ? effects.emissive : effects.off).multiplyScalar(state.active ? .7 : 0);
+    if (state.dim) color.multiplyScalar(effects.dim); else if (state.active && look.id === 'engineering') color.set(effects.selected); else if (state.tint) color.set(state.tint);
+    const emission = new THREE.Color(state.active ? (look.id === 'engineering' ? '#ffbf64' : effects.emissive) : effects.off).multiplyScalar(state.active ? .7 : 0);
     for (let i = range.start; i < range.start + range.count; i++) { colors.setXYZ(i, color.r, color.g, color.b); emissions.setXYZ(i, emission.r, emission.g, emission.b); }
   }
   if (changed) { colors.needsUpdate = true; emissions.needsUpdate = true; }

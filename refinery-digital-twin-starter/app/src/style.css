@@ -6,3 +6,18 @@
 
 header{height:88px;padding:20px 26px}.directory{top:103px;bottom:80px;width:224px}.operations{left:264px;top:94px;padding:10px;right:20px}.operations label{font-size:9px}.operations select{font-size:10px;padding:6px}.scene-caption{top:196px;right:24px;padding:18px;background:linear-gradient(110deg,transparent,#081722a8);max-width:265px}.scene-caption h2{font-size:30px;font-weight:300;line-height:1.12;margin:10px 0 16px;letter-spacing:-1px}.scene-caption .eyebrow{color:#4dc4dd}.playback{top:171px;left:275px}.card{width:265px;right:20px;background:#071a27e8;backdrop-filter:blur(12px)}.legend{left:265px}.asset{padding:10px}.directory-foot{font-size:9px}.operations button{padding:7px 10px}footer{min-height:58px}.start-tour{box-shadow:0 5px 25px #00111c60;background:#10445c}.card{animation:card-enter .35s ease-out}@keyframes card-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@media(prefers-reduced-motion:reduce){.card{animation:none}}
 .look-night-toggle{margin-left:8px;padding:8px 14px;border:1px solid #346079;border-radius:5px;background:#102936;color:#d7eff7;cursor:pointer}.look-night-toggle[aria-pressed="true"]{background:#324255;border-color:#d19a68}
+/* Task 8: one data card and control language, styled by presentation look. */
+main[data-look="engineering"] .card{background:linear-gradient(135deg,#082b3ad9,#071923ed);border:1px solid #53cad4;box-shadow:inset 3px 0 #eab969,0 18px 48px #0006}
+main[data-look="engineering"] .card h2{color:#a6f4fa;letter-spacing:.03em}
+main[data-look="engineering"] .asset.active{border-left:3px solid #edb964;background:#123b48}
+main[data-look^="photoreal"] .card{background:#172027f5;border-color:#77858d;box-shadow:0 15px 45px #0008;backdrop-filter:blur(8px)}
+main[data-look^="photoreal"] .card .metric strong{color:#f0e5cf}
+main[data-look^="photoreal"] .card .eyebrow{color:#b8c5cb}
+.card .close{min-width:30px;min-height:30px}.card .metric{padding:12px 0}.card .binding{gap:12px}
+.reveal-option{display:flex;align-items:center;justify-content:end;gap:7px;margin-top:12px;font-size:11px;color:#b8d3dd}.reveal-option input{width:auto;accent-color:#53d6df}
+.tour-caption{position:absolute;bottom:82px;left:50%;transform:translateX(-50%);width:min(640px,calc(100vw - 40px));padding:16px 22px;background:#071b27ef;border:1px solid #45818d;border-top:2px solid #e9b568;border-radius:8px;box-shadow:0 12px 35px #0005;z-index:8}
+.tour-caption p{font-size:16px;line-height:1.5;margin:9px 0 12px;color:#e4f3f5}.tour-caption button{background:transparent;border:1px solid #537580;border-radius:4px;color:#cbe4ea;padding:7px 12px;font-size:11px}
+main[data-look^="photoreal"] .tour-caption{background:#192128ef;border-color:#847b69}
+main[data-presentation="attract"] .directory,main[data-presentation="attract"] .scene-caption{opacity:.15;pointer-events:none}
+.tour-complete{position:absolute;bottom:83px;left:50%;transform:translateX(-50%);padding:12px 20px;border:1px solid #5b9399;background:#0a252eed;border-radius:5px;color:#c5eeee}
+@media(max-width:900px){.tour-caption{left:auto;right:12px;transform:none;width:calc(100vw - 250px)}.tour-caption p{font-size:13px}}

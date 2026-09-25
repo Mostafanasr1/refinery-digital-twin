@@ -138,3 +138,10 @@ Task 4 (`2726b90`) and Task 5 (`b208f23`) completed under non-gate cadence. Task
 Mostafa reports both external reviewers approve Task 6 as direction, conditional on broader night illumination. Authorized correction: emissive platform/road lamps, cabin windows, red stack/flare warning lights, and warm process-pad pools using emissive meshes and non-shadow point lights; judge CAM-6 against mood-dusk.png within night budgets. Existing shadow lights remain unchanged. Dressing is frozen; density moves to Stage C.
 
 The unspecified additional Task 5b types triggered a clarification pause. Mostafa's "Confirmed - proceed" resolves it as sphere-tank smoothing only; no additional builder-detail types are authorized. Task 7 is skipped. After the Task 6 correction and narrow Task 5b pass internal review/evidence, continue Task 8 and stop at its external gate. The new engineering baseline requires approval before replacement. Branch remains dual-look; push each completed task. Canonical data stays frozen.
+
+
+## Task 8 gate candidate — 25 September 2026
+
+Task 6 night correction completed and pushed as 3d2c575; narrow sphere-only Task 5b completed and pushed as 8729348. Task 7 is skipped; dressing is unchanged and density deferred to Stage C. Task 8 adds shared card styling, selection rims, fixed-screen-size labels, separate presentation tours and a 60-second idle attract mode. All 228 selection checks, complete tours in both looks, reveal, interruption, attract cycle and repeated look/state continuity pass. Tests and budgets pass; canonical data remains frozen.
+
+Current gate: stop for both external Task 8 approvals. Candidate screenshots are under docs/handbacks/evidence/stageB-task-08/engineering-candidate; the approved tests/visual/baseline is unchanged. Only promote the candidate after approval. Task 9 has not started; no main changes. See docs/handbacks/stageB-task-08.md for all evidence and completed-task commits.

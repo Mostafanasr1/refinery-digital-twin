@@ -8,7 +8,7 @@ export const root = fileURLToPath(new URL('../', import.meta.url));
 export const config = validateCaptureConfig(JSON.parse(await readFile(resolve(root, 'tests/visual/cameras.json'), 'utf8')));
 export const flags = ['--enable-gpu', '--force_high_performance_gpu', '--use-angle=d3d11', '--force-color-profile=srgb', '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows'];
 export const metricsFlags = [...flags, '--disable-gpu-vsync', '--disable-frame-rate-limit'];
-export async function openRun({ metrics = false, staticRoot } = {}) {
+export async function openRun({ metrics = false, staticRoot, videoDir } = {}) {
   const runFlags = metrics ? metricsFlags : flags;
   const server = createStaticServer(staticRoot);
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -18,7 +18,7 @@ export async function openRun({ metrics = false, staticRoot } = {}) {
     browser = await chromium.launch({ headless: true, args: runFlags, ...(process.env.VISUAL_BROWSER_PATH ? { executablePath: process.env.VISUAL_BROWSER_PATH } : {}) });
   } catch (error) { server.close(); throw error; }
   try {
-    const context = await browser.newContext({ viewport: config.viewport, deviceScaleFactor: config.deviceScaleFactor, reducedMotion: 'reduce', locale: 'en-US', timezoneId: 'UTC' });
+    const context = await browser.newContext({ viewport: config.viewport, deviceScaleFactor: config.deviceScaleFactor, reducedMotion: 'reduce', locale: 'en-US', timezoneId: 'UTC', ...(videoDir ? { recordVideo: { dir: videoDir, size: config.viewport } } : {}) });
     const page = await context.newPage();
     // Freeze wall-clock dates only. Playwright's clock also replaces Performance,
     // which would hide Resource Timing and invalidate download/frame measurements.

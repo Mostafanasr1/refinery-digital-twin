@@ -81,12 +81,12 @@ export function PlantLabel({ asset, alert = false }: { asset: Asset; alert?: boo
     const ctx = canvas.getContext('2d')!;
     ctx.fillStyle='#071c29'; ctx.fillRect(0,0,512,112);
     ctx.strokeStyle=alert ? '#ff835e' : '#52dff0'; ctx.lineWidth=4; ctx.strokeRect(2,2,508,108);
-    ctx.fillStyle='#e3f5ff'; ctx.font='bold 32px sans-serif'; ctx.fillText(asset.tag,18,43);
-    ctx.fillStyle='#91b8cb'; ctx.font='20px sans-serif'; ctx.fillText(asset.name.slice(0,37),18,83);
+    ctx.fillStyle='#e3f5ff'; ctx.font='bold 40px sans-serif'; ctx.fillText(asset.tag,18,44);
+    ctx.fillStyle='#91b8cb'; ctx.font='28px sans-serif'; ctx.fillText(asset.name,18,86,476);
     return new THREE.CanvasTexture(canvas);
   }, [asset.tag, asset.name, alert]);
   useEffect(() => () => texture.dispose(), [texture]);
-  return <sprite position={[asset.position.x, asset.position.z + asset.dimensions.height + 3, -asset.position.y]} scale={[28,6.1,1]}><spriteMaterial map={texture} depthTest={false} toneMapped={false} /></sprite>;
+  return <sprite position={[asset.position.x, asset.position.z + asset.dimensions.height + 3, -asset.position.y]} scale={[.21,.0459,1]} raycast={() => undefined} renderOrder={100}><spriteMaterial sizeAttenuation={false} map={texture} depthTest={false} toneMapped={false} /></sprite>;
 }
 export function Site({ assets }: { assets: Asset[] }) {
   const { look } = useLook();
