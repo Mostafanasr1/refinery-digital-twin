@@ -140,3 +140,8 @@ Desktop screenshots: [loading and mobile evidence](evidence/stageB-task-09/loadi
 
 
 Closing-correction budget run (approved uncapped protocol; AC Performance, both displays recorded): engineering median 1.50 ms / p95 2.20 ms / 47 calls; photoreal day 2.30 / 3.30 / 128; engineering 500 assets 1.30 / 10.80 / 57; night 2.80 / 4.50 / 153. All PASS. Engineering initial bytes 8,846,144 against 13,200,115; lazy assets remain 21,417,040 against 40 MB. See `docs/metrics/stageB-task-09-loading-mobile.json` and `.md`. Simulated WebGL-unavailable check confirms a visible error and Reload rather than indefinite Preparing scene.
+
+
+## Task 9 closed under Mostafa's ruling
+
+Correction commit `d9fdb3a2185f24c0d458bfbc24b8bd58ba7335e5`; published main merge `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`. Pages run 36127009075 succeeded. Installed Chrome 153.0.8010.53 and Edge passed the live correction check: root provenance, both actual byte-loading phases through drawn completion, mobile panel search/selection and preserved /next/. Evidence: `loading-mobile/live/`. The manual Samsung A35 Chrome pass and both reviewer approvals were supplied by Mostafa. Corrected physical-phone layout/timing review is deferred to the Stage C Task 1 gate, as explicitly authorized. No further Task 9 blocker.

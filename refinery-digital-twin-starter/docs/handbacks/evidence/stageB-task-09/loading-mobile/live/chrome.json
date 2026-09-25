@@ -1,0 +1,34 @@
+{
+  "result": "PASS",
+  "browser": "153.0.8010.53",
+  "release": {
+    "branch": "main",
+    "commit": "83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494"
+  },
+  "preview": {
+    "branch": "dual-look",
+    "commit": "d9fdb3a2185f24c0d458bfbc24b8bd58ba7335e5"
+  },
+  "history": [
+    {
+      "pack": "engineering",
+      "received": 7263344,
+      "total": 7263344,
+      "phase": "done",
+      "started": 1017.2999999821186,
+      "drawn": 3303.2999999821186,
+      "finished": 3330.199999988079
+    },
+    {
+      "pack": "photoreal",
+      "received": 21156576,
+      "total": 21156576,
+      "phase": "done",
+      "started": 3517.7999999821186,
+      "drawn": 9236.399999976158,
+      "finished": 9252.299999982119
+    }
+  ],
+  "mobile": "412x915 desktop viewport only; physical phone review deferred by ruling",
+  "errors": []
+}
