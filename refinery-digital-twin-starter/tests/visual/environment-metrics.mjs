@@ -6,12 +6,12 @@ import { openLook } from './look-common.mjs';
 import { readMeasurementState, measurementValidity } from '../../scripts/measurement-validity.mjs';
 const before = false;
 const task = process.argv.find(arg => arg.startsWith('--task='))?.split('=')[1];
-assert.match(task ?? '', /^\d{2}$/, 'Specify --task=NN to avoid overwriting historical measurements');
+assert.match(task ?? '', /^(\d{2}|05b)$/, 'Specify --task=NN (or 05b) to avoid overwriting historical measurements');
 const previous = JSON.parse(await readFile(resolve(root, 'docs/metrics/stageB-task-02-after.json'), 'utf8')).results;
 const mean = values => values.reduce((sum, value) => sum + value, 0) / values.length;
 const quantile = (values, q) => [...values].sort((a, b) => a - b)[Math.ceil(q * values.length) - 1];
 const cases = before ? [{ look: 'engineering', stress: 0 }] : [{ look: 'engineering', stress: 0 }, { look: 'photoreal', stress: 0 }, { look: 'engineering', stress: 500 }];
-if (task === '06') cases.push({ look: 'photoreal-night', stress: 0 });
+if (['06', '05b', '08'].includes(task)) cases.push({ look: 'photoreal-night', stress: 0 });
 const results = [];
 for (const { look, stress } of cases) {
   const displayState = readMeasurementState();
@@ -26,7 +26,7 @@ for (const { look, stress } of cases) {
   try {
     if (before) run.url = 'http://127.0.0.1:3102/?measure=1';
     if (stress) run.url += `&stress=${stress}`;
-    if (task === '06') run.url += '&animate=1';
+    if (['06', '05b', '08'].includes(task)) run.url += '&animate=1';
     const hardware = await openLook(run, look);
     await camera(run.page, config.cameras[0]);
     const initialDownloadBytes = await run.page.evaluate(() => [...performance.getEntriesByType('navigation'), ...performance.getEntriesByType('resource')].filter(entry => entry.responseEnd <= window.__refineryVisual.interactiveAt).reduce((sum, entry) => sum + entry.transferSize, 0));

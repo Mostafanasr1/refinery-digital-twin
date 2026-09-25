@@ -36,6 +36,10 @@ def main():
             bpy.context.view_layer.update()
             require(objects, f"{label}: no parts generated")
             names = [obj.name for obj in objects]
+            if kind == 'sphere_tank':
+                shell = next(obj for obj in objects if obj.name == prefix + '_shell')
+                require(all(face.use_smooth for face in shell.data.polygons), f'{label}: sphere shell has flat normals')
+                require(len(shell.data.vertices) >= 1900, f'{label}: sphere silhouette tessellation too low')
             require(len(names) == len(set(names)), f"{label}: duplicate part names")
             require(
                 all(name.startswith(prefix + "_") for name in names),

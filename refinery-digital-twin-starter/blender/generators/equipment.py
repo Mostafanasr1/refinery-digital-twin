@@ -174,14 +174,17 @@ class Kit:
             finish(bpy.context.object, self.name + "_" + suffix, self.shell if mat is None else mat)
         )
 
-    def sphere(self, suffix, location, radius, mat=None, scale=(1, 1, 1)):
+    def sphere(self, suffix, location, radius, mat=None, scale=(1, 1, 1), segments=24, rings=12, smooth=False):
         bpy.ops.mesh.primitive_uv_sphere_add(
-            segments=24, ring_count=12, radius=radius, location=location
+            segments=segments, ring_count=rings, radius=radius, location=location
         )
         obj = self._add_object(
             finish(bpy.context.object, self.name + "_" + suffix, self.shell if mat is None else mat)
         )
         obj.scale = scale
+        if smooth:
+            for polygon in obj.data.polygons:
+                polygon.use_smooth = True
         return obj
 
     def torus(self, suffix, location, radius, minor_radius, mat=None, segments=48):
@@ -459,7 +462,7 @@ def build_sphere_tank(k):
     h, r = k.h, k.r
     centre = h - r                                        # overall height includes the crown
     k.cyl('foundation', (0, 0, 0.25), r + 1.5, 0.5, k.concrete)
-    k.sphere('shell', (0, 0, centre), r)
+    k.sphere('shell', (0, 0, centre), r, segments=64, rings=32, smooth=True)
     legs = 12 if r >= 8 else 8
     for i in range(legs):
         angle = math.tau * i / legs

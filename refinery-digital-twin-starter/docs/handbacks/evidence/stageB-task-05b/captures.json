@@ -1,0 +1,9 @@
+{
+  "camera": "CAM-6",
+  "looks": [
+    "engineering",
+    "photoreal",
+    "photoreal-night"
+  ],
+  "errors": []
+}
