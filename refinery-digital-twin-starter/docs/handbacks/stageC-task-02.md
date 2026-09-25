@@ -1,6 +1,6 @@
 # Stage C Task 02 — CAM-6 vertical slice
 
-Status: local candidate complete; publication verification pending, external slice approval pending.
+Status: submitted at the slice gate; implementation, local verification and live Chrome/Edge checks complete. Awaiting both external approvals.
 
 ## Authority and boundary
 
@@ -70,7 +70,7 @@ The distant tank seams still show dotted/aliased detail in the before and after 
 
 ## Review and publication
 
-Internal spec and code-quality reviewers passed the source and completed slice evidence. Inherited metrics and all-selection checks are now complete; final publication records remain to be appended. External approval is pending. No Stage C task beyond this gate is authorized to start.
+Internal spec and code-quality reviewers both gave final local PASS after all inherited metrics, generators and selection checks completed. See `evidence/stageC-task-02/internal-reviews.md`. External approval is pending. No Stage C task beyond this gate is authorized to start.
 
 
 ## Files touched
@@ -88,3 +88,12 @@ Internal spec and code-quality reviewers passed the source and completed slice e
 - `docs/handbacks/stageC-task-01.md`, `docs/handbacks/evidence/stageC-task-01/phone-report.json`: already-authorized prior gate approval and Mostafa's phone report.
 
 No canonical files, approved baseline, CAM-6 coordinates, base GLB, main branch, package dependencies or workflow changed. Unrelated workspace files are excluded from the commit.
+
+
+## Published candidate
+
+Implementation/evidence commit: `4a1646979ff768cef8e1ec1752b22a16c04b9474`, pushed to `origin/dual-look`. Pages run [36145021604](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/36145021604) succeeded.
+
+Live [preview](https://mostafanasr1.github.io/refinery-digital-twin/next/) verified in installed Chrome and Edge, with full records and day/night/mobile screenshots in `evidence/stageC-task-02/live/`. Both verified branch provenance, 62 dressing modules, hide/restore, moving/frozen actors, keyboard time slider and presets, and no browser/shader errors. [Root release](https://mostafanasr1.github.io/refinery-digital-twin/) still serves main `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`.
+
+Publication evidence is committed separately after the implementation. That follow-up changes only documentation and evidence; no runtime source or asset changes. No unresolved technical blocker. External visual acceptance remains pending; work stops at this gate.
