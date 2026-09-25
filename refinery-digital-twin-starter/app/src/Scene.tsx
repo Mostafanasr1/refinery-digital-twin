@@ -1,3 +1,5 @@
+import { MotionActors } from './MotionActors';
+import { MotionClock } from './TimeControls';
 import { SceneLoadingBoundary } from './LoadingIndicator';
 import { LoadingDrawGate } from './LoadingDrawGate';
 import { interpolatePose, type CameraMove } from './presentation';
@@ -213,12 +215,12 @@ export default function Scene({ cameraMove, data, registry, selected, hovered, r
   };
   return <SceneLoadingBoundary><Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping, agx: THREE.AgXToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use hardware acceleration.</p>}>
     <MaterialPackProvider>
-    <LoadingDrawGate />
+    <LoadingDrawGate /><MotionClock />
     <color attach="background" args={[look.environment.background]} />
     <ambientLight intensity={light.ambient} /><hemisphereLight args={light.hemisphere} />
     <directionalLight castShadow={light.shadows} position={sunPosition} target={sunTarget} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
     <directionalLight position={light.fill.position} color={light.fill.color} intensity={light.fill.intensity} />
-    <Atmosphere /><PlantAtmosphere assets={sourceAssets} /><BudgetProfiler />
+    <Atmosphere /><PlantAtmosphere assets={sourceAssets} /><MotionActors assets={sourceAssets} /><BudgetProfiler />
     <Controls cameraMove={cameraMove} selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
     <Site assets={sourceAssets} /><SiteDressing assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />

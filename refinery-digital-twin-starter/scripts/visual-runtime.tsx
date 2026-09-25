@@ -32,7 +32,9 @@ export function VisualRuntime({ look }: { look: string }) {
     if (!visualMode) return;
     gl.info.reset();
     // Freeze the simulation clock while performance.now remains real for timings.
-    clock.elapsedTime = 0; clock.running = false; clock.autoStart = false;
+    if (new URLSearchParams(location.search).get('animate') !== '1') {
+      clock.elapsedTime = 0; clock.running = false; clock.autoStart = false;
+    }
     const bridge = window.__refineryVisual;
     const current = job.current;
     if (current) {

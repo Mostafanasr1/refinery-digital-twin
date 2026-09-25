@@ -1,3 +1,4 @@
+import { motionSnapshot, pauseCycle, setCycle } from './motionState';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import config from '../../data/presentation/tours.json';
 import { useLook } from './looks/LookProvider';
@@ -19,10 +20,10 @@ export function usePresentation(select: (id: string | null) => void) {
   const [move, setMove] = useState<CameraMove | null>(null);
   const [caption, setCaption] = useState('');
   const [complete, setComplete] = useState(false);
-  const state = useRef({ mode: 'idle' as 'idle' | 'tour' | 'attract', start: 0, lastInput: performance.now(), leg: -1, reveal: false, revealed: false });
+  const state = useRef({ mode: 'idle' as 'idle' | 'tour' | 'attract', start: 0, lastInput: performance.now(), leg: -1, reveal: false, revealed: false, photoAttract: false });
   const stop = useCallback(() => {
     state.current.mode = 'idle'; state.current.lastInput = performance.now();
-    setMode('idle'); setMove(null); setCaption('');
+    pauseCycle(); setMode('idle'); setMove(null); setCaption('');
   }, []);
   const start = useCallback((reveal = false) => {
     Object.assign(state.current, { mode: 'tour', start: performance.now(), leg: -1, reveal, revealed: false });
@@ -38,8 +39,9 @@ export function usePresentation(select: (id: string | null) => void) {
     const timer = window.setInterval(() => {
       const s = state.current, now = performance.now();
       if (document.hidden) { s.lastInput = now; if (s.mode !== 'idle') stop(); return; }
-      if (s.mode === 'idle' && now - s.lastInput >= config.idleSeconds * 1000) {
-        Object.assign(s, { mode: 'attract', start: now, leg: -1 });setMode('attract');setComplete(false);
+      if (!motionSnapshot().enabled) { if (s.mode !== 'idle') stop(); return; }
+      if (!(new URLSearchParams(location.search).get('measure') === '1' && new URLSearchParams(location.search).get('captureCycle') === '1') && s.mode === 'idle' && now - s.lastInput >= config.idleSeconds * 1000) {
+        Object.assign(s, { mode: 'attract', start: now, leg: -1, photoAttract: callbacks.current.look !== 'engineering' });setMode('attract');setComplete(false); if(callbacks.current.look !== 'engineering')setCycle(true);
       }
       if (s.mode === 'tour') {
         const elapsed = (now - s.start) / 1000;
@@ -57,7 +59,7 @@ export function usePresentation(select: (id: string | null) => void) {
         if (leg !== s.leg) {
           s.leg = leg;const cameras = config.attractCameras;
           setMove({ from: cameras[leg % cameras.length], to: cameras[(leg + 1) % cameras.length], duration: config.attractLegSeconds, easing: 'smoothstep', startedAt: s.start + leg * config.attractLegSeconds * 1000 });
-          callbacks.current.select(null); callbacks.current.choose(leg % 2 ? 'photoreal' : 'engineering');
+          callbacks.current.select(null); if (!s.photoAttract) callbacks.current.choose(leg % 2 ? 'photoreal' : 'engineering');
           setCaption('Explore the refinery · move the pointer or press any key to take control');
         }
       }

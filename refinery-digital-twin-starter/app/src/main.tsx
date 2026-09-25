@@ -1,3 +1,5 @@
+import { setMotion, useMotion } from './motionState';
+import { TimeControls } from './TimeControls';
 import { preparePack, loadingFailed, loadingSnapshot, subscribeLoading } from './loading';
 import { LoadingIndicator } from './LoadingIndicator';
 import { usePresentation } from './presentation';
@@ -14,6 +16,7 @@ import './style.css';
 import './preview.css';
 const loader = new JsonNormalizedDataLoader(import.meta.env.BASE_URL);
 function Explorer({ data: source }: { data: NormalizedData }) {
+  const motion = useMotion();
   const [pathId, setPathId] = useState('');
   const [scenarioId, setScenarioId] = useState('');
   const [layer, setLayer] = useState<Layer>('none');
@@ -58,6 +61,7 @@ function Explorer({ data: source }: { data: NormalizedData }) {
     <nav className="mobile-tools" aria-label="Plant tools"><button aria-expanded={mobilePanel === 'equipment'} aria-controls="equipment-panel" onClick={() => setMobilePanel(mobilePanel === 'equipment' ? null : 'equipment')}>Equipment</button><button aria-expanded={mobilePanel === 'controls'} aria-controls="controls-panel" onClick={() => setMobilePanel(mobilePanel === 'controls' ? null : 'controls')}>Controls</button><button onClick={() => { setMobilePanel(null); setScenarioId(''); setPathId(''); setPlaying(false); presentation.start(reveal); }}>Start tour</button></nav>
     <div className="operations" id="controls-panel">
       <label>Process path<select aria-label="Process path" value={pathId} onChange={e => { setPathId(e.target.value); setScenarioId(''); setElapsed(0); setPlaying(Boolean(e.target.value)); }}>{<option value="">Choose a process</option>}{source.process_paths.map(p => <option key={p.process_path_id} value={p.process_path_id}>{p.name}</option>)}</select></label>
+      {look.id === 'engineering' && trace.path && <label><input type="checkbox" checked={motion.enabled} onChange={e => setMotion(e.target.checked)} />Motion</label>}
       <label>Data layer<select aria-label="Data layer" value={layer} onChange={e => setLayer(e.target.value as Layer)}>{layers.map(l => <option key={l} value={l}>{l === 'none' ? 'Engineering view' : l}</option>)}</select></label>
       <label>Scenario<select aria-label="Scenario" value={scenarioId} onChange={e => { setScenarioId(e.target.value); setPathId(''); setElapsed(0); setPlaying(false); }}><option value="">Choose a scenario</option>{source.scenarios.map(s => <option key={s.scenario_id} value={s.scenario_id}>{s.name}</option>)}</select></label>
       <button disabled={!pathId && !scenarioId} onClick={() => { if (elapsed >= duration) setElapsed(0); setPlaying(!running); }}>{running ? 'Pause' : elapsed >= duration && duration > 0 ? 'Replay' : 'Play'}</button>
@@ -86,6 +90,6 @@ function App() {
     Promise.all([loader.load(controller.signal), preparePack('engineering').then(() => requestedLook.current === 'engineering' ? undefined : preparePack('photoreal'))]).then(([value]) => { if (!controller.signal.aborted) setData(value); }).catch((e: unknown) => { if (!controller.signal.aborted) { setError(String(e)); loadingFailed(e); } });
     return () => controller.abort();
   }, []);
-  return data ? <div inert={busy}><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-label={id === 'engineering' ? 'Engineering' : 'Photoreal'} aria-busy={id === 'photoreal' && environmentLoading} aria-current={(id === 'photoreal' ? look.id !== 'engineering' : look.id === id) ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}{id === 'photoreal' && environmentLoading ? <span aria-hidden="true" style={{ marginLeft: 6, fontSize: 10 }}>Loading...</span> : null}</a>)}{look.id !== 'engineering' && <button className="look-night-toggle" disabled={switching} aria-label="Night lighting" aria-pressed={look.id === 'photoreal-night'} onClick={() => choose(look.id === 'photoreal-night' ? 'photoreal' : 'photoreal-night')}>{look.id === 'photoreal-night' ? 'Night' : 'Day'}</button>}</nav><Explorer data={data} /></div> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
+  return data ? <div inert={busy}><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-label={id === 'engineering' ? 'Engineering' : 'Photoreal'} aria-busy={id === 'photoreal' && environmentLoading} aria-current={(id === 'photoreal' ? look.id !== 'engineering' : look.id === id) ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}{id === 'photoreal' && environmentLoading ? <span aria-hidden="true" style={{ marginLeft: 6, fontSize: 10 }}>Loading...</span> : null}</a>)}</nav>{look.id !== 'engineering' && <TimeControls />}<Explorer data={data} /></div> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
 }
 createRoot(document.getElementById('root')!).render(<StrictMode><LookProvider><App /><LoadingIndicator /></LookProvider></StrictMode>);

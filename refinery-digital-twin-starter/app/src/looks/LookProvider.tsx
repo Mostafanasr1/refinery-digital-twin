@@ -1,9 +1,12 @@
+import { setHour, useMotion } from '../motionState';
+import { timeLook } from './timeLook';
 import { preparePack, dismissLoading } from '../loading';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { looks, lookFromUrl, lookUrl, type LookId } from './looks';
 const LookContext = createContext({ look: looks.engineering, switching: false, environmentLoading: false, setEnvironmentLoading: (loading: boolean) => { void loading; }, setMaterialLoading: (loading: boolean) => { void loading; }, choose: (id: LookId) => { void id; } });
 export const useLook = () => useContext(LookContext);
 export function LookProvider({ children }: { children: ReactNode }) {
+  const { hour } = useMotion();
   const [id, setId] = useState<LookId>(() => lookFromUrl(new URL(location.href)));
   const [environmentLoading, setEnvironmentLoading] = useState(false);
   const [materialLoading, setMaterialLoading] = useState(false);
@@ -27,9 +30,9 @@ export function LookProvider({ children }: { children: ReactNode }) {
     else void preparePack('photoreal').then(apply).catch(() => setPhase('idle'));
   };
   useEffect(() => {
-    const sync = () => switchTo(lookFromUrl(new URL(location.href)), false);
+    const sync = () => { const restored = lookFromUrl(new URL(location.href)); if (restored !== 'engineering') setHour(restored === 'photoreal-night' ? 22 : 12); switchTo(restored, false); };
     window.addEventListener('popstate', sync); window.addEventListener('hashchange', sync);
     return () => { window.removeEventListener('popstate', sync); window.removeEventListener('hashchange', sync); timers.current.forEach(clearTimeout); };
   }, []);
-  return <LookContext.Provider value={{ look: looks[id], environmentLoading: environmentLoading || materialLoading, setEnvironmentLoading, setMaterialLoading, switching: phase !== 'idle', choose: next => switchTo(next, true) }}>{children}<div aria-hidden="true" data-look-fade={phase} style={{ position: 'fixed', inset: 0, zIndex: 100, background: '#08151e', pointerEvents: phase === 'idle' ? 'none' : 'auto', opacity: phase === 'out' ? 1 : 0, transition: 'opacity 150ms ease' }} /></LookContext.Provider>;
+  return <LookContext.Provider value={{ look: timeLook(id, hour), environmentLoading: environmentLoading || materialLoading, setEnvironmentLoading, setMaterialLoading, switching: phase !== 'idle', choose: next => switchTo(next, true) }}>{children}<div aria-hidden="true" data-look-fade={phase} style={{ position: 'fixed', inset: 0, zIndex: 100, background: '#08151e', pointerEvents: phase === 'idle' ? 'none' : 'auto', opacity: phase === 'out' ? 1 : 0, transition: 'opacity 150ms ease' }} /></LookContext.Provider>;
 }

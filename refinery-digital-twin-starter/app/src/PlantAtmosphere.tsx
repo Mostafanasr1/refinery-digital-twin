@@ -1,3 +1,6 @@
+import { motionTime, useMotion } from './motionState';
+import { daylight } from './motionMath';
+import motionConfig from '../../data/presentation/motion.json';
 import { useEffect, useMemo } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -8,7 +11,9 @@ import config from '../../data/presentation/atmosphere.json';
 /** Presentation-only effects derived from plant types; no asset or telemetry changes. */
 export function PlantAtmosphere({ assets }: { assets: Asset[] }) {
   const { look } = useLook();
-  const enabled = look.id !== 'engineering', night = look.id === 'photoreal-night';
+  const enabled = look.id !== 'engineering';
+  const { hour } = useMotion();
+  const dark = 1 - daylight(hour).day;
   const { camera, invalidate } = useThree();
   const resources = useMemo(() => {
     const group = new THREE.Group(); group.name = 'plant-atmosphere';
@@ -76,7 +81,8 @@ export function PlantAtmosphere({ assets }: { assets: Asset[] }) {
       return new THREE.Matrix4().makeTranslation(asset.position.x+offset.x,asset.position.z+offset.y,-asset.position.y+offset.z);
     });
     const warnings=new THREE.InstancedMesh(new THREE.SphereGeometry(.35,10,6),new THREE.MeshBasicMaterial({color:new THREE.Color(...config.nightLighting.warningColor as [number,number,number])}),warningPositions.length);
-    warningPositions.forEach((matrix,index)=>warnings.setMatrixAt(index,matrix));warnings.computeBoundingSphere();warnings.raycast=()=>undefined;warnings.userData.category='lamps';nightExtras.add(warnings);
+    warnings.name='aviation-warning-lights';
+    warningPositions.forEach((matrix,index)=>warnings.setMatrixAt(index,matrix));warnings.computeBoundingSphere();warnings.raycast=()=>undefined;warnings.userData.category='lamps';group.add(warnings);
     const lamps=new THREE.InstancedMesh(new THREE.BoxGeometry(.6,.25,.6),new THREE.MeshBasicMaterial({color:new THREE.Color(...config.platformLamps.color as [number,number,number])}),transforms.length);
     transforms.forEach((matrix,index)=>lamps.setMatrixAt(index,matrix)); lamps.computeBoundingSphere(); lamps.userData.category='lamps'; lamps.raycast=()=>undefined; group.add(lamps);
     const center=new THREE.Vector3(assets.reduce((sum,a)=>sum+a.position.x,0)/assets.length,0,-assets.reduce((sum,a)=>sum+a.position.y,0)/assets.length);
@@ -90,16 +96,17 @@ export function PlantAtmosphere({ assets }: { assets: Asset[] }) {
     return {group,flames,steam,steamTexture,lamps,flood,flareLights,nightExtras,warnings};
   },[assets]);
   useEffect(()=>{
-    resources.group.visible=enabled; resources.flood.visible=night; resources.flareLights.forEach(light=>{light.visible=night;});
-    resources.nightExtras.visible=night; resources.lamps.visible=night; invalidate();
-  },[resources,enabled,night,invalidate]);
+    resources.group.visible=enabled; resources.flood.visible=dark > .001; resources.flood.intensity=config.floodlight.intensity*dark;
+    resources.flareLights.forEach(light=>{light.visible=dark>.001;light.intensity=config.flame.lightIntensity*dark;});
+    resources.nightExtras.visible=dark>.001; resources.nightExtras.children.forEach(node=>{if(node instanceof THREE.PointLight)node.intensity=config.nightLighting.poolIntensity*dark;});
+    resources.lamps.visible=dark>.001;(resources.lamps.material as THREE.MeshBasicMaterial).color.setRGB(...config.platformLamps.color as [number,number,number]).multiplyScalar(dark); invalidate();
+  },[resources,enabled,dark,invalidate]);
   useFrame(()=>{
     if(!enabled)return;
-    const params=new URLSearchParams(location.search);
-    const time=params.get('measure')==='1' && params.get('animate')!=='1' ? 2 : performance.now()/1000;
+    const time=motionTime();
+    resources.warnings.visible=(time % motionConfig.aviation.periodSeconds)/motionConfig.aviation.periodSeconds < motionConfig.aviation.onFraction;
     resources.flames.forEach(flame=>{flame.quaternion.copy(camera.quaternion);flame.material.uniforms.time.value=time;});
-    resources.steam.forEach(({sprite,origin,phase})=>{const age=(time/config.steam.periodSeconds+phase)%1; sprite.position.copy(origin).add(new THREE.Vector3(age*3,age*config.steam.riseMetres,age*1.5));sprite.scale.setScalar(2+age*7);sprite.material.opacity=.32*Math.sin(age*Math.PI);});
-    invalidate();
+    resources.steam.forEach(({sprite,origin,phase})=>{const age=(time/config.steam.periodSeconds+phase)%1; sprite.position.copy(origin).add(new THREE.Vector3(age*3+Math.sin(time*.1)*motionConfig.wind.x*10,age*config.steam.riseMetres,age*1.5+Math.sin(time*.08)*motionConfig.wind.z*10));sprite.scale.setScalar(2+age*7);sprite.material.opacity=.32*Math.sin(age*Math.PI);});
   });
   useEffect(()=>()=>{
     resources.flames.forEach(mesh=>{mesh.geometry.dispose();mesh.material.dispose();});

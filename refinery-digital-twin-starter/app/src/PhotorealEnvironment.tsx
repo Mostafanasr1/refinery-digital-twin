@@ -1,4 +1,8 @@
+import { TimeSky } from './TimeSky';
+import { useMotion } from './motionState';
+import { daylight } from './motionMath';
 import atmosphereConfig from '../../data/presentation/atmosphere.json';
+import motionConfig from '../../data/presentation/motion.json';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useLoader, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -137,12 +141,27 @@ function contextGroup(source: THREE.Group) {
     sourceGeometry.dispose();
   });
   const group = new THREE.Group(); group.name = 'photoreal-site-context';
+  // Approved presentation-only end connectors use the source road materials.
+  for (const [material, parts] of groups) {
+    const road = motionConfig.road;
+    const appendBox = (size: number[], position: number[]) => {
+      const indexed = new THREE.BoxGeometry(...size as [number, number, number]);
+      const geometry = indexed.toNonIndexed(); indexed.dispose();
+      if (!parts[0].hasAttribute('uv')) geometry.deleteAttribute('uv');
+      geometry.translate(...position as [number, number, number]); parts.push(geometry);
+    };
+    for (const x of [road.left, road.right]) {
+      if (material.name === 'Context_road') appendBox([road.width, .1, road.near - road.far], [x, -.399, (road.near + road.far) / 2]);
+      if (material.name === 'Context_marking') for (let z = road.far + 10; z < road.near - 6; z += 12) appendBox([.2, .018, 3], [x, -.339, z]);
+    }
+  }
   groups.forEach((parts, material) => { const mesh = new THREE.Mesh(mergeGeometries(parts)!, material.clone()); parts.forEach(part => part.dispose()); mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData.category = 'ground'; group.add(mesh); });
   return group;
 }
 function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: boolean }) {
-  const { look } = useLook();
-  const night = look.id === 'photoreal-night';
+  const { hour } = useMotion();
+  const { day } = daylight(hour);
+  const dark = 1 - day;
   const config = looks.photoreal.environment.desert!;
   const { gl, scene, camera, invalidate } = useThree();
   const hdr = useLoader(RGBELoader, `${import.meta.env.BASE_URL}${config.assets.sky}`);
@@ -217,27 +236,27 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
   useEffect(() => {
     resources.context.children.forEach(node=>{
       const material=(node as THREE.Mesh).material as THREE.MeshStandardMaterial;
-      if(material.name==='Context_window') {material.emissive.set(night ? atmosphereConfig.nightLighting.windowEmissive : '#000000');material.emissiveIntensity=night ? atmosphereConfig.nightLighting.windowIntensity : 0;}
+      if(material.name==='Context_window') {material.emissive.set(atmosphereConfig.nightLighting.windowEmissive);material.emissiveIntensity=dark * atmosphereConfig.nightLighting.windowIntensity;}
     });
     if (!enabled) return;
     const previousFar = camera.far;
-    scene.environment = environmentTarget.current!.texture; scene.environmentIntensity = night ? .16 : config.intensity;
-    scene.background = night ? dusk : hdr; scene.backgroundIntensity = night ? .8 : config.backgroundIntensity;
+    scene.environment = environmentTarget.current!.texture; scene.environmentIntensity = .16 + day * (config.intensity - .16);
+    scene.background = new THREE.Color('#152239'); scene.backgroundIntensity = 1;
     scene.environmentRotation.set(0, config.rotation, 0); scene.backgroundRotation.set(0, config.rotation, 0);
-    scene.fog = new THREE.Fog(night ? '#45434b' : config.fog.color, config.fog.near, config.fog.far);
+    scene.fog = new THREE.Fog(new THREE.Color('#45434b').lerp(new THREE.Color(config.fog.color), day), config.fog.near, config.fog.far);
     camera.far = Math.max(previousFar, 6000); camera.updateProjectionMatrix(); gl.domElement.dataset.environmentReady = 'true'; invalidate();
     return () => {
       if (scene.environment === environmentTarget.current?.texture) scene.environment = null;
-      if (scene.background === hdr || scene.background === dusk) scene.background = new THREE.Color(looks.engineering.environment.background);
+      scene.background = new THREE.Color(looks.engineering.environment.background);
       scene.environmentRotation.set(0, 0, 0); scene.backgroundRotation.set(0, 0, 0); scene.backgroundIntensity = 1;
       scene.fog = null; camera.far = previousFar; camera.updateProjectionMatrix(); invalidate();
     };
-  }, [camera, config, enabled, gl, hdr, dusk, night, invalidate, resources, scene]);
+  }, [camera, config, enabled, gl, hdr, dusk, day, dark, invalidate, resources, scene]);
   useEffect(() => () => { resources.terrain.dispose(); resources.mountains.dispose(); resources.mountainMaterial.dispose(); resources.material.dispose(); resources.context.children.forEach(node => { const mesh=node as THREE.Mesh; mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); resources.scatter.children.forEach(node => { const mesh = node as THREE.InstancedMesh; mesh.dispose(); mesh.geometry.dispose(); (mesh.material as THREE.Material).dispose(); }); }, [resources]);
   return <group visible={enabled} name="photoreal-environment" dispose={null}>
     <mesh geometry={resources.terrain} material={resources.material} receiveShadow userData={{ category: 'ground' }} />
     <mesh geometry={resources.mountains} material={resources.mountainMaterial} userData={{ category: 'ground' }} />
-    <primitive object={resources.context} />
+    <TimeSky dayTexture={hdr} duskTexture={dusk} /><primitive object={resources.context} />
     <primitive object={resources.scatter} />
   </group>;
 }

@@ -1,0 +1,61 @@
+{
+  "dayHour": 12,
+  "duskHour": 18,
+  "nightHour": 22,
+  "cycleSeconds": 240,
+  "road": {
+    "left": -21,
+    "right": 257,
+    "near": 37,
+    "far": -135,
+    "width": 8,
+    "cornerRadius": 10,
+    "speedMetresPerSecond": 4.2,
+    "farLaneOffset": 1.8
+  },
+  "vehicles": [
+    {
+      "kind": "pickup",
+      "phase": 0,
+      "length": 5.4,
+      "width": 2.1
+    },
+    {
+      "kind": "tanker",
+      "phase": 0.5,
+      "length": 8.6,
+      "width": 2.5
+    }
+  ],
+  "aviation": {
+    "periodSeconds": 1.5,
+    "onFraction": 0.18
+  },
+  "fans": {
+    "radiansPerSecond": 2.8,
+    "types": [
+      "air_cooler",
+      "cooling_tower"
+    ]
+  },
+  "wind": {
+    "x": 0.12,
+    "z": 0.06
+  },
+  "dust": {
+    "count": 12,
+    "widthMetres": 15,
+    "heightMetres": 3,
+    "opacity": 0.045
+  },
+  "flag": {
+    "position": [
+      -24,
+      0,
+      43
+    ],
+    "mastHeight": 9,
+    "width": 3.2,
+    "height": 1.7
+  }
+}
