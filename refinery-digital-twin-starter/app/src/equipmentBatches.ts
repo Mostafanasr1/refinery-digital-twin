@@ -4,6 +4,7 @@ import type { Asset } from './data/loader';
 import { worldPosition } from './data/registry';
 import { effects, type Look } from './looks/looks';
 import { materialUVs, type MaterialPack } from './looks/MaterialPack';
+import { surfaceWear } from './looks/surfaceWear';
 
 export type AssetStyle = { active: boolean; tint?: string; dim?: boolean };
 export type PickRange = { start: number; count: number; asset: Asset };
@@ -55,7 +56,9 @@ export function buildEquipmentBatches(scene: THREE.Object3D, assets: Asset[]): E
     geometry.setAttribute('color', new THREE.BufferAttribute(new Float32Array(group.count * 3), 3));
     geometry.setAttribute('assetEmissive', new THREE.BufferAttribute(new Float32Array(group.count * 3), 3));
     geometry.computeBoundingBox(); geometry.computeBoundingSphere();
-    return { geometry, ranges: group.ranges, styleKeys: new WeakMap<PickRange, string>(), originalColor: group.material.color.clone(), engineering: materialWithAssetState(group.material), photoreal: materialWithAssetState(group.material) };
+    const photoreal = materialWithAssetState(group.material);
+    surfaceWear(photoreal, group.material.name.split('::')[1]);
+    return { geometry, ranges: group.ranges, styleKeys: new WeakMap<PickRange, string>(), originalColor: group.material.color.clone(), engineering: materialWithAssetState(group.material), photoreal };
   });
 }
 export function applyBatchStyle(batch: EquipmentBatch, look: Look, style: (asset: Asset) => AssetStyle, pack?: MaterialPack | null) {

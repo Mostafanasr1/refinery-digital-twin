@@ -223,7 +223,7 @@ export default function Scene({ cameraMove, data, registry, selected, hovered, r
     <Atmosphere /><PlantAtmosphere assets={sourceAssets} /><MotionActors assets={sourceAssets} /><BudgetProfiler />
     <Controls cameraMove={cameraMove} selected={scenarioState.cameraId ? registry.assets.get(scenarioState.cameraId) : selected ? registry.assets.get(selected) : undefined} reset={reset} />
     <gridHelper visible={look.environment.grid} args={[500, 50, ...look.environment.gridColors]} position={[85, -3, -25]} />
-    <Site assets={sourceAssets} /><SiteDressing assets={sourceAssets} /><PhotorealEnvironment assets={sourceAssets} />
+    <Site assets={sourceAssets} /><SiteDressing assets={sourceAssets} connections={data.connections} /><PhotorealEnvironment assets={sourceAssets} />
     <MaterialSwatches />
     {detailSeen && <Suspense fallback={null}><BlenderPlant detail visible={look.detailLevel === 1 && geometry === 'blender' && new URLSearchParams(location.search).get('materialSwatches') !== '1'} assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /></Suspense>}
     <Pipes data={data} registry={registry} trace={trace} running={running} scenarioState={scenarioState} />

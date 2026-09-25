@@ -1,0 +1,11 @@
+{
+  "reportedBy": "Mostafa",
+  "date": "2026-09-25",
+  "device": "Samsung A35",
+  "browser": "Chrome",
+  "firstLoadLoaderSeconds": 2,
+  "firstPhotorealSwitchSeconds": 2,
+  "mobileLayout": "clean",
+  "source": "Explicit user report; not agent measurement",
+  "externalReview": "Approved by both reviewers"
+}

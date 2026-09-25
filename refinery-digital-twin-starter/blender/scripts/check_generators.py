@@ -73,7 +73,8 @@ def main():
                 if mesh.users == 0:
                     bpy.data.meshes.remove(mesh)
     required = {'column': 'hero_cage', 'flare': 'hero_platform', 'fired_heater': 'hero_stair', 'storage_tank': 'hero_tank_manway', 'floating_roof_tank': 'hero_tank_manway', 'pipe_rack': 'hero_tray'}
-    require(set(required) == set(HERO_BUILDERS), 'Hero type registry mismatch')
+    require(set(SILHOUETTES) == set(HERO_BUILDERS), 'Slice detail must cover every registered type')
+    required.update({kind: 'slice_' for kind in HERO_BUILDERS if kind not in required})
     for kind in HERO_BUILDERS:
         asset = {'model_ref': 'HERO-' + kind, 'type': kind, 'dimensions': SILHOUETTES[kind]['sample']}
         require(build_hero(asset, 0) == [], f'{kind}: level 0 must add no geometry')
@@ -84,7 +85,7 @@ def main():
         require(any(required[kind] in name for name in names), f'{kind}: required secondary detail missing')
         limit = max(asset['dimensions'].values()) + 14
         for obj in objects:
-            require(obj.type == 'MESH' and obj.name.startswith(asset['model_ref'] + '_hero_'), f'{kind}: invalid hero part')
+            require(obj.type == 'MESH' and obj.name.startswith(tuple(asset['model_ref'] + '_' + prefix for prefix in ('hero_', 'slice_'))), f'{kind}: invalid hero part')
             corners = [obj.matrix_world @ Vector(corner) for corner in obj.bound_box]
             require(min(point.z for point in corners) >= -.001, f'{obj.name}: hero detail below grade')
             require(max(abs(point.x) for point in corners) <= limit and max(abs(point.y) for point in corners) <= limit, f'{obj.name}: unreasonable footprint')

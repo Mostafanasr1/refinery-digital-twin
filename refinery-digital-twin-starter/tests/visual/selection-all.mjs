@@ -41,7 +41,8 @@ try {
   assert.deepEqual(run.errors, []);
   const task = process.argv.find(arg => arg.startsWith('--task='))?.split('=')[1] ?? '02';
   assert.match(task, /^\d{2}$/);
-  const output = resolve(root, `docs/handbacks/evidence/stageB-task-${task}`);
+  const stage = process.argv.includes('--stage=C') ? 'C' : 'B';
+  const output = resolve(root, `docs/handbacks/evidence/stage${stage}-task-${task}`);
   await mkdir(output, { recursive: true });
-  await writeFile(resolve(output, 'selection-all.json'), JSON.stringify({ hardware, results }, null, 2) + '\n');
+  await writeFile(resolve(output, process.argv.includes('--night-only') ? 'selection-night.json' : 'selection-all.json'), JSON.stringify({ hardware, results }, null, 2) + '\n');
 } finally { await run.close(); }

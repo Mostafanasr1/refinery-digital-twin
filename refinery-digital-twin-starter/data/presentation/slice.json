@@ -1,0 +1,18 @@
+{
+  "description": "Procedural visual context only; not plant equipment or process topology.",
+  "dressing": {
+    "xRange": [-8, 246], "zRange": [-122, 18], "spacing": [15, 12],
+    "moduleSize": [12, 9], "clearance": 2, "maxModules": 62,
+    "pipeCount": 9, "levels": [4.8, 7.2, 9.6], "palette": {
+      "steel": "#798080", "pipe": "#b6b8ac", "dark": "#424744",
+      "rail": "#b78c39", "concrete": "#89877f", "glass": "#243b44"
+    }
+  },
+  "wear": {
+    "painted-steel": 0.2, "weathered-steel": 0.32, "insulation": 0.12,
+    "galvanized": 0.15, "safety-yellow": 0.17, "concrete": 0.3,
+    "grating": 0.26, "dark-steel": 0.22
+  },
+  "ground": { "macroMetres": 14, "jointMetres": 6, "strength": 0.4, "trackZ": 16, "trackX": [10, 245] },
+  "day": { "sunIntensity": 2.7, "exposure": 0.8, "bloom": 0.08, "shadowNormalBias": 0.06, "shadowBias": -0.0001 }
+}

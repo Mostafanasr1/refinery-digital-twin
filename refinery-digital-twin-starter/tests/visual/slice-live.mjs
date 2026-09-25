@@ -1,0 +1,53 @@
+import assert from 'node:assert/strict';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import { openRun, root, camera, config } from '../../scripts/visual-common.mjs';
+import { openLook, switchLook } from './look-common.mjs';
+const expected = process.argv.find(a => a.startsWith('--preview='))?.split('=')[1];
+assert.match(expected ?? '', /^[a-f0-9]{40}$/);
+const base = 'https://mostafanasr1.github.io/refinery-digital-twin/';
+const output = resolve(root, 'docs/handbacks/evidence/stageC-task-02/live');
+await mkdir(output, { recursive: true });
+for (const [name, executable] of [['chrome', 'C:/Program Files/Google/Chrome/Application/chrome.exe'], ['edge', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']]) {
+  process.env.VISUAL_BROWSER_PATH = executable;
+  const run = await openRun();
+  try {
+    run.page.on('console', m => { if (m.type() === 'error' && !m.location().url?.endsWith('/favicon.ico')) run.errors.push(m.text()); });
+    const release = await (await run.page.request.get(base + 'deploy.json')).json();
+    assert.equal(release.branch, 'main'); assert.equal(release.commit, '83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494');
+    const preview = await (await run.page.request.get(base + 'next/deploy.json')).json();
+    assert.deepEqual(preview, { branch: 'dual-look', commit: expected });
+    run.url = base + '?measure=1'; await openLook(run, 'engineering');
+    assert.equal(await run.page.locator('.time-controls').count(), 0);
+    assert.match(await run.page.locator('footer').innerText(), /57 assets bound/);
+    run.url = base + 'next/?measure=1&animate=1&captureCycle=1';
+    const hardware = await openLook(run, 'engineering');
+    await switchLook(run.page, 'photoreal'); await camera(run.page, config.cameras[5]);
+    const time = await run.page.evaluate(() => window.__refineryMotion.read().time);
+    await run.page.waitForTimeout(500);
+    assert.ok(await run.page.evaluate(t => window.__refineryMotion.read().time > t, time));
+    await run.page.getByRole('slider', { name: 'Time of day' }).press('Home');
+    assert.equal(await run.page.evaluate(() => window.__refineryMotion.read().hour), 0);
+    await run.page.getByRole('button', { name: 'Day', exact: true }).click();
+    assert.equal(await run.page.evaluate(() => window.__refineryMotion.read().hour), 12);
+    await run.page.getByRole('checkbox', { name: 'Motion', exact: true }).uncheck();
+    await run.page.waitForTimeout(100);
+    const frozen = await run.page.evaluate(() => window.__refineryMotionActors());
+    await run.page.waitForTimeout(400);
+    assert.deepEqual(await run.page.evaluate(() => window.__refineryMotionActors()), frozen);
+    assert.equal(await run.page.evaluate(() => window.__refineryLookSnapshot().dressing.modules), 62);
+    await run.page.getByLabel('Dressing', { exact: true }).uncheck();
+    assert.equal(await run.page.evaluate(() => window.__refineryLookSnapshot().dressing.visible), false);
+    await run.page.getByLabel('Dressing', { exact: true }).check();
+    assert.equal(await run.page.evaluate(() => window.__refineryLookSnapshot().dressing.visible), true);
+    await run.page.screenshot({ path: resolve(output, `${name}-CAM-6-day.png`) });
+    await switchLook(run.page, 'photoreal-night');
+    await run.page.screenshot({ path: resolve(output, `${name}-CAM-6-night.png`) });
+    await run.page.setViewportSize({ width: 412, height: 915 });
+    await run.page.screenshot({ path: resolve(output, `${name}-mobile.png`) });
+    assert.deepEqual(run.errors, []);
+    const record = { status: 'PASS', browser: name, hardware, release, preview, checks: ['release unchanged', '62 dressing modules; toggle hides/restores group', 'preview motion advances', 'slider keyboard and presets', 'master freeze', 'day/night and emulated mobile captures'], errors: run.errors, phone: 'No new physical-phone check for this slice; mobile screenshots are emulated' };
+    await writeFile(resolve(output, `${name}.json`), JSON.stringify(record, null, 2));
+    console.log(JSON.stringify({ browser: name, status: 'PASS', release, preview }));
+  } finally { await run.close(); }
+}

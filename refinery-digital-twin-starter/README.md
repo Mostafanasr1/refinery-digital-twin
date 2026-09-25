@@ -80,4 +80,9 @@ Both main and dual-look pushes publish a combined Pages artifact: root built fro
 
 Canonical plant truth is frozen and verified by `data:verify`. Presentation cameras, looks and tours live separately under `data/presentation` and application look configuration. Original project geometry is procedural; all externally sourced runtime art is registered CC0. User reference images and review videos are not runtime assets. See [ASSETS.md](ASSETS.md), [repo facts](docs/REPO_FACTS.md), [approved budgets](docs/APPROVED_BUDGETS.md) and [Task 9 hand-back](docs/handbacks/stageB-task-09.md).
 
-Phone: there is currently no automatic mobile quality reduction; presets retain their desktop settings, with DPR capped at 1.5. Mostafa reports the Samsung A35/Chrome release check passed and Task 9 approved. The subsequent mobile layout and byte-progress correction will receive a physical-device timing and visual review at the Stage C Task 1 gate.
+Phone: there is currently no automatic mobile quality reduction; presets retain their desktop settings, with DPR capped at 1.5. Mostafa reports the Samsung A35/Chrome release check passed and Task 9 approved. Mostafa approved the corrected mobile layout at the Stage C Task 1 gate: Samsung A35 / Chrome first-load loader 2 seconds, first photoreal switch 2 seconds, mobile layout clean. These are reported physical-device observations.
+
+
+### Stage C Task 2 preview candidate
+
+The dual-look preview adds switchable procedural site dressing, optional detail across all equipment types, and material/ground wear. Use **Photoreal → Dressing** to compare. Canonical data and the approved engineering baseline stay unchanged. CAM-6 day is the slice judgment frame; see [the hand-back](docs/handbacks/stageC-task-02.md) and [before/after/reference comparison](docs/handbacks/evidence/stageC-task-02/comparison.html). External slice approval is pending.

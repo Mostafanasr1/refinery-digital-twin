@@ -1,6 +1,6 @@
 # Stage C Task 01 - motion and time of day
 
-Status: **ready for Stage C Task 1 external gate**. Implementation, tests, both internal reviews and live Chrome/Edge verification PASS on dual-look. Main release remains `83e54ba`. Stop at this task's gate; Stage C Task 2 is not started.
+Status: **approved by both external reviewers**. Mostafa reports Samsung A35 / Chrome first-load loader 2 seconds, first photoreal switch 2 seconds, and clean mobile layout. Task 1 is complete. Main release remains `83e54ba`; Task 2 is authorized, subject to recovering its queued scope.
 
 ## Scope and ruling
 
@@ -60,3 +60,8 @@ Mostafa's corrected Samsung A35 / Chrome layout and loading-timing report remain
 ## Files touched
 
 Presentation config: data/presentation/motion.json. Runtime: MotionActors, motionMath, motionState, TimeControls, TimeSky, timeLook, FlowOverlay, PhotorealEnvironment, PlantAtmosphere, Scene, LookProvider, main, presentation, style. Verification: motion.test.ts, scripts/visual-runtime.tsx, environment-metrics.mjs, motion-check.mjs, motion-video.mjs. Records: ASSETS.md, docs/REPO_FACTS.md, this hand-back and its evidence/metrics. Canonical files touched: none.
+
+
+## External approval and physical phone report - 25 September 2026
+
+Mostafa confirms both reviewers approve Stage C Task 1. Samsung A35, Chrome: first-load loader 2 seconds; first photoreal switch 2 seconds; mobile layout clean. These are Mostafa's physical-device observations, not desktop emulation or agent measurements. They resolve the earlier phone-pending gate items above. Evidence record: evidence/stageC-task-01/phone-report.json. Task 2 (the queued vertical slice) is authorized next, with a stop at its gate.

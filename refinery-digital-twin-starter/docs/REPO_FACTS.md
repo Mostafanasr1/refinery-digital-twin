@@ -201,3 +201,17 @@ Implementation, swept-body tests, 24 Vitest / 31 pytest / 7 visual-tool tests, b
 ## Stage C Task 1 gate hand-back - 25 September 2026
 
 Implementation `d4657c0` published by successful Pages run 36133916881. Installed Chrome and Edge live checks PASS: root remains main `83e54ba`, /next/ serves the motion/time-of-day candidate. Live slider/presets, motion advance/master freeze and emulated mobile layouts pass; evidence under stageC-task-01/live. Follow-up commit records evidence only, with unchanged application source. Stop at the Stage C Task 1 gate for both external reviews, including Mostafa's deferred corrected Samsung A35 timing/layout report. No Stage C Task 2 work started. No active technical blocker.
+
+
+## Stage C Task 1 approved; Task 2 preflight - 25 September 2026
+
+Mostafa approves Task 1 on behalf of both external reviewers. Physical Samsung A35 / Chrome report: first-load loader 2 seconds, first photoreal switch 2 seconds, mobile layout clean. The earlier external-review and phone-pending conditions are resolved. See stageC-task-01/phone-report.json.
+
+Mostafa authorizes Stage C Task 2, the vertical slice, stopping at its gate. Repository plans, facts and retrievable earlier discussion name the queued slice but do not supply a recoverable detailed scope or acceptance definition. Do not invent the target area, asset/detail additions, interactions or a canonical-data exception. Task 2 is at preflight, with no runtime/canonical changes; see stageC-task-02.md for the missing brief and resume condition. Task 1 implementation remains d4657c0, latest published evidence commit 6ea0b8c; main remains83e54ba.
+
+
+## 2026-09-25 — Stage C Task 2 brief resolves preflight stop
+
+Mostafa supplied and authorized the vertical slice brief, saved verbatim first at docs/superpowers/plans/2026-09-25-stage-c-task-02-vertical-slice.md. The earlier missing-brief pause is resolved. Judgment is CAM-6 photoreal day only; canonical data and engineering baseline remain frozen. The task-specific CAM-6 limit is p95 <=25 ms, lazy assets <=60 MB. Other inherited regression checks remain. Work remains on dual-look, preview /next/ only; stop at the slice gate.
+
+Candidate: 62 switchable/non-selectable procedural dressing modules; route fittings; optional Blender detail for 57 assets across all 22 types; per-material metre-scale grime and pad wear; restrained daylight/post/shadow adjustment. Six-camera before/after set and unaltered reference comparison are in docs/handbacks/evidence/stageC-task-02. CAM-6 day p95 3.7/4.3/3.7 ms, conservative lazy inventory 29,647,667 bytes. Engineering captures: all 12 exactly match the approved baseline; 32 canonical hashes unchanged. External slice judgment is pending.

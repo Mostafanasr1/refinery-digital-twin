@@ -1,4 +1,5 @@
 import { TimeSky } from './TimeSky';
+import { surfaceWear } from './looks/surfaceWear';
 import { useMotion } from './motionState';
 import { daylight } from './motionMath';
 import atmosphereConfig from '../../data/presentation/atmosphere.json';
@@ -155,7 +156,11 @@ function contextGroup(source: THREE.Group) {
       if (material.name === 'Context_marking') for (let z = road.far + 10; z < road.near - 6; z += 12) appendBox([.2, .018, 3], [x, -.339, z]);
     }
   }
-  groups.forEach((parts, material) => { const mesh = new THREE.Mesh(mergeGeometries(parts)!, material.clone()); parts.forEach(part => part.dispose()); mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData.category = 'ground'; group.add(mesh); });
+  groups.forEach((parts, material) => {
+    const owned = material.clone() as THREE.MeshStandardMaterial;
+    if (['Context_concrete', 'Context_road'].includes(material.name)) surfaceWear(owned, 'concrete', true);
+    const mesh = new THREE.Mesh(mergeGeometries(parts)!, owned); parts.forEach(part => part.dispose()); mesh.castShadow = true; mesh.receiveShadow = true; mesh.userData.category = 'ground'; group.add(mesh);
+  });
   return group;
 }
 function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: boolean }) {

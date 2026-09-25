@@ -61,3 +61,8 @@ All externally sourced runtime visual assets are CC0 with source/checksum manife
 ## Stage C Task 1 procedural motion
 
 Pickup, tanker, fan rotors/insets, flag and mast, dust, flow pulses and the two approved road connectors are original procedural presentation geometry. Sky blends the existing CC0 HDR with the original procedural dusk texture. No downloaded art, new visual dependency, canonical asset or texture pack is introduced. Vehicles use instanced meshes and type-based equipment motion; connectors merge into existing context materials. Motion parameters live in data/presentation/motion.json. The raw high-bitrate recording stays under ignored tests/visual/output/stageC-task-01; its 31 MB CRF 18 MP4 review copy is committed with the hand-back. Neither is shipped in app/dist or counted as a runtime asset.
+
+
+## Stage C Task 2 vertical slice
+
+All additions are original procedural work: 62 batched dressing modules, route-following fittings, per-type optional Blender detail, metre-space wear/grime and pad tyre-track/joint/noise shading. No downloaded art or new runtime dependency. Dressing is non-canonical and non-selectable, controlled by the photoreal Dressing checkbox. All 57 assets / 22 types receive optional builder detail; the approved base GLB stays unchanged. The lazy asset folder inventory is 29,647,667 bytes (conservative count including manifests), within the task-specific 60 MB allowance. Reference and evidence images remain review-only and are not runtime assets.

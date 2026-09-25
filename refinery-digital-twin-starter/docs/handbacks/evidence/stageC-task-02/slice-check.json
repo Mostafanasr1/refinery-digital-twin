@@ -1,0 +1,31 @@
+{
+  "checks": [
+    {
+      "name": "Dressing on/off/restored; registry/base identity unchanged; hidden optional raycasting disabled",
+      "modules": 62
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": {
+        "within": true,
+        "overflow": false,
+        "height": 58
+      }
+    },
+    {
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "layout": {
+        "within": true,
+        "overflow": false,
+        "height": 52
+      }
+    }
+  ],
+  "errors": []
+}
