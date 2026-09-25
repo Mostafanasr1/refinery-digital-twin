@@ -1,6 +1,6 @@
 # Stage B Task 09 — release
 
-25 September 2026. In progress; Task 9 is not closed. Mostafa authorized merging dual-look into main and desktop verification, then a pause for his physical Samsung A35 / Chrome result. Stage C remains queued.
+25 September 2026. Desktop release complete; Task 9 remains open for the physical-phone result and gate. Mostafa authorized merging dual-look into main and desktop verification, then a pause for his physical Samsung A35 / Chrome result. Stage C remains queued.
 
 ## Approved prerequisites and rulings
 
@@ -100,3 +100,25 @@ Display: 144 Hz; AC: true; laptop only: false; Power Scheme GUID: 27fa6203-3987-
 Post passes: 17.0.
 
 Lazy photoreal asset bytes remain 21,417,040 (<40,000,000). Initial engineering download is 8,834,446 (<13,200,115). Measurements ran alone with the approved uncapped protocol, recorded displays and AC Performance power.
+
+
+## Merge and live desktop verification
+
+Released merge commit: a6bf9bcae3fc36fa114ad36a463cc1d8faccc673. Release preparation: 0ac3443. Main deployment succeeded: https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/36088650349.
+
+Live release: https://mostafanasr1.github.io/refinery-digital-twin/
+Preview retained: https://mostafanasr1.github.io/refinery-digital-twin/next/
+
+Installed Google Chrome 153.0.8010.53 and Microsoft Edge 153.0.4234.48 both PASS on the reference laptop (RTX 3050 / D3D11). These live functional/capture runs are separate from the pinned Chrome 146 baseline and budget runs; the approved measurement protocol was not changed.
+
+Each browser verified root provenance at the merge SHA and preview provenance at 0ac344363ae37c7f8dd7a2e933ef1ac31d9c280a; 57 assets/six units; six cameras in engineering, photoreal day and photoreal night; selection/card/camera/asset identity continuity; proxy mode; and engineering/photoreal at /next/. All 38 live screenshots are retained. Both recorded zero application/shader errors; missing favicon warnings are separately recorded.
+
+Live engineering transfer before first interaction was 2,066,238 bytes in Chrome and 2,066,238 in Edge (compressed Pages transfer). Neither requested environment/material/detail packs until switching to Photoreal. This wire-size result is distinct from the local budget measurement.
+
+README and ASSETS updates are in the released merge. Final deployment evidence and these current-state notes are committed on dual-look, preserving the single authorized main release push. Evidence-only preview updates do not change the main release.
+
+## Current stop
+
+Desktop release work complete. Await Mostafa's physical Samsung A35 / Chrome result before Task 9 closure and external gate approval. Stage C is not started. No claim of phone compatibility or phone performance is made before that test.
+
+[Live screenshots and evidence gallery](evidence/stageB-task-09/review.html).

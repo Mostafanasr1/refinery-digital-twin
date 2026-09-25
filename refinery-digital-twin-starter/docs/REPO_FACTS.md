@@ -163,3 +163,10 @@ Mostafa resolves both preflight decisions: keep /next/ as dual-look’s Stage C 
 Task 8 baseline promotion is committed as 78b8731. Current phone behavior has no automatic quality downgrade; desktop look presets are retained, DPR capped at 1.5. Any necessary visual quality change remains subject to the agreed scope/rulings.
 
 Stage C queue only (not started): Task 1 is motion and continuous time of day; Task 2 is the vertical slice. Task 1 includes blinking aviation lights, procedural pickup/tanker paths avoiding footprints, rotating fans, wind/steam/day dust, gate flag, and process pulses (the explicitly shared both-look exception). No people or birds. Presentation data has a master motion switch. Continuous photoreal sun/sky/environment/fog/lamps expose a slider and roughly four-minute attract day, paused by input. Budgets remain, with night p95 <=25 ms; evidence is six cameras at day/dusk/night and a 60 fps CAM-6 full-cycle review under the new recording rule. Stop at its gate. Stage C may not start until Task 9 approval.
+
+
+## Task 9 live release; awaiting phone — 25 September 2026
+
+Main released at a6bf9bcae3fc36fa114ad36a463cc1d8faccc673 (merge of dual-look 0ac3443); Pages deployment 36088650349 succeeded. Root serves main and /next/ serves dual-look; both expose deploy.json commit provenance. Live Chrome 153.0.8010.53 and Edge 153.0.4234.48 pass desktop functional and six-camera captures in engineering/day/night, with no application/shader errors. Engineering first transfer is 2,066,238 bytes on Pages and no photoreal packs are requested before switching. Pinned Chrome 146 local regression remains 0% across all 12 images, and budgets pass. Canonical data unchanged.
+
+Wait for Mostafa's actual Samsung A35 / Chrome report before Task 9 closure/approval. Stage C remains queued. Release evidence and phone-pending handback live on dual-look; main was pushed once for this release. Automatic preview publication preserves the main release. No further implementation is authorized across the Task 9 gate.
