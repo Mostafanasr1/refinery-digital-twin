@@ -1,0 +1,22 @@
+{
+  "engineering": {
+    "pack": "engineering",
+    "received": 7263344,
+    "total": 7263344,
+    "phase": "done",
+    "started": 1539.2000000178814,
+    "drawn": 9600.90000000596,
+    "finished": 9628.5
+  },
+  "photoreal": {
+    "pack": "photoreal",
+    "received": 21156883,
+    "total": 21156883,
+    "phase": "done",
+    "started": 9762.800000011921,
+    "drawn": 30993.40000000596,
+    "finished": 31017.30000001192
+  },
+  "conditions": "Desktop reference machine; deliberately throttled 1,200,000 bytes/s, 40 ms latency for visible progress evidence. Not phone timings.",
+  "phone": "Original Samsung A35 Chrome pass reported by Mostafa; corrected mobile timing review deferred by ruling to next gate."
+}

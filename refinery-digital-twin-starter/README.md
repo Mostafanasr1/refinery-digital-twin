@@ -9,6 +9,10 @@ A synthetic refinery demonstration: 57 assets, six units and two looks over the 
 
 Engineering is the dark HUD look. Photoreal adds desert surroundings, physical-scale materials, detailed equipment and atmosphere. Switch with the top tabs; Day/Night is inside Photoreal. Selection, cards and operating state persist. Geometry independently selects generated Blender models or primitive proxies.
 
+On phones, Equipment and Controls open collapsible panels; selected equipment appears in a scrollable bottom card. Portrait framing preserves more of the plant, and the view uses the available screen height.
+
+Initial plant loading and the first photoreal switch show received asset bytes as a percentage, with elapsed seconds on desktop and mobile. At 100%, Preparing scene remains until a completed scene frame and the following animation frame. Asset sizes come from the build; unavailable or mismatched files show an error with Reload. Photoreal files remain lazy.
+
 Select equipment in the scene or register. Process path animates the synthetic process; Data layer colours operating values; Scenario runs a synthetic event. Follow the process starts a 42-second narrated camera tour, with an optional photoreal reveal. End presentation, Escape or manual navigation returns control. After 60 seconds idle, attract mode traverses five cameras and both looks; input exits it.
 
 ## Windows setup
@@ -76,4 +80,4 @@ Both main and dual-look pushes publish a combined Pages artifact: root built fro
 
 Canonical plant truth is frozen and verified by `data:verify`. Presentation cameras, looks and tours live separately under `data/presentation` and application look configuration. Original project geometry is procedural; all externally sourced runtime art is registered CC0. User reference images and review videos are not runtime assets. See [ASSETS.md](ASSETS.md), [repo facts](docs/REPO_FACTS.md), [approved budgets](docs/APPROVED_BUDGETS.md) and [Task 9 hand-back](docs/handbacks/stageB-task-09.md).
 
-Phone: there is currently no automatic mobile quality reduction; presets retain their desktop settings, with DPR capped at 1.5. Physical Samsung A35/Chrome verification by Mostafa is required before closing Task 9. Stage C remains queued until that gate is approved.
+Phone: there is currently no automatic mobile quality reduction; presets retain their desktop settings, with DPR capped at 1.5. Mostafa reports the Samsung A35/Chrome release check passed and Task 9 approved. The subsequent mobile layout and byte-progress correction will receive a physical-device timing and visual review at the Stage C Task 1 gate.

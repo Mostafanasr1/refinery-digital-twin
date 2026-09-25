@@ -21,3 +21,28 @@ main[data-look^="photoreal"] .tour-caption{background:#192128ef;border-color:#84
 main[data-presentation="attract"] .directory,main[data-presentation="attract"] .scene-caption{opacity:.15;pointer-events:none}
 .tour-complete{position:absolute;bottom:83px;left:50%;transform:translateX(-50%);padding:12px 20px;border:1px solid #5b9399;background:#0a252eed;border-radius:5px;color:#c5eeee}
 @media(max-width:900px){.tour-caption{left:auto;right:12px;transform:none;width:calc(100vw - 250px)}.tour-caption p{font-size:13px}}
+
+/* Loading is a presentation overlay; the completed desktop HUD is unchanged. */
+.load-overlay{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#08151ee8;padding:24px;touch-action:none}
+.load-panel{width:min(380px,100%);padding:28px;border:1px solid #397584;border-top:2px solid #54d9e7;border-radius:8px;background:#0a202bee;box-shadow:0 15px 70px #0008}
+.load-panel h2{font-size:20px;font-weight:400;margin:16px 0}.load-numbers{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:20px 0 12px}.load-numbers strong{font-size:32px;color:#76e3eb;font-variant-numeric:tabular-nums}.load-numbers span{color:#b6c9d0;font-size:12px;font-variant-numeric:tabular-nums}.load-panel progress{width:100%;height:8px;accent-color:#5bdde8}.load-panel p{overflow-wrap:anywhere}.load-panel button{padding:12px;background:#153b48;color:#e0f5f5;border:1px solid #579da8;border-radius:4px}
+.load-overlay[data-look="photoreal"]{background:#172027e6}.load-overlay[data-look="photoreal"] .load-panel{background:#192128f5;border-color:#9e9179}.load-overlay[data-look="photoreal"] .load-numbers strong{color:#f0d4a0}.load-overlay[data-look="photoreal"] progress{accent-color:#dfb877}
+.mobile-tools{display:none}
+@media(max-width:760px),(max-width:950px) and (max-height:550px){
+  html,body,#root,main{height:100%;min-height:0;overflow:hidden}main{height:100dvh;min-height:0}
+  header{height:58px;padding:8px 12px;align-items:start}header h1{font-size:18px;letter-spacing:-.5px;margin:3px 0}header .eyebrow{font-size:8px;letter-spacing:1px}header .badge{display:none}
+  body .app-tabs{top:60px;left:12px;right:auto;transform:none;max-width:calc(100vw - 24px);z-index:25}body .app-tabs a{padding:12px;font-size:12px;min-height:44px}body .app-tabs .look-night-toggle{min-height:44px}
+  .mobile-tools{position:absolute;bottom:calc(48px + env(safe-area-inset-bottom));left:12px;right:12px;display:flex;gap:6px;z-index:30;background:#081c26ee;border:1px solid #33505d;border-radius:7px;padding:4px}
+  .mobile-tools button{flex:1;min-height:44px;background:transparent;border:1px solid transparent;border-radius:4px;color:#d3e7ef;font-size:12px}.mobile-tools button[aria-expanded=true]{background:#1a4656;border-color:#57b8c6}
+  .directory,.operations{display:none;left:12px;right:12px;top:120px;bottom:calc(112px + env(safe-area-inset-bottom));width:auto;max-height:none;z-index:28;margin:0;padding:14px;overflow:auto;background:#081c26fa}
+  main[data-mobile-panel="equipment"] .directory{display:flex}main[data-mobile-panel="controls"] .operations{display:flex;align-content:start;align-items:stretch;gap:12px}
+  .directory input{font-size:16px;min-height:44px}.asset{min-height:48px}.directory h2{margin:0 0 12px}.directory-foot{font-size:10px}
+  .operations label{font-size:12px;flex:1 1 100%}.operations select,.operations button{font-size:16px;min-height:44px;max-width:100%;width:100%}
+  .card{top:auto;left:12px;right:12px;bottom:calc(112px + env(safe-area-inset-bottom));width:auto;max-height:38dvh;padding:18px;z-index:26;border-radius:10px}.card h2{font-size:24px;margin:5px 0}.card dl{margin:12px 0}.card .close{min-width:44px;min-height:44px}.card .metric{padding:9px 0}
+  main:not([data-mobile-panel="none"]) .card{display:none}
+  footer{min-height:40px;height:calc(40px + env(safe-area-inset-bottom));padding:3px 12px calc(3px + env(safe-area-inset-bottom));gap:8px;align-items:center;font-size:9px}footer button{min-height:36px;padding:6px 10px;font-size:11px;white-space:nowrap}footer .instructions{display:none}
+  .scene-caption{display:none}.playback{top:120px;left:12px;right:12px;font-size:10px;pointer-events:none}.playback progress{width:100%}.legend{left:12px;right:12px;bottom:calc(112px + env(safe-area-inset-bottom));font-size:9px;pointer-events:none}
+  .tour-caption{left:12px;right:12px;bottom:calc(112px + env(safe-area-inset-bottom));transform:none;width:auto;max-height:34dvh;overflow:auto;padding:12px;z-index:27}.tour-caption p{font-size:13px}.tour-caption button{min-height:44px}.tour-complete{bottom:112px;width:calc(100% - 24px);font-size:12px}.alerts{right:12px;bottom:112px;max-width:calc(100% - 24px)}.hover-label{display:none}
+  .webgl-error{padding:140px 24px}
+}
+@media(max-width:950px) and (max-height:550px){header{width:45%}body .app-tabs{top:8px;left:auto;right:12px}.directory,.operations{top:66px;right:50%}.card{left:50%;max-height:calc(100dvh - 178px)}.playback{top:64px;left:50%}}

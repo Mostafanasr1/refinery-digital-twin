@@ -1,0 +1,4 @@
+{
+  "result": "PASS",
+  "check": "Navigate from direct photoreal URL to engineering while initial GLB is pending; loading stays visible, no lazy packs requested, draw completes."
+}
