@@ -1,0 +1,67 @@
+{
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "errors": [],
+  "failed": [],
+  "selections": [
+    {
+      "tag": "TK-103",
+      "card": "X\nEQUIPMENT / floating roof tank\nTK-103\n\nCrude Storage Tank (floating roof)\n\nONLINE\nUnit\nCrude storage\nService\ncrude storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n95 percent\nLevel\n64 percent\nModel binding\nTK-103"
+    },
+    {
+      "tag": "SP-501",
+      "card": "X\nEQUIPMENT / sphere tank\nSP-501\n\nLPG Storage Sphere A\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n99 percent\nPressure\n7.8 barg\nModel binding\nSP-501"
+    },
+    {
+      "tag": "SP-502",
+      "card": "X\nEQUIPMENT / sphere tank\nSP-502\n\nLPG Storage Sphere B\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n98 percent\nPressure\n7.6 barg\nModel binding\nSP-502"
+    },
+    {
+      "tag": "BT-501",
+      "card": "X\nEQUIPMENT / bullet tank\nBT-501\n\nPropane Bullet\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nBT-501"
+    },
+    {
+      "tag": "BT-502",
+      "card": "X\nEQUIPMENT / bullet tank\nBT-502\n\nButane Bullet\n\nONLINE\nUnit\nLPG storage\nService\nlpg storage\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nBT-502"
+    },
+    {
+      "tag": "C-501",
+      "card": "X\nEQUIPMENT / compressor\nC-501\n\nRecycle Gas Compressor\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nrecycle gas\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n93 percent\nPower\n4.2 MW\nModel binding\nC-501"
+    },
+    {
+      "tag": "R-501",
+      "card": "X\nEQUIPMENT / reactor\nR-501\n\nDiesel Hydrotreater Reactor\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nhydrotreating\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n96 percent\nInlet Temperature\n345 degC\nPressure\n62 barg\nModel binding\nR-501"
+    },
+    {
+      "tag": "EA-501",
+      "card": "X\nEQUIPMENT / air cooler\nEA-501\n\nReactor Effluent Air Cooler\n\nONLINE\nUnit\nDiesel hydrotreater\nService\neffluent cooling\nSYNTHETIC OPERATING SNAPSHOT\nOutlet Temperature\n55 degC\nModel binding\nEA-501"
+    },
+    {
+      "tag": "V-501",
+      "card": "X\nEQUIPMENT / horizontal drum\nV-501\n\nCold Separator\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nseparation\nSYNTHETIC OPERATING SNAPSHOT\nPressure\n58 barg\nModel binding\nV-501"
+    },
+    {
+      "tag": "F-501",
+      "card": "X\nEQUIPMENT / cylindrical heater\nF-501\n\nReactor Charge Heater\n\nONLINE\nUnit\nDiesel hydrotreater\nService\nfeed heating\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n94 percent\nOutlet Temperature\n348 degC\nPower\n18.5 MW\nModel binding\nF-501"
+    },
+    {
+      "tag": "STK-401",
+      "card": "X\nEQUIPMENT / stack\nSTK-401\n\nUtility Boiler Stack\n\nONLINE\nUnit\nUtilities\nService\nflue gas\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nSTK-401"
+    },
+    {
+      "tag": "CT-404",
+      "card": "X\nEQUIPMENT / hyperbolic cooling tower\nCT-404\n\nNatural Draft Cooling Tower\n\nONLINE\nUnit\nUtilities\nService\ncooling water\nSYNTHETIC OPERATING SNAPSHOT\nOutlet Temperature\n29 degC\nModel binding\nCT-404"
+    },
+    {
+      "tag": "SS-401",
+      "card": "X\nEQUIPMENT / substation\nSS-401\n\nMain Substation\n\nONLINE\nUnit\nUtilities\nService\npower distribution\nSYNTHETIC OPERATING SNAPSHOT\nPower\n22.4 MW\nModel binding\nSS-401"
+    },
+    {
+      "tag": "CR-401",
+      "card": "X\nEQUIPMENT / control room\nCR-401\n\nCentral Control Room\n\nONLINE\nUnit\nUtilities\nService\noperations\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nCR-401"
+    }
+  ]
+}

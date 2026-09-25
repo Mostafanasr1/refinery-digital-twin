@@ -1,5 +1,6 @@
 import json
 import struct
+from pathlib import Path
 import pytest
 from pipeline.validate import ROOT
 
@@ -21,14 +22,24 @@ def test_exported_glb_binding_coverage_and_geometry():
     for mesh in model["meshes"]:
         assert not mesh["name"].startswith(("Cube.", "Cylinder."))
         assert mesh["primitives"]
-    assert len(model["materials"]) <= 6
+    # Task 4 splits shader-identical engineering materials by presentation role.
+    # Validate the role library instead of the pre-material-pack six-slot limit.
+    roles = json.loads((ROOT / 'data/presentation/materials.json').read_text())['materials']
+    for material in model['materials']:
+        name = material['name']
+        if name == 'Route steel':
+            continue
+        source, role = name.split('::')
+        assert source in {'Brushed steel', 'Equipment shell', 'Safety ochre', 'Concrete'}
+        assert role in roles
     assert all("uri" not in image for image in model.get("images", []))
 
 
-def test_preview_bindings_and_offline_artifacts():
-    manifest = json.loads((ROOT / "data/normalized/preview/manifest.json").read_text())
+def test_archived_preview_bindings_and_offline_artifacts():
+    archive = ROOT / "reference/photoreal-study"
+    manifest = json.loads((archive / "manifest.json").read_text())
     assets = {a["asset_id"]: a for a in json.loads((ROOT / "data/normalized/assets.json").read_text())}
-    raw = (ROOT / "data/normalized" / manifest["model_url"]).read_bytes()
+    raw = (archive / Path(manifest["model_url"]).name).read_bytes()
     length = struct.unpack_from("<I", raw, 12)[0]
     model = json.loads(raw[20:20+length])
     bound = {n.get("extras", {}).get("asset_id"): n for n in model["nodes"] if "children" in n}
@@ -36,5 +47,5 @@ def test_preview_bindings_and_offline_artifacts():
         for key in ("asset_id", "tag", "type", "unit_id", "model_ref"):
             assert bound[asset_id]["extras"][key] == assets[asset_id][key]
     assert all("uri" not in image for image in model.get("images", []))
-    rendered = (ROOT / "data/normalized" / manifest["render_url"]).read_bytes()
+    rendered = (archive / Path(manifest["render_url"]).name).read_bytes()
     assert rendered[:8] == b"\x89PNG\r\n\x1a\n"

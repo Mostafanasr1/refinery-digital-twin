@@ -1,0 +1,12 @@
+{
+  "captures": [
+    "CAM-6-photoreal-aces.png",
+    "CAM-6-photoreal-night-aces.png"
+  ],
+  "nightUrl": "PASS",
+  "dayNightEngineeringIdentity": "PASS",
+  "knownWarnings": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found) {\"url\":\"http://127.0.0.1:64331/favicon.ico\",\"lineNumber\":0,\"columnNumber\":0}"
+  ],
+  "errors": []
+}

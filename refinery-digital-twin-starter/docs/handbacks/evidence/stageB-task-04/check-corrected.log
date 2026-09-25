@@ -1,0 +1,130 @@
+
+> refinery-digital-twin@0.0.0 check
+> npm run normalize && npm run lint && npm test && npm run validate && npm run build
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 lint
+> npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests
+
+
+> @refinery/app@0.0.0 lint
+> eslint src
+
+All checks passed!
+
+> refinery-digital-twin@0.0.0 test
+> npm run test -w app && node scripts/python.mjs -m pytest && npm run test:visual-tools
+
+
+> @refinery/app@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  7 passed (7)
+      Tests  19 passed (19)
+   Start at  22:31:04
+   Duration  2.53s (transform 1.79s, setup 0ms, import 8.31s, tests 392ms, environment 2ms)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+testpaths: tests
+collected 30 items
+
+tests\test_catalog.py ..                                                 [  6%]
+tests\test_glb.py ..                                                     [ 13%]
+tests\test_materials.py ............                                     [ 53%]
+tests\test_normalization.py ........                                     [ 80%]
+tests\test_validation.py ......                                          [100%]
+
+============================= 30 passed in 3.76s ==============================
+
+> refinery-digital-twin@0.0.0 test:visual-tools
+> node --test tests/visual/*.test.mjs
+
+TAP version 13
+# Subtest: capture rejects missing cameras, changed dimensions and non-finite positions
+ok 1 - capture rejects missing cameras, changed dimensions and non-finite positions
+  ---
+  duration_ms: 3.7986
+  type: 'test'
+  ...
+# Subtest: approved CAM-6 is capture-only while the original engineering protocol stays frozen
+ok 2 - approved CAM-6 is capture-only while the original engineering protocol stays frozen
+  ---
+  duration_ms: 12.3464
+  type: 'test'
+  ...
+# Subtest: canonical lock detects added, changed and deleted data but excludes presentation and formatting
+ok 3 - canonical lock detects added, changed and deleted data but excludes presentation and formatting
+  ---
+  duration_ms: 819.9906
+  type: 'test'
+  ...
+# Subtest: refresh-capped results are invalid rather than budget failures
+ok 4 - refresh-capped results are invalid rather than budget failures
+  ---
+  duration_ms: 2.8891
+  type: 'test'
+  ...
+# Subtest: invalid power/display setup cannot pass a budget
+ok 5 - invalid power/display setup cannot pass a budget
+  ---
+  duration_ms: 3.2983
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1043.8339
+
+> refinery-digital-twin@0.0.0 validate
+> node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized
+
+Validated all collections in data\synthetic
+Validated all collections in data\normalized
+
+> refinery-digital-twin@0.0.0 prebuild
+> npm run normalize
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 build
+> npm run build -w app
+
+
+> @refinery/app@0.0.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 271 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.37 kB │ gzip:   0.27 kB
+dist/assets/index-DupH9ZgS.css     10.54 kB │ gzip:   3.12 kB
+dist/assets/index-D0RSZepQ.js   1,436.79 kB │ gzip: 413.99 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 11.14s

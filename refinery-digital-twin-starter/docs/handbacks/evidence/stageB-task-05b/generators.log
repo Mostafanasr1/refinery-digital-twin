@@ -1,0 +1,8 @@
+
+> refinery-digital-twin@0.0.0 check:generators
+> node scripts/python.mjs -m scripts.check_generators
+
+Checked 22 silhouettes at 2 detail levels; 6 hero types at levels 0 and 1
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

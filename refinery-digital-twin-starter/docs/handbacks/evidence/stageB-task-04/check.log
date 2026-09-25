@@ -1,0 +1,114 @@
+
+> refinery-digital-twin@0.0.0 check
+> npm run normalize && npm run lint && npm test && npm run validate && npm run build
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 lint
+> npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests
+
+
+> @refinery/app@0.0.0 lint
+> eslint src
+
+All checks passed!
+
+> refinery-digital-twin@0.0.0 test
+> npm run test -w app && node scripts/python.mjs -m pytest && npm run test:visual-tools
+
+
+> @refinery/app@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  7 passed (7)
+      Tests  18 passed (18)
+   Start at  19:28:31
+   Duration  3.79s (transform 1.88s, setup 0ms, import 12.76s, tests 401ms, environment 2ms)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+testpaths: tests
+collected 20 items
+
+tests\test_catalog.py ..                                                 [ 10%]
+tests\test_glb.py F.                                                     [ 20%]
+tests\test_materials.py .F                                               [ 30%]
+tests\test_normalization.py ........                                     [ 70%]
+tests\test_validation.py ......                                          [100%]
+
+================================== FAILURES ===================================
+_______________ test_exported_glb_binding_coverage_and_geometry _______________
+
+    def test_exported_glb_binding_coverage_and_geometry():
+        raw = (ROOT / "data/normalized/models/refinery.glb").read_bytes()
+        assert raw[:4] == b"glTF"
+        assert struct.unpack_from("<I", raw, 4)[0] == 2
+        length = struct.unpack_from("<I", raw, 12)[0]
+        model = json.loads(raw[20:20+length])
+        nodes = {n["name"]: n for n in model["nodes"]}
+        assets = json.loads((ROOT / "data/normalized/assets.json").read_text())
+        for asset in assets:
+            node = nodes[asset["model_ref"]]
+            assert node["extras"]["asset_id"] == asset["asset_id"]
+            assert node["children"]
+            expected = [asset["position"]["x"], asset["position"]["z"], -asset["position"]["y"]]
+            assert node.get("translation", [0, 0, 0]) == pytest.approx(expected)
+        for mesh in model["meshes"]:
+            assert not mesh["name"].startswith(("Cube.", "Cylinder."))
+            assert mesh["primitives"]
+        # Task 4 splits shader-identical engineering materials by presentation role.
+        # Validate the role library instead of the pre-material-pack six-slot limit.
+        roles = json.loads((ROOT / 'data/presentation/materials.json').read_text())['materials']
+        for material in model['materials']:
+            name = material['name']
+            if name == 'Route steel':
+                continue
+>           source, role = name.split('::')
+            ^^^^^^^^^^^^
+E           ValueError: not enough values to unpack (expected 2, got 1)
+
+tests\test_glb.py:32: ValueError
+________ test_exported_parts_and_compressed_material_pack_are_complete ________
+
+    def test_exported_parts_and_compressed_material_pack_are_complete():
+        assets = json.loads((ROOT / 'data/normalized/assets.json').read_text())
+>       parts = json.loads((ROOT / 'data/normalized/models/material-parts.json').read_text())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_materials.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\Python311\Lib\pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/data/normalized/models/material-parts.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Mosta\\OneDrive\\Documents\\ChatGPT\\Oil and Gas\\refinery-digital-twin-starter\\data\\normalized\\models\\material-parts.json'
+
+C:\Program Files\Python311\Lib\pathlib.py:1044: FileNotFoundError
+=========================== short test summary info ===========================
+FAILED tests/test_glb.py::test_exported_glb_binding_coverage_and_geometry - V...
+FAILED tests/test_materials.py::test_exported_parts_and_compressed_material_pack_are_complete
+======================== 2 failed, 18 passed in 4.04s =========================

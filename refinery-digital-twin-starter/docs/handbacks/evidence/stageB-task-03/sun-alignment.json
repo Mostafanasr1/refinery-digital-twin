@@ -1,0 +1,16 @@
+{
+  "source": "kloofendal_43d_clear_puresky_2k.hdr",
+  "method": "Brightest RGB-sum pixel; Three.js equirectangular mapping; zero environment rotation",
+  "width": 2048,
+  "height": 1024,
+  "pixel": [
+    1229,
+    267
+  ],
+  "direction": [
+    0.5909595393048357,
+    0.6817240741716497,
+    0.43129932714928204
+  ],
+  "elevationDegrees": 42.978515625
+}

@@ -1,0 +1,155 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 1628.6999999284744,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "results": [
+    {
+      "geometry": "blender",
+      "initialGeometryCount": 28,
+      "finalGeometryCount": 28,
+      "counts": [
+        {
+          "look": "photoreal",
+          "geometries": 16,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 28,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 16,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 28,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 16,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 28,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 16,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 28,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 16,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 28,
+          "textures": 17
+        }
+      ],
+      "lookSwitches": 10,
+      "glbRequestsDuringSwitches": 0,
+      "selection": "PASS",
+      "layers": "PASS",
+      "process": "PASS",
+      "scenario": "PASS",
+      "camera": "PASS"
+    },
+    {
+      "geometry": "proxy",
+      "initialGeometryCount": 307,
+      "finalGeometryCount": 307,
+      "counts": [
+        {
+          "look": "photoreal",
+          "geometries": 295,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 307,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 295,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 307,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 295,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 307,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 295,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 307,
+          "textures": 17
+        },
+        {
+          "look": "photoreal",
+          "geometries": 295,
+          "textures": 15
+        },
+        {
+          "look": "engineering",
+          "geometries": 307,
+          "textures": 17
+        }
+      ],
+      "lookSwitches": 10,
+      "glbRequestsDuringSwitches": 0,
+      "selection": "PASS",
+      "layers": "PASS",
+      "process": "PASS",
+      "scenario": "PASS",
+      "camera": "PASS"
+    }
+  ],
+  "directPhotorealUrl": "PASS",
+  "screenshotCount": 10,
+  "errors": []
+}

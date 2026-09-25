@@ -1,0 +1,21 @@
+{"look":"engineering","displayCount":1,"displayState":{"capturedAt":"2026-09-24T19:43:02.5799278Z","acConnected":true,"batteryPercent":85,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":true,"width":1920,"height":1080,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648}],"noExternalMonitor":true},"displayStateAfter":{"capturedAt":"2026-09-24T19:43:19.6529083Z","acConnected":true,"batteryPercent":85,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":true,"width":1920,"height":1080,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648}],"noExternalMonitor":true},"browser":"146.0.7680.153","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)","flags":["--enable-gpu","--force_high_performance_gpu","--use-angle=d3d11","--force-color-profile=srgb","--disable-background-timer-throttling","--disable-renderer-backgrounding","--disable-backgrounding-occluded-windows","--disable-gpu-vsync","--disable-frame-rate-limit"],"fpsMedian":2000,"frameTimeP95Ms":1,"drawCallsMean":32,"trianglesMean":479196,"samples":"7721 frames saved"}
+{"look":"photoreal","displayCount":1,"displayState":{"capturedAt":"2026-09-24T19:43:20.9125642Z","acConnected":true,"batteryPercent":85,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":true,"width":1920,"height":1080,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648}],"noExternalMonitor":true},"displayStateAfter":{"capturedAt":"2026-09-24T19:43:39.9298675Z","acConnected":true,"batteryPercent":85,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":true,"width":1920,"height":1080,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648}],"noExternalMonitor":true},"browser":"146.0.7680.153","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)","flags":["--enable-gpu","--force_high_performance_gpu","--use-angle=d3d11","--force-color-profile=srgb","--disable-background-timer-throttling","--disable-renderer-backgrounding","--disable-backgrounding-occluded-windows","--disable-gpu-vsync","--disable-frame-rate-limit"],"fpsMedian":1111.1111221490085,"frameTimeP95Ms":1.5,"drawCallsMean":47,"trianglesMean":745510,"samples":"5043 frames saved"}
+{
+  "confirmed": false,
+  "comparisons": [
+    {
+      "look": "engineering",
+      "laptopFps": 2000,
+      "externalFps": 1111.1111221490085,
+      "differencePercent": 44.44444389254958,
+      "pass": false
+    },
+    {
+      "look": "photoreal",
+      "laptopFps": 1111.1111221490085,
+      "externalFps": 714.2857188472942,
+      "differencePercent": 35.71428594236472,
+      "pass": false
+    }
+  ]
+}

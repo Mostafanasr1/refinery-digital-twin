@@ -1,0 +1,237 @@
+{
+  "materials": {
+    "painted-steel": {
+      "color": "#c9cbc3",
+      "metalness": 0.25,
+      "roughness": 0.48,
+      "weathering": 0.12,
+      "relief": 0.05,
+      "tileMetres": 2,
+      "source": "metal_plate_02"
+    },
+    "weathered-steel": {
+      "color": "#a5aaa4",
+      "metalness": 0.35,
+      "roughness": 0.62,
+      "weathering": 0.28,
+      "relief": 0.1,
+      "tileMetres": 2,
+      "source": "metal_plate_02"
+    },
+    "insulation": {
+      "color": "#b6bec0",
+      "metalness": 0.82,
+      "roughness": 0.35,
+      "weathering": 0.08,
+      "relief": 0.04,
+      "tileMetres": 1,
+      "source": "metal_plate_02"
+    },
+    "galvanized": {
+      "color": "#8b989a",
+      "metalness": 0.8,
+      "roughness": 0.48,
+      "weathering": 0.18,
+      "relief": 0.12,
+      "tileMetres": 1,
+      "source": "metal_plate_02"
+    },
+    "safety-yellow": {
+      "color": "#d9a52c",
+      "metalness": 0.15,
+      "roughness": 0.5,
+      "weathering": 0.08,
+      "relief": 0.02,
+      "tileMetres": 0.5,
+      "source": "metal_plate_02"
+    },
+    "concrete": {
+      "color": "#a5a197",
+      "metalness": 0,
+      "roughness": 0.98,
+      "weathering": 0.35,
+      "relief": 0.45,
+      "tileMetres": 3,
+      "source": "concrete_wall_007"
+    },
+    "grating": {
+      "color": "#687775",
+      "metalness": 0.8,
+      "roughness": 0.65,
+      "weathering": 0.22,
+      "relief": 0.15,
+      "tileMetres": 0.5,
+      "source": "metal_plate_02"
+    },
+    "dark-steel": {
+      "color": "#555650",
+      "metalness": 0.45,
+      "roughness": 0.7,
+      "weathering": 0.24,
+      "relief": 0.08,
+      "tileMetres": 2,
+      "source": "metal_plate_02"
+    }
+  },
+  "types": {
+    "storage_tank": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "pump": {
+      "Equipment shell": "weathered-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "heat_exchanger": {
+      "Equipment shell": "insulation",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "fired_heater": {
+      "Equipment shell": "dark-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "column": {
+      "Equipment shell": "insulation",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "vessel": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "flare": {
+      "Equipment shell": "dark-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "pipe_rack": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "building": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "cooling_tower": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "floating_roof_tank": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "sphere_tank": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "bullet_tank": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "reactor": {
+      "Equipment shell": "insulation",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "horizontal_drum": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "air_cooler": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "compressor": {
+      "Equipment shell": "weathered-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "cylindrical_heater": {
+      "Equipment shell": "dark-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "stack": {
+      "Equipment shell": "dark-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "hyperbolic_cooling_tower": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "substation": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    },
+    "control_room": {
+      "Equipment shell": "painted-steel",
+      "Brushed steel": "galvanized",
+      "Concrete": "concrete",
+      "Safety ochre": "safety-yellow"
+    }
+  },
+  "partRules": [
+    {
+      "pattern": "^(hero_platform_[0-9]+|hero_platform_landing|platform_[0-9]+|platform|crown_platform|stack_platform|deck|fill_deck)$",
+      "materials": [
+        "Brushed steel"
+      ],
+      "role": "grating"
+    },
+    {
+      "pattern": "^(ladder_rail_|rung_|rolling_ladder$)",
+      "materials": ["Safety ochre", "Brushed steel"],
+      "role": "galvanized"
+    },
+    {
+      "pattern": "^(wrap_stair|sphere_stair)_[0-9]+$",
+      "materials": ["Brushed steel"],
+      "role": "safety-yellow"
+    },
+    {
+      "pattern": "^(tip|burner|stack)",
+      "materials": [
+        "Brushed steel",
+        "Equipment shell"
+      ],
+      "role": "dark-steel"
+    }
+  ]
+}

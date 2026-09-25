@@ -1,0 +1,25 @@
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\blender\scripts\build_site_context.py:119: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material.use_nodes = True
+INFO Draco is available, use library at D:\blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_draco_bridge.dll
+INFO MeshOptimizer is available, use library at D:\blender\5.2\scripts\addons_core\io_scene_gltf2\bf_intern_meshopt_bridge.dll
+20:21:10 | INFO: Starting glTF 2.0 export
+20:21:10 | INFO: Extracting primitive: Context_cabin_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_concrete_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_galvanized_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_marking_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_road_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_trim_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Extracting primitive: Context_window_mesh
+20:21:10 | INFO: Primitives created: 1
+20:21:10 | INFO: Finished glTF 2.0 export in 0.11714529991149902 s
+
+{"output": "C:\\Users\\Mosta\\OneDrive\\Documents\\ChatGPT\\Oil and Gas\\refinery-digital-twin-starter\\data\\normalized\\assets\\env\\context.glb", "bytes": 1800372, "meshes": 7, "triangles": 33216, "runtime_bounds": {"x": [-26, 266], "z": [-144, 46]}, "runtime_gate": [-26, -0.45, 37], "cabins": 3, "provenance": "Original procedural geometry; no external models"}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

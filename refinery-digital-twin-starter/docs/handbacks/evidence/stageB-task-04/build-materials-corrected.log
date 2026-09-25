@@ -1,0 +1,57 @@
+(node:5016) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:22028) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:29720) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built painted-steel: 1K KTX2 with mipmaps
+(node:26788) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:42316) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:24608) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built weathered-steel: 1K KTX2 with mipmaps
+(node:37136) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:3032) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:38116) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built insulation: 1K KTX2 with mipmaps
+(node:41096) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:32468) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:33068) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built galvanized: 1K KTX2 with mipmaps
+(node:42348) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:36776) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:41916) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built safety-yellow: 1K KTX2 with mipmaps
+(node:38960) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:5916) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:42912) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built concrete: 1K KTX2 with mipmaps
+(node:31064) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:36164) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:43596) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built grating: 1K KTX2 with mipmaps
+(node:39552) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:8328) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+(node:38696) ExperimentalWarning: WASI is an experimental feature and might change at any time
+(Use `node.EXE --trace-warnings ...` to show where the warning was created)
+Built dark-steel: 1K KTX2 with mipmaps
+{"materials": 8, "bytes": 7690045, "canonicalChanges": false}

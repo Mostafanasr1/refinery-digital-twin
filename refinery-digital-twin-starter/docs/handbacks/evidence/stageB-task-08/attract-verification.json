@@ -1,0 +1,33 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 2128.4000000059605,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "checks": [
+    "Attract entered after the real 60-second idle threshold",
+    "Attract leg 1: engineering",
+    "Attract leg 2: photoreal",
+    "Attract leg 3: engineering",
+    "Attract leg 4: photoreal",
+    "Attract leg 5: engineering",
+    "Pointer input immediately returned control"
+  ],
+  "errors": [],
+  "video": "C:\\Users\\Mosta\\OneDrive\\Documents\\ChatGPT\\Oil and Gas\\refinery-digital-twin-starter\\tests\\visual\\output\\task08-video\\563a6593630587e94c792905290e5587.webm"
+}

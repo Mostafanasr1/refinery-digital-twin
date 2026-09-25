@@ -1,0 +1,40 @@
+{
+  "browser": "146.0.7680.153",
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "devicePixelRatio": 1,
+  "pageErrors": [],
+  "failedRequests": [],
+  "selections": [
+    {
+      "unit": "crude",
+      "tag": "TK-101",
+      "card": "X\nEQUIPMENT / storage tank\nTK-101\n\nCrude Storage Tank\n\nONLINE\nUnit\nCrude storage\nService\ncrude storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n97 percent\nLevel\n72 percent\nPower\n0.1 MW\nTemperature\n36 degC\nModel binding\nTK-101",
+      "screenshot": "unit-crude.png"
+    },
+    {
+      "unit": "cdu",
+      "tag": "T-201",
+      "card": "X\nEQUIPMENT / column\nT-201\n\nAtmospheric Distillation Column\n\nONLINE\nUnit\nCrude distillation\nService\ncrude fractionation\nSYNTHETIC OPERATING SNAPSHOT\nFeed Rate\n238 m3/h\nHealth\n97 percent\nPower\n0.1 MW\nPressure\n1.8 barg\nTemperature\n356 degC\nModel binding\nT-201",
+      "screenshot": "unit-cdu.png"
+    },
+    {
+      "unit": "utilities",
+      "tag": "CT-401",
+      "card": "X\nEQUIPMENT / cooling tower\nCT-401\n\nCooling Tower\n\nONLINE\nUnit\nUtilities\nService\ncooling tower\nSYNTHETIC OPERATING SNAPSHOT\n\nNo telemetry points configured.\n\nModel binding\nCT-401",
+      "screenshot": "unit-utilities.png",
+      "framing": "Selected equipment, then manual-style wheel zoom out 2000 for unit context"
+    },
+    {
+      "unit": "products",
+      "tag": "TK-301",
+      "card": "X\nEQUIPMENT / storage tank\nTK-301\n\nDiesel Product Tank\n\nONLINE\nUnit\nProduct handling\nService\ndiesel storage\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n97 percent\nLevel\n72 percent\nPower\n0.1 MW\nTemperature\n36 degC\nModel binding\nTK-301",
+      "screenshot": "unit-products.png",
+      "framing": "Selected equipment, then manual-style wheel zoom out 900 for unit context"
+    }
+  ],
+  "defaultScreenshot": "default-view.png"
+}

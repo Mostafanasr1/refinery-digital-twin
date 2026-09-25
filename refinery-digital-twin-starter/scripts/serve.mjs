@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../app/dist/', import.meta.url));
 const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json; charset=utf-8', '.glb':'model/gltf-binary', '.png':'image/png', '.svg':'image/svg+xml', '.ico':'image/x-icon' };
-export function createStaticServer() {
+export function createStaticServer(rootDirectory = root) {
+  const root = resolve(rootDirectory);
   return createServer(async (req, res) => {
     if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405, {Allow:'GET, HEAD'}).end(); return; }
     let pathname;

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "CAM-1-default.png",
+    "pixels": 4068,
+    "percent": 0.2825,
+    "passed": true
+  },
+  {
+    "name": "CAM-1-selected.png",
+    "pixels": 4035,
+    "percent": 0.28020833333333334,
+    "passed": true
+  },
+  {
+    "name": "CAM-2-default.png",
+    "pixels": 4530,
+    "percent": 0.3145833333333333,
+    "passed": true
+  },
+  {
+    "name": "CAM-2-selected.png",
+    "pixels": 4514,
+    "percent": 0.3134722222222222,
+    "passed": true
+  },
+  {
+    "name": "CAM-3-default.png",
+    "pixels": 3759,
+    "percent": 0.26104166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-3-selected.png",
+    "pixels": 3749,
+    "percent": 0.26034722222222223,
+    "passed": true
+  },
+  {
+    "name": "CAM-4-default.png",
+    "pixels": 3822,
+    "percent": 0.2654166666666667,
+    "passed": true
+  },
+  {
+    "name": "CAM-4-selected.png",
+    "pixels": 3814,
+    "percent": 0.2648611111111111,
+    "passed": true
+  },
+  {
+    "name": "CAM-5-default.png",
+    "pixels": 3811,
+    "percent": 0.2646527777777778,
+    "passed": true
+  },
+  {
+    "name": "CAM-5-selected.png",
+    "pixels": 3787,
+    "percent": 0.2629861111111111,
+    "passed": true
+  },
+  {
+    "name": "CAM-6-default.png",
+    "status": "capture-only",
+    "reason": "New approved camera; no engineering baseline or pixel percentage exists."
+  },
+  {
+    "name": "CAM-6-selected.png",
+    "status": "capture-only",
+    "reason": "New approved camera; no engineering baseline or pixel percentage exists."
+  }
+]

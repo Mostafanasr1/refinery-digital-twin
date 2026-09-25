@@ -18,5 +18,15 @@
     "unit_id": "unit_utilities",
     "area_id": "area_400",
     "name": "Utilities"
+  },
+  {
+    "unit_id": "unit_lpg",
+    "area_id": "area_500",
+    "name": "LPG storage"
+  },
+  {
+    "unit_id": "unit_hds",
+    "area_id": "area_200",
+    "name": "Diesel hydrotreater"
   }
 ]

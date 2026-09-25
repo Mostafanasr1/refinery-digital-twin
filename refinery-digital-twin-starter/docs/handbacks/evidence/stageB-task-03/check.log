@@ -1,0 +1,111 @@
+
+> refinery-digital-twin@0.0.0 check
+> npm run normalize && npm run lint && npm test && npm run validate && npm run build
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 lint
+> npm run lint -w app && node scripts/python.mjs -m ruff check pipeline tests
+
+
+> @refinery/app@0.0.0 lint
+> eslint src
+
+All checks passed!
+
+> refinery-digital-twin@0.0.0 test
+> npm run test -w app && node scripts/python.mjs -m pytest && npm run test:visual-tools
+
+
+> @refinery/app@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 C:/Users/Mosta/OneDrive/Documents/ChatGPT/Oil and Gas/refinery-digital-twin-starter/app
+
+
+ Test Files  7 passed (7)
+      Tests  18 passed (18)
+   Start at  20:22:22
+   Duration  2.45s (transform 1.25s, setup 0ms, import 4.83s, tests 384ms, environment 1ms)
+
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-8.4.2, pluggy-1.6.0
+rootdir: C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter
+configfile: pyproject.toml
+testpaths: tests
+collected 18 items
+
+tests\test_catalog.py ..                                                 [ 11%]
+tests\test_glb.py ..                                                     [ 22%]
+tests\test_normalization.py ........                                     [ 66%]
+tests\test_validation.py ......                                          [100%]
+
+============================= 18 passed in 3.37s ==============================
+
+> refinery-digital-twin@0.0.0 test:visual-tools
+> node --test tests/visual/*.test.mjs
+
+TAP version 13
+# Subtest: capture rejects missing cameras, changed dimensions and non-finite positions
+ok 1 - capture rejects missing cameras, changed dimensions and non-finite positions
+  ---
+  duration_ms: 1.6619
+  type: 'test'
+  ...
+# Subtest: canonical lock detects added, changed and deleted data but excludes presentation and formatting
+ok 2 - canonical lock detects added, changed and deleted data but excludes presentation and formatting
+  ---
+  duration_ms: 600.2884
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 759.0613
+
+> refinery-digital-twin@0.0.0 validate
+> node scripts/python.mjs -m pipeline.validate data/synthetic && node scripts/python.mjs -m pipeline.validate data/normalized
+
+Validated all collections in data\synthetic
+Validated all collections in data\normalized
+
+> refinery-digital-twin@0.0.0 prebuild
+> npm run normalize
+
+
+> refinery-digital-twin@0.0.0 normalize
+> node scripts/python.mjs -m pipeline.normalize data/synthetic data/normalized
+
+Validated normalized output written to data\normalized
+
+> refinery-digital-twin@0.0.0 build
+> npm run build -w app
+
+
+> @refinery/app@0.0.0 build
+> tsc --noEmit && vite build
+
+vite v6.4.3 building for production...
+transforming...
+✓ 263 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.37 kB │ gzip:   0.27 kB
+dist/assets/index-DupH9ZgS.css     10.54 kB │ gzip:   3.12 kB
+dist/assets/index-C6UdNE_f.js   1,365.43 kB │ gzip: 385.45 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 5.90s

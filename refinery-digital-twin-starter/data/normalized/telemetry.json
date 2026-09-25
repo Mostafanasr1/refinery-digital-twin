@@ -1,5 +1,35 @@
 [
   {
+    "asset_id": "asset_c501",
+    "parameter": "health",
+    "point_id": "tp_asset_c501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 93
+  },
+  {
+    "asset_id": "asset_c501",
+    "parameter": "power",
+    "point_id": "tp_asset_c501_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 4.2
+  },
+  {
+    "asset_id": "asset_ct404",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_ct404_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 29
+  },
+  {
     "asset_id": "asset_e201",
     "parameter": "health",
     "point_id": "tp_asset_e201_health",
@@ -90,6 +120,16 @@
     "value": 120
   },
   {
+    "asset_id": "asset_ea501",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_ea501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 55
+  },
+  {
     "asset_id": "asset_f201",
     "parameter": "health",
     "point_id": "tp_asset_f201_health",
@@ -118,6 +158,36 @@
     "timestamp": "synthetic",
     "unit": "MW",
     "value": 28.1
+  },
+  {
+    "asset_id": "asset_f501",
+    "parameter": "health",
+    "point_id": "tp_asset_f501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 94
+  },
+  {
+    "asset_id": "asset_f501",
+    "parameter": "outlet_temperature",
+    "point_id": "tp_asset_f501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 348
+  },
+  {
+    "asset_id": "asset_f501",
+    "parameter": "power",
+    "point_id": "tp_asset_f501_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 18.5
   },
   {
     "asset_id": "asset_fl401",
@@ -228,6 +298,86 @@
     "timestamp": "synthetic",
     "unit": "degC",
     "value": 120
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "health",
+    "point_id": "tp_asset_r501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 96
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "inlet_temperature",
+    "point_id": "tp_asset_r501_temperature",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "degC",
+    "value": 345
+  },
+  {
+    "asset_id": "asset_r501",
+    "parameter": "pressure",
+    "point_id": "tp_asset_r501_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 62
+  },
+  {
+    "asset_id": "asset_sp501",
+    "parameter": "health",
+    "point_id": "tp_asset_sp501_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 99
+  },
+  {
+    "asset_id": "asset_sp501",
+    "parameter": "pressure",
+    "point_id": "tp_asset_sp501_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 7.8
+  },
+  {
+    "asset_id": "asset_sp502",
+    "parameter": "health",
+    "point_id": "tp_asset_sp502_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 98
+  },
+  {
+    "asset_id": "asset_sp502",
+    "parameter": "pressure",
+    "point_id": "tp_asset_sp502_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 7.6
+  },
+  {
+    "asset_id": "asset_ss401",
+    "parameter": "power",
+    "point_id": "tp_asset_ss401_power",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "MW",
+    "value": 22.4
   },
   {
     "asset_id": "asset_t201",
@@ -390,6 +540,26 @@
     "value": 36
   },
   {
+    "asset_id": "asset_tk103",
+    "parameter": "health",
+    "point_id": "tp_asset_tk103_health",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 95
+  },
+  {
+    "asset_id": "asset_tk103",
+    "parameter": "level",
+    "point_id": "tp_asset_tk103_level",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "percent",
+    "value": 64
+  },
+  {
     "asset_id": "asset_tk301",
     "parameter": "health",
     "point_id": "tp_asset_tk301_health",
@@ -488,5 +658,15 @@
     "timestamp": "synthetic",
     "unit": "degC",
     "value": 120
+  },
+  {
+    "asset_id": "asset_v501",
+    "parameter": "pressure",
+    "point_id": "tp_asset_v501_pressure",
+    "quality": "good",
+    "status": "normal",
+    "timestamp": "synthetic",
+    "unit": "barg",
+    "value": 58
   }
 ]

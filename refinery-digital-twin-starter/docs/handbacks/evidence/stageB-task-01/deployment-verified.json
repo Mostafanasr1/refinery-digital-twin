@@ -1,0 +1,8 @@
+{
+  "run": "https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/35885521897",
+  "status": "success",
+  "implementation": "a1e35fd617f6acd0677d231fb177056fb5fe97a2",
+  "rootHtmlIdentical": true,
+  "nextAssets": 57,
+  "nextHtml": "<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/><title>Refinery Digital Twin</title>  <script type=\"module\" crossorigin src=\"./assets/index-BHnt4lel.js\"></script>\n  <link rel=\"stylesheet\" crossorigin href=\"./assets/index-DupH9ZgS.css\">\n</head><body><div id=\"root\"></div></body></html>\n"
+}

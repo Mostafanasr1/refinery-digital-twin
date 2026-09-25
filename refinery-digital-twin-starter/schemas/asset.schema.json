@@ -67,7 +67,19 @@
         "flare",
         "pipe_rack",
         "building",
-        "cooling_tower"
+        "cooling_tower",
+        "floating_roof_tank",
+        "sphere_tank",
+        "bullet_tank",
+        "reactor",
+        "horizontal_drum",
+        "air_cooler",
+        "compressor",
+        "cylindrical_heater",
+        "stack",
+        "hyperbolic_cooling_tower",
+        "substation",
+        "control_room"
       ]
     },
     "position": {

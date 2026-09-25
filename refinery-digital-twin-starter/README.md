@@ -1,44 +1,79 @@
-# Refinery Digital Twin Demo
+# Refinery Digital Twin
 
-A future-proof, synthetic-first refinery visualization platform for a tradeshow pitch.
+A synthetic refinery demonstration: 57 assets, six units and two looks over the same equipment, telemetry, process paths and scenarios. This is a concept model, not an engineering operating system.
 
-## Goal
-Build a visually compelling interactive refinery digital twin using synthetic engineering and operating data today, while preserving a clean migration path to real engineering documents, asset registers, 3D plant models, historian data, DCS/SCADA sources, and other plant systems later.
+- Release (main): https://mostafanasr1.github.io/refinery-digital-twin/
+- Preview (dual-look): https://mostafanasr1.github.io/refinery-digital-twin/next/
 
-## Core principle
-**The demo must be a real product architecture populated with synthetic content, not a hardcoded visual mockup.**
+## Use the demo
 
-## Recommended stack
-- Blender: model authoring and procedural generation
-- Python: source normalization and validation
-- React + TypeScript + Three.js / React Three Fiber: interactive runtime
-- GLB: runtime 3D exchange format
-- JSON initially; API/database later
+Engineering is the dark HUD look. Photoreal adds desert surroundings, physical-scale materials, detailed equipment and atmosphere. Switch with the top tabs; Day/Night is inside Photoreal. Selection, cards and operating state persist. Geometry independently selects generated Blender models or primitive proxies.
 
-## Demo modes
-1. Explore
-2. Process Trace
-3. Operations / Data Layers
-4. Scenario Simulation
+Select equipment in the scene or register. Process path animates the synthetic process; Data layer colours operating values; Scenario runs a synthetic event. Follow the process starts a 42-second narrated camera tour, with an optional photoreal reveal. End presentation, Escape or manual navigation returns control. After 60 seconds idle, attract mode traverses five cameras and both looks; input exits it.
 
-## Read first
-1. `AGENTS.md`
-2. `MASTER_PROMPT.md`
-3. `docs/ARCHITECTURE.md`
-4. `docs/DATA_MODEL.md`
-5. `docs/DEMO_STORYBOARD.md`
-6. `docs/BLENDER_PIPELINE.md`
-7. `docs/FRONTEND_SPEC.md`
-8. `docs/CODEX_TASK_SEQUENCE.md`
+## Windows setup
 
-## Phase 0 setup
-See [PHASE_0.md](PHASE_0.md) for setup, commands, boundaries, and validation status.
+From this directory, install Node.js 22 and Python 3.11+ (pip available):
 
-## Current implementation
-Phases 1-3 are implemented. See [PHASE_1_3.md](PHASE_1_3.md) for controls, commands, verification, and limits.
+```powershell
+npm ci
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -r requirements-dev.lock
+.venv/Scripts/python.exe -m pip install --no-deps -e .
+npm run check
+npm run dev
+```
 
-## Phases 4-7
-Process tracing, layers, scenarios and Blender generation are implemented. See [PHASE_4_7.md](PHASE_4_7.md).
+The Python wrapper uses this project’s `.venv` interpreter; create it before running npm checks. For a production preview:
 
-## Phase 8
-The plant layout and presentation have been refined. See [PHASE_8.md](PHASE_8.md) for changes and measured verification.
+```powershell
+npm run build
+npm start
+```
+
+Open http://localhost:3000. Serve over HTTP, not file://. The production build is `app/dist`; it includes committed normalized data and generated assets. Engineering loads first; environment, materials and hero detail load on first Photoreal use.
+
+## Regenerate assets
+
+Blender 5.2.1 LTS is the recorded authoring version. Set `BLENDER_BIN` if it is not on PATH or at `D:/blender/blender.exe`.
+
+```powershell
+$env:BLENDER_BIN='D:/blender/blender.exe'
+npm run normalize
+npm run build:models
+npm run check:generators
+node scripts/python.mjs scripts/build_context.py
+node scripts/python.mjs scripts/build_hero.py
+node scripts/python.mjs scripts/build_environment.py
+node scripts/python.mjs scripts/build_materials.py
+npm run build
+```
+
+Environment/material rebuilds fetch the pinned CC0 sources and use the dependencies documented in ASSETS.md and their scripts. Ordinary builds need no Blender or asset downloads: generated assets are committed. The model command applies lossless meshopt compression. Never hand-edit generated GLBs.
+
+## Verify
+
+```powershell
+npm run check
+npm run test:production
+npm run data:verify
+npm run check:generators
+$env:VISUAL_BROWSER_PATH='C:/Users/Mosta/.cache/puppeteer/chrome/win64-146.0.7680.153/chrome-win64/chrome.exe'
+npm run shots
+npm run visual:check
+npm run metrics -- --task=09
+```
+
+Install the reference Chrome 146.0.7680.153 and set VISUAL_BROWSER_PATH to its actual location. Visual checks require the recorded RTX 3050/D3D11 setup, 1600 × 900, DPR 1 and matching browser/flags; do not silently replace the baseline on other hardware. Task 8 approved all six engineering cameras, default and selected. Tolerance remains 0.5 percent. `shots` captures views; `visual:check` compares engineering against the approved baseline. Use task-specific metric output IDs to preserve evidence.
+
+Metrics alone use disabled GPU vsync/frame limiting and report frame-time median/p95 in ms, with derived FPS. AC/Performance plan and recorded display configuration are required; an external monitor is permitted by the approved protocol. Budgets: engineering median ≤16.67 ms/p95 ≤20 ms/150 calls; photoreal median ≤25 ms/p95 ≤33 ms/200 calls; engineering 500 assets median ≤25 ms. Initial engineering transfer ≤13,200,115 bytes; lazy photoreal assets ≤40 MB. Measurements are reference-machine evidence, not guarantees for every phone.
+
+From Task 9, motion review recordings use 60 fps frame-by-frame capture stitched with ffmpeg CRF 18, or canvas captureStream/MediaRecorder at high fixed bitrate. Playwright video is for interaction assertions only.
+
+## Release and records
+
+Both main and dual-look pushes publish a combined Pages artifact: root built from main, /next/ built from dual-look. `deploy.json` at each URL identifies its source commit. A preview push does not merge into main. Release changes require the agreed gates.
+
+Canonical plant truth is frozen and verified by `data:verify`. Presentation cameras, looks and tours live separately under `data/presentation` and application look configuration. Original project geometry is procedural; all externally sourced runtime art is registered CC0. User reference images and review videos are not runtime assets. See [ASSETS.md](ASSETS.md), [repo facts](docs/REPO_FACTS.md), [approved budgets](docs/APPROVED_BUDGETS.md) and [Task 9 hand-back](docs/handbacks/stageB-task-09.md).
+
+Phone: there is currently no automatic mobile quality reduction; presets retain their desktop settings, with DPR capped at 1.5. Physical Samsung A35/Chrome verification by Mostafa is required before closing Task 9. Stage C remains queued until that gate is approved.

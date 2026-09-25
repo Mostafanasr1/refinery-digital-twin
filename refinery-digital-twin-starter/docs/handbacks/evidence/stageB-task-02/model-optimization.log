@@ -1,0 +1,13 @@
+
+> refinery-digital-twin@0.0.0 optimize:models
+> node scripts/optimize-models.mjs
+
+{
+  "file": "data/normalized/models/refinery.glb",
+  "inputBytes": 10786508,
+  "outputBytes": 7159504,
+  "compression": "EXT_meshopt_compression",
+  "decodedVertexAttributes": "byte-identical",
+  "triangleTopology": "same faces and winding; cyclic corner rotations allowed",
+  "assetHierarchyAndMaterials": "unchanged"
+}

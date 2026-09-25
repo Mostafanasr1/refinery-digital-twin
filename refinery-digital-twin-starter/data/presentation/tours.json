@@ -1,0 +1,349 @@
+{
+  "idleSeconds": 60,
+  "attractLegSeconds": 20,
+  "attractCameras": [
+    {
+      "id": "CAM-1",
+      "name": "overview",
+      "position": [
+        250,
+        140,
+        200
+      ],
+      "target": [
+        85,
+        9,
+        -24
+      ]
+    },
+    {
+      "id": "CAM-2",
+      "name": "heater",
+      "position": [
+        122,
+        40,
+        48
+      ],
+      "target": [
+        76,
+        10,
+        -15
+      ]
+    },
+    {
+      "id": "CAM-3",
+      "name": "column",
+      "position": [
+        156,
+        12,
+        65
+      ],
+      "target": [
+        102,
+        26,
+        -23
+      ]
+    },
+    {
+      "id": "CAM-4",
+      "name": "tanks",
+      "position": [
+        245,
+        85,
+        85
+      ],
+      "target": [
+        164,
+        8,
+        4
+      ]
+    },
+    {
+      "id": "CAM-5",
+      "name": "flare",
+      "position": [
+        220,
+        18,
+        -185
+      ],
+      "target": [
+        170,
+        36,
+        -55
+      ]
+    }
+  ],
+  "tours": [
+    {
+      "id": "crude-process",
+      "name": "Follow the process",
+      "processPathId": "path_crude_to_products",
+      "duration": 42,
+      "actions": [
+        {
+          "type": "camera_move",
+          "at": 0,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              370,
+              85,
+              320
+            ],
+            "target": [
+              115,
+              26,
+              -35
+            ]
+          },
+          "to": {
+            "position": [
+              58.800000000000004,
+              37.800000000000004,
+              64.39999999999999
+            ],
+            "target": [
+              0,
+              9.719999999999999,
+              0
+            ]
+          },
+          "assetId": "asset_tk101"
+        },
+        {
+          "type": "caption",
+          "at": 0,
+          "duration": 6,
+          "text": "Crude enters storage before the process train."
+        },
+        {
+          "type": "camera_move",
+          "at": 6,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              58.800000000000004,
+              37.800000000000004,
+              64.39999999999999
+            ],
+            "target": [
+              0,
+              9.719999999999999,
+              0
+            ]
+          },
+          "to": {
+            "position": [
+              49.2,
+              16.200000000000003,
+              24.599999999999998
+            ],
+            "target": [
+              24,
+              1.2,
+              -3
+            ]
+          },
+          "assetId": "asset_p101a"
+        },
+        {
+          "type": "caption",
+          "at": 6,
+          "duration": 6,
+          "text": "Transfer pumps send crude toward preheating."
+        },
+        {
+          "type": "camera_move",
+          "at": 12,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              49.2,
+              16.200000000000003,
+              24.599999999999998
+            ],
+            "target": [
+              24,
+              1.2,
+              -3
+            ]
+          },
+          "to": {
+            "position": [
+              73.2,
+              17.400000000000002,
+              13.599999999999998
+            ],
+            "target": [
+              48,
+              4.8,
+              -14
+            ]
+          },
+          "assetId": "asset_e201"
+        },
+        {
+          "type": "caption",
+          "at": 12,
+          "duration": 6,
+          "text": "Heat recovery reduces the furnace duty."
+        },
+        {
+          "type": "camera_move",
+          "at": 18,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              73.2,
+              17.400000000000002,
+              13.599999999999998
+            ],
+            "target": [
+              48,
+              4.8,
+              -14
+            ]
+          },
+          "to": {
+            "position": [
+              116.80000000000001,
+              24.3,
+              27.4
+            ],
+            "target": [
+              79,
+              10.799999999999999,
+              -14
+            ]
+          },
+          "assetId": "asset_f201"
+        },
+        {
+          "type": "caption",
+          "at": 18,
+          "duration": 6,
+          "text": "The furnace heats the feed before separation."
+        },
+        {
+          "type": "camera_move",
+          "at": 24,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              116.80000000000001,
+              24.3,
+              27.4
+            ],
+            "target": [
+              79,
+              10.799999999999999,
+              -14
+            ]
+          },
+          "to": {
+            "position": [
+              194.4,
+              59.400000000000006,
+              78.19999999999999
+            ],
+            "target": [
+              102,
+              26.4,
+              -23
+            ]
+          },
+          "assetId": "asset_t201"
+        },
+        {
+          "type": "caption",
+          "at": 24,
+          "duration": 6,
+          "text": "The atmospheric column separates boiling ranges."
+        },
+        {
+          "type": "camera_move",
+          "at": 30,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              194.4,
+              59.400000000000006,
+              78.19999999999999
+            ],
+            "target": [
+              102,
+              26.4,
+              -23
+            ]
+          },
+          "to": {
+            "position": [
+              88.2,
+              16.200000000000003,
+              -18.400000000000002
+            ],
+            "target": [
+              63,
+              2.4,
+              -46
+            ]
+          },
+          "assetId": "asset_e205"
+        },
+        {
+          "type": "caption",
+          "at": 30,
+          "duration": 6,
+          "text": "Product cooling recovers heat before storage."
+        },
+        {
+          "type": "camera_move",
+          "at": 36,
+          "duration": 6,
+          "easing": "smoothstep",
+          "from": {
+            "position": [
+              88.2,
+              16.200000000000003,
+              -18.400000000000002
+            ],
+            "target": [
+              63,
+              2.4,
+              -46
+            ]
+          },
+          "to": {
+            "position": [
+              200.4,
+              32.400000000000006,
+              43.199999999999996
+            ],
+            "target": [
+              150,
+              8.64,
+              -12
+            ]
+          },
+          "assetId": "asset_tk301"
+        },
+        {
+          "type": "caption",
+          "at": 36,
+          "duration": 6,
+          "text": "Products reach storage. This demonstration uses synthetic data."
+        }
+      ],
+      "reveal": {
+        "at": 18,
+        "look": "photoreal"
+      }
+    }
+  ]
+}

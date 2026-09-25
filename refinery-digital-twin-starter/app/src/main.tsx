@@ -1,4 +1,8 @@
-import { StrictMode, Suspense, lazy, useEffect, useMemo, useState } from 'react';
+import { usePresentation } from './presentation';
+import { EquipmentCard } from './EquipmentCard';
+import { LookProvider, useLook } from './looks/LookProvider';
+import { lookUrl } from './looks/looks';
+import { StrictMode, useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { JsonNormalizedDataLoader, type NormalizedData } from './data/loader';
 import { AssetRegistry } from './data/registry';
@@ -7,7 +11,6 @@ import { effectiveData, evaluateScenario, traceAt, layers, type Layer } from './
 import './style.css';
 import './preview.css';
 const loader = new JsonNormalizedDataLoader(import.meta.env.BASE_URL);
-const PhotorealPreview = lazy(() => import('./PhotorealPreview'));
 function Explorer({ data: source }: { data: NormalizedData }) {
   const [pathId, setPathId] = useState('');
   const [scenarioId, setScenarioId] = useState('');
@@ -37,13 +40,16 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   const registry = useMemo(() => new AssetRegistry(source), [source]);
   const [selected, select] = useState<string | null>(null);
   const [hovered, hover] = useState<string | null>(null);
+  const presentation = usePresentation(select);
+  const { look } = useLook();
+  const [reveal, setReveal] = useState(false);
   const [query, setQuery] = useState('');
   const [reset, setReset] = useState(0);
   const asset = selected ? data.assets.find(a => a.asset_id === selected) : undefined;
   const hoveredAsset = hovered ? registry.assets.get(hovered) : undefined;
   const filtered = data.assets.filter(a => `${a.tag} ${a.name} ${a.type}`.toLowerCase().includes(query.toLowerCase()));
-  return <main>
-    <Scene data={data} registry={registry} selected={selected} hovered={hovered} reset={reset} geometry={geometry} layer={activeLayer} trace={trace} running={running} scenarioState={scenarioState} onHover={hover} onSelect={select} />
+  return <main onClickCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.directory,.operations,.card,footer')) presentation.stop(); }} onChangeCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.operations')) presentation.stop(); }} data-look={look.id} data-presentation={presentation.mode} data-tour-complete={presentation.complete}>
+    <Scene cameraMove={presentation.move} data={data} registry={registry} selected={selected} hovered={hovered} reset={reset} geometry={geometry} layer={activeLayer} trace={trace} running={running} scenarioState={scenarioState} onHover={hover} onSelect={select} />
     <header><div><span className="eyebrow">MERIDIAN / ENGINEERING EXPLORER</span><h1>Refinery Digital Twin<span className="dot">.</span></h1></div><div className="badge">SYNTHETIC DATA</div></header>
     <div className="operations">
       <label>Process path<select aria-label="Process path" value={pathId} onChange={e => { setPathId(e.target.value); setScenarioId(''); setElapsed(0); setPlaying(Boolean(e.target.value)); }}>{<option value="">Choose a process</option>}{source.process_paths.map(p => <option key={p.process_path_id} value={p.process_path_id}>{p.name}</option>)}</select></label>
@@ -57,14 +63,14 @@ function Explorer({ data: source }: { data: NormalizedData }) {
     {Object.entries(scenarioState.alerts).length ? <div className="alerts" role="alert">{Object.entries(scenarioState.alerts).map(([id,message]) => <p key={id}>{message}</p>)}</div> : null}
     {activeLayer !== 'none' ? <div className="legend">{activeLayer.toUpperCase()} / {activeLayer === 'health' ? 'Red <70 / Amber 70-89 / Green 90-100%' : activeLayer === 'temperature' ? 'Blue 0 - Orange 400 degC' : activeLayer === 'energy' ? 'Blue 0 - Orange 30 MW' : 'Blue 0 - Orange 5 points'} / Grey: no data</div> : null}
     <aside className="directory"><div className="eyebrow">ASSET REGISTER</div><h2>Explore the plant <span>{data.assets.length}</span></h2><input aria-label="Search equipment" placeholder="Search equipment or tag..." value={query} onChange={e => setQuery(e.target.value)} /><div className="asset-list">{filtered.map(a => <button key={a.asset_id} className={selected === a.asset_id ? 'asset active' : 'asset'} onClick={() => select(a.asset_id)}><strong>{a.tag}</strong><small>{a.name}</small></button>)}{filtered.length === 0 ? <p>No matching equipment.</p> : null}</div><div className="directory-foot">{data.facilities[0]?.name} / metres<br />Concept model / not for engineering use</div></aside>
-    {asset ? <aside className="card"><button className="close" aria-label="Close equipment details" onClick={() => select(null)}>X</button><div className="eyebrow">EQUIPMENT / {asset.type.replaceAll('_', ' ')}</div><h2>{asset.tag}</h2><p className="asset-name">{asset.name}</p><span className="status">{asset.status}</span><dl><div><dt>Unit</dt><dd>{data.units.find(u => u.unit_id === asset.unit_id)?.name}</dd></div><div><dt>Service</dt><dd>{asset.service.replaceAll('_', ' ')}</dd></div></dl><div className="eyebrow telemetry-title">SYNTHETIC OPERATING SNAPSHOT</div>{data.telemetry.filter(t => t.asset_id === asset.asset_id).map(t => <div className="metric" key={t.point_id}><span>{t.parameter.replaceAll('_', ' ')}</span><strong>{String(t.value)} <small>{t.unit}</small></strong></div>)}{!data.telemetry.some(t => t.asset_id === asset.asset_id) ? <p className="muted">No telemetry points configured.</p> : null}<div className="binding">Model binding <code>{asset.model_ref}</code></div></aside> : <div className="scene-caption"><span className="eyebrow">01 / EXPLORE</span><h2>Engineering.<br />In perspective.</h2><p>A connected view of the entire refinery.</p><button className="start-tour" onClick={() => { setPathId(source.process_paths[0]?.process_path_id ?? ''); setScenarioId(''); setElapsed(0); setPlaying(true); select(null); }}>Follow the process <span>→</span></button><small>Select equipment for engineering details.</small></div>}
+    {asset ? <EquipmentCard asset={asset} data={data} onClose={() => select(null)} /> : <div className="scene-caption"><span className="eyebrow">01 / EXPLORE</span><h2>Engineering.<br />In perspective.</h2><p>A connected view of the entire refinery.</p><button className="start-tour" onClick={() => { setScenarioId(''); setPathId(''); setPlaying(false); presentation.start(reveal); }}>Follow the process <span>→</span></button><label className="reveal-option"><input type="checkbox" checked={reveal} onChange={e => setReveal(e.target.checked)} />Reveal photoreal during tour</label><small>Select equipment for engineering details.</small></div>}
     {hoveredAsset ? <div className="hover-label" role="status">{hoveredAsset.tag} <span>{hoveredAsset.name}</span></div> : null}
+    {presentation.mode !== 'idle' ? <section className="tour-caption" aria-label="Guided presentation"><span className="eyebrow">{presentation.mode === 'tour' ? 'FOLLOW THE PROCESS / SYNTHETIC DEMO' : 'EXPLORE / IDLE PRESENTATION'}</span><p role="status">{presentation.caption}</p><button onClick={presentation.stop}>End presentation</button></section> : presentation.complete ? <div className="tour-complete" role="status">Tour complete · explore any equipment to continue.</div> : null}
     <footer><div>{data.assets.length} assets bound / {data.units.length} units / SYNTHETIC MODEL</div><button onClick={() => { select(null); setReset(n => n + 1); }}>Reset view</button><span className="instructions">Drag to orbit / Right-drag to pan / Scroll to zoom</span></footer>
   </main>;
 }
 function App() {
-  const [tab, setTab] = useState(location.hash === '#preview' ? 'preview' : 'demo');
-  useEffect(() => { const sync = () => setTab(location.hash === '#preview' ? 'preview' : 'demo'); window.addEventListener('hashchange', sync); return () => window.removeEventListener('hashchange', sync); }, []);
+  const { look, choose, switching, environmentLoading } = useLook();
   const [data, setData] = useState<NormalizedData | null>(null);
   const [error, setError] = useState('');
   useEffect(() => {
@@ -72,6 +78,6 @@ function App() {
     loader.load(controller.signal).then(value => { if (!controller.signal.aborted) setData(value); }).catch((e: unknown) => { if (!controller.signal.aborted) setError(String(e)); });
     return () => controller.abort();
   }, []);
-  return data ? <><nav className="app-tabs" aria-label="App views"><a href="#demo" aria-current={tab === 'demo' ? 'page' : undefined}>Refinery demo</a><a href="#preview" aria-current={tab === 'preview' ? 'page' : undefined}>Photoreal preview <span>NEW</span></a></nav>{tab === 'preview' ? <Suspense fallback={<div className="loading">Loading visual study…</div>}><PhotorealPreview data={data} /></Suspense> : <Explorer data={data} />}</> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
+  return data ? <><nav className="app-tabs" aria-label="App views">{(['engineering', 'photoreal'] as const).map(id => <a key={id} href={lookUrl(new URL(location.href), id).toString()} aria-label={id === 'engineering' ? 'Engineering' : 'Photoreal'} aria-busy={id === 'photoreal' && environmentLoading} aria-current={(id === 'photoreal' ? look.id !== 'engineering' : look.id === id) ? 'page' : undefined} aria-disabled={switching} onClick={event => { event.preventDefault(); if (!switching) choose(id); }}>{id === 'engineering' ? 'Engineering' : 'Photoreal'}{id === 'photoreal' && environmentLoading ? <span aria-hidden="true" style={{ marginLeft: 6, fontSize: 10 }}>Loading...</span> : null}</a>)}{look.id !== 'engineering' && <button className="look-night-toggle" disabled={switching} aria-label="Night lighting" aria-pressed={look.id === 'photoreal-night'} onClick={() => choose(look.id === 'photoreal-night' ? 'photoreal' : 'photoreal-night')}>{look.id === 'photoreal-night' ? 'Night' : 'Day'}</button>}</nav><Explorer data={data} /></> : <div className="loading" role="status"><h1>Refinery Digital Twin</h1><p>{error || 'Loading normalized refinery model...'}</p></div>;
 }
-createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>);
+createRoot(document.getElementById('root')!).render(<StrictMode><LookProvider><App /></LookProvider></StrictMode>);

@@ -1,0 +1,4 @@
+Final label/control revision: TypeScript and production build PASS.
+Final ESLint and Ruff PASS.
+Final Vitest: 8 files, 21 tests PASS.
+Canonical data unchanged (32 files).

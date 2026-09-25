@@ -12,6 +12,8 @@ if not executable and Path("D:/blender/blender.exe").exists():
     executable = "D:/blender/blender.exe"
 if not executable:
     raise SystemExit("Set BLENDER_BIN to your Blender executable")
-subprocess.run([executable, "--background", "--python",
+subprocess.run([executable, "--background", "--python-exit-code", "1", "--python",
                 str(ROOT / "blender/scripts/build_demo_refinery.py"), "--", "--detail", "1"],
+               cwd=ROOT, check=True)
+subprocess.run([shutil.which("node") or "node", str(ROOT / "scripts/optimize-models.mjs")],
                cwd=ROOT, check=True)

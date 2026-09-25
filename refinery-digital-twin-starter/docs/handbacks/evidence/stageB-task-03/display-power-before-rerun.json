@@ -1,0 +1,33 @@
+{
+    "capturedAt":  "2026-09-23T23:56:01.4770398Z",
+    "acConnected":  true,
+    "batteryPercent":  92,
+    "powerPlan":  "Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)",
+    "displays":  [
+                     {
+                         "device":  "\\\\.\\DISPLAY1",
+                         "primary":  false,
+                         "width":  1920,
+                         "height":  1080,
+                         "refreshHz":  144
+                     },
+                     {
+                         "device":  "\\\\.\\DISPLAY2",
+                         "primary":  true,
+                         "width":  2560,
+                         "height":  1440,
+                         "refreshHz":  144
+                     }
+                 ],
+    "connections":  [
+                        {
+                            "InstanceName":  "DISPLAY\\CMN1521\\5\u002626d69dba\u00261\u0026UID256_0",
+                            "VideoOutputTechnology":  2147483648
+                        },
+                        {
+                            "InstanceName":  "DISPLAY\\AUS2718\\5\u002626d69dba\u00261\u0026UID257_0",
+                            "VideoOutputTechnology":  5
+                        }
+                    ],
+    "noExternalMonitor":  false
+}

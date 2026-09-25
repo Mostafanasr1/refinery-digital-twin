@@ -7,7 +7,7 @@ version = "0.0.0"
 requires-python = ">=3.11"
 dependencies = ["jsonschema==4.26.0"]
 [project.optional-dependencies]
-dev = ["pytest==8.4.2", "ruff==0.12.12"]
+dev = ["pytest==8.4.2", "ruff==0.12.12", "Pillow==12.3.0"]
 [tool.setuptools]
 packages = ["pipeline"]
 [tool.pytest.ini_options]

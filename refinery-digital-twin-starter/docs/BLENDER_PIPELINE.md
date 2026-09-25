@@ -31,9 +31,11 @@ UNIT_CDU
 Use stable model refs such as `TK-101`, `P-101A`, `E-201`, `F-201`, `T-201`. No default Blender names in production exports.
 
 ## Procedural generators
-Create generators for vertical vessel, storage tank, shell-and-tube exchanger, centrifugal pump proxy, fired heater, pipe rack, platform, stairs, and pipe route.
+The canonical silhouette catalog is `pipeline/catalog.py`: 22 types with descriptions and metre-scale sample dimensions. Tests enforce catalog parity with `schemas/asset.schema.json` and parity between that schema and the runtime proxy mapping. Extend these together when adding an equipment type.
 
-Each generator accepts dimensions, transform, asset metadata, and detail level.
+`blender/generators/equipment.py` uses `Kit` for local dimensions, materials and consistently named mesh primitives, and `BUILDERS` to dispatch each catalog type to its builder. The scene build applies normalized transforms and metadata. Builders accept normalized asset dimensions and a detail level; shared helpers handle platforms, stairs and pipe routes.
+
+Run `npm.cmd run check:generators` to verify exact registry/catalog parity and generate all 22 silhouettes at detail levels 0 and 1, checking names, materials and bounds. Run `npm.cmd run build:models` to rebuild the plant source and GLB, then `npm.cmd run check` for canonical validation, tests and the application build. See [Phase 9](../PHASE_9.md) and its Task 08 handback for measured results and evidence.
 
 ## LOD
 - LOD0: site-wide silhouette

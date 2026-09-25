@@ -213,5 +213,31 @@
     "asset_id": "asset_v301",
     "model_ref": "V-301",
     "node_name": "V-301"
+  },
+  {"asset_id": "asset_tk103", "model_ref": "TK-103", "node_name": "TK-103"},
+  {"asset_id": "asset_sp501", "model_ref": "SP-501", "node_name": "SP-501"},
+  {"asset_id": "asset_sp502", "model_ref": "SP-502", "node_name": "SP-502"},
+  {"asset_id": "asset_bt501", "model_ref": "BT-501", "node_name": "BT-501"},
+  {"asset_id": "asset_bt502", "model_ref": "BT-502", "node_name": "BT-502"},
+  {"asset_id": "asset_c501", "model_ref": "C-501", "node_name": "C-501"},
+  {"asset_id": "asset_r501", "model_ref": "R-501", "node_name": "R-501"},
+  {"asset_id": "asset_ea501", "model_ref": "EA-501", "node_name": "EA-501"},
+  {"asset_id": "asset_v501", "model_ref": "V-501", "node_name": "V-501"},
+  {"asset_id": "asset_f501", "model_ref": "F-501", "node_name": "F-501"},
+  {"asset_id": "asset_stk401", "model_ref": "STK-401", "node_name": "STK-401"},
+  {
+    "asset_id": "asset_ct404",
+    "model_ref": "CT-404",
+    "node_name": "CT-404"
+  },
+  {
+    "asset_id": "asset_ss401",
+    "model_ref": "SS-401",
+    "node_name": "SS-401"
+  },
+  {
+    "asset_id": "asset_cr401",
+    "model_ref": "CR-401",
+    "node_name": "CR-401"
   }
 ]

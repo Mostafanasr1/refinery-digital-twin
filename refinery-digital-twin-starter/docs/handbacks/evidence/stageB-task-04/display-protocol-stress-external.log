@@ -1,0 +1,23 @@
+{"look":"engineering","displayCount":2,"displayState":{"capturedAt":"2026-09-24T19:58:53.3835838Z","acConnected":true,"batteryPercent":92,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":false,"width":1920,"height":1080,"refreshHz":144},{"device":"\\\\.\\DISPLAY2","primary":true,"width":2560,"height":1440,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648},{"InstanceName":"DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0","VideoOutputTechnology":5}],"noExternalMonitor":false},"displayStateAfter":{"capturedAt":"2026-09-24T19:59:10.2735461Z","acConnected":true,"batteryPercent":92,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":false,"width":1920,"height":1080,"refreshHz":144},{"device":"\\\\.\\DISPLAY2","primary":true,"width":2560,"height":1440,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648},{"InstanceName":"DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0","VideoOutputTechnology":5}],"noExternalMonitor":false},"browser":"146.0.7680.153","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)","flags":["--enable-gpu","--force_high_performance_gpu","--use-angle=d3d11","--force-color-profile=srgb","--disable-background-timer-throttling","--disable-renderer-backgrounding","--disable-backgrounding-occluded-windows","--disable-gpu-vsync","--disable-frame-rate-limit"],"frameTimeMedianMs":0.9000000059604645,"fpsDerivedFromMedian":1111.1111037525131,"frameTimeP95Ms":12.299999997019768,"drawCallsMean":35.78255675029869,"trianglesMean":3917460.939864596,"samples":"2511 frames saved"}
+{"look":"photoreal","displayCount":2,"displayState":{"capturedAt":"2026-09-24T19:59:11.6082669Z","acConnected":true,"batteryPercent":92,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":false,"width":1920,"height":1080,"refreshHz":144},{"device":"\\\\.\\DISPLAY2","primary":true,"width":2560,"height":1440,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648},{"InstanceName":"DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0","VideoOutputTechnology":5}],"noExternalMonitor":false},"displayStateAfter":{"capturedAt":"2026-09-24T19:59:30.8374592Z","acConnected":true,"batteryPercent":92,"powerPlan":"Power Scheme GUID: 27fa6203-3987-4dcc-918d-748559d549ec  (Performance)","displays":[{"device":"\\\\.\\DISPLAY1","primary":false,"width":1920,"height":1080,"refreshHz":144},{"device":"\\\\.\\DISPLAY2","primary":true,"width":2560,"height":1440,"refreshHz":144}],"connections":[{"InstanceName":"DISPLAY\\CMN1521\\5&26d69dba&1&UID256_0","VideoOutputTechnology":2147483648},{"InstanceName":"DISPLAY\\AUS2718\\5&26d69dba&1&UID257_0","VideoOutputTechnology":5}],"noExternalMonitor":false},"browser":"146.0.7680.153","renderer":"ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)","flags":["--enable-gpu","--force_high_performance_gpu","--use-angle=d3d11","--force-color-profile=srgb","--disable-background-timer-throttling","--disable-renderer-backgrounding","--disable-backgrounding-occluded-windows","--disable-gpu-vsync","--disable-frame-rate-limit"],"frameTimeMedianMs":1.2000000029802322,"fpsDerivedFromMedian":833.3333312637276,"frameTimeP95Ms":12.5,"drawCallsMean":50.76802939825448,"trianglesMean":4183762.3160312357,"samples":"2177 frames saved"}
+{
+  "confirmed": true,
+  "comparisons": [
+    {
+      "look": "engineering",
+      "laptopP95Ms": 11.400000005960464,
+      "externalP95Ms": 12.299999997019768,
+      "differenceMs": 0.8999999910593033,
+      "toleranceMs": 1.1400000005960464,
+      "pass": true
+    },
+    {
+      "look": "photoreal",
+      "laptopP95Ms": 11.700000002980232,
+      "externalP95Ms": 12.5,
+      "differenceMs": 0.7999999970197678,
+      "toleranceMs": 1.1700000002980233,
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "confirmed": true,
+  "comparisons": [
+    {
+      "look": "engineering",
+      "laptopP95Ms": 11.400000005960464,
+      "externalP95Ms": 12.299999997019768,
+      "differenceMs": 0.8999999910593033,
+      "toleranceMs": 1.1400000005960464,
+      "pass": true
+    },
+    {
+      "look": "photoreal",
+      "laptopP95Ms": 11.700000002980232,
+      "externalP95Ms": 12.5,
+      "differenceMs": 0.7999999970197678,
+      "toleranceMs": 1.1700000002980233,
+      "pass": true
+    }
+  ]
+}

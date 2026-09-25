@@ -1,0 +1,34 @@
+{
+  "captures": [
+    "CAM-1-photoreal-aces.png",
+    "CAM-2-photoreal-aces.png",
+    "CAM-3-photoreal-aces.png",
+    "CAM-4-photoreal-aces.png",
+    "CAM-5-photoreal-aces.png",
+    "CAM-6-photoreal-aces.png",
+    "CAM-1-photoreal-night-aces.png",
+    "CAM-2-photoreal-night-aces.png",
+    "CAM-3-photoreal-night-aces.png",
+    "CAM-4-photoreal-night-aces.png",
+    "CAM-5-photoreal-night-aces.png",
+    "CAM-6-photoreal-night-aces.png",
+    "CAM-1-photoreal-agx.png",
+    "CAM-2-photoreal-agx.png",
+    "CAM-3-photoreal-agx.png",
+    "CAM-4-photoreal-agx.png",
+    "CAM-5-photoreal-agx.png",
+    "CAM-6-photoreal-agx.png",
+    "CAM-1-photoreal-night-agx.png",
+    "CAM-2-photoreal-night-agx.png",
+    "CAM-3-photoreal-night-agx.png",
+    "CAM-4-photoreal-night-agx.png",
+    "CAM-5-photoreal-night-agx.png",
+    "CAM-6-photoreal-night-agx.png"
+  ],
+  "nightUrl": "PASS",
+  "dayNightEngineeringIdentity": "PASS",
+  "knownWarnings": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found) {\"url\":\"http://127.0.0.1:51323/favicon.ico\",\"lineNumber\":0,\"columnNumber\":0}"
+  ],
+  "errors": []
+}

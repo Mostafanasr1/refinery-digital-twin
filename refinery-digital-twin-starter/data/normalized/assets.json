@@ -120,6 +120,66 @@
     "unit_id": "unit_crude"
   },
   {
+    "area_id": "area_100",
+    "asset_id": "asset_tk103",
+    "dimensions": {
+      "diameter": 28,
+      "height": 16.2,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "TK-103",
+    "name": "Crude Storage Tank (floating roof)",
+    "position": {
+      "x": 0,
+      "y": 76,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "crude_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "TK-103",
+    "type": "floating_roof_tank",
+    "unit_id": "unit_crude"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_c501",
+    "dimensions": {
+      "diameter": 3,
+      "height": 6,
+      "length": 9,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "C-501",
+    "name": "Recycle Gas Compressor",
+    "position": {
+      "x": 58,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "recycle_gas",
+    "status": "online",
+    "synthetic": true,
+    "tag": "C-501",
+    "type": "compressor",
+    "unit_id": "unit_hds"
+  },
+  {
     "area_id": "area_200",
     "asset_id": "asset_e201",
     "dimensions": {
@@ -331,6 +391,36 @@
   },
   {
     "area_id": "area_200",
+    "asset_id": "asset_ea501",
+    "dimensions": {
+      "diameter": 3,
+      "height": 8,
+      "length": 12,
+      "width": 6
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "EA-501",
+    "name": "Reactor Effluent Air Cooler",
+    "position": {
+      "x": 90,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "effluent_cooling",
+    "status": "online",
+    "synthetic": true,
+    "tag": "EA-501",
+    "type": "air_cooler",
+    "unit_id": "unit_hds"
+  },
+  {
+    "area_id": "area_200",
     "asset_id": "asset_f201",
     "dimensions": {
       "diameter": 3,
@@ -358,6 +448,36 @@
     "tag": "F-201",
     "type": "fired_heater",
     "unit_id": "unit_cdu"
+  },
+  {
+    "area_id": "area_200",
+    "asset_id": "asset_f501",
+    "dimensions": {
+      "diameter": 6,
+      "height": 20,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "F-501",
+    "name": "Reactor Charge Heater",
+    "position": {
+      "x": 44,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "feed_heating",
+    "status": "online",
+    "synthetic": true,
+    "tag": "F-501",
+    "type": "cylindrical_heater",
+    "unit_id": "unit_hds"
   },
   {
     "area_id": "area_200",
@@ -691,6 +811,36 @@
   },
   {
     "area_id": "area_200",
+    "asset_id": "asset_r501",
+    "dimensions": {
+      "diameter": 3.6,
+      "height": 24,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "R-501",
+    "name": "Diesel Hydrotreater Reactor",
+    "position": {
+      "x": 72,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "hydrotreating",
+    "status": "online",
+    "synthetic": true,
+    "tag": "R-501",
+    "type": "reactor",
+    "unit_id": "unit_hds"
+  },
+  {
+    "area_id": "area_200",
     "asset_id": "asset_t201",
     "dimensions": {
       "diameter": 6,
@@ -780,6 +930,36 @@
     "unit_id": "unit_cdu"
   },
   {
+    "area_id": "area_200",
+    "asset_id": "asset_v501",
+    "dimensions": {
+      "diameter": 2.6,
+      "height": 5,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "V-501",
+    "name": "Cold Separator",
+    "position": {
+      "x": 108,
+      "y": 62,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "separation",
+    "status": "online",
+    "synthetic": true,
+    "tag": "V-501",
+    "type": "horizontal_drum",
+    "unit_id": "unit_hds"
+  },
+  {
     "area_id": "area_400",
     "asset_id": "asset_b401",
     "dimensions": {
@@ -837,6 +1017,36 @@
     "synthetic": true,
     "tag": "B-402",
     "type": "building",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_cr401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 4.5,
+      "length": 20,
+      "width": 12
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "CR-401",
+    "name": "Central Control Room",
+    "position": {
+      "x": 178,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "operations",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CR-401",
+    "type": "control_room",
     "unit_id": "unit_utilities"
   },
   {
@@ -931,6 +1141,36 @@
   },
   {
     "area_id": "area_400",
+    "asset_id": "asset_ct404",
+    "dimensions": {
+      "diameter": 34,
+      "height": 45,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "CT-404",
+    "name": "Natural Draft Cooling Tower",
+    "position": {
+      "x": 30,
+      "y": 118,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "cooling_water",
+    "status": "online",
+    "synthetic": true,
+    "tag": "CT-404",
+    "type": "hyperbolic_cooling_tower",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
     "asset_id": "asset_fl401",
     "dimensions": {
       "diameter": 3,
@@ -987,6 +1227,66 @@
     "synthetic": true,
     "tag": "P-401",
     "type": "pump",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_ss401",
+    "dimensions": {
+      "diameter": 3,
+      "height": 5,
+      "length": 16,
+      "width": 10
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "SS-401",
+    "name": "Main Substation",
+    "position": {
+      "x": 152,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "power_distribution",
+    "status": "online",
+    "synthetic": true,
+    "tag": "SS-401",
+    "type": "substation",
+    "unit_id": "unit_utilities"
+  },
+  {
+    "area_id": "area_400",
+    "asset_id": "asset_stk401",
+    "dimensions": {
+      "diameter": 2.5,
+      "height": 45,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "STK-401",
+    "name": "Utility Boiler Stack",
+    "position": {
+      "x": 136,
+      "y": 83,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "flue_gas",
+    "status": "online",
+    "synthetic": true,
+    "tag": "STK-401",
+    "type": "stack",
     "unit_id": "unit_utilities"
   },
   {
@@ -1051,6 +1351,66 @@
   },
   {
     "area_id": "area_500",
+    "asset_id": "asset_bt501",
+    "dimensions": {
+      "diameter": 3.5,
+      "height": 5,
+      "length": 20,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "BT-501",
+    "name": "Propane Bullet",
+    "position": {
+      "x": 240,
+      "y": -12,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "lpg_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "BT-501",
+    "type": "bullet_tank",
+    "unit_id": "unit_lpg"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_bt502",
+    "dimensions": {
+      "diameter": 3.5,
+      "height": 5,
+      "length": 20,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "BT-502",
+    "name": "Butane Bullet",
+    "position": {
+      "x": 240,
+      "y": -4,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "lpg_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "BT-502",
+    "type": "bullet_tank",
+    "unit_id": "unit_lpg"
+  },
+  {
+    "area_id": "area_500",
     "asset_id": "asset_p301",
     "dimensions": {
       "diameter": 3,
@@ -1108,6 +1468,66 @@
     "tag": "P-302",
     "type": "pump",
     "unit_id": "unit_products"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_sp501",
+    "dimensions": {
+      "diameter": 16,
+      "height": 20,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "SP-501",
+    "name": "LPG Storage Sphere A",
+    "position": {
+      "x": 215,
+      "y": -8,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "lpg_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "SP-501",
+    "type": "sphere_tank",
+    "unit_id": "unit_lpg"
+  },
+  {
+    "area_id": "area_500",
+    "asset_id": "asset_sp502",
+    "dimensions": {
+      "diameter": 16,
+      "height": 20,
+      "length": 8,
+      "width": 4
+    },
+    "facility_id": "demo_refinery",
+    "interactive": true,
+    "model_ref": "SP-502",
+    "name": "LPG Storage Sphere B",
+    "position": {
+      "x": 215,
+      "y": 14,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "service": "lpg_storage",
+    "status": "online",
+    "synthetic": true,
+    "tag": "SP-502",
+    "type": "sphere_tank",
+    "unit_id": "unit_lpg"
   },
   {
     "area_id": "area_500",

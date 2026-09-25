@@ -1,0 +1,13 @@
+{
+  "browser": "146.0.7680.153",
+  "url": "http://127.0.0.1:3000/#demo",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "devicePixelRatio": 1,
+  "pageErrors": [],
+  "failedRequests": [],
+  "selectionSmoke": "X\nEQUIPMENT / fired heater\nF-201\n\nCrude Fired Heater\n\nONLINE\nUnit\nCrude distillation\nService\ncrude heating\nSYNTHETIC OPERATING SNAPSHOT\nHealth\n97 percent\nOutlet Temperature\n356 degC\nPower\n28.1 MW\nModel binding\nF-201",
+  "screenshot": "default-view.png"
+}

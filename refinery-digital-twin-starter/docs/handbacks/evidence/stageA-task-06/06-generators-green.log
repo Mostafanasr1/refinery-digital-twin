@@ -1,0 +1,10 @@
+
+> refinery-digital-twin@0.0.0 check:generators
+> node scripts/python.mjs -m scripts.check_generators
+
+00:00.172  reports          | WARNING Unable to open 'C:\Users\Mosta\AppData\Roaming\Blender Foundation\Blender\5.2\config\userpref.blend': Permission denied
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+Extensions: writing cache failed ([WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\Mosta\\AppData\\Roaming\\Blender Foundation\\Blender\\5.2\\extensions\\.cache').
+Checked 19 silhouettes at 2 detail levels
+
+Blender quit
