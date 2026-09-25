@@ -11,7 +11,7 @@ const previous = JSON.parse(await readFile(resolve(root, 'docs/metrics/stageB-ta
 const mean = values => values.reduce((sum, value) => sum + value, 0) / values.length;
 const quantile = (values, q) => [...values].sort((a, b) => a - b)[Math.ceil(q * values.length) - 1];
 const cases = before ? [{ look: 'engineering', stress: 0 }] : [{ look: 'engineering', stress: 0 }, { look: 'photoreal', stress: 0 }, { look: 'engineering', stress: 500 }];
-if (['06', '05b', '08'].includes(task)) cases.push({ look: 'photoreal-night', stress: 0 });
+if (['06', '05b', '08', '09'].includes(task)) cases.push({ look: 'photoreal-night', stress: 0 });
 const results = [];
 for (const { look, stress } of cases) {
   const displayState = readMeasurementState();
@@ -26,7 +26,7 @@ for (const { look, stress } of cases) {
   try {
     if (before) run.url = 'http://127.0.0.1:3102/?measure=1';
     if (stress) run.url += `&stress=${stress}`;
-    if (['06', '05b', '08'].includes(task)) run.url += '&animate=1';
+    if (['06', '05b', '08', '09'].includes(task)) run.url += '&animate=1';
     const hardware = await openLook(run, look);
     await camera(run.page, config.cameras[0]);
     const initialDownloadBytes = await run.page.evaluate(() => [...performance.getEntriesByType('navigation'), ...performance.getEntriesByType('resource')].filter(entry => entry.responseEnd <= window.__refineryVisual.interactiveAt).reduce((sum, entry) => sum + entry.transferSize, 0));

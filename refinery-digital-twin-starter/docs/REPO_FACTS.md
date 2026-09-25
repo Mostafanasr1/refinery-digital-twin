@@ -154,3 +154,12 @@ Mostafa reports Task 8 approved by both external reviewers and authorizes promot
 From Task 9 onward, review motion videos must use 60 fps frame-by-frame capture stitched with ffmpeg CRF 18, or canvas captureStream/MediaRecorder at a high fixed bitrate. Playwright recorder output is interaction evidence only, not visual-review evidence. Task 8 recordings are historical and are not retroactively relabeled.
 
 Task 9 is authorized: release dual-look to main, finalize README/ASSETS/REPO_FACTS, verify Chrome, Edge and one physical phone, and stop at its gate. Stage C is not authorized before Task 9 approval. Preflight found the current main deployment removes /next/, whose retention is explicitly a reviewer decision in the plan. Chrome and Edge are installed; no phone connector or ADB command/default Android SDK is available. Phone verification arrangements and /next/ disposition need a ruling before release work continues.
+
+
+## Task 9 resume ruling — 25 September 2026
+
+Mostafa resolves both preflight decisions: keep /next/ as dual-look’s Stage C preview while main serves the release. Every Pages publication must assemble both branch builds. Mostafa will perform the physical Samsung A35 / Chrome check after the merge and desktop live verification are reported. Continue through merge/deployment and Chrome/Edge verification, then wait for that phone result before closing Task 9. Earlier preflight pause is resolved. No phone result is inferred from desktop emulation.
+
+Task 8 baseline promotion is committed as 78b8731. Current phone behavior has no automatic quality downgrade; desktop look presets are retained, DPR capped at 1.5. Any necessary visual quality change remains subject to the agreed scope/rulings.
+
+Stage C queue only (not started): Task 1 is motion and continuous time of day; Task 2 is the vertical slice. Task 1 includes blinking aviation lights, procedural pickup/tanker paths avoiding footprints, rotating fans, wind/steam/day dust, gate flag, and process pulses (the explicitly shared both-look exception). No people or birds. Presentation data has a master motion switch. Continuous photoreal sun/sky/environment/fog/lamps expose a slider and roughly four-minute attract day, paused by input. Budgets remain, with night p95 <=25 ms; evidence is six cameras at day/dusk/night and a 60 fps CAM-6 full-cycle review under the new recording rule. Stop at its gate. Stage C may not start until Task 9 approval.

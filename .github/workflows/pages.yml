@@ -1,68 +1,50 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
     branches: [main, dual-look]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: pages
   cancel-in-progress: false
-
-defaults:
-  run:
-    working-directory: refinery-digital-twin-starter
-
 jobs:
   build:
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dual-look'
     runs-on: ubuntu-latest
     steps:
+      # Every publication contains both independently built branch heads.
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main-site
+      - uses: actions/checkout@v4
+        with:
+          ref: dual-look
+          path: preview-site
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: refinery-digital-twin-starter/package-lock.json
-      - run: npm ci
-      - run: npm run test -w app
-      # Builds from the committed data/normalized output (same as the Dockerfile); run
-      # `npm run normalize` locally after editing data/synthetic.
-      - run: npm run build -w app
-      # Branch previews occupy /next/. The root is always built from main.
-      - uses: actions/checkout@v4
-        if: github.ref == 'refs/heads/dual-look'
-        with:
-          ref: main
-          path: main-site
-      - uses: actions/setup-node@v4
-        if: github.ref == 'refs/heads/dual-look'
-        with:
-          node-version: 22
-      - run: npm ci && npm run build -w app
-        if: github.ref == 'refs/heads/dual-look'
+          cache-dependency-path: |
+            main-site/refinery-digital-twin-starter/package-lock.json
+            preview-site/refinery-digital-twin-starter/package-lock.json
+      - name: Build and test release
         working-directory: main-site/refinery-digital-twin-starter
-      - name: Assemble main root and branch preview
-        if: github.ref == 'refs/heads/dual-look'
-        working-directory: .
+        run: npm ci && npm run test -w app && npm run build -w app
+      - name: Build and test preview
+        working-directory: preview-site/refinery-digital-twin-starter
+        run: npm ci && npm run test -w app && npm run build -w app
+      - name: Assemble release and preview with provenance
         run: |
           mkdir -p site/next
           cp -a main-site/refinery-digital-twin-starter/app/dist/. site/
-          cp -a refinery-digital-twin-starter/app/dist/. site/next/
+          cp -a preview-site/refinery-digital-twin-starter/app/dist/. site/next/
+          MAIN_SHA=$(git -C main-site rev-parse HEAD) PREVIEW_SHA=$(git -C preview-site rev-parse HEAD) node -e 'const fs=require("fs"); for(const [path,branch,commit] of [["site/deploy.json","main",process.env.MAIN_SHA],["site/next/deploy.json","dual-look",process.env.PREVIEW_SHA]]) fs.writeFileSync(path,JSON.stringify({branch,commit})+"\n")'
       - uses: actions/upload-pages-artifact@v3
-        if: github.ref == 'refs/heads/dual-look'
         with:
           path: site
-      - uses: actions/upload-pages-artifact@v3
-        if: github.ref != 'refs/heads/dual-look'
-        with:
-          path: refinery-digital-twin-starter/app/dist
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
