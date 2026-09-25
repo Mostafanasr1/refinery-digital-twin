@@ -1,3 +1,4 @@
+import { assetUrl } from '../loading';
 import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useThree } from '@react-three/fiber';
 import * as THREE from 'three';
@@ -26,7 +27,7 @@ export function MaterialPackProvider({ children }: { children: ReactNode }) {
     setMaterialLoading(!owned.current);
     gl.domElement.dataset.materialsReady = 'false';
     pending.current ??= (async () => {
-      const response = await fetch(`${import.meta.env.BASE_URL}assets/materials/manifest.json`);
+      const response = await fetch(assetUrl(`${import.meta.env.BASE_URL}assets/materials/manifest.json`));
       if (!response.ok) throw new Error(`Material manifest: HTTP ${response.status}`);
       const manifest = await response.json() as { materials: Record<string, Omit<Surface, 'map' | 'normalMap' | 'roughnessMap'>> };
       const result: MaterialPack = {};

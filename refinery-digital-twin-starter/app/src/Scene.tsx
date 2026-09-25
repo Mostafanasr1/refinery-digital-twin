@@ -1,3 +1,5 @@
+import { SceneLoadingBoundary } from './LoadingIndicator';
+import { LoadingDrawGate } from './LoadingDrawGate';
 import { interpolatePose, type CameraMove } from './presentation';
 import { SiteDressing } from './SiteDressing';
 import { PlantAtmosphere } from './PlantAtmosphere';
@@ -26,8 +28,14 @@ import { AssetRegistry, worldPosition } from './data/registry';
 import { proxyFamily } from './data/silhouettes';
 
 function Controls({ selected, reset, cameraMove }: { selected?: Asset; reset: number; cameraMove: CameraMove | null }) {
-  const { camera, gl, invalidate } = useThree();
+  const { camera, gl, invalidate, size: viewport } = useThree();
   const controls = useMemo(() => new OrbitControls(camera, gl.domElement), [camera, gl]);
+  useEffect(() => {
+    if (!(camera instanceof THREE.PerspectiveCamera)) return;
+    // Preserve horizontal coverage on portrait phones without changing desktop cameras.
+    camera.fov = viewport.width <= 760 ? Math.min(82, THREE.MathUtils.radToDeg(2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(21)) / Math.min(1, viewport.width / viewport.height)))) : 42;
+    camera.updateProjectionMatrix(); invalidate();
+  }, [camera, viewport.width, viewport.height, invalidate]);
   const moving = useRef(false);
   const destination = useRef(new THREE.Vector3());
   const lookAt = useRef(new THREE.Vector3());
@@ -203,8 +211,9 @@ export default function Scene({ cameraMove, data, registry, selected, hovered, r
     const asset = effectiveAssets.get(source.asset_id) ?? source;
     return { tint: asset.status === 'trip' ? '#ff653c' : layerStyle(asset, data, layer)?.color, dim: !!trace.path && !trace.path.ordered_asset_ids.includes(asset.asset_id), active: asset.asset_id === selected || asset.asset_id === hovered || asset.asset_id === trace.assetId || scenarioState.highlights.includes(asset.asset_id) };
   };
-  return <Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping, agx: THREE.AgXToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use a browser with hardware acceleration enabled.</p>}>
+  return <SceneLoadingBoundary><Canvas shadows gl={{ antialias: true, toneMapping: { aces: THREE.ACESFilmicToneMapping, agx: THREE.AgXToneMapping }[look.post.toneMapping], toneMappingExposure: look.post.exposure }} frameloop={running ? 'always' : 'demand'} dpr={[1, 1.5]} camera={{ position: [232, 126, 169], fov: 42, near: 0.1, far: 1500 }} onPointerMissed={() => onSelect(null)} fallback={<p className="webgl-error">WebGL is unavailable. Use hardware acceleration.</p>}>
     <MaterialPackProvider>
+    <LoadingDrawGate />
     <color attach="background" args={[look.environment.background]} />
     <ambientLight intensity={light.ambient} /><hemisphereLight args={light.hemisphere} />
     <directionalLight castShadow={light.shadows} position={sunPosition} target={sunTarget} intensity={light.sun.intensity} color={light.sun.color} shadow-mapSize={light.shadow.size} shadow-camera-left={light.shadow.left} shadow-camera-right={light.shadow.right} shadow-camera-top={light.shadow.top} shadow-camera-bottom={light.shadow.bottom} shadow-camera-far={light.shadow.far} shadow-normalBias={light.shadow.normalBias} shadow-bias={light.shadow.bias} />
@@ -217,7 +226,7 @@ export default function Scene({ cameraMove, data, registry, selected, hovered, r
     {detailSeen && <Suspense fallback={null}><BlenderPlant detail visible={look.detailLevel === 1 && geometry === 'blender' && new URLSearchParams(location.search).get('materialSwatches') !== '1'} assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /></Suspense>}
     <Pipes data={data} registry={registry} trace={trace} running={running} scenarioState={scenarioState} />
     {data.assets.filter(asset => asset.asset_id === selected || asset.asset_id === trace.assetId || asset.status === 'trip').map(asset => <PlantLabel key={asset.asset_id} asset={asset} alert={asset.status === 'trip'} />)}
-    <Suspense fallback={null}><VisualRuntime look={look.id} /><LookSnapshot registry={registry} />{geometry === 'blender' ? <BlenderPlant assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /> : data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} {...style(asset)} onHover={onHover} onSelect={onSelect} />)}</Suspense>
+    <Suspense fallback={null}><VisualRuntime look={look.id} /><LookSnapshot registry={registry} />{geometry === 'blender' ? <BlenderPlant assets={sourceAssets} registry={registry} style={style} onHover={onHover} onSelect={onSelect} /> : <group name="equipment">{data.assets.map(asset => <Equipment key={asset.asset_id} asset={asset} registry={registry} geometry={geometry} {...style(asset)} onHover={onHover} onSelect={onSelect} />)}</group>}</Suspense>
     </MaterialPackProvider>
-  </Canvas>;
+  </Canvas></SceneLoadingBoundary>;
 }

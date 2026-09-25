@@ -1,16 +1,20 @@
+import { checkLoadingAndMobile } from './loading-check.mjs';
 import assert from 'node:assert/strict';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {openRun,camera,config,root,captureEngineering} from '../../scripts/visual-common.mjs';
 import {openLook} from './look-common.mjs';
-const output=resolve(root,'docs/handbacks/evidence/stageB-task-08');await mkdir(output,{recursive:true});
+const loading=process.argv.includes('--loading');
+const output=resolve(root,loading?'docs/handbacks/evidence/stageB-task-09/loading-mobile':'docs/handbacks/evidence/stageB-task-08');await mkdir(output,{recursive:true});
 const tourConfig=JSON.parse(await readFile(resolve(root,'data/presentation/tours.json'),'utf8'));
 const attract=process.argv.includes('--attract'), captures=process.argv.includes('--captures');
-const run=await openRun(captures?{}:{videoDir:resolve(root,'tests/visual/output/task08-video')});
+const run=await openRun(captures||loading?{}:{videoDir:resolve(root,'tests/visual/output/task08-video')});
 const video=run.page.video(), checks=[];let hardware;
 run.page.on('console',m=>{if(m.type()==='error' && !m.location().url?.endsWith('/favicon.ico'))run.errors.push(m.text());});
 try {
- if(captures){
+ if(loading){
+  await checkLoadingAndMobile(run,output,checks);
+ }else if(captures){
   hardware=await captureEngineering(run,resolve(output,'engineering-candidate'));
   await writeFile(resolve(output,'engineering-candidate/capture.json'),JSON.stringify({...hardware,config,status:'candidate awaiting Task 8 external approval'},null,2)+'\n');
   for(const look of ['photoreal','photoreal-night']){
@@ -70,5 +74,5 @@ try {
  }
  assert.deepEqual(run.errors,[]);
 }finally{await run.close();}
-await writeFile(resolve(output,`${captures?'captures':attract?'attract':'tour'}-verification.json`),JSON.stringify({hardware,checks,errors:run.errors,video:video?await video.path():null},null,2)+'\n');
+await writeFile(resolve(output,`${loading?'loading-mobile':captures?'captures':attract?'attract':'tour'}-verification.json`),JSON.stringify({hardware,checks,errors:run.errors,video:video?await video.path():null},null,2)+'\n');
 console.log(checks);

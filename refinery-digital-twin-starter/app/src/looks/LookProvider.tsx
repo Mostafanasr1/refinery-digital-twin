@@ -1,3 +1,4 @@
+import { preparePack, dismissLoading } from '../loading';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import { looks, lookFromUrl, lookUrl, type LookId } from './looks';
 const LookContext = createContext({ look: looks.engineering, switching: false, environmentLoading: false, setEnvironmentLoading: (loading: boolean) => { void loading; }, setMaterialLoading: (loading: boolean) => { void loading; }, choose: (id: LookId) => { void id; } });
@@ -14,11 +15,16 @@ export function LookProvider({ children }: { children: ReactNode }) {
     timers.current.forEach(clearTimeout);
     current.current = next;
     setPhase('out');
-    timers.current = [setTimeout(() => {
+    const apply = () => {
+      if (current.current !== next) return;
+      timers.current = [setTimeout(() => {
       setId(next);
       if (writeUrl) history.pushState(null, '', lookUrl(new URL(location.href), next));
       setPhase('in');
     }, 150), setTimeout(() => setPhase('idle'), 300)];
+    };
+    if (next === 'engineering') { dismissLoading(); apply(); }
+    else void preparePack('photoreal').then(apply).catch(() => setPhase('idle'));
   };
   useEffect(() => {
     const sync = () => switchTo(lookFromUrl(new URL(location.href)), false);

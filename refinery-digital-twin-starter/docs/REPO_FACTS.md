@@ -170,3 +170,10 @@ Stage C queue only (not started): Task 1 is motion and continuous time of day; T
 Main released at a6bf9bcae3fc36fa114ad36a463cc1d8faccc673 (merge of dual-look 0ac3443); Pages deployment 36088650349 succeeded. Root serves main and /next/ serves dual-look; both expose deploy.json commit provenance. Live Chrome 153.0.8010.53 and Edge 153.0.4234.48 pass desktop functional and six-camera captures in engineering/day/night, with no application/shader errors. Engineering first transfer is 2,066,238 bytes on Pages and no photoreal packs are requested before switching. Pinned Chrome 146 local regression remains 0% across all 12 images, and budgets pass. Canonical data unchanged.
 
 Wait for Mostafa's actual Samsung A35 / Chrome report before Task 9 closure/approval. Stage C remains queued. Release evidence and phone-pending handback live on dual-look; main was pushed once for this release. Automatic preview publication preserves the main release. No further implementation is authorized across the Task 9 gate.
+
+
+## Task 9 closing correction and mobile ruling — 25 September 2026
+
+Mostafa reports the Samsung A35 / Chrome phone check passed and both reviewers approve Task 9, subject to the closing loading correction. The earlier phone-pending stop is resolved. Authorized correction: actual received asset bytes / known build-time sizes as a percentage and short label for the initial engineering GLB and first photoreal environment/material download, remaining visible through the rendered frame. Elapsed time is displayed on mobile as well. Mostafa additionally authorizes optimizing the mobile UI. Corrected mobile appearance and physical-device timing are deferred to the next gate; no numerical phone timings have been reported and desktop emulation is not phone evidence.
+
+Commit/push/publish the correction to main, then Task 9 closes under the explicit ruling (this authorizes the additional main publication). Continue Stage C Task 1 on dual-look and publish /next/, stopping at its gate. The existing main release remains live while this correction is under verification.

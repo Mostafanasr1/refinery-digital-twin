@@ -117,8 +117,26 @@ Live engineering transfer before first interaction was 2,066,238 bytes in Chrome
 
 README and ASSETS updates are in the released merge. Final deployment evidence and these current-state notes are committed on dual-look, preserving the single authorized main release push. Evidence-only preview updates do not change the main release.
 
-## Current stop
+## Historical desktop handoff (superseded by closing ruling below)
 
 Desktop release work complete. Await Mostafa's physical Samsung A35 / Chrome result before Task 9 closure and external gate approval. Stage C is not started. No claim of phone compatibility or phone performance is made before that test.
 
 [Live screenshots and evidence gallery](evidence/stageB-task-09/review.html).
+
+
+## Closing correction — loading progress and mobile layout
+
+Mostafa reports the Samsung A35 / Chrome phone check passed and Task 9 approved by both reviewers. Later ruling authorizes this closing correction, publication to main and continuation into Stage C Task 1. Corrected phone layout and physical-device loading timings will be reviewed at the next gate; no numeric phone timings were supplied.
+
+Changes: build-time sizes drive byte progress for the 7,263,344-byte engineering GLB and 21,156,883 bytes of first-use photoreal environment, material/transcoder and hero detail resources. These are decoded response-body bytes against original file sizes, not compressed wire transfer. Downloads are streamed once, then fed to the existing Three loaders through temporary blob URLs; response copies are released after draw. At 100% the label becomes Preparing scene; the overlay clears after the completed scene/post frame and the next RAF. Elapsed seconds remain visible on both mobile and desktop. Warm look switching reuses decoded resources without another download indicator. Error feedback covers failed files, size mismatch, scene errors and WebGL context failure. The underlying UI is inert while loading.
+
+Mobile: Equipment and Controls panels collapse by default, touch controls have larger targets, the selected card becomes a scrollable bottom panel, safe-area spacing and landscape rules keep controls accessible, and portrait FOV preserves horizontal scene coverage. Desktop camera settings and approved HUD are unchanged.
+
+Presentation check: `node tests/visual/presentation-check.mjs --loading` adds assertions and captures for both loading moments on desktop and mobile viewports, warm request deduplication, 412x915 / 915x412 / 360x640 layouts, search/selection, geometry controls, page overflow, history cancellation and first photoreal from proxy geometry. `loading-mobile/timings.json` explicitly labels its artificial desktop throttle; it is not a phone measurement.
+
+Verification: 21 Vitest, 31 pytest, seven visual-tool tests, lint/schema validation/production build PASS. Production server test PASS. Canonical hash: all 32 files unchanged. All twelve approved engineering camera captures: 0.0000% difference. Spec and quality reviewers completed correction loops and pass the implementation. No plan, canonical, equipment, material or environment-art changes.
+
+Desktop screenshots: [loading and mobile evidence](evidence/stageB-task-09/loading-mobile/). Physical Samsung A35 timing and corrected layout remain pending Mostafa's next-gate review by explicit ruling; this no longer blocks publication or Stage C.
+
+
+Closing-correction budget run (approved uncapped protocol; AC Performance, both displays recorded): engineering median 1.50 ms / p95 2.20 ms / 47 calls; photoreal day 2.30 / 3.30 / 128; engineering 500 assets 1.30 / 10.80 / 57; night 2.80 / 4.50 / 153. All PASS. Engineering initial bytes 8,846,144 against 13,200,115; lazy assets remain 21,417,040 against 40 MB. See `docs/metrics/stageB-task-09-loading-mobile.json` and `.md`. Simulated WebGL-unavailable check confirms a visible error and Reload rather than indefinite Preparing scene.

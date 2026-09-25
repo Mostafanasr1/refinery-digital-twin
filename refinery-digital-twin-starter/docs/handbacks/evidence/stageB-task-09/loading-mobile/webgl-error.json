@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "text": "REFINERY DIGITAL TWIN\nLoading interrupted\n100%\n0.3 s elapsed\n\nWebGL is unavailable. Enable hardware acceleration or try another browser.\n\nReload",
+  "expectedErrors": [
+    "Error creating WebGL context."
+  ]
+}
