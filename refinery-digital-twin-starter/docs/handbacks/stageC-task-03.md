@@ -1,6 +1,6 @@
 # Stage C Task 03 â€” environment from real assets
 
-Status: local implementation and verification complete; both internal reviews PASS. Publication verification in progress, then external Task 3 gate. Work on dual-look only; main unchanged.
+Status: implementation, verification and publication complete; both internal reviews PASS. Submitted at the external Task 3 gate; waiting for both reviewers. Work on dual-look only; main unchanged.
 
 ## Authority and resolved acquisition rulings
 
@@ -21,7 +21,7 @@ Mostafa personally completed the Fab agreement and Sketchfab login. His broader 
 
 CAM-6 photoreal day is the judgment frame against the original PetroMind reference. Canonical data, six approved cameras and engineering baseline are unchanged. Asset/unit counts remain 57/6. All 32 canonical files verified unchanged. CAM-6 p95 <=25 ms, lazy assets <=80,000,000 bytes; inherited engineering/day/night/500-asset budgets remain.
 
-## Verification so far
+## Verification
 
 - npm run check: PASS, 26 Vitest tests, 31 pytest tests, seven visual-tool tests, lint, schemas and build.
 - check:generators: PASS, 22 silhouettes at two base-detail levels and 22 optional-detail types at levels 0/1.
@@ -42,9 +42,9 @@ Before captures are byte-for-byte copies of the approved Task 2 after set, with 
 
 No reference-level realism claim. The fixed CAM-6 still allocates limited pixels to the plant; supplied models are not claimed as scans. Terrain is deliberately compressed and flattened for presentation. Existing distant equipment aliasing is not addressed by this task. Far hills remain smooth and a regular texture pattern is visible on some slopes. Internal review caught a 0.15 m static-prop grounding offset; containers and parked pickups now align with the pad top at -0.45 m, while cabins stay on the existing plinths at 0 m. Mobile browser emulation is not a new Samsung A35 physical-device report.
 
-## Current remaining work
+## Gate
 
-Commit/push dual-look, verify /next/ and unchanged main root, then submit at the external Task 3 gate. No next task starts without both external approvals.
+Stop here for both external reviewers. No next task starts without both external approvals.
 
 ## Files touched
 
@@ -79,4 +79,12 @@ Every repeat passes 25 ms. Lazy assets: **42,333,254 / 80,000,000 bytes**. Sourc
 
 The terrain silhouette is the largest visible change in my assessment. It was not individually ablated, so no isolated cost or proven gain-per-millisecond ranking is claimed. Switching all dressing on raises the median of run medians from 2.6 to 3.2 ms and median p95 from 4.7 to 5.2 ms; this includes existing dressing and new sourced props, not solely the new models. Small frame-time differences remain subject to run variation.
 
-Internal spec and code-quality reviewers both PASS after the grounding/shadow/validation corrections and completed evidence. Their metrics-only contingencies are satisfied by the final passing runs. No unresolved blocker. Publication verification follows; external visual acceptance remains pending.
+Internal spec and code-quality reviewers both PASS after the grounding/shadow/validation corrections and completed evidence. Their metrics-only contingencies are satisfied by the final passing runs. No unresolved blocker. Publication verification passes below; external visual acceptance remains pending.
+
+## Published candidate
+
+Implementation/evidence commit: `4c71e7491a81300249aa9b30790cd65b8a1dfe1d`, pushed to origin/dual-look. GitHub Pages run [36191315285](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/36191315285) succeeded.
+
+Installed Chrome and Edge live checks PASS: [preview](https://mostafanasr1.github.io/refinery-digital-twin/next/) provenance matches the implementation commit; [root release](https://mostafanasr1.github.io/refinery-digital-twin/) remains main `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`. Live checks include both looks, day/night, motion freeze, Dressing switching, mobile viewport and actual asset selection. Captures and JSON are in evidence/stageC-task-03/live/; live-verification.log records both verdicts.
+
+A documentation/evidence-only follow-up records this publication; it changes no runtime inputs. Both external approvals are still required. No active blocker or background work remains at hand-back.
