@@ -1,3 +1,5 @@
+import { setFlowStyle, useFlowStyle, type FlowStyle } from './flowStyle';
+import flowConfig from '../../data/presentation/flow.json';
 import { setMotion, useMotion } from './motionState';
 import { TimeControls } from './TimeControls';
 import { preparePack, loadingFailed, loadingSnapshot, subscribeLoading } from './loading';
@@ -17,6 +19,7 @@ import './preview.css';
 const loader = new JsonNormalizedDataLoader(import.meta.env.BASE_URL);
 function Explorer({ data: source }: { data: NormalizedData }) {
   const motion = useMotion();
+  const flowStyle = useFlowStyle();
   const [pathId, setPathId] = useState('');
   const [scenarioId, setScenarioId] = useState('');
   const [layer, setLayer] = useState<Layer>('none');
@@ -57,12 +60,13 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   const asset = selected ? data.assets.find(a => a.asset_id === selected) : undefined;
   const hoveredAsset = hovered ? registry.assets.get(hovered) : undefined;
   const filtered = data.assets.filter(a => `${a.tag} ${a.name} ${a.type}`.toLowerCase().includes(query.toLowerCase()));
-  return <main onClickCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.directory,.operations,.card,footer')) presentation.stop(); }} onChangeCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.operations')) presentation.stop(); }} data-mobile-panel={mobilePanel ?? 'none'} data-look={look.id} data-presentation={presentation.mode} data-tour-complete={presentation.complete}>
+  return <main onClickCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.directory,.operations,.card,footer') && !event.target.closest('[data-flow-control]')) presentation.stop(); }} onChangeCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.operations') && !event.target.closest('[data-flow-control]')) presentation.stop(); }} data-mobile-panel={mobilePanel ?? 'none'} data-look={look.id} data-presentation={presentation.mode} data-tour-complete={presentation.complete}>
     <Scene cameraMove={presentation.move} data={data} registry={registry} selected={selected} hovered={hovered} reset={reset} geometry={geometry} layer={activeLayer} trace={sceneTrace} running={running || presentation.mode === 'tour'} scenarioState={scenarioState} onHover={hover} onSelect={select} />
     <header><div><span className="eyebrow">MERIDIAN / ENGINEERING EXPLORER</span><h1>Refinery Digital Twin<span className="dot">.</span></h1></div><div className="badge">SYNTHETIC DATA</div></header>
     <nav className="mobile-tools" aria-label="Plant tools"><button aria-expanded={mobilePanel === 'equipment'} aria-controls="equipment-panel" onClick={() => setMobilePanel(mobilePanel === 'equipment' ? null : 'equipment')}>Equipment</button><button aria-expanded={mobilePanel === 'controls'} aria-controls="controls-panel" onClick={() => setMobilePanel(mobilePanel === 'controls' ? null : 'controls')}>Controls</button><button onClick={() => { setMobilePanel(null); setScenarioId(''); setPathId(''); setPlaying(false); presentation.start(reveal); }}>Start tour</button></nav>
     <div className="operations" id="controls-panel">
       <label>Process path<select aria-label="Process path" value={pathId} onChange={e => { setPathId(e.target.value); setScenarioId(''); setElapsed(0); setPlaying(Boolean(e.target.value)); }}>{<option value="">Choose a process</option>}{source.process_paths.map(p => <option key={p.process_path_id} value={p.process_path_id}>{p.name}</option>)}</select></label>
+      {sceneTrace.path && <label data-flow-control>Flow<select aria-label="Flow" value={flowStyle} onChange={e => setFlowStyle(e.target.value as FlowStyle)}>{flowConfig.styles.map(style => <option key={style.id} value={style.id}>{style.label}</option>)}</select></label>}
       {look.id === 'engineering' && trace.path && <label><input type="checkbox" checked={motion.enabled} onChange={e => setMotion(e.target.checked)} />Motion</label>}
       <label>Data layer<select aria-label="Data layer" value={layer} onChange={e => setLayer(e.target.value as Layer)}>{layers.map(l => <option key={l} value={l}>{l === 'none' ? 'Engineering view' : l}</option>)}</select></label>
       <label>Scenario<select aria-label="Scenario" value={scenarioId} onChange={e => { setScenarioId(e.target.value); setPathId(''); setElapsed(0); setPlaying(false); }}><option value="">Choose a scenario</option>{source.scenarios.map(s => <option key={s.scenario_id} value={s.scenario_id}>{s.name}</option>)}</select></label>

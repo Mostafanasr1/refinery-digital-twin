@@ -30,7 +30,7 @@ export function LookProvider({ children }: { children: ReactNode }) {
     else void preparePack('photoreal').then(apply).catch(() => setPhase('idle'));
   };
   useEffect(() => {
-    const sync = () => { const restored = lookFromUrl(new URL(location.href)); if (restored !== 'engineering') setHour(restored === 'photoreal-night' ? 22 : 12); switchTo(restored, false); };
+    const sync = () => { const restored = lookFromUrl(new URL(location.href)); if (restored !== current.current && restored !== 'engineering') setHour(restored === 'photoreal-night' ? 22 : 12); switchTo(restored, false); };
     window.addEventListener('popstate', sync); window.addEventListener('hashchange', sync);
     return () => { window.removeEventListener('popstate', sync); window.removeEventListener('hashchange', sync); timers.current.forEach(clearTimeout); };
   }, []);

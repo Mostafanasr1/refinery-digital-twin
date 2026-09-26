@@ -56,5 +56,5 @@ export function Pipes({data,registry,trace,running,scenarioState}:{data:Normaliz
     return()=>{if(host.__refineryPipeTint===snapshot)delete host.__refineryPipeTint;};
   },[batches]);
   useEffect(()=>()=>{for(const b of batches){b.mesh.dispose();b.geometry.dispose();b.material.dispose();}},[batches]);
-  return <group name="pipes">{batches.map(b=><primitive key={b.role} object={b.mesh} dispose={null}/>)}{trace.path&&<FlowOverlay routes={routes} path={trace.path} running={running&&!trace.path.ordered_asset_ids.some(id=>scenarioState.statuses[id]==='trip')}/>}</group>;
+  return <group name="pipes">{batches.map(b=><primitive key={b.role} object={b.mesh} dispose={null}/>)}{trace.path&&<FlowOverlay assets={registry.assets} routes={routes} path={trace.path} running={running&&!trace.path.ordered_asset_ids.some(id=>scenarioState.statuses[id]==='trip')}/>}</group>;
 }

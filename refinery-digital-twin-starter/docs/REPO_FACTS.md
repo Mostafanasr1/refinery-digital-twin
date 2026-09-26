@@ -262,3 +262,7 @@ All ten active path cases pass: CAM2/CAM6 night peak196calls, worstp95 11.3ms; l
 
 
 Task 4 combined gate submission: local and live verification complete; both internal reviewers final PASS. Task 3 correction and Task 4 candidates remain separate and await external approval. No blocker. Documentation/test-only follow-up records live evidence; application source remains the verified 6d51425 implementation. No later task started.
+
+## 2026-09-26: Stage C release ruling and flow correction
+
+Both external reviewers approved the Task 3 correction and Task 4. Engineering baselines promoted in order: d57b027 then ae2a048. Flow presentation offers Pipes (default) and Arcs beside an active Process path, URL-persistent in both looks. Both are instanced gradient tubes with a minimum three-CSS-pixel diameter; no dots. Both-style night checks peak at 196 calls; worst p95 is 9.0 ms Pipes and 7.3 ms Arcs. Full check and exact 12-view engineering regression pass. Both internal reviewers PASS. Main merge and desktop release verification authorized; Mostafa owns the pending new phone check. Task 5 then produces offline Cycles stills only, with no canonical change.

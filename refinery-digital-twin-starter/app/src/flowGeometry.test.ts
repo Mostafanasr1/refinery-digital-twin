@@ -4,7 +4,7 @@ import assets from '../../data/normalized/assets.json';
 import connections from '../../data/normalized/connections.json';
 import paths from '../../data/normalized/process_paths.json';
 import type { Asset, ProcessPath } from './data/loader';
-import { pipeRoutes,flowSegments,segmentMatrix,type PipeRoute } from './flowGeometry';
+import { arcSegments,pipeRoutes,flowSegments,segmentMatrix,type PipeRoute } from './flowGeometry';
 const registry=new Map(assets.map(a=>[a.asset_id,a as Asset]));
 const routes=pipeRoutes(connections,registry);
 describe('shared physical pipe flow routes',()=>{
@@ -28,4 +28,11 @@ describe('shared physical pipe flow routes',()=>{
   const route=(id:string,from:string,to:string,a:number,b:number):PipeRoute=>({id,from,to,service:'test',radius:.2,points:[new THREE.Vector3(a,0,0),new THREE.Vector3(b,0,0)]});
   const s=flowSegments([route('a','one','two',0,3),route('b','two','three',5,8)],{process_path_id:'gap',name:'gap',connection_ids:['a','b'],ordered_asset_ids:['one','two','three']});const gaps=s.filter(s=>s.kind==='gap');expect(gaps.length).toBeGreaterThan(1);expect(gaps[0].start.toArray()).toEqual([3,0,0]);expect(gaps.at(-1)!.end.toArray()).toEqual([5,0,0]);expect(gaps.some(g=>g.end.y>0)).toBe(true);expect(s.filter(s=>s.kind==='pipe').length).toBe(2);
  });
+});
+
+it('keeps airborne arcs above equipment with continuous gradient distance and no dot geometry',()=>{
+ const path=paths[0],segments=arcSegments(path,registry);let offset=0;
+ for(const s of segments){expect(s.kind).toBe('arc');expect(s.offset).toBeCloseTo(offset);offset+=s.length;}
+ const from=registry.get(path.ordered_asset_ids[0])!;expect(segments[0].start.y).toBe(from.position.z+from.dimensions.height+4);
+ expect(new Set(segments.map(s=>s.connectionId)).size).toBe(path.connection_ids.length);
 });

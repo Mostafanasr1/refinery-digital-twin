@@ -4,11 +4,32 @@
   "pulseLengthMetres": 11,
   "shellOffsetMetres": 0.015,
   "radialSegments": 10,
-  "pulseColor": [3.0, 1.25, 0.18],
+  "pulseColor": [
+    3.0,
+    1.25,
+    0.18
+  ],
   "activeTint": "#d1a260",
   "tintStrength": 0.12,
   "emissiveIntensity": 0.16,
   "gapRiseRatio": 0.18,
   "gapMaxRiseMetres": 3,
-  "gapStepMetres": 0.75
+  "gapStepMetres": 0.75,
+  "defaultStyle": "pipes",
+  "styles": [
+    {
+      "id": "pipes",
+      "label": "Pipes"
+    },
+    {
+      "id": "arcs",
+      "label": "Arcs"
+    }
+  ],
+  "minimumScreenWidthPixels": 3,
+  "arcRadiusMetres": 0.3,
+  "arcEndpointClearanceMetres": 4,
+  "arcRiseMetres": 6,
+  "arcSegments": 48,
+  "arcBaseOpacity": 0.16
 }
