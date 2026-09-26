@@ -10,7 +10,8 @@ const history: Progress[] = [];
 const packs = new Map<Pack, Progress>();
 const rendered = new Set<Pack>();
 let active: Pack | null = 'engineering';
-let state: Progress = { pack: 'engineering', received: 0, total: sizes['models/refinery.glb'], phase: 'download', started: performance.now() };
+const isEngineeringAsset = (path: string) => path === 'models/refinery.glb' || path.startsWith('assets/dressing/');
+let state: Progress = { pack: 'engineering', received: 0, total: Object.keys(sizes).filter(isEngineeringAsset).reduce((sum,path)=>sum+sizes[path],0), phase: 'download', started: performance.now() };
 export const loadingSnapshot = () => state;
 export const subscribeLoading = (fn: () => void) => { listeners.add(fn); return () => { listeners.delete(fn); }; };
 const publish = (value: Partial<Progress>) => { state = { ...state, ...value }; listeners.forEach(fn => fn()); };
@@ -27,7 +28,7 @@ export function preparePack(pack: Pack): Promise<void> {
     return existing;
   }
   active = pack;
-  const paths = Object.keys(sizes).filter(path => pack === 'engineering' ? path === 'models/refinery.glb' : path !== 'models/refinery.glb');
+  const paths = Object.keys(sizes).filter(path => pack === 'engineering' ? isEngineeringAsset(path) : !isEngineeringAsset(path));
   publish({ pack, received: 0, total: paths.reduce((sum, path) => sum + sizes[path], 0), phase: 'download', started: performance.now(), drawn: undefined, finished: undefined, error: undefined });
   packs.set(pack, state);
   const update = (value: Partial<Progress>) => {
@@ -60,7 +61,7 @@ export function finishLoading(drawn: number) {
   publish({ phase: 'done', drawn, finished: performance.now() }); history.push(state);
   rendered.add(state.pack); packs.set(state.pack, state);
   // Decoded Three resources are now resident; release the temporary response copies.
-  for (const path of Object.keys(sizes).filter(path => state.pack === 'engineering' ? path === 'models/refinery.glb' : path !== 'models/refinery.glb')) {
+  for (const path of Object.keys(sizes).filter(path => state.pack === 'engineering' ? isEngineeringAsset(path) : !isEngineeringAsset(path))) {
     const url = absolute(path), blob = blobs.get(url);
     if (blob) { URL.revokeObjectURL(blob); blobs.delete(url); }
   }

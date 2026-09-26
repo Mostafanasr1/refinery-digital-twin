@@ -33,5 +33,11 @@
     "y": 1.9,
     "offsetZ": -18.99,
     "intensity": 2.5
-  }
+  },
+  "vehicleYawOffset": 3.141592653589793,
+  "sourceVehicleForward": [
+    -1,
+    0,
+    0
+  ]
 }

@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "Direct photoreal entry -> engineering -> photoreal retains all canonical assets and six sourced batches",
+    "Initial proxy draw completes with sourced engineering dressing"
+  ],
+  "errors": []
+}

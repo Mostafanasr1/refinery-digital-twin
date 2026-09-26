@@ -1,0 +1,34 @@
+[
+  {
+    "file": "data/normalized/assets/dressing/source-cabin.glb",
+    "bytes": 9116,
+    "sha256": "165774542b1440b48f9e14cf2b68702b3c59de2aae80cd881de77d329f38a2c3",
+    "source": "data/normalized/assets/env/source-cabin.glb",
+    "sourceSha256": "f09a88c767183a3eaa57a903f62dec74bc94c586e3c724d7c3cd246b0fbf33c4",
+    "modification": "Identical geometry/transforms; textures removed; neutral grey material; lossless meshopt. Source license and attribution retained in ASSETS.md."
+  },
+  {
+    "file": "data/normalized/assets/dressing/container.glb",
+    "bytes": 57612,
+    "sha256": "089f98ed0db5c6e4b6b890bacac4d83599b6232f115070f00b2e77eafeb633fc",
+    "source": "data/normalized/assets/env/container.glb",
+    "sourceSha256": "c1f9e73528911db560d7794843e54642e7bfddf58f872aa4093bae7fd9d43db7",
+    "modification": "Identical geometry/transforms; textures removed; neutral grey material; lossless meshopt. Source license and attribution retained in ASSETS.md."
+  },
+  {
+    "file": "data/normalized/assets/dressing/source-pickup.glb",
+    "bytes": 367608,
+    "sha256": "0f412c94504dee156dc8b84a49b7dc5163a37ef4713fd5f0df61d3d3d71d8f6c",
+    "source": "data/normalized/assets/env/source-pickup.glb",
+    "sourceSha256": "affe2402b3fc78193ade8c68cb214313b0617e96084eea4193f28f46db6f0d83",
+    "modification": "Identical geometry/transforms; textures removed; neutral grey material; lossless meshopt. Source license and attribution retained in ASSETS.md."
+  },
+  {
+    "file": "data/normalized/assets/dressing/source-tanker.glb",
+    "bytes": 1640748,
+    "sha256": "4e68e0c347690418bbc580b1c0b345a9b63264ab96856dbeb0e42116756ffba7",
+    "source": "data/normalized/assets/env/source-tanker.glb",
+    "sourceSha256": "551c033320f90ed3599cd1c57c7ea89f3a52d4503a38a5ef20c8a5a4916b10c1",
+    "modification": "Identical geometry/transforms; textures removed; neutral grey material; lossless meshopt. Source license and attribution retained in ASSETS.md."
+  }
+]

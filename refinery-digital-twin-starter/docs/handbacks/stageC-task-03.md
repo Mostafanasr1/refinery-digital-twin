@@ -1,6 +1,6 @@
 # Stage C Task 03 â€” environment from real assets
 
-Status: implementation, verification and publication complete; both internal reviews PASS. Submitted at the external Task 3 gate; waiting for both reviewers. Work on dual-look only; main unchanged.
+Status: implementation, verification and publication complete; both internal reviews PASS. Original candidate approved by both reviewers on 26 September 2026, subject to the closing corrections recorded separately. Work on dual-look only; main unchanged.
 
 ## Authority and resolved acquisition rulings
 
@@ -88,3 +88,7 @@ Implementation/evidence commit: `4c71e7491a81300249aa9b30790cd65b8a1dfe1d`, push
 Installed Chrome and Edge live checks PASS: [preview](https://mostafanasr1.github.io/refinery-digital-twin/next/) provenance matches the implementation commit; [root release](https://mostafanasr1.github.io/refinery-digital-twin/) remains main `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`. Live checks include both looks, day/night, motion freeze, Dressing switching, mobile viewport and actual asset selection. Captures and JSON are in evidence/stageC-task-03/live/; live-verification.log records both verdicts.
 
 A documentation/evidence-only follow-up records this publication; it changes no runtime inputs. Both external approvals are still required. No active blocker or background work remains at hand-back.
+
+## External approval and closing correction ruling — 26 September 2026
+
+Both reviewers approve Task 3. Mostafa approves plant detail and night lighting; terrain acceptable for now, far hills and slope tiling deferred. Closing corrections: shared flat-grey plant dressing in engineering and corrected vehicle forward axis. Landscape remains photoreal; engineering grid remains. Continue into Task 4; submit corrections and Task 4 together with separate candidate sets. Approved engineering baseline remains untouched. See stageC-task-03-correction.md.

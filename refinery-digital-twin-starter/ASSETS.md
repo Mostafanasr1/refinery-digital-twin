@@ -128,3 +128,15 @@ Six Poly Haven maps converted to 1K quality-88 WebP; colour, tangent normal and 
 | `data/normalized/assets/env/source-cabin.glb` | 1003296 | `f09a88c767183a3eaa57a903f62dec74bc94c586e3c724d7c3cd246b0fbf33c4` |
 | `data/normalized/assets/env/source-pickup.glb` | 1072696 | `affe2402b3fc78193ade8c68cb214313b0617e96084eea4193f28f46db6f0d83` |
 | `data/normalized/assets/env/source-tanker.glb` | 3419188 | `551c033320f90ed3599cd1c57c7ea89f3a52d4503a38a5ef20c8a5a4916b10c1` |
+
+
+## Task 3 correction: engineering geometry-only dressing
+
+Derived from the already credited CC BY 4.0 cabin (ROGUE), container (Strifey7), pickup (elkarimeldino) and tanker (ezbreneman). Same source URLs/licenses as above. Textures removed, neutral-grey material, lossless meshopt; decoded vertex attributes verified byte-identical by scripts/prepare-engineering-dressing.mjs. Initial engineering pack only.
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `data/normalized/assets/dressing/source-cabin.glb` | 9116 | `165774542b1440b48f9e14cf2b68702b3c59de2aae80cd881de77d329f38a2c3` |
+| `data/normalized/assets/dressing/container.glb` | 57612 | `089f98ed0db5c6e4b6b890bacac4d83599b6232f115070f00b2e77eafeb633fc` |
+| `data/normalized/assets/dressing/source-pickup.glb` | 367608 | `0f412c94504dee156dc8b84a49b7dc5163a37ef4713fd5f0df61d3d3d71d8f6c` |
+| `data/normalized/assets/dressing/source-tanker.glb` | 1640748 | `4e68e0c347690418bbc580b1c0b345a9b63264ab96856dbeb0e42116756ffba7` |

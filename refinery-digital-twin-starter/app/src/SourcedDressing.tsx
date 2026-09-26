@@ -1,4 +1,8 @@
 import { useEffect, useMemo } from 'react';
+import { useLook } from './looks/LookProvider';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+import { useLoader } from '@react-three/fiber';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { useDressing } from './sliceState';
@@ -18,13 +22,18 @@ export function sourceMesh(source: THREE.Group) {
   if (meshCount !== 1 || !found || Array.isArray(found.material)) throw new Error('Expected prepared single-material source');
   return { geometry: found.geometry.clone().applyMatrix4(found.matrixWorld), material: found.material.clone() as THREE.MeshStandardMaterial };
 }
-export function SourcedDressing({ sources, assets, enabled }: { sources: THREE.Group[]; assets: Asset[]; enabled: boolean }) {
+export function SourcedDressing({ assets }: { assets: Asset[] }) {
+  const { look } = useLook();
+  const engineering = look.id === 'engineering';
+  const models = useLoader(GLTFLoader, ['source-cabin','container','source-pickup','source-tanker'].map(name => `${import.meta.env.BASE_URL}assets/${engineering ? 'dressing' : 'env'}/${name}.glb`), loader => loader.setMeshoptDecoder(MeshoptDecoder));
+  const sources = useMemo(() => models.map(model => model.scene), [models]);
   const dressing = useDressing(), { hour } = useMotion();
   const resources = useMemo(() => {
-    const group = new THREE.Group(); group.name = 'sourced-site-dressing'; group.userData.presentationOnly = true;
+    const group = new THREE.Group(); group.name = 'sourced-site-dressing'; group.userData.presentationOnly = true; group.userData.presentationLook = engineering ? 'engineering' : 'photoreal';
     const pose = new THREE.Object3D();
     const make = (index: number, name: string, positions: number[][], length?: number, width?: number) => {
       const { geometry, material } = sourceMesh(sources[index]);
+      if (engineering) material.color.set('#757d80');
       geometry.computeBoundingBox(); const box = geometry.boundingBox!, size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
       geometry.translate(-center.x, -box.min.y, -center.z);
       const scale = Math.min(length ? length / size.x : 1, width ? width / size.z : 1);
@@ -50,12 +59,12 @@ export function SourcedDressing({ sources, assets, enabled }: { sources: THREE.G
     windows.computeBoundingSphere();group.add(windows);
     group.traverse(node=>{node.raycast=()=>undefined;node.userData.category='ground';});
     return {group,vehicles:[pickup,tanker],windows,pose};
-  },[assets,sources]);
+  },[assets,sources,engineering]);
   useFrame(()=>{
-    if(!enabled||!dressing)return;
-    resources.vehicles.forEach((mesh,i)=>{const p=roadPose(motionTime()*config.road.speedMetresPerSecond+circuitLength*config.vehicles[i].phase);resources.pose.position.set(p.x,-.349,p.z);resources.pose.rotation.set(0,p.heading,0);resources.pose.scale.setScalar(1);resources.pose.updateMatrix();mesh.setMatrixAt(0,resources.pose.matrix);mesh.instanceMatrix.needsUpdate=true;});
+    if(!dressing)return;
+    resources.vehicles.forEach((mesh,i)=>{const p=roadPose(motionTime()*config.road.speedMetresPerSecond+circuitLength*config.vehicles[i].phase);resources.pose.position.set(p.x,-.349,p.z);resources.pose.rotation.set(0,p.heading+placement.vehicleYawOffset,0);resources.pose.scale.setScalar(1);resources.pose.updateMatrix();mesh.setMatrixAt(0,resources.pose.matrix);mesh.instanceMatrix.needsUpdate=true;});
   });
-  useEffect(()=>{resources.windows.material.emissiveIntensity=(1-daylight(hour).day)*placement.windows.intensity;},[resources,hour]);
+  useEffect(()=>{resources.windows.material.color.set(engineering ? '#757d80' : '#acb6a6');resources.windows.material.emissiveIntensity=engineering ? 0 : (1-daylight(hour).day)*placement.windows.intensity;},[resources,hour,engineering]);
   useEffect(()=>()=>resources.group.traverse(node=>{if(node instanceof THREE.InstancedMesh){node.dispose();node.geometry.dispose();(node.material as THREE.Material).dispose();}}),[resources]);
-  return <primitive object={resources.group} visible={enabled&&dressing} dispose={null}/>;
+  return <primitive object={resources.group} visible={dressing} dispose={null}/>;
 }

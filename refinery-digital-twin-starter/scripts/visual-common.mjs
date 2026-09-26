@@ -44,6 +44,7 @@ export async function navigate(run, view = 'demo') {
   await run.page.addStyleTag({ content: '*,*::before,*::after{animation-play-state:paused!important;transition:none!important;caret-color:transparent!important}' });
   await run.page.evaluate(() => document.fonts.ready);
   await run.page.waitForFunction(() => window.__refineryVisual?.ready);
+  await run.page.waitForFunction(() => !window.__refineryLoading || window.__refineryLoading.snapshot().phase === 'done');
   const info = await run.page.evaluate(() => ({ renderer: window.__refineryVisual.renderer, look: window.__refineryVisual.look, interactiveAt: window.__refineryVisual.interactiveAt, dpr: devicePixelRatio }));
   if (!/NVIDIA.*3050/i.test(info.renderer) || /swiftshader|llvmpipe|software|basic render/i.test(info.renderer)) throw new Error(`Reference hardware not confirmed: ${info.renderer}`);
   return { ...info, browser: run.browser.version(), flags: run.flags, viewport: config.viewport };

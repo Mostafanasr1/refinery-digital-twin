@@ -1,4 +1,4 @@
-import { SourcedDressing, sourceMesh } from './SourcedDressing';
+import { sourceMesh } from './SourcedDressing';
 import { useDressing } from './sliceState';
 import { TimeSky } from './TimeSky';
 import { surfaceWear } from './looks/surfaceWear';
@@ -151,8 +151,7 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
   const gltf = useLoader(GLTFLoader, `${import.meta.env.BASE_URL}${config.assets.context}`, loader => loader.setMeshoptDecoder(MeshoptDecoder));
   const heights = useLoader(THREE.FileLoader, `${import.meta.env.BASE_URL}assets/env/sinai-height.bin`, loader => loader.setResponseType('arraybuffer')) as ArrayBuffer;
   const blends = useLoader(THREE.TextureLoader, ['gravel-color','gravel-normal','gravel-rough','rock-color','rock-normal','rock-rough'].map(name => `${import.meta.env.BASE_URL}assets/env/${name}.webp`));
-  const models = useLoader(GLTFLoader, ['source-rock','source-cabin','container','source-pickup','source-tanker'].map(name => `${import.meta.env.BASE_URL}assets/env/${name}.glb`));
-  const dressingSources = useMemo(() => models.slice(1).map(model => model.scene), [models]);
+  const models = useLoader(GLTFLoader, ['source-rock'].map(name => `${import.meta.env.BASE_URL}assets/env/${name}.glb`));
   const environmentTarget = useRef<THREE.WebGLRenderTarget | null>(null);
   const dusk = useMemo(() => {
     const canvas = document.createElement('canvas'); canvas.width = 1024; canvas.height = 512;
@@ -256,7 +255,6 @@ function LoadedEnvironment({ assets, enabled }: { assets: Asset[]; enabled: bool
 
     <TimeSky dayTexture={hdr} duskTexture={dusk} /><primitive object={resources.context} />
     <primitive object={resources.scatter} visible={dressing} />
-    <SourcedDressing sources={dressingSources} assets={assets} enabled={enabled} />
   </group>;
 }
 export function PhotorealEnvironment({ assets }: { assets: Asset[] }) {

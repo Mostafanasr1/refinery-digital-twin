@@ -4,7 +4,7 @@ import { InstancedMesh, Matrix4, Mesh, Raycaster, Vector2, Vector3 } from 'three
 import { assetAtFace, type PickRange } from '../equipmentBatches';
 import { useLook } from './LookProvider';
 import type { AssetRegistry } from '../data/registry';
-type Snapshot = { sourced: { names: string[]; visible: string[] }; dressing: { visible: boolean; modules: number }; optionalDetail: { meshes: string[]; visibleMeshes: number; assetIds: string[] }; registryIds: string[]; look: string; camera: { position: number[]; quaternion: number[] }; geometries: number; textures: number; meshes: { uuid: string; geometry: string; material: string[]; assetId: string | null; assetIds: string[] }[] };
+type Snapshot = { canonicalVisibility: Record<string, boolean>; sourced: { names: string[]; visible: string[] }; dressing: { visible: boolean; modules: number }; optionalDetail: { meshes: string[]; visibleMeshes: number; assetIds: string[] }; registryIds: string[]; look: string; camera: { position: number[]; quaternion: number[] }; geometries: number; textures: number; meshes: { uuid: string; geometry: string; material: string[]; assetId: string | null; assetIds: string[] }[] };
 declare global { interface Window { __refineryDetailHits?: () => number; __refineryLookSnapshot?: () => Snapshot; __refineryPickPoint?: (assetId: string) => { x: number; y: number } | null } }
 export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
   const { scene, camera, gl } = useThree();
@@ -15,6 +15,13 @@ export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
       const meshes: Snapshot['meshes'] = [];
       const detailMeshes: string[] = [], detailAssets = new Set<string>();
       let visibleDetail = 0;
+      const canonicalVisibility = Object.fromEntries([...registry.assets.keys()].map(id => [id, false]));
+      scene.traverseVisible(node => {
+        if (node.userData.optionalDetail) return;
+        const ids = node.userData.assetRanges?.map((range: PickRange) => range.asset.asset_id) ?? [];
+        if (node.userData.asset_id) ids.push(node.userData.asset_id);
+        for (const id of ids) if (id in canonicalVisibility) canonicalVisibility[id] = true;
+      });
       scene.traverseVisible(node => { if (node instanceof Mesh && node.userData.optionalDetail) visibleDetail++; });
       scene.traverse(node => {
         if (!(node instanceof Mesh)) return;
@@ -27,7 +34,7 @@ export function LookSnapshot({ registry }: { registry: AssetRegistry }) {
       const sourced = { names: [] as string[], visible: [] as string[] };
       scene.getObjectByName('sourced-site-dressing')?.traverse(node => { if (node instanceof InstancedMesh) sourced.names.push(node.name); });
       scene.traverseVisible(node => { if (sourced.names.includes(node.name)) sourced.visible.push(node.name); });
-      return { sourced, dressing: { visible: !!dressing?.visible, modules: dressing?.userData.moduleCount ?? 0 }, optionalDetail: { meshes: detailMeshes.sort(), visibleMeshes: visibleDetail, assetIds: [...detailAssets].sort() }, registryIds: [...registry.objects.keys()].sort(), look: look.id, camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray() }, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, meshes };
+      return { canonicalVisibility, sourced, dressing: { visible: !!dressing?.visible, modules: dressing?.userData.moduleCount ?? 0 }, optionalDetail: { meshes: detailMeshes.sort(), visibleMeshes: visibleDetail, assetIds: [...detailAssets].sort() }, registryIds: [...registry.objects.keys()].sort(), look: look.id, camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray() }, geometries: gl.info.memory.geometries, textures: gl.info.memory.textures, meshes };
     };
     // This locates a visible surface; the test still dispatches an actual canvas mouse click.
     const pickPoint = (assetId: string) => {

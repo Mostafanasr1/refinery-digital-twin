@@ -20,12 +20,13 @@ export function MotionClock() {
 export function TimeControls() {
   const dressing = useDressing();
   const state = useMotion();
-  const { choose } = useLook();
+  const { choose, look } = useLook();
   useEffect(() => {
     const events = ['pointermove', 'pointerdown', 'wheel', 'keydown', 'touchstart', 'focusin'];
     events.forEach(name => window.addEventListener(name, pauseCycle, { passive: true }));
     return () => events.forEach(name => window.removeEventListener(name, pauseCycle));
   }, []);
+  if (look.id === 'engineering') return <div className="time-controls" aria-label="Presentation"><label className="motion-switch"><input type="checkbox" checked={dressing} onChange={e => setDressing(e.target.checked)} />Dressing</label></div>;
   const minutes = Math.floor(state.hour * 60);
   return <div className="time-controls" aria-label="Time and motion">
     <label>Time <output>{String(Math.floor(minutes / 60)).padStart(2, '0')}:{String(minutes % 60).padStart(2, '0')}</output><input aria-label="Time of day" type="range" min="0" max="23.99" step="0.01" value={state.hour} onChange={e => setHour(Number(e.target.value))} /></label>

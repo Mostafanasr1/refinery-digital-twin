@@ -17,7 +17,8 @@ export function LoadingDrawGate() {
       const progress = loadingSnapshot();
       if (progress.phase !== 'draw' || frame.current) return;
       const photo = look.id !== 'engineering';
-      if ((progress.pack === 'photoreal') !== photo || !scene.getObjectByName('equipment')) return;
+      if ((progress.pack === 'photoreal') !== photo || (!scene.getObjectByName('equipment') || !scene.getObjectByName('sourced-site-dressing'))) return;
+      if (scene.getObjectByName('sourced-site-dressing')?.userData.presentationLook !== (photo ? 'photoreal' : 'engineering')) { invalidate(); return; }
       if (photo && (environmentLoading || !scene.getObjectByName('photoreal-environment') || !scene.getObjectByName('hero-detail') || gl.domElement.dataset.materialsReady !== 'true')) { invalidate(); return; }
       const drawn = performance.now();
       frame.current = requestAnimationFrame(() => { frame.current = 0; if (loadingSnapshot().started === progress.started && loadingSnapshot().pack === progress.pack) finishLoading(drawn); });

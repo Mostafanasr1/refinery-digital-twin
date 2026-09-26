@@ -7,6 +7,7 @@ export async function openLook(run, look = 'engineering') {
   await run.page.evaluate(() => document.fonts.ready);
   await run.page.waitForFunction(look => window.__refineryVisual?.ready && window.__refineryVisual.look === look && window.__refineryLookSnapshot, look);
   if (look !== 'engineering') await run.page.waitForFunction(() => document.querySelector('canvas')?.dataset.environmentReady === 'true' && document.querySelector('canvas')?.dataset.materialsReady === 'true' && document.querySelector('canvas')?.dataset.detailReady === 'true');
+  await run.page.waitForFunction(() => !window.__refineryLoading || window.__refineryLoading.snapshot().phase === 'done');
   const info = await run.page.evaluate(() => ({ renderer: window.__refineryVisual.renderer, look: window.__refineryVisual.look, interactiveAt: window.__refineryVisual.interactiveAt, dpr: devicePixelRatio }));
   assert.match(info.renderer, /NVIDIA.*3050/i, 'reference RTX 3050 required');
   assert.doesNotMatch(info.renderer, /swiftshader|llvmpipe|software|basic render/i);

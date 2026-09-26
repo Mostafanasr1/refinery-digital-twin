@@ -8,7 +8,7 @@ export default defineConfig({ base: './', publicDir: '../data/normalized', plugi
     if (id !== '\0asset-sizes') return;
     const root = resolve(__dirname, '../data/normalized');
     const paths = ['models/refinery.glb', 'assets/detail/hero.glb',
-      ...['env', 'materials'].flatMap(dir => readdirSync(resolve(root, 'assets', dir))
+      ...['env', 'materials', 'dressing'].flatMap(dir => readdirSync(resolve(root, 'assets', dir))
         .filter(name => name !== 'sources.json').map(name => `assets/${dir}/${name}`))];
     return `export default ${JSON.stringify(Object.fromEntries(paths.map(path => [path, statSync(resolve(root, path)).size])))};`;
   },
