@@ -1,6 +1,6 @@
 # Stage C Task 4 — process flow (combined gate)
 
-Local implementation and verification complete; preview publication verification follows. No baseline promotion is authorized by this hand-back.
+Implementation, local verification and live Chrome/Edge verification complete. Submitted at the combined Task 3 correction / Task 4 gate. No baseline promotion is authorized by this hand-back.
 
 ## Independent decisions at this gate
 
@@ -34,7 +34,7 @@ Full `npm run check` PASS: 29 Vitest, 31 pytest, 7 visual-tool tests, lint, vali
 
 All 342 real canvas picks PASS: 57 assets × Blender/proxy × engineering/day/night (`selection-all.json`, `selection-night.json`). Loading/mobile PASS: byte progress in both first-load moments; completion after actual draw; warm cache; history cancellation/proxy recovery; 412×915,915×412 and360×640 layouts without document overflow. These are desktop viewport emulations, not new phone results.
 
-Final review clip: 2,533 unique captured frame hashes,60fps,H.264CRF18,1600×900,42.216667seconds,80,508,188bytes. The unchanged tour runs42seconds, followed by a0.2second hold. Review media is not a runtime/lazy asset. Both internal reviewers PASS the implementation and completed evidence; no unresolved finding. Publication verification is the remaining submission step.
+Final review clip: 2,533 unique captured frame hashes, 60 fps,H.264 CRF 18,1600 × 900,42.216667 seconds,80,508,188 bytes. The unchanged tour runs 42 seconds, followed by a 0.2 second hold. Review media is not a runtime/lazy asset. Both internal reviewers PASS the implementation and completed evidence; no unresolved finding. Live Chrome and Edge verification also PASS.
 
 ## Limits carried forward
 
@@ -44,6 +44,6 @@ Canonical assets remain 57 across 6 units. No sourced assets or licenses were ad
 
 ## Files touched and review state
 
-Runtime: `FlowOverlay.tsx`, new `ProcessPipes.tsx` and `flowGeometry.ts`, `Scene.tsx`, `MotionActors.tsx` measurement bridge, `main.tsx` and `presentation.ts`. Presentation configuration: new `data/presentation/flow.json`. Unit tests: `flowGeometry.test.ts` and updated `data/flow.test.ts`. Evidence tools: process-flow check/controls/capture/metrics/frames scripts and Task4-conditional live assertions in `slice-live.mjs`. Documentation: README,ASSETS,REPO_FACTS,this hand-back, Task4 metrics and evidence. No canonical file, tour data, camera definition, sourced asset or approved baseline changed.
+Runtime: `FlowOverlay.tsx`, new `ProcessPipes.tsx` and `flowGeometry.ts`, `Scene.tsx`, `MotionActors.tsx` measurement bridge, `main.tsx` and `presentation.ts`. Presentation configuration: new `data/presentation/flow.json`. Unit tests: `flowGeometry.test.ts` and updated `data/flow.test.ts`. Evidence tools: process-flow check/controls/capture/metrics/frames scripts and Task4-conditional live assertions in `slice-live.mjs`. Documentation: README, ASSETS, REPO_FACTS, this hand-back, Task4 metrics and evidence. No canonical file, tour data, camera definition, sourced asset or approved baseline changed.
 
-Task3 correction commit: `e4030f11c9f028c8206de7efc0dbabbf00372901`. Task4 implementation commit and live verification will be recorded after publishing. Main remains the approved release; only dual-look publishes `/next/`. Stop at this combined gate and wait for both reviewers; neither engineering candidate is promoted.
+Task 3 correction commit: `e4030f11c9f028c8206de7efc0dbabbf00372901`. Task 4 implementation commit: `6d51425418897fa9134ad9707d641b4ffba2e392`. Pages run [36214638295](https://github.com/Mostafanasr1/refinery-digital-twin/actions/runs/36214638295) succeeded. Installed Chrome and Edge verify `/next/` serves this source build, including engineering flow and night flow; root still serves main `83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494`. Evidence: `evidence/stageC-task-04/live/`. A test-only wait was added for the selected night flow to mount before assertion. This hand-back and publication evidence are a documentation/test follow-up; application code is unchanged. Main remains the approved release; only dual-look publishes `/next/`. Stop at this combined gate and wait for both reviewers; neither engineering candidate is promoted.

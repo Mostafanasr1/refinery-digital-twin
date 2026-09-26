@@ -54,6 +54,7 @@ for (const [name, executable] of [['chrome', 'C:/Program Files/Google/Chrome/App
     await switchLook(run.page, 'photoreal-night');
     if(task==='04'){
       await run.page.getByLabel('Process path',{exact:true}).selectOption('path_crude_to_products');
+      await run.page.waitForFunction(()=>window.__refineryFlow?.().pathId==='path_crude_to_products');
       const flow=await run.page.evaluate(()=>window.__refineryFlow());assert.equal(flow.drawBatches,1);assert.ok(flow.segments.every(s=>s.kind==='pipe'));assert.equal(flow.phase,0);
     }
     await run.page.screenshot({ path: resolve(output, `${name}-CAM-6-night.png`) });

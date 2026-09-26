@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "browser": "edge",
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "engineering",
+    "interactiveAt": 3033.300000011921,
+    "dpr": 1,
+    "browser": "153.0.4234.48",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "release": {
+    "branch": "main",
+    "commit": "83e54ba7cbb42d6d7cff1dbeb8c90457bbc2d494"
+  },
+  "preview": {
+    "branch": "dual-look",
+    "commit": "6d51425418897fa9134ad9707d641b4ffba2e392"
+  },
+  "checks": [
+    "release unchanged",
+    "62 dressing modules; toggle hides/restores group",
+    "preview motion advances",
+    "slider keyboard and presets",
+    "master freeze",
+    "day/night and emulated mobile captures",
+    "Task 4 engineering plant dressing visible",
+    "Engineering flow advances along physical pipes in one instanced batch",
+    "Night flow path mounts and stays frozen under disabled Motion"
+  ],
+  "errors": [],
+  "phone": "No new physical-phone check for this slice; mobile screenshots are emulated"
+}
