@@ -15,14 +15,13 @@ import { LookSnapshot } from './looks/LookSnapshot';
 import { useLook } from './looks/LookProvider';
 import { effects } from './looks/looks';
 import { buildEquipmentBatches, applyBatchStyle, disposeBatches, assetAtFace, type AssetStyle } from './equipmentBatches';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { VisualRuntime, visualMode } from '../../scripts/visual-runtime';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import * as THREE from 'three';
-import FlowOverlay from './FlowOverlay';
+import { Pipes } from './ProcessPipes';
 import { Atmosphere, PlantLabel, Site } from './Atmosphere';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { layerStyle, type Layer, type ScenarioState, type traceAt } from './data/operations';
@@ -154,43 +153,6 @@ function Equipment({ asset, registry, active, onHover, onSelect, tint, dim }: { 
     onPointerOver={event => { event.stopPropagation(); onHover(asset.asset_id); }}
     onPointerOut={() => onHover(null)} onClick={event => { event.stopPropagation(); onSelect(asset.asset_id); }}>
     <Proxy asset={asset} active={active} tint={tint} dim={dim} />
-  </group>;
-}
-function Pipes({ data, registry, trace, running, scenarioState }: { data: NormalizedData; registry: AssetRegistry; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState }) {
-  const { look } = useLook();
-  const pack = useMaterialPack();
-  const lines = useMemo(() => data.connections.flatMap(connection => {
-    const from = registry.assets.get(connection.from_asset_id), to = registry.assets.get(connection.to_asset_id);
-    if (!from || !to) return [];
-    const a = worldPosition(from), b = worldPosition(to);
-    const points = connection.route_points ? connection.route_points.map(point => new THREE.Vector3(point.x, point.z, -point.y)) : [new THREE.Vector3(a[0], 3, a[2]), new THREE.Vector3(a[0], 3, b[2]), new THREE.Vector3(b[0], 3, b[2])];
-    const parts = points.slice(1).flatMap((end, index) => {
-      const start = points[index], delta = end.clone().sub(start), length = delta.length();
-      if (length < .01) return [];
-      const radius = (connection.diameter ?? .6) / 2;
-      const geometry = new THREE.CylinderGeometry(radius, radius, length, 10);
-      geometry.applyMatrix4(new THREE.Matrix4().compose(start.clone().add(end).multiplyScalar(.5), new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), delta.normalize()), new THREE.Vector3(1, 1, 1)));
-      return [geometry];
-    });
-    return [{ connection, from, to, parts }];
-  }), [data.connections, registry]);
-  const geometries = useMemo(() => ['painted-steel', 'insulation', 'active'].map(role => {
-    const parts = lines.filter(line => {
-      const actual = trace.path?.connection_ids.includes(line.connection.connection_id) ? 'active' : ['hot_crude', 'preheated_crude'].includes(line.connection.service) ? 'insulation' : 'painted-steel';
-      return actual === role;
-    }).flatMap(line => line.parts);
-    const merged = parts.length ? mergeGeometries(parts) : null;
-    if (merged) materialUVs(merged, role === 'active' ? 1 : materialConfig.materials[role as 'painted-steel' | 'insulation'].tileMetres);
-    return merged;
-  }), [lines, trace.path]);
-  useEffect(() => () => { lines.forEach(line => line.parts.forEach(part => part.dispose())); }, [lines]);
-  useEffect(() => () => { geometries.forEach(geometry => geometry?.dispose()); }, [geometries]);
-  return <group name="pipes">
-    {geometries.map((geometry, index) => {
-      const surface = look.id !== 'engineering' && index < 2 ? pack?.[index === 1 ? 'insulation' : 'painted-steel'] : undefined;
-      return geometry ? <mesh key={index} geometry={geometry} castShadow={look.id !== 'engineering'} receiveShadow={look.id !== 'engineering'} userData={{ category: 'pipes' }}><meshStandardMaterial color={index === 2 ? effects.pipeActive : surface?.color ?? look.materials.pipe.color} map={surface?.map ?? null} normalMap={surface?.normalMap ?? null} roughnessMap={surface?.roughnessMap ?? null} metalness={surface?.metalness ?? look.materials.pipe.metalness} roughness={surface?.roughness ?? look.materials.pipe.roughness} /></mesh> : null;
-    })}
-    {lines.filter(line => trace.path?.connection_ids.includes(line.connection.connection_id)).map(line => <FlowOverlay key={line.connection.connection_id} from={line.from} to={line.to} running={running && !(trace.path?.ordered_asset_ids.some(id => scenarioState.statuses[id] === 'trip') ?? false)} name={line.connection.connection_id} />)}
   </group>;
 }
 export default function Scene({ cameraMove, data, registry, selected, hovered, reset, onHover, onSelect, geometry, layer, trace, running, scenarioState }: { cameraMove: CameraMove | null; geometry: 'blender' | 'proxy'; layer: Layer; trace: ReturnType<typeof traceAt>; running: boolean; scenarioState: ScenarioState; data: NormalizedData; registry: AssetRegistry; selected: string | null; hovered: string | null; reset: number; onHover: (id: string | null) => void; onSelect: (id: string | null) => void }) {

@@ -64,7 +64,7 @@ export function MotionActors({ assets }: { assets: Asset[] }) {
     target.__refineryMotionActors = () => {
       const atmosphere = scene.getObjectByName('plant-atmosphere');
       const flows: number[][] = [];
-      scene.traverseVisible(node => { if (node.name === 'travelling-flow-pulses' && node instanceof THREE.InstancedMesh) flows.push(Array.from(node.instanceMatrix.array)); });
+      scene.traverseVisible(node => { if (node.name === 'process-flow-tubes' && node instanceof THREE.InstancedMesh) flows.push([(node.material as THREE.ShaderMaterial).uniforms.phase.value]); });
       return { visible: resources.group.visible, vehicles: ['moving-pickup','moving-tanker'].map(name => Array.from((scene.getObjectByName(name) as THREE.InstancedMesh | undefined)?.instanceMatrix.array ?? [])), fans: Array.from(resources.rotors.instanceMatrix.array), flag: Array.from(resources.flag.geometry.getAttribute('position').array), dust: Array.from(resources.dust.instanceMatrix.array),
         aviation: scene.getObjectByName('aviation-warning-lights')?.visible,
         steam: atmosphere?.children.filter(n => n instanceof THREE.Sprite).map(n => n.position.toArray()), flows };

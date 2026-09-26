@@ -66,5 +66,5 @@ export function usePresentation(select: (id: string | null) => void) {
     }, 100);
     return () => { clearInterval(timer);events.forEach(name => window.removeEventListener(name, input)); };
   }, [stop]);
-  return { mode, move, caption, complete, start, stop };
+  return { mode, move, caption, complete, start, stop, processPathId: mode === 'tour' ? tour.processPathId : undefined };
 }

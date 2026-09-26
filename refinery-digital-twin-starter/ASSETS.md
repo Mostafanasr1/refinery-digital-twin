@@ -140,3 +140,7 @@ Derived from the already credited CC BY 4.0 cabin (ROGUE), container (Strifey7),
 | `data/normalized/assets/dressing/container.glb` | 57612 | `089f98ed0db5c6e4b6b890bacac4d83599b6232f115070f00b2e77eafeb633fc` |
 | `data/normalized/assets/dressing/source-pickup.glb` | 367608 | `0f412c94504dee156dc8b84a49b7dc5163a37ef4713fd5f0df61d3d3d71d8f6c` |
 | `data/normalized/assets/dressing/source-tanker.glb` | 1640748 | `4e68e0c347690418bbc580b1c0b345a9b63264ab96856dbeb0e42116756ffba7` |
+
+## Stage C Task 4 — procedural flow
+
+No new downloaded assets. Unit-cylinder instanced flow shells and gap interpolation are generated at runtime from existing physical pipe routes. Shader/spacing configuration: `data/presentation/flow.json`. Existing source licenses and asset hashes are unchanged.

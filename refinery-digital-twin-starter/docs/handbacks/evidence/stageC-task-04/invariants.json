@@ -1,0 +1,21 @@
+{
+  "approvedBaselineUnchanged": true,
+  "approvedBaselineHashes": {
+    "CAM-1-default.png": "35bfc201c23afdea8ebf2e370935bae0099771e418641a059683d849e86e0888",
+    "CAM-1-selected.png": "e7acb0ab0d830b01c022caa8a081dd4441e446ed66c1b16774d724717b91548e",
+    "CAM-2-default.png": "7fd01bff5eaeacb34d1e3ccbd63b75e8f92ede90be315163e4caf12e2b640544",
+    "CAM-2-selected.png": "b29c21a5924384436f62c992dc0e5dc55a00778f0a601412c63cbb07f6526205",
+    "CAM-3-default.png": "759334549785f5250fa7db2e5194e7ea37d08d0bf933320b42003ad4e60c4df7",
+    "CAM-3-selected.png": "5e6f296d7b27d1877af3415419899c1ab2cdb44e047567388788bacf648f5b35",
+    "CAM-4-default.png": "d8509223d2c0ef101b9c5582f4614e0e25f63d61429fe0d5858a95f03f6430f9",
+    "CAM-4-selected.png": "eef46084a7e4a63f2730224b926893c15559c3efc1c8bfdf9bf4d13da3182688",
+    "CAM-5-default.png": "3e691e9861ffe193af70b6c96b53da6748cf7720de014b9ac314937dda9a2c0b",
+    "CAM-5-selected.png": "6bdbf9162d4e29eb2c47621262823fa4773e4dcd5c32d791f5464ff6bce3bc44",
+    "CAM-6-default.png": "538dd91bc124254e2290de731d5a678ef4037f39ada703c5f70e30aeb76b28f1",
+    "CAM-6-selected.png": "7c670b6c73d6ae417488f7f2f2a4db4017a9bec417afe955f8f4121377fb45d0",
+    "capture.json": "fe2b0a27dfca94a89ba927a75cd12ddc7c81fceeca7c5adbe033821d615ce39e"
+  },
+  "tourDataUnchanged": true,
+  "tourSha256": "84ecb6ed30517f3245cdbe103fbe261e93c32dd57945e5a43845f5fba25677bc",
+  "task3CorrectionCandidateUnchangedSince": "e4030f11c9f028c8206de7efc0dbabbf00372901"
+}

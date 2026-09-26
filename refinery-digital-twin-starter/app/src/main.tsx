@@ -48,6 +48,8 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   const select = (id: string | null) => { setSelected(id); setMobilePanel(null); };
   const [hovered, hover] = useState<string | null>(null);
   const presentation = usePresentation(select);
+  const tourPath = source.process_paths.find(path => path.process_path_id === presentation.processPathId);
+  const sceneTrace = tourPath ? { ...trace, path: tourPath, assetId: selected ?? tourPath.ordered_asset_ids[0] } : trace;
   const { look } = useLook();
   const [reveal, setReveal] = useState(false);
   const [query, setQuery] = useState('');
@@ -56,7 +58,7 @@ function Explorer({ data: source }: { data: NormalizedData }) {
   const hoveredAsset = hovered ? registry.assets.get(hovered) : undefined;
   const filtered = data.assets.filter(a => `${a.tag} ${a.name} ${a.type}`.toLowerCase().includes(query.toLowerCase()));
   return <main onClickCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.directory,.operations,.card,footer')) presentation.stop(); }} onChangeCapture={event => { if (presentation.mode === 'tour' && event.target instanceof Element && event.target.closest('.operations')) presentation.stop(); }} data-mobile-panel={mobilePanel ?? 'none'} data-look={look.id} data-presentation={presentation.mode} data-tour-complete={presentation.complete}>
-    <Scene cameraMove={presentation.move} data={data} registry={registry} selected={selected} hovered={hovered} reset={reset} geometry={geometry} layer={activeLayer} trace={trace} running={running} scenarioState={scenarioState} onHover={hover} onSelect={select} />
+    <Scene cameraMove={presentation.move} data={data} registry={registry} selected={selected} hovered={hovered} reset={reset} geometry={geometry} layer={activeLayer} trace={sceneTrace} running={running || presentation.mode === 'tour'} scenarioState={scenarioState} onHover={hover} onSelect={select} />
     <header><div><span className="eyebrow">MERIDIAN / ENGINEERING EXPLORER</span><h1>Refinery Digital Twin<span className="dot">.</span></h1></div><div className="badge">SYNTHETIC DATA</div></header>
     <nav className="mobile-tools" aria-label="Plant tools"><button aria-expanded={mobilePanel === 'equipment'} aria-controls="equipment-panel" onClick={() => setMobilePanel(mobilePanel === 'equipment' ? null : 'equipment')}>Equipment</button><button aria-expanded={mobilePanel === 'controls'} aria-controls="controls-panel" onClick={() => setMobilePanel(mobilePanel === 'controls' ? null : 'controls')}>Controls</button><button onClick={() => { setMobilePanel(null); setScenarioId(''); setPathId(''); setPlaying(false); presentation.start(reveal); }}>Start tour</button></nav>
     <div className="operations" id="controls-panel">

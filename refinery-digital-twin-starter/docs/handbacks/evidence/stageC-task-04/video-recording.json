@@ -1,0 +1,442 @@
+{
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "photoreal",
+    "interactiveAt": 5600.9000000059605,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "method": "Frame-by-frame at 60 virtual time samples per second; Playwright clock used only for offline review capture, never metrics. Full viewport includes HUD captions. JPEG95 frames stitched H264 CRF18.",
+  "frames": 2533,
+  "virtualDurationMs": 42200,
+  "tourDurationMs": 42000,
+  "states": [
+    {
+      "frame": 0,
+      "time": 1101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOEnd presentation",
+      "phase": 0,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 60,
+      "time": 2101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation",
+      "phase": 8.955000000000007,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 120,
+      "time": 3101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation",
+      "phase": 17.882999999999992,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 180,
+      "time": 4101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation",
+      "phase": 26.954999999999888,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 240,
+      "time": 5101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation",
+      "phase": 1.8829999999998117,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 300,
+      "time": 6101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation",
+      "phase": 10.954999999999819,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 360,
+      "time": 7101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 19.88299999999978,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 420,
+      "time": 8101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 28.954999999999675,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 480,
+      "time": 9101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 3.8829999999996216,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 540,
+      "time": 10101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 12.954999999999629,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 600,
+      "time": 11101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 21.882999999999566,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 660,
+      "time": 12101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 30.954999999999462,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 720,
+      "time": 13101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation",
+      "phase": 5.882999999999433,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 780,
+      "time": 14101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 14.95499999999944,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 840,
+      "time": 15101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 23.882999999999353,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 900,
+      "time": 16101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 32.95499999999925,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 960,
+      "time": 17101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 7.882999999999245,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1020,
+      "time": 18101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 16.95499999999924,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1080,
+      "time": 19101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation",
+      "phase": 25.88299999999914,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1140,
+      "time": 20101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 0.954999999999049,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1200,
+      "time": 21101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 9.882999999999056,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1260,
+      "time": 22101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 18.95499999999903,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1320,
+      "time": 23101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 27.882999999998926,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1380,
+      "time": 24101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 2.9549999999988605,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1440,
+      "time": 25101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation",
+      "phase": 11.882999999998868,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1500,
+      "time": 26101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 20.954999999998815,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1560,
+      "time": 27101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 29.882999999998713,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1620,
+      "time": 28101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 4.954999999998672,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1680,
+      "time": 29101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 13.88299999999868,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1740,
+      "time": 30101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 22.954999999998602,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1800,
+      "time": 31101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation",
+      "phase": 31.8829999999985,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1860,
+      "time": 32101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 6.954999999998484,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1920,
+      "time": 33101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 15.882999999998491,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 1980,
+      "time": 34101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 24.95499999999839,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2040,
+      "time": 35101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 33.88299999999829,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2100,
+      "time": 36101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 8.954999999998295,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2160,
+      "time": 37101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation",
+      "phase": 17.88299999999828,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2220,
+      "time": 38101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 26.954999999998176,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2280,
+      "time": 39101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 1.8829999999980993,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2340,
+      "time": 40101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 10.954999999998106,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2400,
+      "time": 41101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 19.882999999998066,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2460,
+      "time": 42101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 28.954999999997963,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2520,
+      "time": 43101,
+      "caption": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation",
+      "phase": 3.8829999999979092,
+      "path": "path_crude_to_products",
+      "complete": "false"
+    },
+    {
+      "frame": 2532,
+      "time": 43301,
+      "complete": "true"
+    }
+  ],
+  "captions": [
+    {
+      "frame": 0,
+      "time": 0,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOEnd presentation"
+    },
+    {
+      "frame": 1,
+      "time": 17,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOCrude enters storage before the process train.End presentation"
+    },
+    {
+      "frame": 360,
+      "time": 6000,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOTransfer pumps send crude toward preheating.End presentation"
+    },
+    {
+      "frame": 722,
+      "time": 12033,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOHeat recovery reduces the furnace duty.End presentation"
+    },
+    {
+      "frame": 1082,
+      "time": 18033,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe furnace heats the feed before separation.End presentation"
+    },
+    {
+      "frame": 1441,
+      "time": 24017,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOThe atmospheric column separates boiling ranges.End presentation"
+    },
+    {
+      "frame": 1802,
+      "time": 30033,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOProduct cooling recovers heat before storage.End presentation"
+    },
+    {
+      "frame": 2161,
+      "time": 36017,
+      "text": "FOLLOW THE PROCESS / SYNTHETIC DEMOProducts reach storage. This demonstration uses synthetic data.End presentation"
+    }
+  ],
+  "encoded": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1600,
+        "height": 900,
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "nb_frames": "2533",
+        "side_data_list": [
+          {}
+        ]
+      }
+    ],
+    "format": {
+      "duration": "42.216667",
+      "size": "80508188",
+      "bit_rate": "15256190"
+    }
+  },
+  "errors": []
+}

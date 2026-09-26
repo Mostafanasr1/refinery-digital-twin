@@ -1,0 +1,3233 @@
+{
+  "protocol": "Original screenshot flags, motion time 2, phase 0, master disabled and path paused; fixed cameras.",
+  "states": [
+    {
+      "look": "engineering",
+      "camera": "CAM-2",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 12,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    },
+    {
+      "look": "engineering",
+      "camera": "CAM-6",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 12,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    },
+    {
+      "look": "photoreal",
+      "camera": "CAM-2",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 12,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    },
+    {
+      "look": "photoreal",
+      "camera": "CAM-6",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 12,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    },
+    {
+      "look": "photoreal-night",
+      "camera": "CAM-2",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 22,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    },
+    {
+      "look": "photoreal-night",
+      "camera": "CAM-6",
+      "flow": {
+        "phase": 0,
+        "pathId": "path_crude_to_products",
+        "connections": [
+          "conn_001",
+          "conn_002",
+          "conn_003",
+          "conn_004",
+          "conn_015",
+          "conn_016"
+        ],
+        "segments": [
+          {
+            "start": [
+              0,
+              2.5,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              0
+            ],
+            "radius": 0.275,
+            "offset": 0,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              0
+            ],
+            "end": [
+              0,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 6.1,
+            "length": 30,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              0,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -30
+            ],
+            "radius": 0.275,
+            "offset": 36.1,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -30
+            ],
+            "end": [
+              24,
+              8.6,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 60.1,
+            "length": 27,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              8.6,
+              -3
+            ],
+            "end": [
+              24,
+              2.5,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 87.1,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_001"
+          },
+          {
+            "start": [
+              24,
+              2.5,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -3
+            ],
+            "radius": 0.275,
+            "offset": 93.19999999999999,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -3
+            ],
+            "end": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 99.79999999999998,
+            "length": 27.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              24,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "radius": 0.275,
+            "offset": 127.29999999999998,
+            "length": 24,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -30.5
+            ],
+            "end": [
+              48,
+              9.1,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 151.29999999999998,
+            "length": 16.5,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              9.1,
+              -14
+            ],
+            "end": [
+              48,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 167.79999999999998,
+            "length": 6.6,
+            "kind": "pipe",
+            "connectionId": "conn_002"
+          },
+          {
+            "start": [
+              48,
+              2.5,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 174.39999999999998,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -14
+            ],
+            "end": [
+              48,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 181.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              48,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -31
+            ],
+            "radius": 0.275,
+            "offset": 198.49999999999997,
+            "length": 31,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -31
+            ],
+            "end": [
+              79,
+              9.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 229.49999999999997,
+            "length": 17,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              9.6,
+              -14
+            ],
+            "end": [
+              79,
+              2.5,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 246.49999999999997,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_003"
+          },
+          {
+            "start": [
+              79,
+              2.5,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -14
+            ],
+            "radius": 0.275,
+            "offset": 253.59999999999997,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -14
+            ],
+            "end": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 259.7,
+            "length": 17.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              79,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "radius": 0.275,
+            "offset": 277.2,
+            "length": 23,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -31.5
+            ],
+            "end": [
+              102,
+              8.6,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 300.2,
+            "length": 8.5,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              8.6,
+              -23
+            ],
+            "end": [
+              102,
+              2.5,
+              -23
+            ],
+            "radius": 0.275,
+            "offset": 308.7,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_004"
+          },
+          {
+            "start": [
+              102,
+              2.5,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -23
+            ],
+            "radius": 0.175,
+            "offset": 314.8,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -23
+            ],
+            "end": [
+              102,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 321.90000000000003,
+            "length": 9,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              102,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -32
+            ],
+            "radius": 0.175,
+            "offset": 330.90000000000003,
+            "length": 39,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -32
+            ],
+            "end": [
+              63,
+              9.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 369.90000000000003,
+            "length": 14,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              9.6,
+              -46
+            ],
+            "end": [
+              63,
+              2.5,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 383.90000000000003,
+            "length": 7.1,
+            "kind": "pipe",
+            "connectionId": "conn_015"
+          },
+          {
+            "start": [
+              63,
+              2.5,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -46
+            ],
+            "radius": 0.175,
+            "offset": 391.00000000000006,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -46
+            ],
+            "end": [
+              63,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 397.1000000000001,
+            "length": 16,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              63,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -30
+            ],
+            "radius": 0.175,
+            "offset": 413.1000000000001,
+            "length": 87,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -30
+            ],
+            "end": [
+              150,
+              8.6,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 500.1000000000001,
+            "length": 18,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          },
+          {
+            "start": [
+              150,
+              8.6,
+              -12
+            ],
+            "end": [
+              150,
+              2.5,
+              -12
+            ],
+            "radius": 0.175,
+            "offset": 518.1000000000001,
+            "length": 6.1,
+            "kind": "pipe",
+            "connectionId": "conn_016"
+          }
+        ],
+        "instances": 30,
+        "drawBatches": 1,
+        "depthTest": true
+      },
+      "motion": {
+        "hour": 22,
+        "enabled": false,
+        "cycling": false,
+        "revision": 0,
+        "time": 2
+      }
+    }
+  ]
+}

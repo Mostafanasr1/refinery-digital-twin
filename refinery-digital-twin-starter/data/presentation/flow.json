@@ -1,0 +1,14 @@
+{
+  "speedMetresPerSecond": 9,
+  "spacingMetres": 34,
+  "pulseLengthMetres": 11,
+  "shellOffsetMetres": 0.015,
+  "radialSegments": 10,
+  "pulseColor": [3.0, 1.25, 0.18],
+  "activeTint": "#d1a260",
+  "tintStrength": 0.12,
+  "emissiveIntensity": 0.16,
+  "gapRiseRatio": 0.18,
+  "gapMaxRiseMetres": 3,
+  "gapStepMetres": 0.75
+}

@@ -252,3 +252,10 @@ Task 3 publication: `4c71e7491a81300249aa9b30790cd65b8a1dfe1d`, Pages run3619131
 ## Task 3 correction / Task 4 ruling — 26 September 2026
 
 Original Task3 approved by both reviewers. Corrections: plant dressing in engineering flat grey, shared switch, landscape photoreal only; vehicle source -X nose aligned with road via PI yaw. Local correction checks/budgets and both internal reviews PASS. Separate 12-capture engineering candidate and 57-asset visibility diff (zero differences) under evidence/stageC-task-03/correction. Approved baseline unchanged. User explicitly authorizes continuing into Task4 and submitting both separately at its gate. Saved brief: docs/superpowers/plans/2026-09-26-stage-c-task-04-process-flow.md. No flow implementation yet at this correction checkpoint.
+
+
+## Stage C Task 4 local verification — 26 September 2026
+
+Shared route descriptors now drive physical instanced pipes and one gradient-shell flow batch. Active pipe tint, master/pause handling and trip-to-standby switching pass. The tour's existing processPathId is rendered without editing captions, timing or canonical scenarios. No canonical file changed (32 hashes;57 assets/6 units); approved engineering baseline untouched. Task3 correction candidate (commit e4030f1) and Task4 candidate remain separate under the combined-gate ruling.
+
+All ten active path cases pass: CAM2/CAM6 night peak196calls, worstp95 11.3ms; lazy42,333,254bytes. Inherited engineering p952.4ms/68calls, night11.1ms/191.2calls,500stressmedian1.7ms; initialengineering10,954,270bytes. ACPerformance,RTX3050,Chrome146,two144Hz displays recorded; uncapped flags unchanged. Screenshot phase0/motiontime2. Offline frame-by-frame tour capture is separate from real-time performance measurement. Full npmcheck29Vitest31pytest7tool tests, generator22types and production/data checks pass. All342selections and mobile/loadingchecksPASS; bothinternalreviewsPASS. Finalvideo2533unique60fpsframes,42.216667sec,fullHUD; offlineclockonly. Previewpublicationverification follows. Stop at combined Task4 gate; do not promote baselines or start later work.

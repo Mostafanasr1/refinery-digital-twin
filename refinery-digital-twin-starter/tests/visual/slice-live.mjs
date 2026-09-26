@@ -23,6 +23,15 @@ for (const [name, executable] of [['chrome', 'C:/Program Files/Google/Chrome/App
     assert.match(await run.page.locator('footer').innerText(), /57 assets bound/);
     run.url = base + 'next/?measure=1&animate=1&captureCycle=1';
     const hardware = await openLook(run, 'engineering');
+    if(task==='04'){
+      assert.equal(await run.page.evaluate(()=>window.__refineryLookSnapshot().dressing.visible),true);
+      await run.page.getByLabel('Process path',{exact:true}).selectOption('path_crude_to_products');
+      await camera(run.page,config.cameras[1]);
+      const first=await run.page.evaluate(()=>window.__refineryFlow());await run.page.waitForTimeout(300);
+      const moved=await run.page.evaluate(()=>window.__refineryFlow());assert.notEqual(first.phase,moved.phase);assert.ok(moved.segments.every(s=>s.kind==='pipe'));assert.equal(moved.drawBatches,1);
+      await run.page.screenshot({path:resolve(output,`${name}-engineering-flow.png`)});
+      await run.page.getByLabel('Process path',{exact:true}).selectOption('');
+    }
     await switchLook(run.page, 'photoreal'); await camera(run.page, config.cameras[5]);
     const time = await run.page.evaluate(() => window.__refineryMotion.read().time);
     await run.page.waitForTimeout(500);
@@ -43,6 +52,10 @@ for (const [name, executable] of [['chrome', 'C:/Program Files/Google/Chrome/App
     assert.equal(await run.page.evaluate(() => window.__refineryLookSnapshot().dressing.visible), true);
     await run.page.screenshot({ path: resolve(output, `${name}-CAM-6-day.png`) });
     await switchLook(run.page, 'photoreal-night');
+    if(task==='04'){
+      await run.page.getByLabel('Process path',{exact:true}).selectOption('path_crude_to_products');
+      const flow=await run.page.evaluate(()=>window.__refineryFlow());assert.equal(flow.drawBatches,1);assert.ok(flow.segments.every(s=>s.kind==='pipe'));assert.equal(flow.phase,0);
+    }
     await run.page.screenshot({ path: resolve(output, `${name}-CAM-6-night.png`) });
     await run.page.setViewportSize({ width: 412, height: 915 });
     await run.page.screenshot({ path: resolve(output, `${name}-mobile.png`) });
