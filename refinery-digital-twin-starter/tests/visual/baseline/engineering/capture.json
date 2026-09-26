@@ -1,138 +1,19 @@
 {
-  "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
-  "look": "engineering",
-  "interactiveAt": 2044.199999988079,
-  "dpr": 1,
-  "browser": "146.0.7680.153",
-  "flags": [
-    "--enable-gpu",
-    "--force_high_performance_gpu",
-    "--use-angle=d3d11",
-    "--force-color-profile=srgb",
-    "--disable-background-timer-throttling",
-    "--disable-renderer-backgrounding",
-    "--disable-backgrounding-occluded-windows"
-  ],
-  "viewport": {
-    "width": 1600,
-    "height": 900
-  },
-  "config": {
-    "viewport": {
-      "width": 1600,
-      "height": 900
-    },
-    "deviceScaleFactor": 1,
-    "frozenTime": "2026-09-24T12:00:00.000Z",
-    "selectedTag": "T-201",
-    "cameras": [
-      {
-        "id": "CAM-1",
-        "name": "overview",
-        "position": [
-          250,
-          140,
-          200
-        ],
-        "target": [
-          85,
-          9,
-          -24
-        ]
-      },
-      {
-        "id": "CAM-2",
-        "name": "heater",
-        "position": [
-          122,
-          40,
-          48
-        ],
-        "target": [
-          76,
-          10,
-          -15
-        ]
-      },
-      {
-        "id": "CAM-3",
-        "name": "column",
-        "position": [
-          156,
-          12,
-          65
-        ],
-        "target": [
-          102,
-          26,
-          -23
-        ]
-      },
-      {
-        "id": "CAM-4",
-        "name": "tanks",
-        "position": [
-          245,
-          85,
-          85
-        ],
-        "target": [
-          164,
-          8,
-          4
-        ]
-      },
-      {
-        "id": "CAM-5",
-        "name": "flare",
-        "position": [
-          220,
-          18,
-          -185
-        ],
-        "target": [
-          170,
-          36,
-          -55
-        ]
-      },
-      {
-        "id": "CAM-6",
-        "name": "benchmark-low-wide",
-        "position": [
-          370,
-          85,
-          320
-        ],
-        "target": [
-          115,
-          26,
-          -35
-        ]
-      }
-    ],
-    "studyCamera": {
-      "position": [
-        13,
-        10,
-        16
-      ],
-      "target": [
-        0,
-        1.9,
-        0
-      ]
-    }
-  },
   "status": "approved",
-  "approval": {
-    "date": "2026-09-25",
-    "reviewers": [
-      "Mostafa",
-      "Claude"
-    ],
-    "sourceCommit": "952d004",
-    "source": "docs/handbacks/evidence/stageB-task-08/engineering-candidate",
-    "ruling": "Task 8 approved by both reviewers; promote candidate captures."
+  "approval": "Mostafa reports both external reviewers approved Stage C Task 3 correction; promote first, before Task 4",
+  "source": "docs\\handbacks\\evidence\\stageC-task-03\\correction\\engineering-candidate",
+  "files": {
+    "CAM-1-default.png": "80580a36c953e66471d101f04d17e99ba603995a01fe12907d021e79b503db81",
+    "CAM-1-selected.png": "3c7be4f034a65eb597d7d0b42826dfaadd71c936cf9e31a8bbe6310b92f10200",
+    "CAM-2-default.png": "ea00279d5d6768afc95d715423cb639d5a90403f915f7c8c8b005a67dfd521d6",
+    "CAM-2-selected.png": "acac5e7018a65eeff053af02874a09005406774637f6c30022ac5013b10523a0",
+    "CAM-3-default.png": "608d75572f11084657e402ef29a9a8af33b0c88e0641ed6692eb4b7718b1880f",
+    "CAM-3-selected.png": "cb5a855cd9e5b46264c7786a224b1c204f0f0b4766541be829ca8132f1430c0f",
+    "CAM-4-default.png": "19d746333f92915378c2ae1b0157b720eb7460b790b38780fd513eafd73951b2",
+    "CAM-4-selected.png": "d74765d63ab2f69fbca650bb2b3b09f27e4d9162c469e72a15615c390760ea84",
+    "CAM-5-default.png": "d740984565bac907b51eedc63a49cf98ff25bbed1d86e4b4de5b5e7ab981916b",
+    "CAM-5-selected.png": "9fdd14c21d25bebb5cfdd7ee8b20b7b0686dea889487b10acb67a96d8127d343",
+    "CAM-6-default.png": "5500fbf9cdde0ebeae3c43c6a418577e04dc472a2be49f830d64a55d5fccbaf4",
+    "CAM-6-selected.png": "ab17487c742654185d48b26523473f58ebd57c4263c3f3c56880194f18bb0904"
   }
 }
