@@ -30,3 +30,7 @@ Lazy assets remain 42,333,254 bytes. Canonical truth remains 57 assets,6 units,3
 ## Files and release
 
 FlowOverlay,flowGeometry,ProcessPipes,flowStyle,main,LookProvider,flow presentation config and focused tests/evidence. Baseline promotion metadata preserves browser/renderer/config compatibility. Main release merge and Chrome/Edge verification follow local completion. Phone check belongs to Mostafa; no new report claimed. Keep /next/ on dual-look. Task 5 offline stills follow release; stop at its gate.
+
+### Published release
+
+Correction commit `7cf6bb63b9ac2d5cc7bf22747893c4f3d343ac94` pushed to dual-look, then fast-forward merged and pushed to main under explicit authorization. Pages run 36219034526 succeeded. Installed Chrome and Edge both PASS root verification: exact release commit, 57 bound canonical assets, actual Pipes/Arcs geometry in engineering/day/night, URL persistence/reload. `/next/` remains dual-look at the same release commit. Evidence: `evidence/stageC-task-04-correction/live/`. The first live-check attempt incorrectly expected the process-path selection to persist after reload; the harness now reselects the path before asserting persisted Flow style. No app change was needed. Physical-phone result remains pending Mostafa; no inferred pass. Working branch returned to dual-look for Task 5.

@@ -266,3 +266,5 @@ Task 4 combined gate submission: local and live verification complete; both inte
 ## 2026-09-26: Stage C release ruling and flow correction
 
 Both external reviewers approved the Task 3 correction and Task 4. Engineering baselines promoted in order: d57b027 then ae2a048. Flow presentation offers Pipes (default) and Arcs beside an active Process path, URL-persistent in both looks. Both are instanced gradient tubes with a minimum three-CSS-pixel diameter; no dots. Both-style night checks peak at 196 calls; worst p95 is 9.0 ms Pipes and 7.3 ms Arcs. Full check and exact 12-view engineering regression pass. Both internal reviewers PASS. Main merge and desktop release verification authorized; Mostafa owns the pending new phone check. Task 5 then produces offline Cycles stills only, with no canonical change.
+
+Stage C release published at main `7cf6bb6` (Pages 36219034526). Root verified in installed Chrome and Edge; `/next/` retained. New physical-phone check pending Mostafa. Task 5 offline stills now in progress on dual-look.
