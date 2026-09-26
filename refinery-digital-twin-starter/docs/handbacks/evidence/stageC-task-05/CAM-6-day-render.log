@@ -1,0 +1,9 @@
+00:00.891  blend            | Read blend: "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\docs\stills\stageC-hero-scene.blend"
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\render.py:18: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if not mat or not mat.use_nodes:continue
+00:01.719  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+06:19.203  render           | Saved: 'C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\docs\stills\CAM-6-day.png'
+RENDER_COMPLETE {"camera": "CAM-6", "preset": "day", "engine": "CYCLES", "device": ["NVIDIA GeForce RTX 3050 Laptop GPU"], "backend": "OPTIX", "blender": "5.2.1 LTS", "width": 3840, "height": 2160, "samples_max": 256, "adaptive_threshold": 0.009999999776482582, "denoising": true, "denoiser": "OPENIMAGEDENOISE", "render_seconds": 377.66518909999286, "load_and_render_seconds": 378.52265910001006, "scene_sha256": "ca73bc2c483104ec6e02994f9e3b21b6ebab6f1a99f47deb19ae0a7dda27e372", "source_commit": "cd67ef8cd70e23b7ed7a71b4357fa19ee758f890", "output": "CAM-6-day.png", "output_sha256": "7eed591e2e6b29a010e8852fcd65b7937e31fc0f2fb803349c1c00aecdf7f34b"}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

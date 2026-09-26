@@ -144,3 +144,7 @@ Derived from the already credited CC BY 4.0 cabin (ROGUE), container (Strifey7),
 ## Stage C Task 4 — procedural flow
 
 No new downloaded assets. Unit-cylinder instanced flow shells and gap interpolation are generated at runtime from existing physical pipe routes. Shader/spacing configuration: `data/presentation/flow.json`. Existing source licenses and asset hashes are unchanged.
+
+## Stage C Task 5 — offline hero stills
+
+No new downloaded assets. The current runtime plant, adapted SRTM terrain, Poly Haven textures/HDR/rocks and credited CC BY models above are assembled into one packed Blender scene for three Cycles slide stills. Existing source licenses and canonical hashes remain unchanged. `docs/stills/README.md` carries model-author attribution, original links, modification notes and offline shader/lighting adaptations for redistribution with the slide artwork. `docs/stills/manifest.json` records scene/image hashes, byte sizes, source-input hashes and actual render settings/times. These files are excluded from the runtime app.

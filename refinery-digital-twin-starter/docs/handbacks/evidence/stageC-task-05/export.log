@@ -1,0 +1,61 @@
+vite v6.4.3 building for production...
+transforming...
+✓ 301 modules transformed.
+rendering chunks...
+computing gzip size...
+../tests/visual/output/stageC-task-05/export-app/index.html                     0.37 kB │ gzip:   0.27 kB
+../tests/visual/output/stageC-task-05/export-app/assets/index-VBXTORsW.css     18.54 kB │ gzip:   4.84 kB
+../tests/visual/output/stageC-task-05/export-app/assets/index-B__AnFRh.js   1,511.96 kB │ gzip: 438.56 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 7.74s
+day {
+  objects: 44,
+  instances: 1818,
+  lights: 4,
+  steam: 18,
+  omitted: [
+    {
+      name: '',
+      ancestry: 'Scene/plant-atmosphere/Mesh',
+      position: [Array],
+      scale: [Array],
+      reason: 'flare shader reconstructed as emissive geometry offline'
+    },
+    {
+      name: 'day-dust',
+      ancestry: 'Scene/presentation-motion/day-dust',
+      position: [Array],
+      scale: [Array],
+      reason: 'day dust excluded from the frozen offline still; physical atmospheric haze retained'
+    },
+    'shader sky: source HDR and captured procedural dusk texture in Cycles world'
+  ]
+}
+night {
+  objects: 45,
+  instances: 2013,
+  lights: 12,
+  steam: 18,
+  omitted: [
+    {
+      name: '',
+      ancestry: 'Scene/plant-atmosphere/Mesh',
+      position: [Array],
+      scale: [Array],
+      reason: 'flare shader reconstructed as emissive geometry offline'
+    },
+    {
+      name: 'day-dust',
+      ancestry: 'Scene/presentation-motion/day-dust',
+      position: [Array],
+      scale: [Array],
+      reason: 'day dust excluded from the frozen offline still; physical atmospheric haze retained'
+    },
+    'shader sky: source HDR and captured procedural dusk texture in Cycles world'
+  ]
+}
+{ bytes: 107954936, meshes: 45, errors: [] }

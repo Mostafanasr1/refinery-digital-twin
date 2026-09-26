@@ -1,0 +1,19 @@
+00:01.109  blend            | Read blend: "C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\tests\visual\output\stageC-task-05\import.blend"
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:51: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new('Sinai DEM / sourced slope-height blend');m.use_nodes=True;t=m.node_tree;t.nodes.clear()
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:76: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  if mat==terrain or not mat.use_nodes:continue
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:111: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('Sourced desert sky');world.use_nodes=True;scene.world=world;t=world.node_tree;t.nodes.clear();out=node(t,'ShaderNodeOutputWorld');env=node(t,'ShaderNodeTexEnvironment');env.image=bpy.data.images.load(str(ROOT/'data/normalized/assets/env/sky.hdr'));bg=node(t,'ShaderNodeBackground','Environment illumination');bg.inputs['Strength'].default_value=.65;link(t,env.outputs['Color'],bg.inputs['Color']);camera_bg=node(t,'ShaderNodeBackground','Camera sky');camera_bg.inputs['Color'].default_value=(.4,.6,.8,1);lightpath=node(t,'ShaderNodeLightPath');mixsh=node(t,'ShaderNodeMixShader');link(t,lightpath.outputs['Is Camera Ray'],mixsh.inputs[0]);link(t,bg.outputs[0],mixsh.inputs[1]);link(t,camera_bg.outputs[0],mixsh.inputs[2]);link(t,mixsh.outputs[0],out.inputs[0])
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:113: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  bpy.ops.mesh.primitive_cube_add(size=1,location=(100,35,1100));haze=bpy.context.object;haze.name='offline-atmospheric-haze';haze.scale=(9000,9000,2300);m=bpy.data.materials.new('Desert haze');m.use_nodes=True;m.node_tree.nodes.clear();vo=node(m.node_tree,'ShaderNodeVolumeScatter');vo.inputs['Color'].default_value=(.68,.74,.78,1);vo.inputs['Density'].default_value=.00008;vo.inputs['Anisotropy'].default_value=.35;out=node(m.node_tree,'ShaderNodeOutputMaterial');link(m.node_tree,vo.outputs[0],out.inputs['Volume']);haze.data.materials.append(m)
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:118: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(obj.name);m.use_nodes=True;m.node_tree.nodes.clear();vol=node(m.node_tree,'ShaderNodeVolumePrincipled');vol.inputs['Density'].default_value=spec['opacity']*.09;out=node(m.node_tree,'ShaderNodeOutputMaterial');link(m.node_tree,vol.outputs[0],out.inputs['Volume']);obj.data.materials.append(m)
+C:\Users\Mosta\OneDrive\Documents\ChatGPT\Oil and Gas\refinery-digital-twin-starter\scripts\stills\build_scene.py:124: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(obj.name);m.use_nodes=True;t=m.node_tree;t.nodes.clear();em=node(t,'ShaderNodeEmission');em.inputs['Color'].default_value=(1,.24+i*.15,.012,1);em.inputs['Strength'].default_value=12+i*4;out=node(t,'ShaderNodeOutputMaterial');link(t,em.outputs[0],out.inputs[0]);obj.data.materials.append(m)
+Info: Packed 11 file(s)
+Info: Saved as "stageC-hero-scene.blend"
+HERO_SCENE_SAVED 2083 67 68
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

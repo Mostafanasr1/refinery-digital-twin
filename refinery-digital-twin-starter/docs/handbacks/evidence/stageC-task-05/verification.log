@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scene": {
+    "file": "stageC-hero-scene.blend",
+    "sha256": "ca73bc2c483104ec6e02994f9e3b21b6ebab6f1a99f47deb19ae0a7dda27e372",
+    "bytes": 64509722
+  },
+  "frames": [
+    {
+      "output": "CAM-6-day.png",
+      "seconds": 377.66518909999286,
+      "denoiser": "OPENIMAGEDENOISE"
+    },
+    {
+      "output": "CAM-6-night.png",
+      "seconds": 201.83112149999943,
+      "denoiser": "OPENIMAGEDENOISE"
+    },
+    {
+      "output": "CAM-2-day.png",
+      "seconds": 502.0569861000113,
+      "denoiser": "OPENIMAGEDENOISE"
+    }
+  ],
+  "appExclusion": "PASS: no stills, Blender scene, or offline scene bridge in app/dist"
+}

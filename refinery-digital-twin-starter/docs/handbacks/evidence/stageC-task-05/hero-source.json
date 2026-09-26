@@ -1,0 +1,3397 @@
+{
+  "presets": {
+    "day": {
+      "objects": {
+        "hero_84545c9b-be0a-428e-9ba9-b22099dfd483": {
+          "name": "aviation-warning-lights",
+          "ancestry": "Scene/plant-atmosphere/aviation-warning-lights",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                12,
+                0.015,
+                0.005
+              ],
+              "emissiveIntensity": 0,
+              "opacity": 1,
+              "basic": true
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 4
+        },
+        "hero_64edaae1-3759-493b-bbeb-f99b853c7325": {
+          "name": "fan-insets",
+          "ancestry": "Scene/presentation-motion/fan-insets",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.005605391621829108,
+                0.012286488353353374,
+                0.015996293361446288
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.95,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 8
+        },
+        "hero_b03f62e8-5a92-40d1-ae63-6b806a7bcb98": {
+          "name": "rotating-fans",
+          "ancestry": "Scene/presentation-motion/rotating-fans",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.26225065751888765,
+                0.3277780980458375,
+                0.33245153633549385
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.6,
+              "metalness": 0.4,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 8
+        },
+        "hero_1d639c33-f955-4a3a-a3de-ff14cd8a3021": {
+          "name": "",
+          "ancestry": "Scene/presentation-motion/Mesh",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.3371636150376657,
+                0.3967552307153359,
+                0.407240211891531
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.45,
+              "metalness": 0.6,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_ff2de794-6835-42ca-bc3b-8513005587c9": {
+          "name": "gate-flag",
+          "ancestry": "Scene/presentation-motion/gate-flag",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.015208514418949472,
+                0.20507873637973145,
+                0.2788942634659966
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.8,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_8147cb16-9e1f-41a7-8f67-8a38c778007d": {
+          "name": "sourced-cabins",
+          "ancestry": "Scene/sourced-site-dressing/sourced-cabins",
+          "materials": [
+            {
+              "name": "Cabin_Atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.3822959363460541,
+              "metalness": 0.08471846580505371,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 3
+        },
+        "hero_58863679-f692-4b2a-8e43-a539a62b75eb": {
+          "name": "sourced-containers",
+          "ancestry": "Scene/sourced-site-dressing/sourced-containers",
+          "materials": [
+            {
+              "name": "Sourced_container_Strifey7_CC_BY_4",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7799999713897705,
+              "metalness": 0.3499999940395355,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 2
+        },
+        "hero_f1f2a188-dc7a-4480-81cf-98381073fb3f": {
+          "name": "moving-pickup",
+          "ancestry": "Scene/sourced-site-dressing/moving-pickup",
+          "materials": [
+            {
+              "name": "source-pickup_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_21aa2c97-c722-451b-a88b-2e192b337493": {
+          "name": "parked-pickups",
+          "ancestry": "Scene/sourced-site-dressing/parked-pickups",
+          "materials": [
+            {
+              "name": "source-pickup_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 10
+        },
+        "hero_3e179927-369e-407b-80c9-02cd2d5b07a9": {
+          "name": "moving-tanker",
+          "ancestry": "Scene/sourced-site-dressing/moving-tanker",
+          "materials": [
+            {
+              "name": "source-tanker_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_4ea033fb-a210-4f27-880e-5abf4719a674": {
+          "name": "sourced-cabin-windows",
+          "ancestry": "Scene/sourced-site-dressing/sourced-cabin-windows",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.41254261347374327,
+                0.46778379610254284,
+                0.3813260114221238
+              ],
+              "emissive": [
+                1,
+                0.623960391667596,
+                0.22696587349938613
+              ],
+              "emissiveIntensity": 0,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 6
+        },
+        "hero_39c2289e-f4a2-47cd-9536-dba94155a277": {
+          "name": "pole",
+          "ancestry": "Scene/site/pole",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.13286832154414627,
+                0.14702726648767014,
+                0.14702726648767014
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 20
+        },
+        "hero_a02bdc98-4d7d-4930-b33e-8642cefb631e": {
+          "name": "lamp",
+          "ancestry": "Scene/site/lamp",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                1,
+                0.95,
+                0.8
+              ],
+              "emissiveIntensity": 0,
+              "opacity": 1,
+              "basic": true
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 20
+        },
+        "hero_9b8c3918-220c-4b87-b2c7-e767a38e882e": {
+          "name": "foundation",
+          "ancestry": "Scene/site/foundation",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.41254261347374327,
+                0.3813260114221238,
+                0.3005437944049895
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.95,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 47
+        },
+        "hero_f1516c5b-13f7-4d79-8d64-39e3869e58ad": {
+          "name": "slice-concrete",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-concrete",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.2501582847191642,
+                0.24228112245478564,
+                0.21223075740342198
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.05,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_1f315639-3d18-42e6-91b4-9344651cc1b2": {
+          "name": "slice-steel",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-steel",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.1912016827303171,
+                0.21586050010324417,
+                0.21586050010324417
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_7dd08b31-9cfa-4804-a91d-330cb5cdb3e4": {
+          "name": "slice-pipe",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-pipe",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.46778379610254284,
+                0.4793201830913402,
+                0.41254261347374327
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_98ee82b1-7711-409c-9d9b-5f7b1883a96a": {
+          "name": "slice-dark",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-dark",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.054480276435339814,
+                0.06301001764564068,
+                0.057805430183792694
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.05,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_60e3105f-b199-410c-b155-be55130e83cb": {
+          "name": "slice-rail",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-rail",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.4735314961384573,
+                0.26225065751888765,
+                0.040915196900556984
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_958b20ec-e4c4-4081-ae7f-32fdf6aee8f8": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/Mesh",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.7529422167708612,
+                0.6038273388475408,
+                0.43415363616478553
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "sinai-slope-height-three-surfaces-v1"
+          ],
+          "count": 1
+        },
+        "hero_c8f80542-4093-4f0e-91aa-9b440fa3cb1c": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_concrete",
+              "color": [
+                0.3400000035762787,
+                0.3199999928474426,
+                0.2800000011920929
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.949999988079071,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}/slice-wear/concrete/true/0.4"
+          ],
+          "count": 1
+        },
+        "hero_f0f162ef-cda7-449a-ae26-aeeaa6ca6423": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_galvanized",
+              "color": [
+                0.23000000417232513,
+                0.25,
+                0.25
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.6499999761581421,
+              "metalness": 0.6499999761581421,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_e65952d3-76d2-4529-a56e-3ce37d00567f": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_marking",
+              "color": [
+                0.6000000238418579,
+                0.5699999928474426,
+                0.4399999976158142
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.8999999761581421,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_8e31bee1-ac2d-447e-87d3-c800af215caa": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_road",
+              "color": [
+                0.06499999761581421,
+                0.06199999898672104,
+                0.05700000002980232
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.9599999785423279,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}/slice-wear/concrete/true/0.4"
+          ],
+          "count": 1
+        },
+        "hero_34aef3e1-1ef6-4387-8e79-74ce1a32d653": {
+          "name": "rocks",
+          "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/rocks",
+          "materials": [
+            {
+              "name": "sand_rocks_small_01",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 900
+        },
+        "hero_bf3c3061-7164-49ed-9ae7-6ac69eed4fa9": {
+          "name": "dry-scrub",
+          "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/dry-scrub",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.13013647668074665,
+                0.10224173307914941,
+                0.036889450395083165
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 650
+        },
+        "hero_a0e207b3-9f25-4abf-aa71-d2b7660bf954": {
+          "name": "equipment-batch-0",
+          "ancestry": "Scene/hero-detail/equipment-batch-0",
+          "materials": [
+            {
+              "name": "Brushed steel::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_644b7a42-24d8-4bd7-a603-0852e46b796b": {
+          "name": "equipment-batch-1",
+          "ancestry": "Scene/hero-detail/equipment-batch-1",
+          "materials": [
+            {
+              "name": "Equipment shell::weathered-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.62,
+              "metalness": 0.35,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/weathered-steel/false/0.32"
+          ],
+          "count": 1
+        },
+        "hero_7bfeac53-e3e3-40d6-ba52-cca55e91033f": {
+          "name": "equipment-batch-2",
+          "ancestry": "Scene/hero-detail/equipment-batch-2",
+          "materials": [
+            {
+              "name": "Safety ochre::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_5fcbf6e6-138a-4f9b-80b5-275969765472": {
+          "name": "equipment-batch-3",
+          "ancestry": "Scene/hero-detail/equipment-batch-3",
+          "materials": [
+            {
+              "name": "Brushed steel::grating",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.65,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/grating/false/0.26"
+          ],
+          "count": 1
+        },
+        "hero_b7e21cb5-85a7-44fe-a98b-4b4e1b86f91d": {
+          "name": "equipment-batch-4",
+          "ancestry": "Scene/hero-detail/equipment-batch-4",
+          "materials": [
+            {
+              "name": "Equipment shell::painted-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/painted-steel/false/0.2"
+          ],
+          "count": 1
+        },
+        "hero_3b50ae57-7f42-44ec-b8f1-c9991037a723": {
+          "name": "physical-pipes-painted-steel",
+          "ancestry": "Scene/pipes/physical-pipes-painted-steel",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.5840784178830671,
+                0.5972017883558645,
+                0.5457244613615395
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "instanced-pipe-metres-painted-steel-v1"
+          ],
+          "count": 100
+        },
+        "hero_b1f647e8-52a9-47c5-b3bd-aa976849387d": {
+          "name": "physical-pipes-insulation",
+          "ancestry": "Scene/pipes/physical-pipes-insulation",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.46778379610254284,
+                0.514917665367466,
+                0.5271151256969157
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.35,
+              "metalness": 0.82,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "instanced-pipe-metres-insulation-v1"
+          ],
+          "count": 10
+        },
+        "hero_fa2a4493-04c4-4a23-b6ad-8e7c2902f24b": {
+          "name": "equipment-batch-0",
+          "ancestry": "Scene/equipment/equipment-batch-0",
+          "materials": [
+            {
+              "name": "Concrete::concrete",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.98,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/concrete/false/0.3"
+          ],
+          "count": 1
+        },
+        "hero_71feab06-8be0-4f84-b15d-a3768d1ab698": {
+          "name": "equipment-batch-1",
+          "ancestry": "Scene/equipment/equipment-batch-1",
+          "materials": [
+            {
+              "name": "Brushed steel::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_bfd50a02-90a0-4421-b864-9482670f85a5": {
+          "name": "equipment-batch-2",
+          "ancestry": "Scene/equipment/equipment-batch-2",
+          "materials": [
+            {
+              "name": "Equipment shell::weathered-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.62,
+              "metalness": 0.35,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/weathered-steel/false/0.32"
+          ],
+          "count": 1
+        },
+        "hero_87a6b78e-47f3-4d47-8bbb-4773a1c050dc": {
+          "name": "equipment-batch-3",
+          "ancestry": "Scene/equipment/equipment-batch-3",
+          "materials": [
+            {
+              "name": "Equipment shell::painted-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/painted-steel/false/0.2"
+          ],
+          "count": 1
+        },
+        "hero_4fbb3d01-b146-47c7-a90f-f73f047901f3": {
+          "name": "equipment-batch-4",
+          "ancestry": "Scene/equipment/equipment-batch-4",
+          "materials": [
+            {
+              "name": "Brushed steel::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_36cc77cf-8f47-47b4-b0c4-2659ae5fdf8d": {
+          "name": "equipment-batch-5",
+          "ancestry": "Scene/equipment/equipment-batch-5",
+          "materials": [
+            {
+              "name": "Safety ochre::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_fa833533-0dc0-419b-9359-e4ae43f738b1": {
+          "name": "equipment-batch-6",
+          "ancestry": "Scene/equipment/equipment-batch-6",
+          "materials": [
+            {
+              "name": "Brushed steel::grating",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.65,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/grating/false/0.26"
+          ],
+          "count": 1
+        },
+        "hero_87307cc5-5fac-4564-9376-9a3460c30a80": {
+          "name": "equipment-batch-7",
+          "ancestry": "Scene/equipment/equipment-batch-7",
+          "materials": [
+            {
+              "name": "Safety ochre::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_6d6c6f14-e863-42a7-b382-f26c3476e4dc": {
+          "name": "equipment-batch-8",
+          "ancestry": "Scene/equipment/equipment-batch-8",
+          "materials": [
+            {
+              "name": "Equipment shell::insulation",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.35,
+              "metalness": 0.82,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/insulation/false/0.12"
+          ],
+          "count": 1
+        },
+        "hero_111d8619-ccf4-4fc7-bb4a-c4f1173c183a": {
+          "name": "equipment-batch-9",
+          "ancestry": "Scene/equipment/equipment-batch-9",
+          "materials": [
+            {
+              "name": "Equipment shell::dark-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7,
+              "metalness": 0.45,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/dark-steel/false/0.22"
+          ],
+          "count": 1
+        },
+        "hero_768ac5a0-647e-4838-880d-fd8398e33577": {
+          "name": "equipment-batch-10",
+          "ancestry": "Scene/equipment/equipment-batch-10",
+          "materials": [
+            {
+              "name": "Brushed steel::dark-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7,
+              "metalness": 0.45,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/dark-steel/false/0.22"
+          ],
+          "count": 1
+        }
+      },
+      "lights": [
+        {
+          "type": "AmbientLight",
+          "name": "",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 0,
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "type": "HemisphereLight",
+          "name": "",
+          "color": [
+            0.3967552307153359,
+            0.5840784178830671,
+            0.7379104087672317
+          ],
+          "intensity": 0,
+          "position": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "type": "DirectionalLight",
+          "name": "",
+          "color": [
+            1,
+            0.8796223968851662,
+            0.6583748172725346
+          ],
+          "intensity": 2.7,
+          "position": [
+            120.00000000000001,
+            180,
+            41
+          ],
+          "target": [
+            120,
+            0,
+            -49
+          ]
+        },
+        {
+          "type": "DirectionalLight",
+          "name": "",
+          "color": [
+            0.10461648408208657,
+            0.48514994004665124,
+            0.85499260812105
+          ],
+          "intensity": 0,
+          "position": [
+            150,
+            60,
+            -100
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "steam": [
+        {
+          "position": [
+            45.822182901825464,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            46.322182901825464,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            46.822182901825464,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            47.322182901825464,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            47.822182901825464,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            45.322182901825464,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        },
+        {
+          "position": [
+            60.822182901825464,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            61.322182901825464,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            61.822182901825464,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            62.322182901825464,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            62.822182901825464,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            60.322182901825464,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        },
+        {
+          "position": [
+            75.82218290182546,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            76.32218290182546,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            76.82218290182546,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            77.32218290182546,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            77.82218290182546,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            75.32218290182546,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        }
+      ],
+      "omitted": [
+        {
+          "name": "",
+          "ancestry": "Scene/plant-atmosphere/Mesh",
+          "position": [
+            170,
+            70.5,
+            -55
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "reason": "flare shader reconstructed as emissive geometry offline"
+        },
+        {
+          "name": "day-dust",
+          "ancestry": "Scene/presentation-motion/day-dust",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "reason": "day dust excluded from the frozen offline still; physical atmospheric haze retained"
+        },
+        "shader sky: source HDR and captured procedural dusk texture in Cycles world"
+      ]
+    },
+    "night": {
+      "objects": {
+        "hero_84545c9b-be0a-428e-9ba9-b22099dfd483": {
+          "name": "aviation-warning-lights",
+          "ancestry": "Scene/plant-atmosphere/aviation-warning-lights",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                12,
+                0.015,
+                0.005
+              ],
+              "emissiveIntensity": 0,
+              "opacity": 1,
+              "basic": true
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 4
+        },
+        "hero_6feda0c1-bbdf-4ad2-b56e-e235e69a97e7": {
+          "name": "",
+          "ancestry": "Scene/plant-atmosphere/Mesh",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                18,
+                8,
+                2
+              ],
+              "emissiveIntensity": 0,
+              "opacity": 1,
+              "basic": true
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 195
+        },
+        "hero_64edaae1-3759-493b-bbeb-f99b853c7325": {
+          "name": "fan-insets",
+          "ancestry": "Scene/presentation-motion/fan-insets",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.005605391621829108,
+                0.012286488353353374,
+                0.015996293361446288
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.95,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 8
+        },
+        "hero_b03f62e8-5a92-40d1-ae63-6b806a7bcb98": {
+          "name": "rotating-fans",
+          "ancestry": "Scene/presentation-motion/rotating-fans",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.26225065751888765,
+                0.3277780980458375,
+                0.33245153633549385
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.6,
+              "metalness": 0.4,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 8
+        },
+        "hero_1d639c33-f955-4a3a-a3de-ff14cd8a3021": {
+          "name": "",
+          "ancestry": "Scene/presentation-motion/Mesh",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.3371636150376657,
+                0.3967552307153359,
+                0.407240211891531
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.45,
+              "metalness": 0.6,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_ff2de794-6835-42ca-bc3b-8513005587c9": {
+          "name": "gate-flag",
+          "ancestry": "Scene/presentation-motion/gate-flag",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.015208514418949472,
+                0.20507873637973145,
+                0.2788942634659966
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.8,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_8147cb16-9e1f-41a7-8f67-8a38c778007d": {
+          "name": "sourced-cabins",
+          "ancestry": "Scene/sourced-site-dressing/sourced-cabins",
+          "materials": [
+            {
+              "name": "Cabin_Atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.3822959363460541,
+              "metalness": 0.08471846580505371,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 3
+        },
+        "hero_58863679-f692-4b2a-8e43-a539a62b75eb": {
+          "name": "sourced-containers",
+          "ancestry": "Scene/sourced-site-dressing/sourced-containers",
+          "materials": [
+            {
+              "name": "Sourced_container_Strifey7_CC_BY_4",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7799999713897705,
+              "metalness": 0.3499999940395355,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 2
+        },
+        "hero_f1f2a188-dc7a-4480-81cf-98381073fb3f": {
+          "name": "moving-pickup",
+          "ancestry": "Scene/sourced-site-dressing/moving-pickup",
+          "materials": [
+            {
+              "name": "source-pickup_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_21aa2c97-c722-451b-a88b-2e192b337493": {
+          "name": "parked-pickups",
+          "ancestry": "Scene/sourced-site-dressing/parked-pickups",
+          "materials": [
+            {
+              "name": "source-pickup_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 10
+        },
+        "hero_3e179927-369e-407b-80c9-02cd2d5b07a9": {
+          "name": "moving-tanker",
+          "ancestry": "Scene/sourced-site-dressing/moving-tanker",
+          "materials": [
+            {
+              "name": "source-tanker_atlas",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.699999988079071,
+              "metalness": 0.15000000596046448,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_4ea033fb-a210-4f27-880e-5abf4719a674": {
+          "name": "sourced-cabin-windows",
+          "ancestry": "Scene/sourced-site-dressing/sourced-cabin-windows",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.41254261347374327,
+                0.46778379610254284,
+                0.3813260114221238
+              ],
+              "emissive": [
+                1,
+                0.623960391667596,
+                0.22696587349938613
+              ],
+              "emissiveIntensity": 2.5,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 6
+        },
+        "hero_39c2289e-f4a2-47cd-9536-dba94155a277": {
+          "name": "pole",
+          "ancestry": "Scene/site/pole",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.13286832154414627,
+                0.14702726648767014,
+                0.14702726648767014
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 20
+        },
+        "hero_a02bdc98-4d7d-4930-b33e-8642cefb631e": {
+          "name": "lamp",
+          "ancestry": "Scene/site/lamp",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                14,
+                7,
+                2
+              ],
+              "emissiveIntensity": 0,
+              "opacity": 1,
+              "basic": true
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 20
+        },
+        "hero_9b8c3918-220c-4b87-b2c7-e767a38e882e": {
+          "name": "foundation",
+          "ancestry": "Scene/site/foundation",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.41254261347374327,
+                0.3813260114221238,
+                0.3005437944049895
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.95,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 47
+        },
+        "hero_f1516c5b-13f7-4d79-8d64-39e3869e58ad": {
+          "name": "slice-concrete",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-concrete",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.2501582847191642,
+                0.24228112245478564,
+                0.21223075740342198
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.05,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_1f315639-3d18-42e6-91b4-9344651cc1b2": {
+          "name": "slice-steel",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-steel",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.1912016827303171,
+                0.21586050010324417,
+                0.21586050010324417
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_7dd08b31-9cfa-4804-a91d-330cb5cdb3e4": {
+          "name": "slice-pipe",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-pipe",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.46778379610254284,
+                0.4793201830913402,
+                0.41254261347374327
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_98ee82b1-7711-409c-9d9b-5f7b1883a96a": {
+          "name": "slice-dark",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-dark",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.054480276435339814,
+                0.06301001764564068,
+                0.057805430183792694
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.05,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_60e3105f-b199-410c-b155-be55130e83cb": {
+          "name": "slice-rail",
+          "ancestry": "Scene/non-canonical-slice-dressing/slice-rail",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.4735314961384573,
+                0.26225065751888765,
+                0.040915196900556984
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.68,
+              "metalness": 0.5,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_958b20ec-e4c4-4081-ae7f-32fdf6aee8f8": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/Mesh",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.7529422167708612,
+                0.6038273388475408,
+                0.43415363616478553
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "sinai-slope-height-three-surfaces-v1"
+          ],
+          "count": 1
+        },
+        "hero_c8f80542-4093-4f0e-91aa-9b440fa3cb1c": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_concrete",
+              "color": [
+                0.3400000035762787,
+                0.3199999928474426,
+                0.2800000011920929
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.949999988079071,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}/slice-wear/concrete/true/0.4"
+          ],
+          "count": 1
+        },
+        "hero_f0f162ef-cda7-449a-ae26-aeeaa6ca6423": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_galvanized",
+              "color": [
+                0.23000000417232513,
+                0.25,
+                0.25
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.6499999761581421,
+              "metalness": 0.6499999761581421,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_e65952d3-76d2-4529-a56e-3ce37d00567f": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_marking",
+              "color": [
+                0.6000000238418579,
+                0.5699999928474426,
+                0.4399999976158142
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.8999999761581421,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 1
+        },
+        "hero_8e31bee1-ac2d-447e-87d3-c800af215caa": {
+          "name": "",
+          "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+          "materials": [
+            {
+              "name": "Context_road",
+              "color": [
+                0.06499999761581421,
+                0.06199999898672104,
+                0.05700000002980232
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.9599999785423279,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}/slice-wear/concrete/true/0.4"
+          ],
+          "count": 1
+        },
+        "hero_34aef3e1-1ef6-4387-8e79-74ce1a32d653": {
+          "name": "rocks",
+          "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/rocks",
+          "materials": [
+            {
+              "name": "sand_rocks_small_01",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 900
+        },
+        "hero_bf3c3061-7164-49ed-9ae7-6ac69eed4fa9": {
+          "name": "dry-scrub",
+          "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/dry-scrub",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.13013647668074665,
+                0.10224173307914941,
+                0.036889450395083165
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 1,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "onBeforeCompile(){}"
+          ],
+          "count": 650
+        },
+        "hero_a0e207b3-9f25-4abf-aa71-d2b7660bf954": {
+          "name": "equipment-batch-0",
+          "ancestry": "Scene/hero-detail/equipment-batch-0",
+          "materials": [
+            {
+              "name": "Brushed steel::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_644b7a42-24d8-4bd7-a603-0852e46b796b": {
+          "name": "equipment-batch-1",
+          "ancestry": "Scene/hero-detail/equipment-batch-1",
+          "materials": [
+            {
+              "name": "Equipment shell::weathered-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.62,
+              "metalness": 0.35,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/weathered-steel/false/0.32"
+          ],
+          "count": 1
+        },
+        "hero_7bfeac53-e3e3-40d6-ba52-cca55e91033f": {
+          "name": "equipment-batch-2",
+          "ancestry": "Scene/hero-detail/equipment-batch-2",
+          "materials": [
+            {
+              "name": "Safety ochre::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_5fcbf6e6-138a-4f9b-80b5-275969765472": {
+          "name": "equipment-batch-3",
+          "ancestry": "Scene/hero-detail/equipment-batch-3",
+          "materials": [
+            {
+              "name": "Brushed steel::grating",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.65,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/grating/false/0.26"
+          ],
+          "count": 1
+        },
+        "hero_b7e21cb5-85a7-44fe-a98b-4b4e1b86f91d": {
+          "name": "equipment-batch-4",
+          "ancestry": "Scene/hero-detail/equipment-batch-4",
+          "materials": [
+            {
+              "name": "Equipment shell::painted-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/painted-steel/false/0.2"
+          ],
+          "count": 1
+        },
+        "hero_3b50ae57-7f42-44ec-b8f1-c9991037a723": {
+          "name": "physical-pipes-painted-steel",
+          "ancestry": "Scene/pipes/physical-pipes-painted-steel",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.5840784178830671,
+                0.5972017883558645,
+                0.5457244613615395
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "instanced-pipe-metres-painted-steel-v1"
+          ],
+          "count": 100
+        },
+        "hero_b1f647e8-52a9-47c5-b3bd-aa976849387d": {
+          "name": "physical-pipes-insulation",
+          "ancestry": "Scene/pipes/physical-pipes-insulation",
+          "materials": [
+            {
+              "name": "",
+              "color": [
+                0.46778379610254284,
+                0.514917665367466,
+                0.5271151256969157
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.35,
+              "metalness": 0.82,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "instanced-pipe-metres-insulation-v1"
+          ],
+          "count": 10
+        },
+        "hero_fa2a4493-04c4-4a23-b6ad-8e7c2902f24b": {
+          "name": "equipment-batch-0",
+          "ancestry": "Scene/equipment/equipment-batch-0",
+          "materials": [
+            {
+              "name": "Concrete::concrete",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.98,
+              "metalness": 0,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/concrete/false/0.3"
+          ],
+          "count": 1
+        },
+        "hero_71feab06-8be0-4f84-b15d-a3768d1ab698": {
+          "name": "equipment-batch-1",
+          "ancestry": "Scene/equipment/equipment-batch-1",
+          "materials": [
+            {
+              "name": "Brushed steel::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_bfd50a02-90a0-4421-b864-9482670f85a5": {
+          "name": "equipment-batch-2",
+          "ancestry": "Scene/equipment/equipment-batch-2",
+          "materials": [
+            {
+              "name": "Equipment shell::weathered-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.62,
+              "metalness": 0.35,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/weathered-steel/false/0.32"
+          ],
+          "count": 1
+        },
+        "hero_87a6b78e-47f3-4d47-8bbb-4773a1c050dc": {
+          "name": "equipment-batch-3",
+          "ancestry": "Scene/equipment/equipment-batch-3",
+          "materials": [
+            {
+              "name": "Equipment shell::painted-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.25,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/painted-steel/false/0.2"
+          ],
+          "count": 1
+        },
+        "hero_4fbb3d01-b146-47c7-a90f-f73f047901f3": {
+          "name": "equipment-batch-4",
+          "ancestry": "Scene/equipment/equipment-batch-4",
+          "materials": [
+            {
+              "name": "Brushed steel::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_36cc77cf-8f47-47b4-b0c4-2659ae5fdf8d": {
+          "name": "equipment-batch-5",
+          "ancestry": "Scene/equipment/equipment-batch-5",
+          "materials": [
+            {
+              "name": "Safety ochre::safety-yellow",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.5,
+              "metalness": 0.15,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/safety-yellow/false/0.17"
+          ],
+          "count": 1
+        },
+        "hero_fa833533-0dc0-419b-9359-e4ae43f738b1": {
+          "name": "equipment-batch-6",
+          "ancestry": "Scene/equipment/equipment-batch-6",
+          "materials": [
+            {
+              "name": "Brushed steel::grating",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.65,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/grating/false/0.26"
+          ],
+          "count": 1
+        },
+        "hero_87307cc5-5fac-4564-9376-9a3460c30a80": {
+          "name": "equipment-batch-7",
+          "ancestry": "Scene/equipment/equipment-batch-7",
+          "materials": [
+            {
+              "name": "Safety ochre::galvanized",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.48,
+              "metalness": 0.8,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/galvanized/false/0.15"
+          ],
+          "count": 1
+        },
+        "hero_6d6c6f14-e863-42a7-b382-f26c3476e4dc": {
+          "name": "equipment-batch-8",
+          "ancestry": "Scene/equipment/equipment-batch-8",
+          "materials": [
+            {
+              "name": "Equipment shell::insulation",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.35,
+              "metalness": 0.82,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/insulation/false/0.12"
+          ],
+          "count": 1
+        },
+        "hero_111d8619-ccf4-4fc7-bb4a-c4f1173c183a": {
+          "name": "equipment-batch-9",
+          "ancestry": "Scene/equipment/equipment-batch-9",
+          "materials": [
+            {
+              "name": "Equipment shell::dark-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7,
+              "metalness": 0.45,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/dark-steel/false/0.22"
+          ],
+          "count": 1
+        },
+        "hero_768ac5a0-647e-4838-880d-fd8398e33577": {
+          "name": "equipment-batch-10",
+          "ancestry": "Scene/equipment/equipment-batch-10",
+          "materials": [
+            {
+              "name": "Brushed steel::dark-steel",
+              "color": [
+                1,
+                1,
+                1
+              ],
+              "emissive": [
+                0,
+                0,
+                0
+              ],
+              "emissiveIntensity": 1,
+              "roughness": 0.7,
+              "metalness": 0.45,
+              "opacity": 1,
+              "basic": false
+            }
+          ],
+          "programs": [
+            "asset-state-rim-v2/slice-wear/dark-steel/false/0.22"
+          ],
+          "count": 1
+        }
+      },
+      "lights": [
+        {
+          "type": "AmbientLight",
+          "name": "",
+          "color": [
+            1,
+            1,
+            1
+          ],
+          "intensity": 0,
+          "position": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "type": "DirectionalLight",
+          "name": "",
+          "color": [
+            1,
+            0.31854677811435356,
+            0.09084171117479915
+          ],
+          "intensity": 0,
+          "position": [
+            29.999999999999915,
+            -155.8845726811989,
+            41
+          ],
+          "target": [
+            120,
+            0,
+            -49
+          ]
+        },
+        {
+          "type": "DirectionalLight",
+          "name": "",
+          "color": [
+            0.10461648408208657,
+            0.48514994004665124,
+            0.85499260812105
+          ],
+          "intensity": 0,
+          "position": [
+            150,
+            60,
+            -100
+          ],
+          "target": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            9.6,
+            2.5,
+            -24.8
+          ],
+          "distance": 65
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            74.4,
+            2.5,
+            -62
+          ],
+          "distance": 65
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            86,
+            2.5,
+            -23.636363636363637
+          ],
+          "distance": 65
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            98.61538461538461,
+            2.5,
+            -79.07692307692308
+          ],
+          "distance": 65
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            227.5,
+            2.5,
+            2.5
+          ],
+          "distance": 65
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.5394794890033748,
+            0.19806931954941637
+          ],
+          "intensity": 850,
+          "position": [
+            149.375,
+            2.5,
+            -4.375
+          ],
+          "distance": 65
+        },
+        {
+          "type": "SpotLight",
+          "name": "",
+          "color": [
+            1,
+            0.6583748172725346,
+            0.3515325994898463
+          ],
+          "intensity": 8000,
+          "position": [
+            105.7,
+            34.1,
+            -23
+          ],
+          "target": [
+            99.98245614035088,
+            0,
+            -35.21052631578947
+          ],
+          "angle": 1.0471975511965976,
+          "penumbra": 0.7,
+          "distance": 240
+        },
+        {
+          "type": "PointLight",
+          "name": "",
+          "color": [
+            1,
+            0.34670405634441115,
+            0.057805430183792694
+          ],
+          "intensity": 12000,
+          "position": [
+            170,
+            70.5,
+            -55
+          ],
+          "distance": 95
+        },
+        {
+          "type": "HemisphereLight",
+          "name": "",
+          "color": [
+            0.16513219449147767,
+            0.2746773120495699,
+            0.5906188409113381
+          ],
+          "intensity": 0.25,
+          "position": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "steam": [
+        {
+          "position": [
+            45.822182901825464,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            46.322182901825464,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            46.822182901825464,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            47.322182901825464,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            47.822182901825464,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            45.322182901825464,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        },
+        {
+          "position": [
+            60.822182901825464,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            61.322182901825464,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            61.822182901825464,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            62.322182901825464,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            62.822182901825464,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            60.322182901825464,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        },
+        {
+          "position": [
+            75.82218290182546,
+            14.142857142857142,
+            -82.60674410419807
+          ],
+          "scale": [
+            3.5,
+            3.5,
+            3.5
+          ],
+          "opacity": 0.1995167365947947
+        },
+        {
+          "position": [
+            76.32218290182546,
+            15.80952380952381,
+            -82.35674410419807
+          ],
+          "scale": [
+            4.666666666666666,
+            4.666666666666666,
+            4.666666666666666
+          ],
+          "opacity": 0.29787959956614535
+        },
+        {
+          "position": [
+            76.82218290182546,
+            17.476190476190474,
+            -82.10674410419807
+          ],
+          "scale": [
+            5.833333333333333,
+            5.833333333333333,
+            5.833333333333333
+          ],
+          "opacity": 0.3164258643920411
+        },
+        {
+          "position": [
+            77.32218290182546,
+            19.142857142857142,
+            -81.85674410419807
+          ],
+          "scale": [
+            7,
+            7,
+            7
+          ],
+          "opacity": 0.2501860743897696
+        },
+        {
+          "position": [
+            77.82218290182546,
+            20.80952380952381,
+            -81.60674410419807
+          ],
+          "scale": [
+            8.166666666666666,
+            8.166666666666666,
+            8.166666666666666
+          ],
+          "opacity": 0.11690912779724649
+        },
+        {
+          "position": [
+            75.32218290182546,
+            12.476190476190476,
+            -82.85674410419807
+          ],
+          "scale": [
+            2.333333333333334,
+            2.333333333333334,
+            2.333333333333334
+          ],
+          "opacity": 0.04769352517637587
+        }
+      ],
+      "omitted": [
+        {
+          "name": "",
+          "ancestry": "Scene/plant-atmosphere/Mesh",
+          "position": [
+            170,
+            70.5,
+            -55
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "reason": "flare shader reconstructed as emissive geometry offline"
+        },
+        {
+          "name": "day-dust",
+          "ancestry": "Scene/presentation-motion/day-dust",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ],
+          "reason": "day dust excluded from the frozen offline still; physical atmospheric haze retained"
+        },
+        "shader sky: source HDR and captured procedural dusk texture in Cycles world"
+      ]
+    }
+  },
+  "meshes": 45,
+  "bytes": 107954936,
+  "motionTime": 1.5,
+  "errors": [],
+  "hardware": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 Laptop GPU (0x000025A2) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "look": "photoreal",
+    "interactiveAt": 6404.699999988079,
+    "dpr": 1,
+    "browser": "146.0.7680.153",
+    "flags": [
+      "--enable-gpu",
+      "--force_high_performance_gpu",
+      "--use-angle=d3d11",
+      "--force-color-profile=srgb",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
+    ],
+    "viewport": {
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "cameras": [
+    {
+      "id": "CAM-1",
+      "name": "overview",
+      "position": [
+        250,
+        140,
+        200
+      ],
+      "target": [
+        85,
+        9,
+        -24
+      ]
+    },
+    {
+      "id": "CAM-2",
+      "name": "heater",
+      "position": [
+        122,
+        40,
+        48
+      ],
+      "target": [
+        76,
+        10,
+        -15
+      ]
+    },
+    {
+      "id": "CAM-3",
+      "name": "column",
+      "position": [
+        156,
+        12,
+        65
+      ],
+      "target": [
+        102,
+        26,
+        -23
+      ]
+    },
+    {
+      "id": "CAM-4",
+      "name": "tanks",
+      "position": [
+        245,
+        85,
+        85
+      ],
+      "target": [
+        164,
+        8,
+        4
+      ]
+    },
+    {
+      "id": "CAM-5",
+      "name": "flare",
+      "position": [
+        220,
+        18,
+        -185
+      ],
+      "target": [
+        170,
+        36,
+        -55
+      ]
+    },
+    {
+      "id": "CAM-6",
+      "name": "benchmark-low-wide",
+      "position": [
+        370,
+        85,
+        320
+      ],
+      "target": [
+        115,
+        26,
+        -35
+      ]
+    }
+  ],
+  "sourceCommit": "cd67ef8cd70e23b7ed7a71b4357fa19ee758f890"
+}

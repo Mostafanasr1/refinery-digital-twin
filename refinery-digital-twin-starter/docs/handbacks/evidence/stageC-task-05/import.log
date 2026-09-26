@@ -1,0 +1,52 @@
+08:23:25 | INFO: Data are loaded, start creating Blender stuff
+08:23:25 | INFO: Blender create Mesh node 0
+08:23:25 | INFO: Blender create Mesh node 1
+08:23:25 | INFO: Blender create Mesh node 2
+08:23:25 | INFO: Blender create Mesh node 3
+08:23:25 | INFO: Blender create Mesh node 4
+08:23:25 | INFO: Blender create Mesh node 5
+08:23:25 | INFO: Blender create Mesh node 6
+08:23:25 | INFO: Blender create Mesh node 7
+08:23:25 | INFO: Blender create Mesh node 8
+08:23:25 | INFO: Blender create Mesh node 9
+08:23:25 | INFO: Blender create Mesh node 10
+08:23:25 | INFO: Blender create Mesh node 11
+08:23:25 | INFO: Blender create Mesh node 12
+08:23:25 | INFO: Blender create Mesh node 13
+08:23:25 | INFO: Blender create Mesh node 14
+08:23:26 | INFO: Blender create Mesh node 15
+08:23:26 | INFO: Blender create Mesh node 16
+08:23:27 | INFO: Blender create Mesh node 17
+08:23:27 | INFO: Blender create Mesh node 18
+08:23:27 | INFO: Blender create Mesh node 19
+08:23:27 | INFO: Blender create Mesh node 20
+08:23:27 | INFO: Blender create Mesh node 21
+08:23:27 | INFO: Blender create Mesh node 22
+08:23:27 | INFO: Blender create Mesh node 23
+08:23:27 | INFO: Blender create Mesh node 24
+08:23:27 | INFO: Blender create Mesh node 25
+08:23:27 | INFO: Blender create Mesh node 26
+08:23:29 | INFO: Blender create Mesh node 27
+08:23:29 | INFO: Blender create Mesh node 28
+08:23:29 | INFO: Blender create Mesh node 29
+08:23:29 | INFO: Blender create Mesh node 30
+08:23:29 | INFO: Blender create Mesh node 31
+08:23:29 | INFO: Blender create Mesh node 32
+08:23:29 | INFO: Blender create Mesh node 33
+08:23:30 | INFO: Blender create Mesh node 34
+08:23:30 | INFO: Blender create Mesh node 35
+08:23:30 | INFO: Blender create Mesh node 36
+08:23:30 | INFO: Blender create Mesh node 37
+08:23:30 | INFO: Blender create Mesh node 38
+08:23:31 | INFO: Blender create Mesh node 39
+08:23:31 | INFO: Blender create Mesh node 40
+08:23:31 | INFO: Blender create Mesh node 41
+08:23:32 | INFO: Blender create Mesh node 42
+08:23:32 | INFO: Blender create Mesh node 43
+08:23:32 | INFO: Blender create Mesh node 44
+08:23:32 | INFO: glTF import finished in 6.65s
+Info: Saved as "import.blend"
+IMPORT_AUDIT {"source_glb_sha256": "39f67df1403073ffcf2f8f1fb4a6ad32eec5562aebcc0f430c65b2e70a79b22d", "status": "PASS", "source_nodes": 45, "imported_mesh_instances": 2013, "triangles": 1975047, "colored_instances_restored": 1550}
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 02:38:20)
+
+Blender quit

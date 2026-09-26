@@ -1,0 +1,22 @@
+{
+  "camera": "CAM-2",
+  "preset": "day",
+  "engine": "CYCLES",
+  "device": [
+    "NVIDIA GeForce RTX 3050 Laptop GPU"
+  ],
+  "backend": "OPTIX",
+  "blender": "5.2.1 LTS",
+  "width": 3840,
+  "height": 2160,
+  "samples_max": 256,
+  "adaptive_threshold": 0.009999999776482582,
+  "denoising": true,
+  "denoiser": "OPENIMAGEDENOISE",
+  "render_seconds": 502.0569861000113,
+  "load_and_render_seconds": 502.90374849998625,
+  "scene_sha256": "ca73bc2c483104ec6e02994f9e3b21b6ebab6f1a99f47deb19ae0a7dda27e372",
+  "source_commit": "cd67ef8cd70e23b7ed7a71b4357fa19ee758f890",
+  "output": "CAM-2-day.png",
+  "output_sha256": "df30b2d4eb8ffa1c8c31ce602cf5cf2ae3f1ddc6ee30c38c03561033452bc83b"
+}

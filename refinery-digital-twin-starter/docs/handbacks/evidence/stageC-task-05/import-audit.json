@@ -1,0 +1,415 @@
+{
+  "source_glb_sha256": "39f67df1403073ffcf2f8f1fb4a6ad32eec5562aebcc0f430c65b2e70a79b22d",
+  "status": "PASS",
+  "source_nodes": 45,
+  "imported_mesh_instances": 2013,
+  "triangles": 1975047,
+  "colored_instances_restored": 1550,
+  "mesh_rows": [
+    {
+      "sourceId": "hero_84545c9b-be0a-428e-9ba9-b22099dfd483",
+      "name": "aviation-warning-lights",
+      "ancestry": "Scene/plant-atmosphere/aviation-warning-lights",
+      "expected_instances": 4,
+      "imported_instances": 4,
+      "triangles": 400,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_64edaae1-3759-493b-bbeb-f99b853c7325",
+      "name": "fan-insets",
+      "ancestry": "Scene/presentation-motion/fan-insets",
+      "expected_instances": 8,
+      "imported_instances": 8,
+      "triangles": 192,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_b03f62e8-5a92-40d1-ae63-6b806a7bcb98",
+      "name": "rotating-fans",
+      "ancestry": "Scene/presentation-motion/rotating-fans",
+      "expected_instances": 8,
+      "imported_instances": 8,
+      "triangles": 384,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_1d639c33-f955-4a3a-a3de-ff14cd8a3021",
+      "name": "",
+      "ancestry": "Scene/presentation-motion/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 32,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_ff2de794-6835-42ca-bc3b-8513005587c9",
+      "name": "gate-flag",
+      "ancestry": "Scene/presentation-motion/gate-flag",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 288,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_8147cb16-9e1f-41a7-8f67-8a38c778007d",
+      "name": "sourced-cabins",
+      "ancestry": "Scene/sourced-site-dressing/sourced-cabins",
+      "expected_instances": 3,
+      "imported_instances": 3,
+      "triangles": 846,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_58863679-f692-4b2a-8e43-a539a62b75eb",
+      "name": "sourced-containers",
+      "ancestry": "Scene/sourced-site-dressing/sourced-containers",
+      "expected_instances": 2,
+      "imported_instances": 2,
+      "triangles": 3684,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_f1f2a188-dc7a-4480-81cf-98381073fb3f",
+      "name": "moving-pickup",
+      "ancestry": "Scene/sourced-site-dressing/moving-pickup",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 12140,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_21aa2c97-c722-451b-a88b-2e192b337493",
+      "name": "parked-pickups",
+      "ancestry": "Scene/sourced-site-dressing/parked-pickups",
+      "expected_instances": 10,
+      "imported_instances": 10,
+      "triangles": 121400,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_3e179927-369e-407b-80c9-02cd2d5b07a9",
+      "name": "moving-tanker",
+      "ancestry": "Scene/sourced-site-dressing/moving-tanker",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 64337,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_4ea033fb-a210-4f27-880e-5abf4719a674",
+      "name": "sourced-cabin-windows",
+      "ancestry": "Scene/sourced-site-dressing/sourced-cabin-windows",
+      "expected_instances": 6,
+      "imported_instances": 6,
+      "triangles": 12,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_39c2289e-f4a2-47cd-9536-dba94155a277",
+      "name": "pole",
+      "ancestry": "Scene/site/pole",
+      "expected_instances": 20,
+      "imported_instances": 20,
+      "triangles": 480,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_a02bdc98-4d7d-4930-b33e-8642cefb631e",
+      "name": "lamp",
+      "ancestry": "Scene/site/lamp",
+      "expected_instances": 20,
+      "imported_instances": 20,
+      "triangles": 240,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_9b8c3918-220c-4b87-b2c7-e767a38e882e",
+      "name": "foundation",
+      "ancestry": "Scene/site/foundation",
+      "expected_instances": 47,
+      "imported_instances": 47,
+      "triangles": 564,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_f1516c5b-13f7-4d79-8d64-39e3869e58ad",
+      "name": "slice-concrete",
+      "ancestry": "Scene/non-canonical-slice-dressing/slice-concrete",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 2664,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_1f315639-3d18-42e6-91b4-9344651cc1b2",
+      "name": "slice-steel",
+      "ancestry": "Scene/non-canonical-slice-dressing/slice-steel",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 140952,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_7dd08b31-9cfa-4804-a91d-330cb5cdb3e4",
+      "name": "slice-pipe",
+      "ancestry": "Scene/non-canonical-slice-dressing/slice-pipe",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 44352,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_98ee82b1-7711-409c-9d9b-5f7b1883a96a",
+      "name": "slice-dark",
+      "ancestry": "Scene/non-canonical-slice-dressing/slice-dark",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 10728,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_60e3105f-b199-410c-b155-be55130e83cb",
+      "name": "slice-rail",
+      "ancestry": "Scene/non-canonical-slice-dressing/slice-rail",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 10848,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_958b20ec-e4c4-4081-ae7f-32fdf6aee8f8",
+      "name": "",
+      "ancestry": "Scene/photoreal-environment/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 131072,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_c8f80542-4093-4f0e-91aa-9b440fa3cb1c",
+      "name": "",
+      "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 3996,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_f0f162ef-cda7-449a-ae26-aeeaa6ca6423",
+      "name": "",
+      "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 27216,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_e65952d3-76d2-4529-a56e-3ce37d00567f",
+      "name": "",
+      "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 840,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_8e31bee1-ac2d-447e-87d3-c800af215caa",
+      "name": "",
+      "ancestry": "Scene/photoreal-environment/photoreal-site-context/Mesh",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 60,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_34aef3e1-1ef6-4387-8e79-74ce1a32d653",
+      "name": "rocks",
+      "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/rocks",
+      "expected_instances": 900,
+      "imported_instances": 900,
+      "triangles": 810000,
+      "instance_colors": 900
+    },
+    {
+      "sourceId": "hero_bf3c3061-7164-49ed-9ae7-6ac69eed4fa9",
+      "name": "dry-scrub",
+      "ancestry": "Scene/photoreal-environment/procedural-desert-dressing/dry-scrub",
+      "expected_instances": 650,
+      "imported_instances": 650,
+      "triangles": 114400,
+      "instance_colors": 650
+    },
+    {
+      "sourceId": "hero_a0e207b3-9f25-4abf-aa71-d2b7660bf954",
+      "name": "equipment-batch-0",
+      "ancestry": "Scene/hero-detail/equipment-batch-0",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 208628,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_644b7a42-24d8-4bd7-a603-0852e46b796b",
+      "name": "equipment-batch-1",
+      "ancestry": "Scene/hero-detail/equipment-batch-1",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 120,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_7bfeac53-e3e3-40d6-ba52-cca55e91033f",
+      "name": "equipment-batch-2",
+      "ancestry": "Scene/hero-detail/equipment-batch-2",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 11372,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_5fcbf6e6-138a-4f9b-80b5-275969765472",
+      "name": "equipment-batch-3",
+      "ancestry": "Scene/hero-detail/equipment-batch-3",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 648,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_b7e21cb5-85a7-44fe-a98b-4b4e1b86f91d",
+      "name": "equipment-batch-4",
+      "ancestry": "Scene/hero-detail/equipment-batch-4",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 1848,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_3b50ae57-7f42-44ec-b8f1-c9991037a723",
+      "name": "physical-pipes-painted-steel",
+      "ancestry": "Scene/pipes/physical-pipes-painted-steel",
+      "expected_instances": 100,
+      "imported_instances": 100,
+      "triangles": 4000,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_b1f647e8-52a9-47c5-b3bd-aa976849387d",
+      "name": "physical-pipes-insulation",
+      "ancestry": "Scene/pipes/physical-pipes-insulation",
+      "expected_instances": 10,
+      "imported_instances": 10,
+      "triangles": 400,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_fa2a4493-04c4-4a23-b6ad-8e7c2902f24b",
+      "name": "equipment-batch-0",
+      "ancestry": "Scene/equipment/equipment-batch-0",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 13416,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_71feab06-8be0-4f84-b15d-a3768d1ab698",
+      "name": "equipment-batch-1",
+      "ancestry": "Scene/equipment/equipment-batch-1",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 28300,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_bfd50a02-90a0-4421-b864-9482670f85a5",
+      "name": "equipment-batch-2",
+      "ancestry": "Scene/equipment/equipment-batch-2",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 5160,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_87a6b78e-47f3-4d47-8bbb-4773a1c050dc",
+      "name": "equipment-batch-3",
+      "ancestry": "Scene/equipment/equipment-batch-3",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 31576,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_4fbb3d01-b146-47c7-a90f-f73f047901f3",
+      "name": "equipment-batch-4",
+      "ancestry": "Scene/equipment/equipment-batch-4",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 4632,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_36cc77cf-8f47-47b4-b0c4-2659ae5fdf8d",
+      "name": "equipment-batch-5",
+      "ancestry": "Scene/equipment/equipment-batch-5",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 136644,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_fa833533-0dc0-419b-9359-e4ae43f738b1",
+      "name": "equipment-batch-6",
+      "ancestry": "Scene/equipment/equipment-batch-6",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 5004,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_87307cc5-5fac-4564-9376-9a3460c30a80",
+      "name": "equipment-batch-7",
+      "ancestry": "Scene/equipment/equipment-batch-7",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 7632,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_6d6c6f14-e863-42a7-b382-f26c3476e4dc",
+      "name": "equipment-batch-8",
+      "ancestry": "Scene/equipment/equipment-batch-8",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 9288,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_111d8619-ccf4-4fc7-bb4a-c4f1173c183a",
+      "name": "equipment-batch-9",
+      "ancestry": "Scene/equipment/equipment-batch-9",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 1444,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_768ac5a0-647e-4838-880d-fd8398e33577",
+      "name": "equipment-batch-10",
+      "ancestry": "Scene/equipment/equipment-batch-10",
+      "expected_instances": 1,
+      "imported_instances": 1,
+      "triangles": 468,
+      "instance_colors": 0
+    },
+    {
+      "sourceId": "hero_6feda0c1-bbdf-4ad2-b56e-e235e69a97e7",
+      "name": "",
+      "ancestry": "Scene/plant-atmosphere/Mesh",
+      "expected_instances": 195,
+      "imported_instances": 195,
+      "triangles": 2340,
+      "instance_colors": 0
+    }
+  ]
+}
