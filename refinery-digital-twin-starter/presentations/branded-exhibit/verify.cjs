@@ -18,6 +18,10 @@ const path = require('node:path');
   await page.screenshot({path:path.join(__dirname,`evidence/desktop-${i}.png`),fullPage:true});
  }
  pass('all desktop slides visible with no horizontal overflow');
+ const tours=require('../../data/presentation/tours.json');
+ assert.equal(tours.idleSeconds,60);assert.equal(tours.attractLegSeconds,20);
+ assert.match(await page.locator('#s3').locator('..').textContent(),/attract mode after 60 seconds idle/);
+ assert(!(await page.locator('body').textContent()).includes('60-second attract cycle'));pass('attract copy matches 60s idle trigger; config has 20s camera legs');
  const text=await page.locator('body').textContent(); assert(text.includes('[Client]'));assert(text.includes('[To be agreed]'));assert(!text.includes('$14'));assert(!text.includes('Project X'));assert(!text.includes('EGYPES'));
  assert.equal(await page.locator('.credits .credit-grid a').count(),4);pass('placeholders, exclusions and four linked model credits');
  for(const viewport of [{width:390,height:844},{width:844,height:390}]) {

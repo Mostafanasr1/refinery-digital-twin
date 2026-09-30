@@ -39,3 +39,9 @@ The local deck and still are available without upstream access; this is not ship
 ## Files and release state
 
 Only `presentations/branded-exhibit/` and this note are in scope. Protected source/data/pipeline/Blender paths, root manifests and Pages workflow remain unchanged. The sole existing workflow only triggers for main/dual-look pushes or manual dispatch; this branch does not add CI/deployment configuration. Final commit/PR and remote status are reported in the delivery message.
+
+## Review correction: attract timing
+
+Slide 3 now says “attract mode after 60 seconds idle.” Verified against `data/presentation/tours.json` (`idleSeconds: 60`, `attractLegSeconds: 20`) and `app/src/presentation.ts`, which enters attract mode after the idle threshold and advances camera legs at the configured interval. The earlier cycle-duration wording was inaccurate.
+
+Focused Chromium checks PASS: corrected claim present/old claim absent, nine slides, desktop 1600×900 fit, portrait 390×844 and landscape 844×390 without horizontal overflow, PageUp/PageDown navigation, and no JavaScript errors. Updated slide 3 desktop and mobile screenshots were visually inspected; results are in `evidence/attract-copy-checks.json`. The main scoped browser checker now guards this timing claim against the config. This copy-only correction did not rerun live-host tests or request upstream content; all prior live-render, network and physical-device limitations remain unchanged. Pushed to the existing `kazem/presentation` branch and draft PR #1 only.

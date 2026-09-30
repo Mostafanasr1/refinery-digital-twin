@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "config": {
+    "idleSeconds": 60,
+    "attractLegSeconds": 20
+  },
+  "claim": "attract mode after 60 seconds idle",
+  "checks": [
+    "9 slides",
+    "corrected claim present and old claim absent",
+    "desktop 1600x900 fits",
+    "portrait 390x844 and landscape 844x390 no horizontal overflow",
+    "PageUp/PageDown navigation",
+    "no JavaScript errors"
+  ],
+  "upstream": "Not requested; existing HTTP CONNECT 403 limitation unchanged",
+  "physicalDevices": "Not tested"
+}
