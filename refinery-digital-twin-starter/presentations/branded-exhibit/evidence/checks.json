@@ -1,0 +1,25 @@
+{
+  "browser": "Chromium headless; no physical GPU/mobile validation",
+  "checks": [
+    "9 slides; arrows/PageUp/PageDown/Home/End; bounds",
+    "all desktop slides visible with no horizontal overflow",
+    "placeholders, exclusions and four linked model credits",
+    "mobile portrait and landscape emulation: all slides without horizontal overflow",
+    "reduced motion retains still and does not start animation",
+    "static host fails closed to still",
+    "iframe load alone retains still; supported query params",
+    "drawn/finished readiness and Escape focus return (fixture)",
+    "forward Tab escapes iframe",
+    "backward Tab escapes iframe",
+    "post-ready WebGL context-loss event restores still (fixture)",
+    "loading/WebGL error restores still (fixture)",
+    "post-ready runtime error restores still (fixture)",
+    "45s readiness timeout retains still (accelerated clock)",
+    "offline event restores still",
+    "leaving slide unloads demo",
+    "actual blocked upstream retains still through readiness timeout",
+    "no presentation JavaScript errors"
+  ],
+  "live": "upstream blocked by executor HTTP CONNECT 403; successful live rendering NOT verified",
+  "fixture": "readiness and failure fixtures are synthetic test harnesses, not the refinery"
+}
